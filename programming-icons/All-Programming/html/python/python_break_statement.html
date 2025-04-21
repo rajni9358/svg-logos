@@ -1,0 +1,78 @@
+<h2>Python break Statement</h2>
+<p>Python <span class="tp-codespan">break statement</span> is used to terminate the current <a href="/python/python_loops.htm" target="_blank">loop</a> and resumes execution at the next statement, just like the traditional <a href="/cprogramming/c_break_statement.htm" target="_blank">break statement in C</a>.</p>
+<p>The most common use for Python break statement is when some external condition is triggered requiring a sudden exit from a loop. The <span class="tp-codespan">break statement</span> can be used in both Python <a href="/python/python_while_loops.htm" target="_blank">while</a> and <a href="/python/python_for_loops.htm" target="_blank">for</a> loops.</p>
+<p>If you are using <a href="/python/python_nested_loops.htm" target="_blank">nested loops in Python</a>, the break statement stops the execution of the innermost loop and start executing the next line of code after the block.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Syntax of break Statement</h2>
+<p>The syntax for a <span class="tp-codespan">break statement</span> in Python is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">looping statement<span class="token punctuation">:</span> condition check<span class="token punctuation">:</span> <span class="token keyword">break</span></div>
+<h2>Flow Diagram of break Statement</h2>
+<p>Following is the flowchart of the break statement &minus;</p>
+<img src="	https://www.tutorialspoint.com/python/images/cpp_break_statement.jpg" alt="Python break statement" />
+<h2>break Statement with for loop</h2>
+<p>If we use break statement inside a <span class="tp-codespan">for loop</span>, it interrupts the normal flow of program and exit the loop before completing the iteration.</p>
+<h3>Example</h3>
+<p>In this example, we will see the working of break statement in for loop.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> letter <span class="token keyword">in</span> <span class="token string">'Python'</span><span class="token punctuation">:</span> <span class="token keyword">if</span> letter <span class="token operator">==</span> <span class="token string">'h'</span><span class="token punctuation">:</span> <span class="token keyword">break</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Current Letter :"</span><span class="token punctuation">,</span> letter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Good bye!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Current Letter : P
+Current Letter : y
+Current Letter : t
+Good bye!
+</pre>
+<h2>break Statement with while loop</h2>
+<p>Similar to the <span class="tp-codespan">for loop</span>, we can use the break statement to skip the code inside <span class="tp-codespan">while loop</span> after the specified condition becomes TRUE.</p>
+<h3>Example</h3>
+<p>The code below shows how to use break statement with while loop.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">while</span> var <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Current variable value :'</span><span class="token punctuation">,</span> var<span class="token punctuation">)</span> var <span class="token operator">=</span> var <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">if</span> var <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">:</span> <span class="token keyword">break</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Good bye!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it produces the following result &minus;</p>
+<pre class="result notranslate">Current variable value : 10
+Current variable value : 9
+Current variable value : 8
+Current variable value : 7
+Current variable value : 6
+Good bye!
+</pre>
+<h2>break Statement with Nested Loops</h2>
+<p>In <span class="tp-codespan">nested loops</span>, one loop is defined inside another. The loop that enclose another loop (i.e. inner loop) is called as <span class="tp-codespan">outer loop</span>.</p>
+<p>When we use a break statement with nested loops, it behaves as follows &minus;</p>
+<ul class="list">
+<li>When break statement is used inside the inner loop, only the inner loop will be skipped and the program will continue executing statements after the inner loop</li>
+<li>And, when the break statement is used in the outer loop, both the outer and inner loops will be skipped and the program will continue executing statements immediate to the outer loop.</li>
+</ul>
+<h3>Example</h3>
+<p>The following program demonstrates the use of break in a <span class="tp-codespan">for loop</span> iterating over a <a href="/python/python_lists.htm" target="_blank">list</a>. Here, the specified number will be searched in the list. If it is found, then the loop terminates with the "found" message.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">no <span class="token operator">=</span> <span class="token number">33</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">,</span><span class="token number">39</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">,</span><span class="token number">37</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">41</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">]</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> numbers<span class="token punctuation">:</span> <span class="token keyword">if</span> num <span class="token operator">==</span> no<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'number found in list'</span><span class="token punctuation">)</span> <span class="token keyword">break</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'number not found in list'</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above program will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">number found in list
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>

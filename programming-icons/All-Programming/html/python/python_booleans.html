@@ -1,0 +1,77 @@
+<div id="mainContent" class="tutorial-content">
+<h1>&nbsp;</h1>
+<h2>Python Booleans (bool)</h2>
+<p>In Python, <strong>bool</strong> is a sub-type of <a href="/python/python_numbers.htm" target="_blank">int type</a>. A bool object has two possible values, and it is initialized with Python keywords, <strong>True</strong> and <strong>False</strong>.</p>
+<h3>Example</h3>
+ <pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;  border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">>>> a=True
+>>> b=False
+>>> type(a), type(b)
+(<class 'bool'>, <class 'bool'>)</pre> functions. With True as argument, the int() function returns 1, float() returns 1.0; whereas for False, they return 0 and 0.0 respectively. We have a one argument version of <strong>complex()</strong> function.</p>
+<p>If the argument is a complex object, it is taken as real part, setting the imaginary coefficient to 0.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+ <pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;  border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">a=int(True)
+print ("bool to int:", a)
+a=float(False)
+print ("bool to float:", a)
+a=complex(True)
+print ("bool to complex:", a)</pre>
+</div>
+<p>On running this code, you will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">bool to int: 1
+bool to float: 0.0
+bool to complex: (1+0j)
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Boolean Expression</h2>
+<p>Python boolean expression is an expression that evaluates to a Boolean value. It almost always involves a <a href="/python/python_comparison_operators.htm" target="_blank">comparison operator</a>. In the below example we will see how the comparison operators can give us the Boolean values. The bool() method is used to return the truth value of an expresison.</p>
+ <pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;  border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">Syntax: bool([x])
+Returns True if X evaluates to true else false.
+Without parameters it returns false.</pre>
+<p>Below we have examples which use numbers streams and Boolean values as parameters to the bool function. The results come out as true or false depending on the parameter.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+ <pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;  border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;"># Check true
+a = True
+print(bool(a))
+# Check false
+a = False
+print(bool(a))
+# Check 0
+a = 0.0
+print(bool(a))
+# Check 1
+a = 1.0
+print(bool(a))
+# Check Equality
+a = 5
+b = 10
+print(bool( a==b))
+# Check None
+a = None
+print(bool(a))
+# Check an empty sequence
+a = ()
+print(bool(a))
+# Check an emtpty mapping
+a = {}
+print(bool(a))
+# Check a non empty string
+a = 'Tutorialspoint'
+print(bool(a))</pre>
+</div>
+</div>

@@ -1,0 +1,51 @@
+<h2>Python continue Statement</h2>
+<p>Python <span class="tp-codespan">continue statement</span> is used to skip the execution of the program block and returns the control to the beginning of the current <a href="/python/python_loops.htm" target="_blank">loop</a> to start the next iteration. When encountered, the loop starts next iteration without executing the remaining statements in the current iteration.</p>
+<p>The <span class="tp-codespan">continue statement</span> is just the opposite to that of <a href="/python/python_break_statement.htm" target="_blank">break</a>. It skips the remaining statements in the current loop and starts the next iteration.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Syntax of continue Statement</h2>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">looping statement<span class="token punctuation">:</span> condition check<span class="token punctuation">:</span> <span class="token keyword">continue</span></div>
+<h2>Flow Diagram of continue Statement</h2>
+<p>The flow diagram of the continue statement looks like this &minus;</p>
+<p><img src="/python/images/loop_continue.jpg" alt="loop-continue" /></p>
+<h2>Python continue Statement with for Loop</h2>
+<p>In <a href="/python/index.htm" target="_blank">Python</a>, the continue statement is allowed to be used with a <span class="tp-codespan">for loop</span>. Inside the for loop, you should include an <span class="tp-codespan">if statement</span> to check for a specific condition. If the condition becomes TRUE, the continue statement will skip the current iteration and proceed with the next iteration of the loop.</p>
+<h3>Example</h3>
+<p>Let's see an example to understand how the <span class="tp-codespan">continue statement</span> works in for loop.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> letter <span class="token keyword">in</span> <span class="token string">'Python'</span><span class="token punctuation">:</span> <span class="token keyword">if</span> letter <span class="token operator">==</span> <span class="token string">'h'</span><span class="token punctuation">:</span> <span class="token keyword">continue</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Current Letter :'</span><span class="token punctuation">,</span> letter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Good bye!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following <strong>output</strong> &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Current Letter <span class="token punctuation">:</span> P Current Letter <span class="token punctuation">:</span> y Current Letter <span class="token punctuation">:</span> t Current Letter <span class="token punctuation">:</span> o Current Letter <span class="token punctuation">:</span> n Good bye!</div>
+<h2>Python continue Statement with while Loop</h2>
+<p>Python <span class="tp-codespan">continue statement</span> is used with 'for' loops as well as 'while' loops to skip the execution of the current iteration and transfer the program's control to the next iteration.</p>
+<h3>Example: Checking Prime Factors</h3>
+<p>Following code uses continue to find the prime factors of a given number. To find prime factors, we need to successively divide the given number starting with 2, increment the divisor and continue the same process till the input reduces to 1.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">num <span class="token operator">=</span> <span class="token number">60</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Prime factors for: "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> d<span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">while</span> num <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">if</span> num<span class="token operator">%</span>d<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> num<span class="token operator">=</span>num<span class="token operator">/</span>d <span class="token keyword">continue</span> d<span class="token operator">=</span>d<span class="token operator">+</span><span class="token number">1</span></div>
+</div>
+<p>On executing, this code will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Prime factors for: 60
+2
+2
+3
+5
+</pre>
+<p>Assign different value (say 75) to num in the above program and test the result for its prime factors.</p>
+<pre class="result notranslate">Prime factors for: 75
+3
+5
+5&nbsp;</pre>

@@ -1,0 +1,86 @@
+<h2>Python - For Else Loop</h2>
+<p>Python supports an optional <strong>else block</strong> to be associated with a <a href="/python/python_for_loops.htm" target="_blank">for loop</a>. If a <strong>else block</strong> is used with a <strong>for loop</strong>, it is executed only when the for loop terminates normally.</p>
+<p>The for loop terminates normally when it completes all its iterations without encountering a <a href="/python/python_break_statement.htm" target="_blank">break statement</a>, which allows us to exit the loop when a certain condition is met.</p>
+<h3>Flowchart of For Else Loop</h3>
+<p>The following flowchart illustrates use of <strong>for-else loop</strong> &minus;</p>
+<img src="/python/images/forelse.jpg" alt="for-else" />
+<h3>Syntax of For Else Loop</h3>
+<p>Following is the syntax of for loop with optional else block &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> variable_name <span class="token keyword">in</span> iterable<span class="token punctuation">:</span> <span class="token comment">#stmts in the loop</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment">#stmts in else clause</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span></div>
+<h3>Example of For Else Loop</h3>
+<p>The following example illustrates the combination of an else statement with a for statement in <a href="/python/index.htm" target="_blank">Python</a>. Till the count is less than 5, the iteration count is printed. As it becomes 5, the print statement in else block is executed, before the control is passed to the next statement in the main program.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> count <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Iteration no. {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"for loop over. Now in else block"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"End of for loop"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing, this code will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Iteration no. 1
+Iteration no. 2
+Iteration no. 3
+Iteration no. 4
+Iteration no. 5
+for loop over. Now in else block
+End of for loop
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>For-Else Construct without break statement</h2>
+<p>As mentioned earlier in this tutorial, the else block executes only when the loop terminates normally i.e. without using break statement.</p>
+<h3>Example</h3>
+<p>In the following program, we use the for-else loop without break statement.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'T'</span><span class="token punctuation">,</span><span class="token string">'P'</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># Loop else statement</span> <span class="token comment"># there is no break statement in for loop, hence else part gets executed directly</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ForLoop-else statement successfully executed"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing, the above program will generate the following output</p>
+<pre class="result notranslate">T
+P
+ForLoop-else statement successfully executed
+</pre>
+<h2>For-Else Construct with break statement</h2>
+<p>In case of forceful termination (by using break statement) of the loop, else statement is overlooked by the interpreter and hence its execution is skipped.</p>
+<h3>Example</h3>
+<p>The following program shows how else conditions work in case of a break statement.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'T'</span><span class="token punctuation">,</span><span class="token string">'P'</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">break</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># Loop else statement</span> <span class="token comment"># terminated after 1st iteration due to break statement in for loop</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Loop-else statement successfully executed"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing, the above program will generate the following output</p>
+<pre class="result notranslate">T
+</pre>
+<h2>For-Else with break statement and if conditions</h2>
+<p>If we use <span class="tp-codespan">for-else</span> construct with <span class="tp-codespan">break statement</span> and <span class="tp-codespan">if condition</span>, the <span class="tp-codespan">for loop</span> will iterate over the iterators and within this loop, you can use an <span class="tp-codespan">if block</span> to check for a specific condition. If the loop completes without encountering a <span class="tp-codespan">break statement</span>, the code in the else block is executed.</p>
+<h3>Example</h3>
+<p>The following program shows how else conditions works in case of break statement and <a href="/python/python_decision_making.htm" target="_blank">conditional statements</a>.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># creating a function to check whether the list item is a positive</span> <span class="token comment"># or a negative number</span> <span class="token keyword">def</span> <span class="token function">positive_or_negative</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># traversing in a list</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token comment"># checking whether the list element is greater than 0</span> <span class="token keyword">if</span> i<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token comment"># printing positive number if it is greater than or equal to 0</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Positive number"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># Else printing Negative number and breaking the loop</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Negative number"</span><span class="token punctuation">)</span> <span class="token keyword">break</span> <span class="token comment"># Else statement of the for loop</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># Statement inside the else block</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Loop-else Executed"</span><span class="token punctuation">)</span> <span class="token comment"># Calling the above-created function</span> positive_or_negative<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing, the above program will generate the following output</p>
+<pre class="result notranslate">Positive number
+Positive number
+Positive number</pre>
+</div>
