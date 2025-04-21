@@ -1,0 +1,165 @@
+<h2>Escape Character</h2>
+<p>An <strong>escape character</strong> is a character followed by a backslash (\). It tells the <a href="/python/python_interpreter.htm" target="_blank">Interpreter</a> that this escape character (sequence) has a special meaning. For instance, \n is an escape sequence that represents a newline. When Python encounters this sequence in a string, it understands that it needs to start a new line.</p>
+<p>Unless an 'r' or 'R' prefix is present, escape sequences in string and bytes literals are interpreted according to rules similar to those used by Standard C. In Python, a <a href="/python/python_strings.htm" target="_blank">string</a> becomes a raw string if it is prefixed with "r" or "R" before the quotation symbols. Hence 'Hello' is a normal string whereas r'Hello' is a raw string.</p>
+<h3>Example</h3>
+<p>In the below example, we are practically demonstrating raw and normal string.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># normal string</span> normal <span class="token operator">=</span> <span class="token string">"Hello"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>normal<span class="token punctuation">)</span> <span class="token comment"># raw string</span> raw <span class="token operator">=</span> <span class="token string">r"Hello"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>raw<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is shown below &minus;</p>
+<pre class="result notranslate">Hello
+Hello
+</pre>
+<p>In normal circumstances, there is no difference between the two. However, when the escape character is embedded in the string, the normal string actually interprets the escape sequence, whereas the raw string doesn't process the escape character.</p>
+<h3>Example</h3>
+<p>In the following example, when a normal string is printed the escape character '\n' is processed to introduce a newline. However, because of the raw string operator 'r' the effect of escape character is not translated as per its meaning.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">normal <span class="token operator">=</span> <span class="token string">"Hello\nWorld"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>normal<span class="token punctuation">)</span> raw <span class="token operator">=</span> <span class="token string">r"Hello\nWorld"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>raw<span class="token punctuation">)</span></div>
+</div>
+<p>On running the above code, it will print the following result &minus;</p>
+<pre class="result notranslate">Hello
+World
+Hello\nWorld
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Escape Characters in Python</h2>
+<p>The following table shows the different escape characters used in Python -</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="width: 10%;">Sr.No</th>
+<th style="text-align: center;">Escape Sequence &amp; Meaning</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>\&lt;newline&gt;</strong></p>
+<p>Backslash and newline ignored</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>\\</strong></p>
+<p>Backslash (\)</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>\'</strong></p>
+<p>Single quote (')</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong>\"</strong></p>
+<p>Double quote (")</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong>\a</strong></p>
+<p>ASCII Bell (BEL)</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong>\b</strong></p>
+<p>ASCII Backspace (BS)</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p><strong>\f</strong></p>
+<p>ASCII Formfeed (FF)</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p><strong>\n</strong></p>
+<p>ASCII Linefeed (LF)</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>
+<p><strong>\r</strong></p>
+<p>ASCII Carriage Return (CR)</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>
+<p><strong>\t</strong></p>
+<p>ASCII Horizontal Tab (TAB)</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>
+<p><strong>\v</strong></p>
+<p>ASCII Vertical Tab (VT)</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td>
+<p><strong>\ooo</strong></p>
+<p>Character with octal value ooo</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>
+<p><strong>\xhh</strong></p>
+<p>Character with hex value hh</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Escape Characters Example</h2>
+<p>The following code shows the usage of escape sequences listed in the above table &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># ignore \</span> s <span class="token operator">=</span> 'This string will <span class="token keyword">not</span> include \ backslashes <span class="token keyword">or</span> newline characters<span class="token punctuation">.</span>' <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># escape backslash</span> s<span class="token operator">=</span>s <span class="token operator">=</span> <span class="token string">'The \\character is called backslash'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># escape single quote</span> s<span class="token operator">=</span><span class="token string">'Hello \'Python\''</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># escape double quote</span> s<span class="token operator">=</span><span class="token string">"Hello \"Python\""</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># escape \b to generate ASCII backspace</span> s<span class="token operator">=</span><span class="token string">'Hel\blo'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># ASCII Bell character</span> s<span class="token operator">=</span><span class="token string">'Hello\a'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># newline</span> s<span class="token operator">=</span><span class="token string">'Hello\nPython'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># Horizontal tab</span> s<span class="token operator">=</span><span class="token string">'Hello\tPython'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># form feed</span> s<span class="token operator">=</span> <span class="token string">"hello\fworld"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># Octal notation</span> s<span class="token operator">=</span><span class="token string">"\101"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment"># Hexadecimal notation</span> s<span class="token operator">=</span><span class="token string">"\x41"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">This string will not include backslashes or newline characters.
+The \character is called backslash
+Hello 'Python'
+Hello "Python"
+Helo
+Hello
+Hello
+Python
+Hello Python
+hello
+world
+A
+A&nbsp;</pre>

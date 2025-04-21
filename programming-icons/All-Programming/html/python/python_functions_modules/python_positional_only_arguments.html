@@ -1,0 +1,79 @@
+<h2>Positional Only Arguments</h2>
+<p>It is possible in <a href="/python/index.htm" target="_blank">Python</a> to define a <a href="/python/python_functions.htm" target="_blank">function</a> in which one or more arguments can not accept their value with keywords. Such arguments are called <span class="tp-codespan">positional-only arguments</span>.</p>
+<p>To make an argument positional-only, use the forward slash (/) symbol. All the arguments before this symbol will be treated as positional-only.</p>
+<p>Python's <a href="/python/python_input_function.htm" target="_blank">built-in input() function</a> is an example of positional-only arguments. The syntax of input function is &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">input</span><span class="token punctuation">(</span>prompt <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span></div>
+<p>Prompt is an explanatory string for the benefit of the user. However, you cannot use the prompt keyword inside the parentheses.</p>
+<h3>Example</h3>
+<p>In this example, we are using <span class="tp-codespan">prompt</span> keyword, which will lead to error.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>prompt<span class="token operator">=</span><span class="token string">"Enter your name "</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing, this code will show the following error message &minus;</p>
+<pre class="result notranslate">   name = input (prompt="Enter your name ")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: input() takes no keyword arguments
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Positional-Only Arguments Examples</h2>
+<p>Let's understand positional-only arguments with the help of some examples &minus;</p>
+<h3>Example 1</h3>
+<p>In this example, we make both the arguments of <span class="tp-codespan">intr() function</span> as positional-only by putting "/" at the end.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">intr</span><span class="token punctuation">(</span>amt<span class="token punctuation">,</span> rate<span class="token punctuation">,</span> <span class="token operator">/</span><span class="token punctuation">)</span><span class="token punctuation">:</span> val <span class="token operator">=</span> amt <span class="token operator">*</span> rate <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">return</span> val <span class="token keyword">print</span><span class="token punctuation">(</span>intr<span class="token punctuation">(</span><span class="token number">316200</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>When you run the code, it will show the following result &minus;</p>
+<pre class="result notranslate">12648.0
+</pre>
+<h3>Example 2</h3>
+<p>If we try to use the arguments as keywords, Python raises errors as shown in the below example.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">intr</span><span class="token punctuation">(</span>amt<span class="token punctuation">,</span> rate<span class="token punctuation">,</span> <span class="token operator">/</span><span class="token punctuation">)</span><span class="token punctuation">:</span> val <span class="token operator">=</span> amt <span class="token operator">*</span> rate <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">return</span> val <span class="token keyword">print</span><span class="token punctuation">(</span>intr<span class="token punctuation">(</span>amt<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> rate<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On running this code, it will show following error message &minus;</p>
+<pre class="result notranslate">   interest = intr(amt=1000, rate=10)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: intr() got some positional-only arguments passed as keyword arguments: 'amt, rate'
+</pre>
+<h3>Example 3</h3>
+<p>A function may be defined in such a way that it has some keyword-only and some positional-only arguments. Here, <span class="tp-codespan">x</span> is a required positional-only argument, <span class="tp-codespan">y</span> is a regular positional argument, and <span class="tp-codespan">z</span> is a keyword-only argument.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token operator">/</span><span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> myfunction<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> z<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span> myfunction<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> z<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above code will show the following output &minus;</p>
+<pre class="result notranslate">10 20 30
+10 20 30 </pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

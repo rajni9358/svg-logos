@@ -1,0 +1,59 @@
+<p><strong>String modification</strong> refers to the process of changing the characters of a string. If we talk about modifying a string in Python, what we are talking about is creating a new string that is a variation of the original one.</p>
+<p>In <a href="/python/index.htm" target="_blank">Python</a>, a <a href="/python/python_strings.htm" target="_blank">string</a> (object of <strong>str</strong> class) is of immutable type. Here, immutable refers to an object thatcannotbe modified in place once it's created in memory. Unlike a <a href="/python/python_lists.htm" target="_blank">list</a>, we cannot overwrite any character in the sequence, nor can we insert or append characters to it directly. If we need to modify a string, we will use certain string methods that return anewstring object. However, the original string remains unchanged.</p>
+<p>We can use any of the following tricks as a workaround to modify a string.</p>
+<h2>Converting a String to a List</h2>
+<p>Both strings and lists in Python are sequence types, they are interconvertible. Thus, we can cast a string to a list, modify the list using methods like <a href="/python/list_insert.htm" target="_blank">insert()</a>, <a href="/python/list_append.htm" target="_blank">append()</a>, or <a href="/python/list_remove.htm" target="_blank">remove()</a> and then convert the list back to a string to obtain a modified version.</p>
+<p>Suppose, we have a string variable <span class="tp-codespan">s1</span> with <span class="tp-codespan">WORD</span> as its value and we are required to convert it into a list. For this operation, we can use the list() built-in function and insert a character <span class="tp-codespan">L</span> at index 3. Then, we can concatenate all the characters using join() method of str class.</p>
+<h3>Example</h3>
+<p>The below example practically illustrates how to convert a string into a list.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1<span class="token operator">=</span><span class="token string">"WORD"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"original string:"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span> l1<span class="token operator">=</span><span class="token builtin">list</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span> l1<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"L"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>l1<span class="token punctuation">)</span> s1<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>l1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Modified string:"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">original string: WORD
+['W', 'O', 'R', 'L', 'D']
+Modified string: WORLD
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using the Array Module</h2>
+<p>To modify a string, construct an <a href="/python/python_arrays.htm" target="_blank">array object</a> using the Python standard library named <span class="tp-codespan">array module</span>. It will create an array of Unicode type from a string <a href="/python/python_variables.htm" target="_blank">variable</a>.</p>
+<h3>Example</h3>
+<p>In the below example, we are using array module to modify the specified string.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> ar <span class="token comment"># initializing a string</span> s1<span class="token operator">=</span><span class="token string">"WORD"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"original string:"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span> <span class="token comment"># converting it to an array</span> sar<span class="token operator">=</span>ar<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'u'</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span> <span class="token comment"># inserting an element</span> sar<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"L"</span><span class="token punctuation">)</span> <span class="token comment"># getting back the modified string</span> s1<span class="token operator">=</span>sar<span class="token punctuation">.</span>tounicode<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Modified string:"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">original string: WORD
+Modified string: WORLD
+</pre>
+<h2>Using the StringIO Class</h2>
+<p>Python's io module defines the classes to handle streams. The StringIO class represents a text stream using an in-memory text buffer. A StringIO object obtained from a string behaves like a File object. Hence we can perform read/write operations on it. The getvalue() method of StringIO class returns a string.</p>
+<h3>Example</h3>
+<p>Let us use the above discussed principle in the following program to modify a string.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> io s1<span class="token operator">=</span><span class="token string">"WORD"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"original string:"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span> sio<span class="token operator">=</span>io<span class="token punctuation">.</span>StringIO<span class="token punctuation">(</span>s1<span class="token punctuation">)</span> sio<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> sio<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"LD"</span><span class="token punctuation">)</span> s1<span class="token operator">=</span>sio<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Modified string:"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">original string: WORD
+Modified string: WORLD&nbsp;</pre>

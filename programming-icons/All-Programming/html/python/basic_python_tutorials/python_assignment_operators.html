@@ -1,0 +1,165 @@
+<h2>Python Assignment Operator</h2>
+<p>The = (equal to) symbol is defined as assignment operator in Python. The value of Python expression on its right is assigned to a single <a href="/python/python_variables.htm" target="_blank">variable</a> on its left. The = symbol as in programming in general (and Python in particular) should not be confused with its usage in Mathematics, where it states that the expressions on the either side of the symbol are equal.</p>
+<h3>Example of Assignment Operator in Python</h3>
+<p>Consider following Python statements &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">5</span> a <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+<p>At the first instance, at least for somebody new to programming but who knows maths, the statement "a=a+b" looks strange. How could a be equal to "a+b"? However, it needs to be reemphasized that the = symbol is an assignment operator here and not used to show the equality of LHS and RHS.</p>
+<p>Because it is an assignment, the expression on right evaluates to 15, the value is assigned to a.</p>
+<p>In the statement "a+=b", the two operators "+" and "=" can be combined in a "+=" operator. It is called as add and assign operator. In a single statement, it performs addition of two operands "a" and "b", and result is assigned to operand on left, i.e., "a".</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Augmented Assignment Operators in Python</h2>
+<p>In addition to the simple assignment operator, Python provides few more assignment operators for advanced use. They are called cumulative or augmented assignment operators. In this chapter, we shall learn to use augmented assignment operators defined in Python.</p>
+<p>Python has the augmented assignment operators for all <a href="/python/python_arithmetic_operators.htm" target="_blank">arithmetic</a> and <a href="/python/python_comparison_operators.htm" target="_blank">comparison</a> operators.</p>
+<p>Python augmented assignment operators combines addition and assignment in one statement. Since Python supports mixed arithmetic, the two operands may be of different types. However, the type of left operand changes to the operand of on right, if it is wider.</p>
+<h3>Example</h3>
+<p>The += operator is an augmented operator. It is also called cumulative addition operator, as it adds "b" in "a" and assigns the result back to a variable.</p>
+<p>The following are the augmented assignment operators in Python:</p>
+<ul class="list">
+<li>Augmented Addition Operator</li>
+<li>Augmented Subtraction Operator</li>
+<li>Augmented Multiplication Operator</li>
+<li>Augmented Division Operator</li>
+<li>Augmented Modulus Operator</li>
+<li>Augmented Exponent Operator</li>
+<li>Augmented Floor division Operator</li>
+</ul>
+<h3>Augmented Addition Operator (+=)</h3>
+<p>Following examples will help in understanding how the "+=" operator works &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented addition of int and int"</span><span class="token punctuation">)</span> a<span class="token operator">+=</span>b <span class="token comment"># equivalent to a=a+b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented addition of int and float"</span><span class="token punctuation">)</span> a<span class="token operator">+=</span>b <span class="token comment"># equivalent to a=a+b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10.50</span> b<span class="token operator">=</span><span class="token number">5</span><span class="token operator">+</span><span class="token number">6j</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented addition of float and complex"</span><span class="token punctuation">)</span> a<span class="token operator">+=</span>b <span class="token comment">#equivalent to a=a+b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented addition of int and int
+a= 15 type(a): &lt;class 'int'&gt;
+Augmented addition of int and float
+a= 15.5 type(a): &lt;class 'float'&gt;
+Augmented addition of float and complex
+a= (15.5+6j) type(a): &lt;class 'complex'&gt;
+</pre>
+<h3>Augmented Subtraction Operator (-=)</h3>
+<p>Use -= symbol to perform subtract and assign operations in a single statement. The "a-=b" statement performs "a=a-b" assignment. Operands may be of any number type. Python performs implicit type casting on the <a href="/python/python_object_classes.htm" target="_blank">object</a> which is narrower in size.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented subtraction of int and int"</span><span class="token punctuation">)</span> a<span class="token operator">-=</span>b <span class="token comment">#equivalent to a=a-b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented subtraction of int and float"</span><span class="token punctuation">)</span> a<span class="token operator">-=</span>b <span class="token comment">#equivalent to a=a-b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10.50</span> b<span class="token operator">=</span><span class="token number">5</span><span class="token operator">+</span><span class="token number">6j</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented subtraction of float and complex"</span><span class="token punctuation">)</span> a<span class="token operator">-=</span>b <span class="token comment">#equivalent to a=a-b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented subtraction of int and int
+a= 5 type(a): &lt;class 'int'&gt;
+Augmented subtraction of int and float
+a= 4.5 type(a): &lt;class 'float'&gt;
+Augmented subtraction of float and complex
+a= (5.5-6j) type(a): &lt;class 'complex'&gt;
+</pre>
+<h3>Augmented Multiplication Operator (*=)</h3>
+<p>The "*=" operator works on similar principle. "a*=b" performs multiply and assign operations, and is equivalent to "a=a*b". In case of augmented multiplication of two complex numbers, the rule of multiplication as discussed in the previous chapter is applicable.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented multiplication of int and int"</span><span class="token punctuation">)</span> a<span class="token operator">*=</span>b <span class="token comment">#equivalent to a=a*b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented multiplication of int and float"</span><span class="token punctuation">)</span> a<span class="token operator">*=</span>b <span class="token comment">#equivalent to a=a*b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">6</span><span class="token operator">+</span><span class="token number">4j</span> b<span class="token operator">=</span><span class="token number">3</span><span class="token operator">+</span><span class="token number">2j</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented multiplication of complex and complex"</span><span class="token punctuation">)</span> a<span class="token operator">*=</span>b <span class="token comment">#equivalent to a=a*b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented multiplication of int and int
+a= 50 type(a): &lt;class 'int'&gt;
+Augmented multiplication of int and float
+a= 55.0 type(a): &lt;class 'float'&gt;
+Augmented multiplication of complex and complex
+a= (10+24j) type(a): &lt;class 'complex'&gt;
+</pre>
+<h3>Augmented Division Operator (/=)</h3>
+<p>The combination symbol "/=" acts as divide and assignment operator, hence "a/=b" is equivalent to "a=a/b". The division operation of int or float operands is float. Division of two complex numbers returns a complex number. Given below are examples of augmented division operator.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented division of int and int"</span><span class="token punctuation">)</span> a<span class="token operator">/=</span>b <span class="token comment">#equivalent to a=a/b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented division of int and float"</span><span class="token punctuation">)</span> a<span class="token operator">/=</span>b <span class="token comment">#equivalent to a=a/b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">6</span><span class="token operator">+</span><span class="token number">4j</span> b<span class="token operator">=</span><span class="token number">3</span><span class="token operator">+</span><span class="token number">2j</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented division of complex and complex"</span><span class="token punctuation">)</span> a<span class="token operator">/=</span>b <span class="token comment">#equivalent to a=a/b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented division of int and int
+a= 2.0 type(a): &lt;class 'float'&gt;
+Augmented division of int and float
+a= 1.8181818181818181 type(a): &lt;class 'float'&gt;
+Augmented division of complex and complex
+a= (2+0j) type(a): &lt;class 'complex'&gt;
+</pre>
+<h3>Augmented Modulus Operator (%=)</h3>
+<p>To perform modulus and assignment operation in a single statement, use the %= operator. Like the mod operator, its augmented version also is not supported for complex number.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented modulus operator with int and int"</span><span class="token punctuation">)</span> a<span class="token operator">%=</span>b <span class="token comment">#equivalent to a=a%b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented modulus operator with int and float"</span><span class="token punctuation">)</span> a<span class="token operator">%=</span>b <span class="token comment">#equivalent to a=a%b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented modulus operator with int and int
+a= 0 type(a): &lt;class 'int'&gt;
+Augmented modulus operator with int and float
+a= 4.5 type(a): &lt;class 'float'&gt;
+</pre>
+<h3>Augmented Exponent Operator (**=)</h3>
+<p>The "**=" operator results in computation of "a" raised to "b", and assigning the value back to "a". Given below are some examples &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented exponent operator with int and int"</span><span class="token punctuation">)</span> a<span class="token operator">**=</span>b <span class="token comment">#equivalent to a=a**b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented exponent operator with int and float"</span><span class="token punctuation">)</span> a<span class="token operator">**=</span>b <span class="token comment">#equivalent to a=a**b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">6</span><span class="token operator">+</span><span class="token number">4j</span> b<span class="token operator">=</span><span class="token number">3</span><span class="token operator">+</span><span class="token number">2j</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented exponent operator with complex and complex"</span><span class="token punctuation">)</span> a<span class="token operator">**=</span>b <span class="token comment">#equivalent to a=a**b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented exponent operator with int and int
+a= 100000 type(a): &lt;class 'int'&gt;
+Augmented exponent operator with int and float
+a= 316227.7660168379 type(a): &lt;class 'float'&gt;
+Augmented exponent operator with complex and complex
+a= (97.52306038414744-62.22529992036203j) type(a): &lt;class 'complex'&gt;
+</pre>
+<h3>Augmented Floor division Operator (//=)</h3>
+<p>For performing floor division and assignment in a single statement, use the "//=" operator. "a//=b" is equivalent to "a=a//b". This operator cannot be used with complex numbers.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented floor division operator with int and int"</span><span class="token punctuation">)</span> a<span class="token operator">//=</span>b <span class="token comment">#equivalent to a=a//b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">5.5</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Augmented floor division operator with int and float"</span><span class="token punctuation">)</span> a<span class="token operator">//=</span>b <span class="token comment">#equivalent to a=a//b</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a="</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span> <span class="token string">"type(a):"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Augmented floor division operator with int and int
+a= 2 type(a): &lt;class 'int'&gt;
+Augmented floor division operator with int and float
+a= 1.0 type(a): &lt;class 'float'&gt;</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

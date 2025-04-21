@@ -1,0 +1,73 @@
+<h2>Change List Items</h2>
+<p><a href="/python/python_lists.htm" target="_blank">List</a> is a mutable <a href="/python/python_data_types.htm" target="_blank">data type</a> in Python. It means, the contents of list can be modified in place, after the object is stored in the memory. You can assign a new value at a given index position in the list</p>
+<h3>Syntax</h3>
+<pre class="result notranslate">list1[i] = newvalue
+</pre>
+<h3>Example</h3>
+<p>In the following code, we change the value at index 2 of the given list.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list3 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original list "</span><span class="token punctuation">,</span> list3<span class="token punctuation">)</span> list3<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"List after changing value at index 2: "</span><span class="token punctuation">,</span> list3<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Original list [1, 2, 3, 4, 5]
+List after changing value at index 2: [1, 2, 10, 4, 5]
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Change Consecutive List Items</h2>
+<p>You can replace more consecutive items in a list with another sublist.</p>
+<h3>Example</h3>
+<p>In the following code, items at index 1 and 2 are replaced by items in another sublist.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original list: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Y'</span><span class="token punctuation">,</span> <span class="token string">'Z'</span><span class="token punctuation">]</span> list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> list2 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"List after changing with sublist: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Original list: ['a', 'b', 'c', 'd']
+List after changing with sublist: ['a', 'Y', 'Z', 'd']
+</pre>
+<h2>Change a Range of List Items</h2>
+<p>If the source sublist has more items than the slice to be replaced, the extra items in the source will be inserted. Take a look at the following code &minus;</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original list: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'X'</span><span class="token punctuation">,</span><span class="token string">'Y'</span><span class="token punctuation">,</span> <span class="token string">'Z'</span><span class="token punctuation">]</span> list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> list2 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"List after changing with sublist: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Original list: ['a', 'b', 'c', 'd']
+List after changing with sublist: ['a', 'X', 'Y', 'Z', 'd']
+</pre>
+<h3>Example</h3>
+<p>If the sublist with which a slice of original list is to be replaced, has lesser items, the items with match will be replaced and rest of the items in original list will be removed.</p>
+<p>In the following code, we try to replace "b" and "c" with "Z" (one less item than items to be replaced). It results in Z replacing b and c removed.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original list: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Z'</span><span class="token punctuation">]</span> list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> list2 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"List after changing with sublist: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Original list: ['a', 'b', 'c', 'd']
+List after changing with sublist: ['a', 'Z', 'd']&nbsp;</pre>

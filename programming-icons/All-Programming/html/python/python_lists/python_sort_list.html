@@ -1,0 +1,120 @@
+<h2>Sorting Lists in Python</h2>
+<p>Sorting a list in Python is a way to arrange the elements of the list in either ascending or descending order based on a defined criterion, such as numerical or lexicographical order.</p>
+<p>This can be achieved using the built-in sorted() function or by calling the sort() method on the list itself, both of which modify the original list or return a new sorted list depending on the method used.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Sorting Lists Using sort() Method</h2>
+<p>The python <a href="/python/list_sort.htm" target="_blank">sort() method</a> is used to sort the elements of a list in place. This means that it modifies the original list and does not return a new list.</p>
+<h3>Syntax</h3>
+<p>The syntax for using the sort() method is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list_name<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>list_name</strong> is the name of the list to be sorted.</li>
+<li><strong>key (optional)</strong> is a function that defines the sorting criterion. If provided, it is applied to each element of the list for sorting. Default is None.</li>
+<li>
+<p><strong>reverse (optional)</strong> is a boolean value. If True, the list will be sorted in descending order. If False (default), the list will be sorted in ascending order.</p>
+</li>
+</ul>
+<h3>Example of Sorting List in Lexicographical Order</h3>
+<p>In the following example, we are using the sort() function to sort the items of the list alphanumerically &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'physics'</span><span class="token punctuation">,</span> <span class="token string">'Biology'</span><span class="token punctuation">,</span> <span class="token string">'chemistry'</span><span class="token punctuation">,</span> <span class="token string">'maths'</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list before sort:"</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span> list1<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list after sort : "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">list before sort: ['physics', 'Biology', 'chemistry', 'maths']
+list after sort :  ['Biology', 'chemistry', 'maths', 'physics']
+</pre>
+<h3>Example of Sorting List in Numerical Order</h3>
+<p>In here, we are using the sort() function to sort the given list in numerical order &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list before sort"</span><span class="token punctuation">,</span> list2<span class="token punctuation">)</span> list2<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list after sort : "</span><span class="token punctuation">,</span> list2<span class="token punctuation">)</span></div>
+</div>
+<p>The output produced is as shown below &minus;</p>
+<pre class="result notranslate">list before sort [10, 16, 9, 24, 5]
+list after sort :  [5, 9, 10, 16, 24]
+</pre>
+<h2>Sorting Lists Using sorted() Method</h2>
+<p>The sorted() function in Python is a built-in function used to sort the elements of an iterable (such as a list, tuple, or string) and returns a new sorted list, leaving the original iterable unchanged.</p>
+<h3>Syntax</h3>
+<p>The syntax for using the sorted() method is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">sorted</span><span class="token punctuation">(</span>iterable<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>iterable</strong> is the iterable (e.g., list, tuple, string) whose elements are to be sorted.</li>
+<li><strong>key (optional)</strong> is a function that defines the sorting criterion. If provided, it is applied to each element of the iterable for sorting. Default is None.</li>
+<li>
+<p><strong>reverse (optional)</strong> is a boolean value. If True, the iterable will be sorted in descending order. If False (default), the iterable will be sorted in ascending order.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>In the following example, we are using the sorted() function to sort a list of numbers and retrieve a new sorted list &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment"># Sorting in descending order</span> sorted_numbers_desc <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>numbers<span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>sorted_numbers_desc<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">[9, 6, 5, 5, 5, 4, 3, 3, 2, 1, 1]
+</pre>
+<h2>Sorting List Items with Callback Function</h2>
+<p>In Python, a callback function refers to a function that is passed as an argument to another function and is invoked or called within that function</p>
+<p>We can sort list items with a callback function by using the sorted() function or sort() function in Python. Both of these functions allows us to specify a custom sorting criterion using the "key" parameter, which accepts a callback function. This callback function defines how the elements should be compared and sorted.</p>
+<h3>Example Using str.lower() as <em>key</em> Parameter</h3>
+<p>The str.lower() method in Python is used to convert all the characters in a string to lowercase. It returns a new string with all alphabetic characters converted to lowercase while leaving non-alphabetic characters unchanged.</p>
+<p>In this example, we are passing the str.lower() method as an argument to the "key" parameter within the sort() function &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Physics'</span><span class="token punctuation">,</span> <span class="token string">'biology'</span><span class="token punctuation">,</span> <span class="token string">'Biomechanics'</span><span class="token punctuation">,</span> <span class="token string">'psychology'</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list before sort"</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span> list1<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">.</span>lower<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list after sort : "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">list before sort ['Physics', 'biology', 'Biomechanics', 'psychology']
+list after sort : ['biology', 'Biomechanics', 'Physics', 'psychology']
+</pre>
+<h3>Example Using user-defined Function as <em>key</em> Parameter</h3>
+<p>We can also use a user-defined <a href="/python/python_functions.htm" target="_blank">function</a> as the key parameter in sort() method.</p>
+<p>In this example, the myfunction() uses <strong>%</strong> operator to return the remainder, based on which the sorting is performed &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> x<span class="token operator">%</span><span class="token number">10</span> list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">46</span><span class="token punctuation">,</span> <span class="token number">51</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list before sort"</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span> list1<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span>myfunction<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"list after sort : "</span><span class="token punctuation">,</span> list1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">list before sort [17, 23, 46, 51, 90]
+list after sort: [90, 51, 23, 46, 17]
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
