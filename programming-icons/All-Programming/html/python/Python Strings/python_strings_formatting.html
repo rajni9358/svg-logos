@@ -1,0 +1,88 @@
+<p><strong>String formatting</strong> in Python is the process of building a string representation dynamically by inserting the value of numeric expressions in an already existing string. Python's string concatenation operator doesn't accept a non-string operand. Hence, Python offers following string formatting techniques &minus;</p>
+<ul class="list">
+<li>
+<p><a href="/python/string_formatting_operator.htm">Using % operator</a></p>
+</li>
+<li>
+<p><a href="/python/using_the_format_method.htm">Using format() method of <strong>str</strong> class</a></p>
+</li>
+<li>
+<p><a href="/python/using_f_string_formatting.htm">Using f-string</a></p>
+</li>
+<li>
+<p><a href="/python/using_string_template_class.htm">Using String Template class</a></p>
+</li>
+</ul>
+<h2>Using % operator</h2>
+<p>The "%" (modulo) operator often referred to as the string formatting operator. It takes a format string along with a set of variables and combine them to create a string that contain values of the variables formatted in the specified way.</p>
+<h3>Example</h3>
+<p>To insert a string into a format string using the "%" operator, we use "%s" as shown in the below example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name <span class="token operator">=</span> <span class="token string">"Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Welcome to %s!"</span> <span class="token operator">%</span> name<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Welcome to Tutorialspoint!
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using format() method</h2>
+<p>It is a built-in method of <span class="tp-codespan">str class</span>. The format() method works by defining placeholders within a string using curly braces "{}". These placeholders are then replaced by the values specified in the method's arguments.</p>
+<h3>Example</h3>
+<p>In the below example, we are using format() method to insert values into a string dynamically.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"Welcome to {}"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"Tutorialspoint"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On running the above code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Welcome to Tutorialspoint
+</pre>
+<h2>Using f-string</h2>
+<p>The f-strings, also known as formatted string literals, is used to embed expressions inside string literals. The "f" in f-strings stands for formatted and prefixing it with strings creates an f-string. The curly braces "{}" within the string will then act as placeholders that is filled with variables, expressions, or function calls.</p>
+<h3>Example</h3>
+<p>The following example illustrates the working of f-strings with expressions.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">item1_price <span class="token operator">=</span> <span class="token number">2500</span> item2_price <span class="token operator">=</span> <span class="token number">300</span> total <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'Total: </span><span class="token interpolation"><span class="token punctuation">{</span>item1_price <span class="token operator">+</span> item2_price<span class="token punctuation">}</span></span><span class="token string">'</span></span> <span class="token keyword">print</span><span class="token punctuation">(</span>total<span class="token punctuation">)</span></div>
+</div>
+<p>The output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Total: 2800
+</pre>
+<h2>Using String Template class</h2>
+<p>The String Template class belongs to the string module and provides a way to format strings by using placeholders. Here, placeholders are defined by a dollar sign ($) followed by an identifier.</p>
+<h3>Example</h3>
+<p>The following example shows how to use Template class to format strings.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template <span class="token comment"># Defining template string</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"Hello and Welcome to $name !"</span> <span class="token comment"># Creating Template object</span> templateObj <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token comment"># now provide values</span> new_str <span class="token operator">=</span> templateObj<span class="token punctuation">.</span>substitute<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"Tutorialspoint"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>new_str<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Hello and Welcome to Tutorialspoint !</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

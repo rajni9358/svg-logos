@@ -1,0 +1,227 @@
+<p>The <strong>scope of a variable</strong> in Python is defined as the specific area or region where the variable is accessible to the user. The scope of a variable depends on where and how it is defined. In Python, a variable can have either a global or a local scope.</p>
+<h2>Types of Scope for Variables in Python</h2>
+<p>On the basis of scope, the Python variables are classified in three categories &minus;</p>
+<ul class="list">
+<li>
+<p>Local Variables</p>
+</li>
+<li>
+<p>Global Variables</p>
+</li>
+<li>
+<p>Nonlocal Variables</p>
+</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Local Variables</h2>
+<p>A local variable is defined within a specific function or block of code. It can only be accessed by the function or block where it was defined, and it has a limited scope. In other words, the scope of local variables is limited to the function they are defined in and attempting to access them outside of this function will result in an error. Always remember, multiple local variables can exist with the same name.</p>
+<h3>Example</h3>
+<p>The following example shows the scope of local variables.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"variable a:"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"variable b:"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> a<span class="token operator">+</span>b <span class="token keyword">print</span> <span class="token punctuation">(</span>myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>In the above code, we have accessed the local variables through its function. Hence, the code will produce the following output &minus;</p>
+<pre class="result notranslate">variable a: 10
+variable b: 20
+30
+</pre>
+<h2>Global Variables</h2>
+<p>A global variable can be accessed from any part of the program, and it is defined outside any function or block of code. It is not specific to any block or function.</p>
+<h3>Example</h3>
+<p>The following example shows the scope of global variable. We can access them inside as well as outside of the function scope.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#global variables</span> name <span class="token operator">=</span> <span class="token string">'TutorialsPoint'</span> marks <span class="token operator">=</span> <span class="token number">50</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># accessing inside the function</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"name:"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"marks:"</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span> <span class="token comment"># function call </span> myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above code will produce the following output &minus;</p>
+<pre class="result notranslate">name: TutorialsPoint
+marks: 50
+</pre>
+<h2>Nonlocal Variables</h2>
+<p>The Python variables that are not defined in either local or global scope are called nonlocal variables. They are used in nested functions.</p>
+<h3>Example</h3>
+<p>The following example demonstrates the how nonlocal variables works.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">yourfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> a <span class="token operator">=</span> <span class="token number">5</span> b <span class="token operator">=</span> <span class="token number">6</span> <span class="token comment"># nested function</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># nonlocal function </span> <span class="token keyword">nonlocal</span> a <span class="token keyword">nonlocal</span> b a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"variable a:"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"variable b:"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> a<span class="token operator">+</span>b <span class="token keyword">print</span> <span class="token punctuation">(</span>myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> yourfunction<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above code will produce the below output &minus;</p>
+<pre class="result notranslate">variable a: 10
+variable b: 20
+30
+</pre>
+<h2>Namespace and Scope of Python Variables</h2>
+<p>A namespace is a collection of identifiers, such as variable names, function names, class names, etc. In Python, namespace is used to manage the scope of variables and to prevent naming conflicts.</p>
+<p>Python provides the following types of namespaces &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Built-in namespace</strong> contains built-in functions and built-in exceptions. They are loaded in the memory as soon as Python interpreter is loaded and remain till the interpreter is running.</p>
+</li>
+<li>
+<p><strong>Global namespace</strong> contains any names defined in the main program. These names remain in memory till the program is running.</p>
+</li>
+<li>
+<p><strong>Local namespace</strong> contains names defined inside a function. They are available till the function is running.</p>
+</li>
+</ul>
+<p>These namespaces are nested one inside the other. Following diagram shows relationship between namespaces.</p>
+<p><img src="/python/images/types_of_namespace.jpg" alt="Types Of Namespace" /></p>
+<p>The life of a certain variable is restricted to the namespace in which it is defined. As a result, it is not possible to access a variable present in the inner namespace from any outer namespace.</p>
+<h2>Python globals() Function</h2>
+<p>Python's standard library includes a built-in function <span class="tp-codespan">globals()</span>. It returns a dictionary of symbols currently available in global namespace.</p>
+<p>Run the globals() function directly from the Python prompt.</p>
+<pre class="result notranslate">&gt;&gt;&gt; globals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;}
+</pre>
+<p>It can be seen that the built-in module which contains definitions of all built-in functions and built-in exceptions is loaded.</p>
+<h3>Example</h3>
+<p>Save the following code that contains few variables and a function with few more variables inside it.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name <span class="token operator">=</span> <span class="token string">'TutorialsPoint'</span> marks <span class="token operator">=</span> <span class="token number">50</span> result <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token keyword">return</span> a<span class="token operator">+</span>b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>Calling globals() from inside this script returns following dictionary object &minus;</p>
+<pre class="result notranslate">{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000263E7255250&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, '__file__': 'C:\\Users\\user\\examples\\main.py', '__cached__': None, 'name': 'TutorialsPoint', 'marks': 50, 'result': True, 'myfunction': &lt;function myfunction at 0x00000263E72004A0&gt;}
+</pre>
+<p>The global namespace now contains variables in the program and their values and the function object in it (and not the variables in the function).</p>
+<!--
+<p>Any variable created outside a function can be accessed within any function and so they have global scope. Following is an example to show the usage of global variable in Python:</p>
+<pre class="demo-code notranslate language-python" data-lang="python3">
+x = 5
+y = 10
+def sum():
+   sum = x + y
+   return sum
+print(sum())
+</pre>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">
+15
+</pre>
+-->
+<h2>Python locals() Function</h2>
+<p>Python's standard library includes a built-in function <span class="tp-codespan">locals()</span>. It returns a dictionary of symbols currently available in the local namespace of the function.</p>
+<h3>Example</h3>
+<p>Modify the above script to print dictionary of global and local namespaces from within the function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name <span class="token operator">=</span> <span class="token string">'TutorialsPoint'</span> marks <span class="token operator">=</span> <span class="token number">50</span> result <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">20</span> c <span class="token operator">=</span> a<span class="token operator">+</span>b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"globals():"</span><span class="token punctuation">,</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"locals():"</span><span class="token punctuation">,</span> <span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> c myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>The output shows that locals() returns a dictionary of variables and their values currently available in the function.</p>
+<pre class="result notranslate">globals(): {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000169AE265250&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, '__file__': 'C:\\Users\\mlath\\examples\\main.py', '__cached__': None, 'name': 'TutorialsPoint', 'marks': 50, 'result': True, 'myfunction': &lt;function myfunction at 0x00000169AE2104A0&gt;}
+locals(): {'a': 10, 'b': 20, 'c': 30}
+</pre>
+<p>Since both globals() and locals functions return dictionary, you can access value of a variable from respective namespace with dictionary get() method or index operator.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># displays TutorialsPoint</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># displays 10</span></div>
+<!--
+<p>Following is a simple example to show the usage of local variables in Python:</p>
+<pre class="demo-code notranslate language-python" data-lang="python3">
+def sum(x,y):
+   sum = x + y
+   return sum
+print(sum(5, 10))
+</pre>
+<pre class="result notranslate">
+15
+</pre>
+-->
+<h2>Namespace Conflict in Python</h2>
+<p>If a variable of same name is present in global as well as local scope, Python interpreter gives priority to the one in local namespace.</p>
+<h3>Example</h3>
+<p>In the following example, we define a local and a global variable.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">marks <span class="token operator">=</span> <span class="token number">50</span> <span class="token comment"># this is a global variable</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> marks <span class="token operator">=</span> <span class="token number">70</span> <span class="token comment"># this is a local variable</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>marks<span class="token punctuation">)</span> myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>marks<span class="token punctuation">)</span> <span class="token comment"># prints global value</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">70
+50
+</pre>
+<h3>Example</h3>
+<p>If you try to manipulate value of a global variable from inside a function, Python raises <strong>UnboundLocalError</strong> as shown in example below &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># this is a global variable</span> marks <span class="token operator">=</span> <span class="token number">50</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> marks <span class="token operator">=</span> marks <span class="token operator">+</span> <span class="token number">20</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>marks<span class="token punctuation">)</span> myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># prints global value</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>marks<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following error message &minus;</p>
+<pre class="result notranslate">   marks = marks + 20
+           ^^^^^
+UnboundLocalError: cannot access local variable 'marks' where it is not associated with a value
+</pre>
+<h3>Example</h3>
+<p>To modify a global variable, you can either update it with a dictionary syntax, or use the <strong>global</strong> keyword to refer it before modifying.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var1 <span class="token operator">=</span> <span class="token number">50</span> <span class="token comment"># this is a global variable</span> var2 <span class="token operator">=</span> <span class="token number">60</span> <span class="token comment"># this is a global variable</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token string">"Change values of global variables"</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'var1'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'var1'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">10</span> <span class="token keyword">global</span> var2 var2 <span class="token operator">=</span> var2 <span class="token operator">+</span> <span class="token number">20</span> myfunction<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var1:"</span><span class="token punctuation">,</span>var1<span class="token punctuation">,</span> <span class="token string">"var2:"</span><span class="token punctuation">,</span>var2<span class="token punctuation">)</span> <span class="token comment">#shows global variables with changed values</span></div>
+</div>
+<p>On executing the code, it will produce the following output &minus;</p>
+<pre class="result notranslate">var1: 60 var2: 80
+</pre>
+<h3>Example</h3>
+<p>Lastly, if you try to access a local variable in global scope, Python raises NameError as the variable in local scope can't be accessed outside it.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var1 <span class="token operator">=</span> <span class="token number">50</span> <span class="token comment"># this is a global variable</span> var2 <span class="token operator">=</span> <span class="token number">60</span> <span class="token comment"># this is a global variable</span> <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span> total <span class="token operator">=</span> x<span class="token operator">+</span>y <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total is a local variable: "</span><span class="token punctuation">,</span> total<span class="token punctuation">)</span> myfunction<span class="token punctuation">(</span>var1<span class="token punctuation">,</span> var2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>total<span class="token punctuation">)</span> <span class="token comment"># This gives NameError</span></div>
+</div>
+<p>It will produce the following error message &minus;</p>
+<pre class="result notranslate">Total is a local variable: 110
+Traceback (most recent call last):
+   File "C:\Users\user\examples\main.py", line 9, in &lt;module&gt;
+   print (total) # This gives NameError
+          ^^^^^
+NameError: name 'total' is not defined&nbsp;</pre>

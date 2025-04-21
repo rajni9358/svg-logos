@@ -1,0 +1,48 @@
+<h2>Python List Exercise 1</h2>
+<p>Python program to find unique numbers in a given list.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">L1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> L2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> L1<span class="token punctuation">:</span> <span class="token keyword">if</span> x <span class="token keyword">not</span> <span class="token keyword">in</span> L2<span class="token punctuation">:</span> L2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>L2<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">[1, 9, 6, 3, 4, 5, 2, 7, 8]
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python List Exercise 2</h2>
+<p>Python program to find sum of all numbers in a list.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">L1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span> ttl <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> L1<span class="token punctuation">:</span> ttl<span class="token operator">+=</span>x <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Sum of all numbers Using loop:"</span><span class="token punctuation">,</span> ttl<span class="token punctuation">)</span> ttl <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>L1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Sum of all numbers sum() function:"</span><span class="token punctuation">,</span> ttl<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Sum of all numbers Using loop: 24
+Sum of all numbers sum() function: 24
+</pre>
+<h2>Python List Exercise 3</h2>
+<p>Python program to create a list of 5 random integers.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> random L1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> L1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>L1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">[77, 3, 20, 91, 85]</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>

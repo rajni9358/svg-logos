@@ -1,0 +1,120 @@
+<h2>Loop Through List Items</h2>
+<p>Looping through list items in Python refers to iterating over each element within a list. We do so to perform the desired operations on each item. These operations include list modification, conditional operations, string manipulation, data analysis, etc.</p>
+<p>Python provides various methods for looping through <a href="/python/python_loop_lists.htm" target="_blank">list</a> items, with the most common being the <a href="/python/python_for_loops.htm" target="_blank"><strong>for loop</strong></a>. We can also use the <strong>while loop</strong> to iterate through list items, although it requires additional handling of the loop control variable explicitly i.e. an index.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Loop Through List Items with For Loop</h2>
+<p>A for loop in Python is used to iterate over a sequence (like a list, tuple, dictionary, string, or range) or any other iterable object. It allows you to execute a block of code repeatedly for each item in the sequence.</p>
+<p>In a for loop, you can access each item in a sequence using a variable, allowing you to perform operations or logic based on that item's value. We can loop through list items using for loop by iterating over each item in the list.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax to loop through items in a list using a for loop in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span> <span class="token comment"># Code block to execute</span></div>
+<h3>Example</h3>
+<p>In the following example, we are using a for loop to iterate through each element in the list "lst" and retrieving each element followed by a space on the same line &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> lst<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>num<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">25 12 10 -21 10 100
+</pre>
+<h2>Loop Through List Items with While Loop</h2>
+<p>A while loop in Python is used to repeatedly execute a block of code as long as a specified condition evaluates to "True".</p>
+<p>We can loop through list items using while loop by initializing an index variable, then iterating through the list using the index variable and incrementing it until reaching the end of the list.</p>
+<p>&nbsp;</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax for looping through items in a list using a while loop in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">while</span> condition<span class="token punctuation">:</span> <span class="token comment"># Code block to execute</span></div>
+<h3>Example</h3>
+<p>In the below example, we iterate through each item in the list "my_list" using a while loop. We use an index variable "index" to access each item sequentially, incrementing it after each iteration to move to the next item &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> index <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">while</span> index <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>my_list<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>my_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span> index <span class="token operator">+=</span> <span class="token number">1</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">1
+2
+3
+4
+5
+</pre>
+<h2>Loop Through List Items with Index</h2>
+<p>An index is a numeric value representing the position of an element within a sequence, such as a list, starting from 0 for the first element.</p>
+<p>We can loop through list items using index by iterating over a range of indices corresponding to the length of the list and accessing each element using the index within the loop.</p>
+<h3>Example</h3>
+<p>This example initializes a list "lst" with integers and creates a range of indices corresponding to the length of the list. Then, it iterates over each index in the range and prints the value at that index in the list "lst" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span> indices <span class="token operator">=</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>lst<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> indices<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"lst[{}]: "</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> lst<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">lst[0]: 25
+lst[1]: 12
+lst[2]: 10
+lst[3]: -21
+lst[4]: 10
+lst[5]: 100
+</pre>
+<h2>Iterate using List Comprehension</h2>
+<p>A list comprehension in Python is a concise way to create lists by applying an expression to each element of an iterable. These expressions can be arithmetic operations, function calls, conditional expressions etc.</p>
+<p>We can iterate using list comprehension by specifying the expression and the iterable (like a list, tuple, dictionary, string, or range). Following is the syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">[</span>expression <span class="token keyword">for</span> item <span class="token keyword">in</span> iterable<span class="token punctuation">]</span></div>
+<p>This applies the expression to each item in the iterable and creates a list of results.</p>
+<h3>Example</h3>
+<p>In this example, we use list comprehension to iterate through each number in a list of numbers, square each one, and store the squared result in the new list "squared_numbers" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> squared_numbers <span class="token operator">=</span> <span class="token punctuation">[</span>num <span class="token operator">**</span> <span class="token number">2</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> numbers<span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>squared_numbers<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">[1, 4, 9, 16, 25]
+</pre>
+<h2>Iterate using the enumerate() Function</h2>
+<p>The enumerate() function in Python is used to iterate over an iterable object while also providing the index of each element.</p>
+<p>We can iterate using the enumerate() function by applying it to the iterable. Following is the syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> index<span class="token punctuation">,</span> item <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>iterable<span class="token punctuation">)</span><span class="token punctuation">:</span></div>
+<p>This provides both the index and item of each element in the iterable during iteration</p>
+<h3>Example</h3>
+<p>In the following example, we are using the enumerate() function to iterate through a list "fruits" and retrieve each fruit along with its corresponding index &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"cherry"</span><span class="token punctuation">]</span> <span class="token keyword">for</span> index<span class="token punctuation">,</span> fruit <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> fruit<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">0 apple
+1 banana
+2 cherry&nbsp;</pre>

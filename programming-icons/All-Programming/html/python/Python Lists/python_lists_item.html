@@ -1,0 +1,93 @@
+<h2>Access List Items</h2>
+<p>In <a href="/python/index.htm" target="_blank">Python</a>, a <a href="/python/python_lists.htm" target="_blank">list</a> is a sequence of elements or objects, i.e. an ordered collection of objects. Similar to arrays, each element in a list corresponds to an index.</p>
+<p>To access the values within a list, we need to use the square brackets <strong><span class="tp-codespan">"[]"</span></strong> notation and, specify the index of the elements we want to retrieve.</p>
+<p>&nbsp;</p>
+<p>In addition to this, Python provides various other ways to access list items such as slicing, negative indexing, extracting a sublist from a list etc. Let us go through this one-by-one &minus;</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Accessing List Items with Indexing</h2>
+<p>As discussed above to access the items in a list using indexing, just specify the index of the element with in the square brackets ("[]") as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">mylist<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span></div>
+<h3>Example</h3>
+<p>Following is the basic example to access list items &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">]</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at 0th index in list1: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at index 2 in list2: "</span><span class="token punctuation">,</span> list2<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Item at 0th index in list1: Rohan
+Item at index 2 in list2: 3
+</pre>
+<h2>Access List Items with Negative Indexing</h2>
+<p>Negative indexing in Python is used to access elements from the end of a list, with <strong>-1</strong> referring to the last element, <strong>-2</strong> to the second last, and so on.</p>
+<p>We can also access list items with negative indexing by using negative integers to represent positions from the end of the list.</p>
+<h3>Example</h3>
+<p>In the following example, we are accessing list items with negative indexing &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">25.50</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2j</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at 0th index in list1: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at index 2 in list2: "</span><span class="token punctuation">,</span> list2<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">Item at 0th index in list1: d
+Item at index 2 in list2: True
+</pre>
+<h2>Access List Items with Slice Operator</h2>
+<p>The slice operator in Python is used to fetch one or more items from the list. We can access list items with the slice operator by specifying the range of indices we want to extract. It uses the following syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">[</span>start<span class="token punctuation">:</span>stop<span class="token punctuation">]</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>start</strong> is the starting index (inclusive).</li>
+<li><strong>stop</strong> is the ending index (exclusive).</li>
+</ul>
+<p>If we does not provide any indices, the slice operator defaults to starting from index 0 and stopping at the last item in the list.</p>
+<h3>Example</h3>
+<p>In the following example, we are retrieving sublist from index 1 to last in "list1" and index 0 to 1 in "list2", and retrieving all elements in "list3" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">25.50</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2j</span><span class="token punctuation">]</span> list3 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 1 to last in list1: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 0 to 1 in list2: "</span><span class="token punctuation">,</span> list2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 0 to index last in list3"</span><span class="token punctuation">,</span> list3<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Items from index 1 to last in list1:  ['b', 'c', 'd']
+Items from index 0 to 1 in list2:  [25.5, True]
+Items from index 0 to index last in list3 ['Rohan', 'Physics', 21, 69.75]
+</pre>
+<h2>Access Sub List from a List</h2>
+<p>A sublist is a part of a list that consists of a consecutive sequence of elements from the original list. We can access a sublist from a list by using the slice operator with appropriate start and stop indices.</p>
+<h3>Example</h3>
+<p>In this example, we are fetching sublist from index "1 to 2" in "list1" and index "0 to 1" in "list2" using slice operator &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">25.50</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2j</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 1 to 2 in list1: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 0 to 1 in list2: "</span><span class="token punctuation">,</span> list2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>The output obtained is as follows &minus;</div>
+</div>
+<pre class="result notranslate">Items from index 1 to 2 in list1: ['b', 'c']
+Items from index 0 to 1 in list2: [25.5, True]
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

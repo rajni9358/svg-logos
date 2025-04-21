@@ -1,0 +1,98 @@
+<h2>Python if else Statement</h2>
+<p>The if-else statement in <a href="/python/index.htm" target="_blank">Python</a> is used to execute a block of code when the condition in the <strong>if statement</strong> is true, and another block of code when the condition is false.</p>
+<h3>Syntax of if-else Statement</h3>
+<p>The syntax of an if-else statement in Python is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">if</span> boolean_expression<span class="token punctuation">:</span> <span class="token comment"># code block to be executed</span> <span class="token comment"># when boolean_expression is true</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># code block to be executed</span> <span class="token comment"># when boolean_expression is false</span></div>
+<p>If the boolean expression evaluates to TRUE, then the statement(s) inside the <span class="tp-codespan">if block</span> will be executed otherwise statements of the <span class="tp-codespan">else block</span> will be executed.</p>
+<h3>Flowchart of if-else Statement</h3>
+<p>This flowchart shows how if-else statement is used &minus;</p>
+<p><img src="/python/images/ifelse_syntax.jpg" alt="ifelse syntax" /></p>
+<p>If the <span class="tp-codespan">expr</span> is True, block of stmt1, 2, 3 is executed then the default flow continues with stmt7. However, if the <span class="tp-codespan">expr</span> is False, block stmt4, 5, 6 runs then the default flow continues.</p>
+<p>Python implementation of the above flowchart is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">if</span> expr<span class="token operator">==</span><span class="token boolean">True</span><span class="token punctuation">:</span> stmt1 stmt2 stmt3 <span class="token keyword">else</span><span class="token punctuation">:</span> stmt4 stmt5 stmt6 Stmt7</div>
+<h3>Python if-else Statement Example</h3>
+<p>Let us understand the use of <span class="tp-codespan">if-else</span> statements with the following example. Here, variable <span class="tp-codespan">age</span> can take different values. If the expression <span class="tp-codespan">age &gt; 18</span> is true, then <span class="tp-codespan">eligible to vote</span> message will be displayed otherwise <span class="tp-codespan">not eligible to vote</span> message will be displayed. Following flowchart illustrates this logic &minus;</p>
+<p><img src="/python/images/ifelse.jpg" alt="if-else" /></p>
+<p>Now, let's see the Python implementation the above flowchart.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">age<span class="token operator">=</span><span class="token number">25</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"age: "</span><span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token keyword">if</span> age <span class="token operator">&gt;=</span><span class="token number">18</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"eligible to vote"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"not eligible to vote"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing this code, you will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">age: 25
+eligible to vote
+</pre>
+<p>To test the <span class="tp-codespan">else block</span>, change the <span class="tp-codespan">age</span> to 12, and run the code again.</p>
+<pre class="result notranslate">age: 12
+not eligible to vote
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python if elif else Statement</h2>
+<p>The <span class="tp-codespan">if elif else</span> statement allows you to check multiple expressions for TRUE and execute a block of code as soon as one of the conditions evaluates to TRUE.</p>
+<p>Similar to the <span class="tp-codespan">else block</span>, the <span class="tp-codespan">elif block</span> is also optional. However, a program can contains only one <span class="tp-codespan">else block</span> whereas there can be an arbitrary number of <span class="tp-codespan">elif blocks</span> following an <span class="tp-codespan">if block</span>.</p>
+<h3>Syntax of Python if elif else Statement</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">if</span> expression1<span class="token punctuation">:</span> statement<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">elif</span> expression2<span class="token punctuation">:</span> statement<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">elif</span> expression3<span class="token punctuation">:</span> statement<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> statement<span class="token punctuation">(</span>s<span class="token punctuation">)</span></div>
+<h3>How if elif else Works?</h3>
+<p>The keyword <span class="tp-codespan">elif</span> is a short form of <span class="tp-codespan">else if</span>. It allows the logic to be arranged in a cascade of <span class="tp-codespan">elif</span> statements after the first <span class="tp-codespan">if</span> statement. If the first <span class="tp-codespan">if</span> statement evaluates to false, subsequent <span class="tp-codespan">elif</span> statements are evaluated one by one and comes out of the cascade if any one is satisfied.</p>
+<p>Last in the cascade is the <span class="tp-codespan">else</span> block which will come in picture when all preceding if/elif conditions fails.</p>
+<h3>Example</h3>
+<p>Suppose there are different slabs of discount on a purchase &minus;</p>
+<ul class="list">
+<li>
+<p>20% on amount exceeding 10000,</p>
+</li>
+<li>
+<p>10% for amount between 5-10000,</p>
+</li>
+<li>
+<p>5% if it is between 1 to 5000.</p>
+</li>
+<li>
+<p>no discount if amount&lt;1000</p>
+</li>
+</ul>
+<p>The following flowchart illustrates these conditions &minus;</p>
+<p><img src="/python/images/ifelif.jpg" alt="if-elif" /></p>
+<p>We can write a Python code for the above logic with <span class="tp-codespan">if-else</span> statements &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">amount <span class="token operator">=</span> <span class="token number">2500</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Amount = '</span><span class="token punctuation">,</span>amount<span class="token punctuation">)</span> <span class="token keyword">if</span> amount <span class="token operator">&gt;</span> <span class="token number">10000</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">20</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">if</span> amount <span class="token operator">&gt;</span> <span class="token number">5000</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">if</span> amount <span class="token operator">&gt;</span> <span class="token number">1000</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">5</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">else</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Payable amount = '</span><span class="token punctuation">,</span>amount <span class="token operator">-</span> discount<span class="token punctuation">)</span></div>
+</div>
+<p>Set <span class="tp-codespan">amount</span> to test all possible conditions: 800, 2500, 7500 and 15000. The outputs will vary accordingly &minus;</p>
+<pre class="result notranslate">Amount: 800
+Payable amount = 800
+Amount: 2500
+Payable amount = 2375.0
+Amount: 7500
+Payable amount = 6750.0
+Amount: 15000
+Payable amount = 12000.0
+</pre>
+<p>While the code will work perfectly fine, if you look at the increasing level of indentation at each if and else statement, it will become difficult to manage if there are still more conditions.</p>
+<h3>Python if elif else Statement Example</h3>
+<p>The <span class="tp-codespan">elif statement</span> makes the code easy to read and comprehend. Following is the Python code for the same logic with if elif else statements &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">amount <span class="token operator">=</span> <span class="token number">2500</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Amount = '</span><span class="token punctuation">,</span>amount<span class="token punctuation">)</span> <span class="token keyword">if</span> amount <span class="token operator">&gt;</span> <span class="token number">10000</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">20</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">elif</span> amount <span class="token operator">&gt;</span> <span class="token number">5000</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">elif</span> amount <span class="token operator">&gt;</span> <span class="token number">1000</span><span class="token punctuation">:</span> discount <span class="token operator">=</span> amount <span class="token operator">*</span> <span class="token number">5</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token keyword">else</span><span class="token punctuation">:</span> discount<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Payable amount = '</span><span class="token punctuation">,</span>amount <span class="token operator">-</span> discount<span class="token punctuation">)</span></div>
+</div>
+<p>The output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Amount: 2500
+Payable amount = 2375.0&nbsp;</pre>

@@ -1,0 +1,254 @@
+<h2>Python Type Casting</h2>
+<p>From a programming point of view, a type casting refers to converting an object of one type into another. Here, we shall learn about type casting in Python Programming.</p>
+<blockquote>Python Type Casting is a process in which we convert a literal of one data type to another data type. Python supports two types of casting &minus; <strong>implicit</strong> and <strong>explicit</strong>.</blockquote>
+<p>In Python there are different data types, such as numbers, sequences, mappings etc. There may be a situation where, you have the available data of one type but you want to use it in another form. For example, the user has input a string but you want to use it as a number. Python's type casting mechanism let you do that.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Implicit Casting</h2>
+<p>When any language compiler/interpreter automatically converts object of one type into other, it is called automatic or <strong>implicit casting</strong>. Python is a strongly typed language. It doesn't allow automatic type conversion between unrelated data types. For example, a string cannot be converted to any number type. However, an integer can be cast into a float. Other languages such as JavaScript is a weakly typed language, where an integer is coerced into a string for concatenation.</p>
+<p>Note that memory requirement of each data type is different. For example, an <strong>integer</strong> object in Python occupies 4 bytes of memory, while a <strong>float</strong> object needs 8 bytes because of its fractional part. Hence, Python interpreter doesn't automatically convert a <strong>float</strong> to <strong>int</strong>, because it will result in loss of data. On the other hand, <strong>int</strong> can be easily converted into <strong>float</strong> by setting its fractional part to 0.</p>
+<p>Implicit <strong>int</strong> to <strong>float</strong> casting takes place when any arithmetic operation on <strong>int</strong> and <strong>float</strong> operands is done.</p>
+<p>Consider we have an ,<strong>int</strong> and one <strong>float</strong> variable</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token number">10</span> <span class="token comment"># int object</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> b<span class="token operator">=</span><span class="token number">10.5</span> <span class="token comment"># float object</span></div>
+<p>To perform their addition, 10 &minus; the integer object is upgraded to 10.0. It is a float, but equivalent to its earlier numeric value. Now we can perform addition of two floats.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> c<span class="token operator">=</span>a<span class="token operator">+</span>b <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">20.5</span></div>
+<p>In implicit type casting, a Python object with lesser byte size is upgraded to match the bigger byte size of other object in the operation. For example, a Boolean object is first upgraded to int and then to float, before the addition with a floating point object. In the following example, we try to add a Boolean object in a float, pleae note that True is equal to 1, and False is equal to 0.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">;</span> b<span class="token operator">=</span><span class="token number">10.5</span><span class="token punctuation">;</span> c<span class="token operator">=</span>a<span class="token operator">+</span>b<span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">11.5
+</pre>
+<h2>Python Explicit Casting</h2>
+<p>Although automatic or implicit casting is limited to <strong>int</strong> to <strong>float</strong> conversion, you can use Python's built-in functions int(), float() and str() to perform the explicit conversions such as string to integer.</p>
+<h2>Python int() Function</h2>
+<p>Python's built-in <strong>int()</strong> function converts an integer literal to an integer object, a float to integer, and a string to integer if the string itself has a valid integer literal representation.</p>
+<p>Using <strong>int()</strong> with an int object as argument is equivalent to declaring an <strong>int</strong> object directly.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">10</span></div>
+<p>is same as &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">10</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> '<span class="token builtin">int</span><span class="token operator">&gt;</span></div>
+<p>If the argument to <strong>int()</strong> function is a float object or floating point expression, it returns an int object. For example &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">10.5</span><span class="token punctuation">)</span> <span class="token comment">#converts a float object to int</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">10</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span><span class="token number">3.14</span><span class="token punctuation">)</span> <span class="token comment">#expression results float, is converted to int</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">6</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">&gt;</span></div>
+<p>The <strong>int()</strong> function also returns integer 1 if a Boolean object is given as argument.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">1</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">&gt;</span></div>
+<h3>String to Integer</h3>
+<p>The <strong>int()</strong> function returns an integer from a string object, only if it contains a valid integer representation.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">100</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"10"</span><span class="token operator">+</span><span class="token string">"01"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token operator">+</span><span class="token string">"01"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">1001</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">&gt;</span></div>
+<p>However, if the string contains a non-integer representation, Python raises ValueError.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"10.5"</span><span class="token punctuation">)</span> Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span> File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span> ValueError<span class="token punctuation">:</span> invalid literal <span class="token keyword">for</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">with</span> base <span class="token number">10</span><span class="token punctuation">:</span> <span class="token string">'10.5'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span> Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span> File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span> ValueError<span class="token punctuation">:</span> invalid literal <span class="token keyword">for</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">with</span> base <span class="token number">10</span><span class="token punctuation">:</span> <span class="token string">'Hello World'</span></div>
+<p>The <strong>int()</strong> function also returns integer from binary, octal and hexa-decimal string. For this, the function needs a base parameter which must be 2, 8 or 16 respectively. The string should have a valid binary/octal/Hexa-decimal representation.</p>
+<h3>Binary String to Integer</h3>
+<p>The string should be made up of 1 and 0 only, and the base should be 2.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"110011"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">51</span></div>
+<p>The Decimal equivalent of binary number 110011 is 51.</p>
+<h3>Octal String to Integer</h3>
+<p>The string should only contain 0 to 7 digits, and the base should be 8.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"20"</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">16</span></div>
+<p>The Decimal equivalent of octal 20 is 16.</p>
+<h3>Hexa-Decimal String to Integer</h3>
+<p>The string should contain only the Hexadecimal symbols i.e., 0-9 and A, B, C, D, E or F. Base should be 16.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"2A9"</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">681</span></div>
+<p>Decimal equivalent of Hexadecimal 2A9 is 681. You can easily verify these conversions with calculator app in Windows, Ubuntu or Smartphones.</p>
+<p>Following is an example to convert number, float and string into integer data type:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># a will be 1</span> b <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">2.2</span><span class="token punctuation">)</span> <span class="token comment"># b will be 2</span> c <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"3"</span><span class="token punctuation">)</span> <span class="token comment"># c will be 3</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span></div>
+</div>
+<p>This produce the following result &minus;</p>
+<pre class="result notranslate">1
+2
+3
+</pre>
+<h2>Python float() Function</h2>
+<p>The <strong>float()</strong> is a built-in function in Python. It returns a float object if the argument is a float literal, integer or a string with valid floating point representation.</p>
+<p>Using float() with an float object as argument is equivalent to declaring a float object directly</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">9.99</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">9.99</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span></div>
+<p>is same as &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token number">9.99</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">9.99</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span></div>
+<p>If the argument to <strong>float()</strong> function is an integer, the returned value is a floating point with fractional part set to 0.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">100.0</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span></div>
+<p>The <strong>float()</strong> function returns float object from a string, if the string contains a valid floating point number, otherwise ValueError is raised.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"9.99"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">9.99</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"1,234.50"</span><span class="token punctuation">)</span> Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span> File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span> ValueError<span class="token punctuation">:</span> could <span class="token keyword">not</span> convert string to <span class="token builtin">float</span><span class="token punctuation">:</span> <span class="token string">'1,234.50'</span></div>
+<p>The reason of ValueError here is the presence of comma in the string.</p>
+<p>For the purpose of string to float conversion, the sceientific notation of floating point is also considered valid.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"1.00E4"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">10000.0</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"1.00E-4"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token number">0.0001</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span></div>
+<p>Following is an example to convert number, float and string into float data type:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># a will be 1.0</span> b <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">2.2</span><span class="token punctuation">)</span> <span class="token comment"># b will be 2.2</span> c <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"3.3"</span><span class="token punctuation">)</span> <span class="token comment"># c will be 3.3</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span></div>
+</div>
+<p>This produce the following result &minus;</p>
+<pre class="result notranslate">1.0
+2.2
+3.3
+</pre>
+<h2>Python str() Function</h2>
+<p>We saw how a Python obtains integer or float number from corresponding string representation. The <strong>str()</strong> function works the opposite. It surrounds an integer or a float object with quotes (') to return a str object. The <strong>str()</strong> function returns the string representation of any Python object. In this section, we shall see different examples of <strong>str()</strong> function in Python.</p>
+<p>The str() function has three parameters. First required parameter (or argument) is the object whose string representation we want. Other two operators, encoding and errors, are optional.</p>
+<p>We shall execute str() function in Python console to easily verify that the returned object is a string, with the enclosing quotation marks (').</p>
+<h3>Integer to string</h3>
+<p>You can convert any integer number into a string as follows:</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'10'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'str'</span><span class="token operator">&gt;</span></div>
+<h3>Float to String</h3>
+<p>str() function converts floating point objects with both the notations of floating point, standard notation with a decimal point separating integer and fractional part, and the scientific notation to string object.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">11.10</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'11.1'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'str'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">/</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'0.4'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'str'</span><span class="token operator">&gt;</span></div>
+<p>In the second case, a division expression is given as argument to str() function. Note that the expression is evaluated first and then result is converted to string.</p>
+<p>Floating points in scientific notations using E or e and with positive or negative power are converted to string with str() function.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">10E4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'100000.0'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'str'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1.23e-4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'0.000123'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'str'</span><span class="token operator">&gt;</span></div>
+<p>When Boolean constant is entered as argument, it is surrounded by (') so that True becomes 'True'. List and Tuple objects can also be given argument to str() function. The resultant string is the list/tuple surrounded by (').</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token string">'True'</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'True'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'[1, 2, 3]'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'(1, 2, 3)'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">:</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">:</span><span class="token number">300</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a <span class="token string">'{1: 100, 2: 200, 3: 300}'</span></div>
+<p>Following is an example to convert number, float and string into string data type:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># a will be "1"</span> b <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">2.2</span><span class="token punctuation">)</span> <span class="token comment"># b will be "2.2"</span> c <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token string">"3.3"</span><span class="token punctuation">)</span> <span class="token comment"># c will be "3.3"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span></div>
+</div>
+<p>This produce the following result &minus;</p>
+<pre class="result notranslate">1
+2.2
+3.3
+</pre>
+<h2>Conversion of Sequence Types</h2>
+<p>List, Tuple and String are Python's sequence types. They are ordered or indexed collection of items.</p>
+<p>A string and tuple can be converted into a list object by using the <strong>list()</strong> function. Similarly, the <strong>tuple()</strong> function converts a string or list to a tuple.</p>
+<p>We shall take an object each of these three sequence types and study their inter-conversion.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment"># List Object</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> b<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment"># Tupple Object</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> c<span class="token operator">=</span><span class="token string">"Hello"</span> <span class="token comment"># String Object</span> <span class="token comment">### list() separates each character in the string and builds the list</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj<span class="token operator">=</span><span class="token builtin">list</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj <span class="token punctuation">[</span><span class="token string">'H'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'l'</span><span class="token punctuation">,</span> <span class="token string">'l'</span><span class="token punctuation">,</span> <span class="token string">'o'</span><span class="token punctuation">]</span> <span class="token comment">### The parentheses of tuple are replaced by square brackets</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj<span class="token operator">=</span><span class="token builtin">list</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment">### tuple() separates each character from string and builds a tuple of characters</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj<span class="token operator">=</span><span class="token builtin">tuple</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj <span class="token punctuation">(</span><span class="token string">'H'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'l'</span><span class="token punctuation">,</span> <span class="token string">'l'</span><span class="token punctuation">,</span> <span class="token string">'o'</span><span class="token punctuation">)</span> <span class="token comment">### square brackets of list are replaced by parentheses.</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj<span class="token operator">=</span><span class="token builtin">tuple</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment">### str() function puts the list and tuple inside the quote symbols.</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj <span class="token string">'[1, 2, 3, 4, 5]'</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> obj <span class="token string">'(1, 2, 3, 4, 5)'</span></div>
+<p>Thus Python's explicit type casting feature allows conversion of one data type to other with the help of its built-in functions.</p>
+<h2 id="conversion_function">Data Type Conversion Functions</h2>
+<p>There are several built-in functions to perform conversion from one data type to another. These functions return a new object representing the converted value.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/python-int-function.htm">Python int() function</a>
+<p>Converts x to an integer. base specifies the base if x is a string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/python-long-function.htm">Python long() function</a>
+<p>Converts x to a long integer. base specifies the base if x is a string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/python-float-function.htm">Python float() function</a>
+<p>Converts x to a floating-point number.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/python-complex-function.htm">Python complex() function</a>
+<p>Creates a complex number.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><a href="/python/python-str-function.htm">Python str() function</a>
+<p>Converts object x to a string representation.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td><a href="/python/python-repr-function.htm">Python repr() function</a>
+<p>Converts object x to an expression string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td><a href="/python/python-eval-function.htm">Python eval() function</a>
+<p>Evaluates a string and returns an object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td><a href="/python/python-tuple-function.htm">Python tuple() function</a>
+<p>Converts s to a tuple.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td><a href="/python/python-list-function.htm">Python list() function</a>
+<p>Converts s to a list.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td><a href="/python/python-set-function.htm">Python set() function</a>
+<p>Converts s to a set.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td><a href="/python/python-dict-function.htm">Python dict() function</a>
+<p>Creates a dictionary. d must be a sequence of (key,value) tuples.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td><a href="/python/python-frozenset-function.htm">Python frozenset() function</a>
+<p>Converts s to a frozen set.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td><a href="/python/python-chr-function.htm">Python chr() function</a>
+<p>Converts an integer to a character.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">14</td>
+<td><a href="/python/python-unichr-function.htm">Python unichr() function</a>
+<p>Converts an integer to a Unicode character.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">15</td>
+<td><a href="/python/python-ord-function.htm">Python ord() function</a>
+<p>Converts a single character to its integer value.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">16</td>
+<td><a href="/python/python-hex-function.htm">Python hex() function</a>
+<p>Converts an integer to a hexadecimal string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">17</td>
+<td><a href="/python/python-oct-function.htm">Python oct() function</a>
+<p>Converts an integer to an octal string.</p>
+</td>
+</tr>
+</tbody>
+</table>
+&nbsp;</div>
+</div>

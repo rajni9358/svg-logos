@@ -1,0 +1,792 @@
+<p>In <a href="/python/index.htm" target="_blank">Python</a>, a <strong>string</strong> is an immutable sequence of <a href="/python/python_unicode_system.htm" target="_blank">Unicode characters</a>. Each character has a unique <a href="/python/python_numbers.htm" target="_blank">numeric value</a> as per the UNICODE standard. But, the sequence as a whole, doesn't have any numeric value even if all the characters are digits. To differentiate the string from numbers and other identifiers, the sequence of characters is included within single, double or triple quotes in its literal representation. Hence, 1234 is a number (integer) but '1234' is a string.</p>
+<h2>Creating Python Strings</h2>
+<p>As long as the same sequence of characters is enclosed, <strong>single</strong> or <strong>double</strong> or <strong>triple</strong> quotes don't matter. Hence, following string representations are equivalent.</p>
+<h3>Example</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">'Welcome To TutorialsPoint'</span> <span class="token string">'Welcome To TutorialsPoint'</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"Welcome To TutorialsPoint"</span> <span class="token string">'Welcome To TutorialsPoint'</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token triple-quoted-string string">'''Welcome To TutorialsPoint'''</span> <span class="token string">'Welcome To TutorialsPoint'</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token triple-quoted-string string">"""Welcome To TutorialsPoint"""</span> <span class="token string">'Welcome To TutorialsPoint'</span></div>
+<p>Looking at the above statements, it is clear that, internally Python stores strings as included in single quotes.</p>
+<blockquote>In older versions strings are stored internally as 8-bit ASCII, hence it is required to attach 'u' to make it Unicode. Since Python 3, all strings are represented in Unicode. Therefore, It is no longer necessary now to add 'u' after the string.</blockquote>
+<div class="inserted-div">&nbsp;</div>
+<h2>Accessing Values in Strings</h2>
+<p>Python does not support a character type; these are treated as strings of length one, thus also considered a substring.</p>
+<p>To access substrings, use the square brackets for slicing along with the index or indices to obtain your substring. For example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var1 <span class="token operator">=</span> <span class="token string">'Hello World!'</span> var2 <span class="token operator">=</span> <span class="token string">"Python Programming"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var1[0]: "</span><span class="token punctuation">,</span> var1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var2[1:5]: "</span><span class="token punctuation">,</span> var2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">var1[0]:  H
+var2[1:5]:  ytho
+</pre>
+<h2>Updating Strings</h2>
+<p>You can "update" an existing string by (re)assigning a variable to another string. The new value can be related to its previous value or to a completely different string altogether. For example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var1 <span class="token operator">=</span> <span class="token string">'Hello World!'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Updated String :- "</span><span class="token punctuation">,</span> var1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'Python'</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Updated String :-  Hello Python
+</pre>
+<p>Visit our <a href="/python/python_modify_strings.htm" target="_blank">Python - Modify Strings</a> tutorial to know more about updating/modifying strings.</p>
+<h2>Escape Characters</h2>
+<p>Following table is a list of escape or non-printable characters that can be represented with backslash notation.</p>
+<p>An <a href="/python/python_modify_strings.htm" target="_blank">escape character</a> gets interpreted; in a single quoted as well as double quoted strings.</p>
+<div class="table-wrapper">
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">Backslash notation</th>
+<th style="text-align: center;">Hexadecimal character</th>
+<th class="ts">Description</th>
+</tr>
+<tr>
+<td>\a</td>
+<td>0x07</td>
+<td>Bell or alert</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>0x08</td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td>\cx</td>
+<td>&nbsp;</td>
+<td>Control-x</td>
+</tr>
+<tr>
+<td>\C-x</td>
+<td>&nbsp;</td>
+<td>Control-x</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>0x1b</td>
+<td>Escape</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>0x0c</td>
+<td>Formfeed</td>
+</tr>
+<tr>
+<td>\M-\C-x</td>
+<td>&nbsp;</td>
+<td>Meta-Control-x</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>0x0a</td>
+<td>Newline</td>
+</tr>
+<tr>
+<td>\nnn</td>
+<td>&nbsp;</td>
+<td>Octal notation, where n is in the range 0.7</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>0x0d</td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>0x20</td>
+<td>Space</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>0x09</td>
+<td>Tab</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>0x0b</td>
+<td>Vertical tab</td>
+</tr>
+<tr>
+<td>\x</td>
+<td>&nbsp;</td>
+<td>Character x</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;">\xnn</td>
+<td>&nbsp;</td>
+<td>Hexadecimal notation, where n is in the range 0.9, a.f, or A.F</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>String Special Operators</h2>
+<p>Assume string variable <strong>a</strong> holds 'Hello' and variable <strong>b</strong> holds 'Python', then &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Operator</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td class="ts">&amp;plus;</td>
+<td style="vertical-align: middle;">Concatenation - Adds values on either side of the operator</td>
+<td class="ts">a &amp;plus; b will give HelloPython</td>
+</tr>
+<tr>
+<td class="ts">*</td>
+<td style="vertical-align: middle;">Repetition - Creates new strings, concatenating multiple copies of the same string</td>
+<td class="ts">a*2 will give -HelloHello</td>
+</tr>
+<tr>
+<td class="ts">[]</td>
+<td style="vertical-align: middle;">Slice - Gives the character from the given index</td>
+<td class="ts">a[1] will give e</td>
+</tr>
+<tr>
+<td class="ts">[ : ]</td>
+<td style="vertical-align: middle;">Range Slice - Gives the characters from the given range</td>
+<td class="ts">a[1:4] will give ell</td>
+</tr>
+<tr>
+<td class="ts">in</td>
+<td>Membership - Returns true if a character exists in the given string</td>
+<td class="ts">H in a will give 1</td>
+</tr>
+<tr>
+<td class="ts">not in</td>
+<td>Membership - Returns true if a character does not exist in the given string</td>
+<td class="ts">M not in a will give 1</td>
+</tr>
+<tr>
+<td class="ts">r/R</td>
+<td>Raw String - Suppresses actual meaning of Escape characters. The syntax for raw strings is exactly the same as for normal strings with the exception of the raw string operator, the letter "r," which precedes the quotation marks. The "r" can be lowercase (r) or uppercase (R) and must be placed immediately preceding the first quote mark.</td>
+<td class="ts">print r'\n' prints \n and print R'\n'prints \n</td>
+</tr>
+<tr>
+<td class="ts">%</td>
+<td style="vertical-align: middle;">Format - Performs String formatting</td>
+<td>See at next section</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>String Formatting Operator</h2>
+<p>One of Python's coolest features is the string format operator %. This operator is unique to strings and makes up for the pack of having functions from C's printf() family. Following is a simple example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"My name is %s and weight is %d kg!"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">My name is Zara and weight is 21 kg!
+</pre>
+<p>Here is the list of complete set of symbols which can be used along with % &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th width="10%">Sr.No.</th>
+<th style="text-align: center;">Format Symbol &amp; Conversion</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>%c</strong></p>
+<p>character</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>%s</strong></p>
+<p>string conversion via str() prior to formatting</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>%i</strong></p>
+<p>signed decimal integer</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>%d</strong></p>
+<p>signed decimal integer</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>%u</strong></p>
+<p>unsigned decimal integer</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>%o</strong></p>
+<p>octal integer</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>%x</strong></p>
+<p>hexadecimal integer (lowercase letters)</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td>
+<p><strong>%X</strong></p>
+<p>hexadecimal integer (UPPERcase letters)</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td>
+<p><strong>%e</strong></p>
+<p>exponential notation (with lowercase 'e')</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td>
+<p><strong>%E</strong></p>
+<p>exponential notation (with UPPERcase 'E')</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td>
+<p><strong>%f</strong></p>
+<p>floating point real number</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td>
+<p><strong>%g</strong></p>
+<p>the shorter of %f and %e</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td>
+<p><strong>%G</strong></p>
+<p>the shorter of %f and %E</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Other supported symbols and functionality are listed in the following table &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Symbol &amp; Functionality</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>*</strong></p>
+<p>argument specifies width or precision</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>-</strong></p>
+<p>left justification</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>&amp;plus;</strong></p>
+<p>display the sign</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>&lt;sp&gt;</strong></p>
+<p>leave a blank space before a positive number</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>#</strong></p>
+<p>add the octal leading zero ( '0' ) or hexadecimal leading '0x' or '0X', depending on whether 'x' or 'X' were used.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>0</strong></p>
+<p>pad from left with zeros (instead of spaces)</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>%</strong></p>
+<p>'%%' leaves you with a single literal '%'</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td>
+<p><strong>(var)</strong></p>
+<p>mapping variable (dictionary arguments)</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td>
+<p><strong>m.n.</strong></p>
+<p>m is the minimum total width and n is the number of digits to display after the decimal point (if appl.)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Visit our <a href="/python/python_string_formatting.htm" target="_blank">Python - String Formatting</a> tutorial to learn about various ways to format strings.</p>
+<h2>Double Quotes in Python Strings</h2>
+<p>You want to embed some text in double quotes as a part of string, the string itself should be put in single quotes. To embed a single quoted text, string should be written in double quotes.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var <span class="token operator">=</span> <span class="token string">'Welcome to "Python Tutorial" from TutorialsPoint'</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var:"</span><span class="token punctuation">,</span> var<span class="token punctuation">)</span> var <span class="token operator">=</span> <span class="token string">"Welcome to 'Python Tutorial' from TutorialsPoint"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var:"</span><span class="token punctuation">,</span> var<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">var: Welcome to "Python Tutorial" from TutorialsPoint
+var: Welcome to 'Python Tutorial' from TutorialsPoint
+</pre>
+<h2>Triple Quotes</h2>
+<p>To form a string with triple quotes, you may use triple single quotes, or triple double quotes &minus; both versions are similar.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var <span class="token operator">=</span> <span class="token triple-quoted-string string">'''Welcome to TutorialsPoint'''</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var:"</span><span class="token punctuation">,</span> var<span class="token punctuation">)</span> var <span class="token operator">=</span> <span class="token triple-quoted-string string">"""Welcome to TutorialsPoint"""</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var:"</span><span class="token punctuation">,</span> var<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">var: Welcome to TutorialsPoint
+var: Welcome to TutorialsPoint
+</pre>
+<h2>Python Multiline Strings</h2>
+<p>Triple quoted string is useful to form a multi-line string.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var <span class="token operator">=</span> <span class="token triple-quoted-string string">''' Welcome To Python Tutorial from TutorialsPoint '''</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"var:"</span><span class="token punctuation">,</span> var<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">var:
+Welcome To
+Python Tutorial
+from TutorialsPoint
+</pre>
+<h2>Arithmetic Operators with Strings</h2>
+<p>A string is a non-numeric data type. Obviously, we cannot use arithmetic operators with string operands. Python raises TypeError in such a case.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token operator">-</span><span class="token string">"World"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above program it will generate the following error &minus;</p>
+<pre class="result notranslate">&gt;&gt;&gt; "Hello"-"World"
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+</pre>
+<h2>Getting Type of Python Strings</h2>
+<p>A string in Python is an object of str class. It can be verified with type() function.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var <span class="token operator">=</span> <span class="token string">"Welcome To TutorialsPoint"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>var<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">&lt;class 'str'&gt;
+</pre>
+<h2>Built-in String Methods</h2>
+<p>Python includes the following built-in methods to manipulate strings &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Methods with Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/string_capitalize.htm">capitalize()</a>
+<p>Capitalizes first letter of string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/casefold_method.htm">casefold()</a>
+<p>Converts all uppercase letters in string to lowercase. Similar to lower(), but works on UNICODE characters alos.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/string_center.htm">center(width, fillchar)</a>
+<p>Returns a space-padded string with the original string centered to a total of width columns.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/string_count.htm">count(str, beg= 0,end=len(string))</a>
+<p>Counts how many times str occurs in string or in a substring of string if starting index beg and ending index end are given.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><a href="/python/string_decode.htm">decode(encoding='UTF-8',errors='strict')</a>
+<p>Decodes the string using the codec registered for encoding. encoding defaults to the default string encoding.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td><a href="/python/string_encode.htm">encode(encoding='UTF-8',errors='strict')</a>
+<p>Returns encoded string version of string; on error, default is to raise a ValueError unless errors is given with 'ignore' or 'replace'.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td><a href="/python/string_endswith.htm">endswith(suffix, beg=0, end=len(string))</a>
+<p>Determines if string or a substring of string (if starting index beg and ending index end are given) ends with suffix; returns true if so and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td><a href="/python/string_expandtabs.htm">expandtabs(tabsize=8)</a>
+<p>Expands tabs in string to multiple spaces; defaults to 8 spaces per tab if tabsize not provided.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td><a href="/python/string_find.htm">find(str, beg=0 end=len(string))</a>
+<p>Determine if str occurs in string or in a substring of string if starting index beg and ending index end are given returns index if found and -1 otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td><a href="/python/python_string_format_method.htm">format(*args, **kwargs)</a>
+<p>This method is used to format the current string value.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td><a href="/python/python_string_format_map_method.htm">format_map(mapping)</a>
+<p>This method is also use to format the current string the only difference is it uses a mapping object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td><a href="/python/string_index.htm">index(str, beg=0, end=len(string))</a>
+<p>Same as find(), but raises an exception if str not found.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td><a href="/python/string_isalnum.htm">isalnum()</a>
+<p>Returns true if string has at least 1 character and all characters are alphanumeric and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">14</td>
+<td><a href="/python/string_isalpha.htm">isalpha()</a>
+<p>Returns true if string has at least 1 character and all characters are alphabetic and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">15</td>
+<td><a href="/python/isascii_method.htm">isascii()</a>
+<p>Returns True is all the characters in the string are from the ASCII character set.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">16</td>
+<td><a href="/python/string_isdecimal.htm">isdecimal()</a>
+<p>Returns true if a unicode string contains only decimal characters and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">17</td>
+<td><a href="/python/string_isdigit.htm">isdigit()</a>
+<p>Returns true if string contains only digits and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">18</td>
+<td><a href="/python/python_string_isidentifier_method.htm">isidentifier()</a>
+<p>Checks whether the string is a valid Python identifier.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">19</td>
+<td><a href="/python/string_islower.htm">islower()</a>
+<p>Returns true if string has at least 1 cased character and all cased characters are in lowercase and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">20</td>
+<td><a href="/python/string_isnumeric.htm">isnumeric()</a>
+<p>Returns true if a unicode string contains only numeric characters and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">21</td>
+<td><a href="/python/isprintable_method.htm">isprintable()</a>
+<p>Checks whether all the characters in the string are printable.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">22</td>
+<td><a href="/python/string_isspace.htm">isspace()</a>
+<p>Returns true if string contains only whitespace characters and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">23</td>
+<td><a href="/python/string_istitle.htm">istitle()</a>
+<p>Returns true if string is properly "titlecased" and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">24</td>
+<td><a href="/python/string_isupper.htm">isupper()</a>
+<p>Returns true if string has at least one cased character and all cased characters are in uppercase and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">25</td>
+<td><a href="/python/string_join.htm">join(seq)</a>
+<p>Merges (concatenates) the string representations of elements in sequence seq into a string, with separator string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">26</td>
+<td><a href="/python/string_ljust.htm">ljust(width[, fillchar])</a>
+<p>Returns a space-padded string with the original string left-justified to a total of width columns.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">27</td>
+<td><a href="/python/string_lower.htm">lower()</a>
+<p>Converts all uppercase letters in string to lowercase.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">28</td>
+<td><a href="/python/string_lstrip.htm">lstrip()</a>
+<p>Removes all leading white space in string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">29</td>
+<td><a href="/python/string_maketrans.htm">maketrans()</a>
+<p>Returns a translation table to be used in translate function.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">30</td>
+<td><a href="/python/partition_method.htm">partition()</a>
+<p>Splits the string in three string tuple at the first occurrence of separator.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">31</td>
+<td><a href="/python/removeprefix_method.htm">removeprefix()</a>
+<p>Returns a string after removing the prefix string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">32</td>
+<td><a href="/python/removesuffix_method.htm">removesuffix()</a>
+<p>Returns a string after removing the suffix string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">33</td>
+<td><a href="/python/string_replace.htm">replace(old, new [, max])</a>
+<p>Replaces all occurrences of old in string with new or at most max occurrences if max given.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">34</td>
+<td><a href="/python/string_rfind.htm">rfind(str, beg=0,end=len(string))</a>
+<p>Same as find(), but search backwards in string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">35</td>
+<td><a href="/python/string_rindex.htm">rindex( str, beg=0, end=len(string))</a>
+<p>Same as index(), but search backwards in string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">36</td>
+<td><a href="/python/string_rjust.htm">rjust(width,[, fillchar])</a>
+<p>Returns a space-padded string with the original string right-justified to a total of width columns.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">37</td>
+<td><a href="/python/rpartition_method.htm">rpartition()</a>
+<p>Splits the string in three string tuple at the ladt occurrence of separator.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">38</td>
+<td><a href="/python/rsplit_method.htm">rsplit()</a>
+<p>Splits the string from the end and returns a list of substrings.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">39</td>
+<td><a href="/python/string_rstrip.htm">rstrip()</a>
+<p>Removes all trailing whitespace of string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">40</td>
+<td><a href="/python/string_split.htm">split(str="", num=string.count(str))</a>
+<p>Splits string according to delimiter str (space if not provided) and returns list of substrings; split into at most num substrings if given.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">41</td>
+<td><a href="/python/string_splitlines.htm">splitlines( num=string.count('\n'))</a>
+<p>Splits string at all (or num) NEWLINEs and returns a list of each line with NEWLINEs removed.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">42</td>
+<td><a href="/python/string_startswith.htm">startswith(str, beg=0,end=len(string))</a>
+<p>Determines if string or a substring of string (if starting index beg and ending index end are given) starts with substring str; returns true if so and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">43</td>
+<td><a href="/python/string_strip.htm">strip([chars])</a>
+<p>Performs both lstrip() and rstrip() on string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">44</td>
+<td><a href="/python/string_swapcase.htm">swapcase()</a>
+<p>Inverts case for all letters in string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">45</td>
+<td><a href="/python/string_title.htm">title()</a>
+<p>Returns "titlecased" version of string, that is, all words begin with uppercase and the rest are lowercase.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">46</td>
+<td><a href="/python/string_translate.htm">translate(table, deletechars="")</a>
+<p>Translates string according to translation table str(256 chars), removing those in the del string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">47</td>
+<td><a href="/python/string_upper.htm">upper()</a>
+<p>Converts lowercase letters in string to uppercase.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">48</td>
+<td><a href="/python/string_zfill.htm">zfill (width)</a>
+<p>Returns original string leftpadded with zeros to a total of width characters; intended for numbers, zfill() retains any sign given (less one zero).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Built-in Functions with Strings</h2>
+<p>Following are the built-in functions we can use with strings &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center; width: 95%;">Function with Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/string_len.htm">len(list)</a>
+<p>Returns the length of the string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/string_max.htm">max(list)</a>
+<p>Returns the max alphabetical character from the string str.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/string_min.htm">min(list)</a>
+<p>Returns the min alphabetical character from the string str.</p>
+</td>
+</tr>
+</tbody>
+</table>
+&nbsp;</div>
