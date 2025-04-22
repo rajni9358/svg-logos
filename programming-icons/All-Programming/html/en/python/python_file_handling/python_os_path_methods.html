@@ -1,0 +1,193 @@
+
+<p>The <strong>os.path</strong> is another Python module, which also provides a big range of useful methods to manipulate files and directories. Most of the useful methods are listed here &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center;">Methods with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="/python/os_path_abspath.htm">os.path.abspath(path)</a>
+<p>Returns a normalized absolutized version of the pathname path.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="/python/os_path_basename.htm">os.path.basename(path)</a>
+<p>Returns the base name of pathname path.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="/python/os_path_commonprefix.htm">os.path.commonprefix(list)</a>
+<p>Returns the longest path prefix (taken character-by-character) that is a prefix of all paths in list.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="/python/os_path_dirname.htm">os.path.dirname(path)</a>
+<p>Returns the directory name of pathname path.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="/python/os_path_exists.htm">os.path.exists(path)</a>
+<p>Returns True if path refers to an existing path. Returns False for broken symbolic links.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="/python/os_path_lexists.htm">os.path.lexists(path)</a>
+<p>Returns True if path refers to an existing path. Returns True for broken symbolic links.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="/python/os_path_expanduser.htm">os.path.expanduser(path)</a>
+<p>On Unix and Windows, returns the argument with an initial component of ~ or ~user replaced by that user's home directory.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="/python/os_path_expandvars.htm">os.path.expandvars(path)</a>
+<p>Returns the argument with environment variables expanded.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="/python/os_path_getatime.htm">os.path.getatime(path)</a>
+<p>Returns the time of last access of path.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="/python/os_path_getmtime.htm">os.path.getmtime(path)</a>
+<p>Returns the time of last modification of path.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="/python/os_path_getctime.htm">os.path.getctime(path)</a>
+<p>Returns the system's ctime, which on some systems (like Unix) is the time of the last change, and, on others (like Windows), is the creation time for path.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="/python/os_path_getsize.htm">os.path.getsize(path)</a>
+<p>Returns the size, in bytes, of path.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="/python/os_path_isabs.htm">os.path.isabs(path)</a>
+<p>Returns True if path is an absolute pathname.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="/python/os_path_isfile.htm">os.path.isfile(path)</a>
+<p>Returns True if path is an existing regular file.</p>
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="/python/os_path_isdir.htm">os.path.isdir(path)</a>
+<p>Returns True if path is an existing directory.</p>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="/python/os_path_islink.htm">os.path.islink(path)</a>
+<p>Returns True if path refers to a directory entry that is a symbolic link.</p>
+</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="/python/os_path_ismount.htm">os.path.ismount(path)</a>
+<p>Returns True if pathname path is a mount point: a point in a file system where a different file system has been mounted.</p>
+</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="/python/os_path_join.htm">os.path.join(path1[, path2[, ...]])</a>
+<p>Joins one or more path components intelligently.</p>
+</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="/python/os_path_normcase.htm">os.path.normcase(path)</a>
+<p>Normalizes the case of a pathname.</p>
+</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="/python/os_path_normpath.htm">os.path.normpath(path)</a>
+<p>Normalizes a pathname.</p>
+</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="/python/os_path_realpath.htm">os.path.realpath(path)</a>
+<p>Returns the canonical path of the specified filename, eliminating any symbolic links encountered in the path</p>
+</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="/python/os_path_relpath.htm">os.path.relpath(path[, start])</a>
+<p>Returns a relative filepath to path either from the current directory or from an optional start point.</p>
+</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="/python/os_path_samefile.htm">os.path.samefile(path1, path2)</a>
+<p>Returns True if both pathname arguments refer to the same file or directory</p>
+</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="/python/os_path_sameopenfile.htm">os.path.sameopenfile(fp1, fp2)</a>
+<p>Returns True if the file descriptors fp1 and fp2 refer to the same file.</p>
+</td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="/python/os_path_samestat.htm">os.path.samestat(stat1, stat2)</a>
+<p>Returns True if the stat tuples stat1 and stat2 refer to the same file.</p>
+</td>
+</tr>
+<tr>
+<td>26</td>
+<td><a href="/python/os_path_split.htm">os.path.split(path)</a>
+<p>Splits the pathname path into a pair, (head, tail) where tail is the last pathname component and head is everything leading up to that.</p>
+</td>
+</tr>
+<tr>
+<td>27</td>
+<td><a href="/python/os_path_splitdrive.htm">os.path.splitdrive(path)</a>
+<p>Splits the pathname path into a pair (drive, tail) where drive is either a drive specification or the empty string.</p>
+</td>
+</tr>
+<tr>
+<td>28</td>
+<td><a href="/python/os_path_splitext.htm">os.path.splitext(path)</a>
+<p>Splits the pathname path into a pair (root, ext) such that root + ext == path, and ext is empty or begins with a period and contains at most one period.</p>
+</td>
+</tr>
+<tr>
+<td>29</td>
+<td><a href="/python/os_path_walk.htm">os.path.walk(path, visit, arg)</a>
+<p>Calls the function visit with arguments (arg, dirname, names) for each directory in the directory tree rooted at path (including path itself, if it is a directory).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

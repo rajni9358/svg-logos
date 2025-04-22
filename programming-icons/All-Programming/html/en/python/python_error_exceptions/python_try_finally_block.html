@@ -1,0 +1,52 @@
+<h2>Python Try-Finally Block</h2>
+<p>In Python, the try-finally block is used to ensure that certain code executes, regardless of whether an exception is raised or not. Unlike the try-except block, which handles exceptions, the try-finally block focuses on cleanup operations that must occur, ensuring resources are properly released and critical tasks are completed.</p>
+<h3>Syntax</h3>
+<p>The syntax of the <strong>try-finally</strong> statement is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token comment"># Code that might raise exceptions</span> risky_code<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token comment"># Code that always runs, regardless of exceptions</span> cleanup_code<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<blockquote>In Python, when using exception handling with try blocks, you have the option to include either except clauses to catch specific exceptions or a finally clause to ensure certain cleanup operations are executed, but not both together.</blockquote>
+<h3>Example</h3>
+<p>Let us consider an example where we want to open a file in write mode ("w"), writes some content to it, and ensures the file is closed regardless of success or failure using a finally block &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> fh <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"testfile"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> fh<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is my test file for exception handling!!"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: can\'t find file or read data"</span><span class="token punctuation">)</span> fh<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>If you do not have permission to open the file in writing mode, then it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Error: can't find file or read data
+</pre>
+<p>The same example can be written more cleanly as follows &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> fh <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"testfile"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> fh<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is my test file for exception handling!!"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Going to close the file"</span><span class="token punctuation">)</span> fh<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">except</span> IOError<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: can\'t find file or read data"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When an exception is thrown in the try block, the execution immediately passes to the <strong>finally</strong> block. After all the statements in the <strong>finally</strong> block are executed, the exception is raised again and is handled in the except statements if present in the next higher layer of the try-except statement.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Exception with Arguments</h2>
+<p>An exception can have an argument, which is a value that gives additional information about the problem. The contents of the argument vary by exception. You capture an exception's argument by supplying a variable in the except clause as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> You do your operations here <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">except</span> ExceptionType <span class="token keyword">as</span> Argument<span class="token punctuation">:</span> You can <span class="token keyword">print</span> value of Argument here<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></div>
+<p>If you write the code to handle a single exception, you can have a variable follow the name of the exception in the except statement. If you are trapping multiple exceptions, you can have a variable follow the tuple of the exception.</p>
+<p>This variable receives the value of the exception mostly containing the cause of the exception. The variable can receive a single value or multiple values in the form of a tuple. This tuple usually contains the error string, the error number, and an error location.</p>
+<h3>Example</h3>
+<p>Following is an example for a single exception &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a function here.</span> <span class="token keyword">def</span> <span class="token function">temp_convert</span><span class="token punctuation">(</span>var<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span>var<span class="token punctuation">)</span> <span class="token keyword">except</span> ValueError <span class="token keyword">as</span> Argument<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"The argument does not contain numbers\n"</span><span class="token punctuation">,</span>Argument<span class="token punctuation">)</span> <span class="token comment"># Call above function here.</span> temp_convert<span class="token punctuation">(</span><span class="token string">"xyz"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">The argument does not contain numbers
+invalid literal for int() with base 10: 'xyz'
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

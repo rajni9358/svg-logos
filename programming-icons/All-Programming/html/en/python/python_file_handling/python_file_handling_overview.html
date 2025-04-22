@@ -1,0 +1,274 @@
+<h2>File Handling in Python</h2>
+<p>File handling in Python involves interacting with files on your computer to read data from them or write data to them. Python provides several built-in functions and methods for creating, opening, reading, writing, and closing files. This tutorial covers the basics of file handling in Python with examples.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Opening a File in Python</h2>
+<p>To perform any file operation, the first step is to open the file. Python's built-in open() function is used to open files in various modes, such as reading, writing, and appending. The syntax for opening a file in Python is &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"filename"</span><span class="token punctuation">,</span> <span class="token string">"mode"</span><span class="token punctuation">)</span></div>
+<p>Where, <strong>filename</strong> is the name of the file to open and <strong>mode</strong> is the mode in which the file is opened (e.g., 'r' for reading, 'w' for writing, 'a' for appending).</p>
+<h3>File Opening Modes</h3>
+<p>Following are the file opening modes &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Modes &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p>r</p>
+<p>Opens a file for reading only. The file pointer is placed at the beginning of the file. This is the default mode.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p>rb</p>
+<p>Opens a file for reading only in binary format. The file pointer is placed at the beginning of the file. This is the default mode.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p>r+</p>
+<p>Opens a file for both reading and writing. The file pointer placed at the beginning of the file.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p>rb+</p>
+<p>Opens a file for both reading and writing in binary format. The file pointer placed at the beginning of the file.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p>w</p>
+<p>Opens a file for writing only. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p>b</p>
+<p>Opens the file in binary mode</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p>t</p>
+<p>Opens the file in text mode (default)</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p>+</p>
+<p>open file for updating (reading and writing)</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>
+<p>wb</p>
+<p>Opens a file for writing only in binary format. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>
+<p>w+</p>
+<p>Opens a file for both writing and reading. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>
+<p>wb+</p>
+<p>Opens a file for both writing and reading in binary format. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td>
+<p>a</p>
+<p>Opens a file for appending. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>
+<p>ab</p>
+<p>Opens a file for appending in binary format. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td>
+<p>a+</p>
+<p>Opens a file for both appending and reading. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.</p>
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td>
+<p>ab+</p>
+<p>Opens a file for both appending and reading in binary format. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.</p>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td>
+<p>x</p>
+<p>open for exclusive creation, failing if the file already exists</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Once a file is opened and you have one file object, you can get various information related to that file.</p>
+<h3>Example 1</h3>
+<p>In the following example, we are opening a file in different modes &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Opening a file in read mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token comment"># Opening a file in write mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token comment"># Opening a file in append mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span> <span class="token comment"># Opening a file in binary read mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"rb"</span><span class="token punctuation">)</span></div>
+<h3>Example 2</h3>
+<p>In here, we are opening a file named "foo.txt" in binary write mode ("wb"), printing its name, whether it's closed, and its opening mode, and then closing the file &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open a file</span> fo <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name of the file: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Closed or not: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>closed<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Opening mode: "</span><span class="token punctuation">,</span> fo<span class="token punctuation">.</span>mode<span class="token punctuation">)</span> fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Name of the file: foo.txt
+Closed or not: False
+Opening mode: wb
+</pre>
+<h2>Reading a File in Python</h2>
+<p>Reading a file in Python involves opening the file in a mode that allows for reading, and then using various methods to extract the data from the file. Python provides several methods to read data from a file &minus;</p>
+<ul class="list">
+<li>
+<p><strong>read() &minus;</strong> Reads the entire file.</p>
+</li>
+<li>
+<p><strong>readline() &minus;</strong> Reads one line at a time.</p>
+</li>
+<li>
+<p><strong>readlines &minus;</strong> Reads all lines into a list.</p>
+</li>
+</ul>
+<blockquote>To read a file, you need to open it in read mode. The default mode for the open() function is read mode ('r'), but it's good practice to specify it explicitly.</blockquote>
+<h3>Example: Using read() method</h3>
+<p>In the following example, we are using the read() method to read the whole file into a single string &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> content <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></div>
+<p>Following is the output obtained &minus;</p>
+<pre class="result notranslate">Hello!!!
+Welcome to TutorialsPoint!!!
+</pre>
+<h3>Example: Using readline() method</h3>
+<p>In here, we are using the readline() method to read one line at a time, making it memory efficient for reading large files line by line &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> line <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">while</span> line<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span> line <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">Hello!!!
+Welcome to TutorialsPoint!!!
+</pre>
+<h3>Example: Using readlines() method</h3>
+<p>Now, we are using the readlines() method to read the entire file and splits it into a list where each element is a line &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> lines <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> line <span class="token keyword">in</span> lines<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span></div>
+<p>We get the output as follows &minus;</p>
+<pre class="result notranslate">Hello!!!
+Welcome to TutorialsPoint!!!
+</pre>
+<h2>Writing to a File in Python</h2>
+<p>Writing to a file in Python involves opening the file in a mode that allows writing, and then using various methods to add content to the file.</p>
+<p>To write data to a file, use the write() or writelines() methods. When opening a file in write mode ('w'), the file's existing content is erased.</p>
+<h3>Example: Using the write() method</h3>
+<p>In this example, we are using the write() method to write the string passed to it to the file. If the file is opened in 'w' mode, it will overwrite any existing content. If the file is opened in 'a' mode, it will append the string to the end of the file &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Content added Successfully!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Content added Successfully!!
+</pre>
+<h3>Example: Using the writelines() method</h3>
+<p>In here, we are using the writelines() method to take a list of strings and writes each string to the file. It is useful for writing multiple lines at once &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">lines <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"First line\n"</span><span class="token punctuation">,</span> <span class="token string">"Second line\n"</span><span class="token punctuation">,</span> <span class="token string">"Third line\n"</span><span class="token punctuation">]</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token builtin">file</span><span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>lines<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Content added Successfully!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as follows &minus;</p>
+<pre class="result notranslate">Content added Successfully!!
+</pre>
+<h2>Closing a File in Python</h2>
+<p>We can close a file in Python using the close() method. Closing a file is an essential step in file handling to ensure that all resources used by the file are properly released. It is important to close files after operations are completed to prevent data loss and free up system resources.</p>
+<h3>Example</h3>
+<p>In this example, we open the file for writing, write data to the file, and then close the file using the close() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is an example."</span><span class="token punctuation">)</span> <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"File closed successfully!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>The output produced is as shown below &minus;</p>
+<pre class="result notranslate">File closed successfully!!
+</pre>
+<h2>Using "with" Statement for Automatic File Closing</h2>
+<p>The with statement is a best practice in Python for file operations because it ensures that the file is automatically closed when the block of code is exited, even if an exception occurs.</p>
+<h3>Example</h3>
+<p>In this example, the file is automatically closed at the end of the with block, so there is no need to call close() method explicitly &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is an example using the with statement."</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"File closed successfully!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">File closed successfully!!
+</pre>
+<h2>Handling Exceptions When Closing a File</h2>
+<p>When performing file operations, it is important to handle potential exceptions to ensure your program can manage errors gracefully.</p>
+<p>In Python, we use a <strong>try-finally</strong> block to handle exceptions when closing a file. The "finally" block ensures that the file is closed regardless of whether an error occurs in the try block &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"example.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is an example with exception handling."</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"File closed successfully!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">File closed successfully!!
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

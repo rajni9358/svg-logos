@@ -1,0 +1,387 @@
+<p>The <strong>OS</strong> module of Python provides a wide range of useful methods to manage files and directories. These are the built-in methods that help in interacting with operating systems. Most of the useful methods are listed here &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center;">Methods &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/os_access.htm">os.access(path, mode)</a>
+<p>Use the real uid/gid to test for access to path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/os_chdir.htm">os.chdir(path)</a>
+<p>Change the current working directory to path</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/os_chflags.htm">os.chflags(path, flags)</a>
+<p>Set the flags of path to the numeric flags.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/os_chmod.htm">os.chmod(path, mode)</a>
+<p>Change the mode of path to the numeric mode.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><a href="/python/os_chown.htm">os.chown(path, uid, gid)</a>
+<p>Change the owner and group id of path to the numeric uid and gid.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td><a href="/python/os_chroot.htm">os.chroot(path)</a>
+<p>Change the root directory of the current process to path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td><a href="/python/os_close.htm">os.close(fd)</a>
+<p>Close file descriptor fd.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td><a href="/python/os_closerange.htm">os.closerange(fd_low, fd_high)</a>
+<p>Close all file descriptors from fd_low (inclusive) to fd_high (exclusive), ignoring errors.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td><a href="/python/os_dup.htm">os.dup(fd)</a>
+<p>Return a duplicate of file descriptor fd.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td><a href="/python/os_dup2.htm">os.dup2(fd, fd2)</a>
+<p>Duplicate file descriptor fd to fd2, closing the latter first if necessary.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td><a href="/python/os_fchdir.htm">os.fchdir(fd)</a>
+<p>Change the current working directory to the directory represented by the file descriptor fd.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td><a href="/python/os_fchmod.htm">os.fchmod(fd, mode)</a>
+<p>Change the mode of the file given by fd to the numeric mode.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td><a href="/python/os_fchown.htm">os.fchown(fd, uid, gid)</a>
+<p>Change the owner and group id of the file given by fd to the numeric uid and gid.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">14</td>
+<td><a href="/python/os_fdatasync.htm">os.fdatasync(fd)</a>
+<p>Force write of file with filedescriptor fd to disk.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">15</td>
+<td><a href="/python/os_fdopen.htm">os.fdopen(fd[, mode[, bufsize]])</a>
+<p>Return an open file object connected to the file descriptor fd.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">16</td>
+<td><a href="/python/os_fpathconf.htm">os.fpathconf(fd, name)</a>
+<p>Return system configuration information relevant to an open file. name specifies the configuration value to retrieve.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">17</td>
+<td><a href="/python/os_fstat.htm">os.fstat(fd)</a>
+<p>Return status for file descriptor fd, like stat().</p>
+</td>
+</tr>
+<tr>
+<td class="ts">18</td>
+<td><a href="/python/os_fstatvfs.htm">os.fstatvfs(fd)</a>
+<p>Return information about the filesystem containing the file associated with file descriptor fd, like statvfs().</p>
+</td>
+</tr>
+<tr>
+<td class="ts">19</td>
+<td><a href="/python/os_fsync.htm">os.fsync(fd)</a>
+<p>Force write of file with filedescriptor fd to disk.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">20</td>
+<td><a href="/python/os_ftruncate.htm">os.ftruncate(fd, length)</a>
+<p>Truncate the file corresponding to file descriptor fd, so that it is at most length bytes in size.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">21</td>
+<td><a href="/python/os_getcwd.htm">os.getcwd()</a>
+<p>Return a string representing the current working directory.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">22</td>
+<td><a href="/python/os_getcwdu.htm">os.getcwdu()</a>
+<p>Return a Unicode object representing the current working directory.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">23</td>
+<td><a href="/python/os_isatty.htm">os.isatty(fd)</a>
+<p>Return True if the file descriptor fd is open and connected to a tty(-like) device, else False.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">24</td>
+<td><a href="/python/os_lchflags.htm">os.lchflags(path, flags)</a>
+<p>Set the flags of path to the numeric flags, like chflags(), but do not follow symbolic links.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">25</td>
+<td><a href="/python/os_lchmod.htm">os.lchmod(path, mode)</a>
+<p>Change the mode of path to the numeric mode.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">26</td>
+<td><a href="/python/os_lchown.htm">os.lchown(path, uid, gid)</a>
+<p>Change the owner and group id of path to the numeric uid and gid. This function will not follow symbolic links.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">27</td>
+<td><a href="/python/os_link.htm">os.link(src, dst)</a>
+<p>Create a hard link pointing to src named dst.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">28</td>
+<td><a href="/python/os_listdir.htm">os.listdir(path)</a>
+<p>Return a list containing the names of the entries in the directory given by path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">29</td>
+<td><a href="/python/os_lseek.htm">os.lseek(fd, pos, how)</a>
+<p>Set the current position of file descriptor fd to position pos, modified by how.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">30</td>
+<td><a href="/python/os_lstat.htm">os.lstat(path)</a>
+<p>Like stat(), but do not follow symbolic links.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">31</td>
+<td><a href="/python/os_major.htm">os.major(device)</a>
+<p>Extract the device major number from a raw device number.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">32</td>
+<td><a href="/python/os_makedev.htm">os.makedev(major, minor)</a>
+<p>Compose a raw device number from the major and minor device numbers.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">33</td>
+<td><a href="/python/os_makedirs.htm">os.makedirs(path[, mode])</a>
+<p>Recursive directory creation function.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">34</td>
+<td><a href="/python/os_minor.htm">os.minor(device)</a>
+<p>Extract the device minor number from a raw device number.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">35</td>
+<td><a href="/python/os_mkdir.htm">os.mkdir(path[, mode])</a>
+<p>Create a directory named path with numeric mode mode.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">36</td>
+<td><a href="/python/os_mkfifo.htm">os.mkfifo(path[, mode])</a>
+<p>Create a FIFO (a named pipe) named path with numeric mode mode. The default mode is 0666 (octal).</p>
+</td>
+</tr>
+<tr>
+<td class="ts">37</td>
+<td><a href="/python/os_mknod.htm">os.mknod(filename[, mode=0600, device])</a>
+<p>Create a filesystem node (file, device special file or named pipe) named filename.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">38</td>
+<td><a href="/python/os_open.htm">os.open(file, flags[, mode])</a>
+<p>Open the file file and set various flags according to flags and possibly its mode according to mode.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">39</td>
+<td><a href="/python/os_openpty.htm">os.openpty()</a>
+<p>Open a new pseudo-terminal pair. Return a pair of file descriptors (master, slave) for the pty and the tty, respectively.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">40</td>
+<td><a href="/python/os_pathconf.htm">os.pathconf(path, name)</a>
+<p>Return system configuration information relevant to a named file.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">41</td>
+<td><a href="/python/os_pipe.htm">os.pipe()</a>
+<p>Create a pipe. Return a pair of file descriptors (r, w) usable for reading and writing, respectively.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">42</td>
+<td><a href="/python/os_popen.htm">os.popen(command[, mode[, bufsize]])</a>
+<p>Open a pipe to or from command.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">43</td>
+<td><a href="/python/os_read.htm">os.read(fd, n)</a>
+<p>Read at most n bytes from file descriptor fd. Return a string containing the bytes read. If the end of the file referred to by fd has been reached, an empty string is returned.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">44</td>
+<td><a href="/python/os_readlink.htm">os.readlink(path)</a>
+<p>Return a string representing the path to which the symbolic link points.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">45</td>
+<td><a href="/python/os_remove.htm">os.remove(path)</a>
+<p>Remove the file path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">46</td>
+<td><a href="/python/os_removedirs.htm">os.removedirs(path)</a>
+<p>Remove directories recursively.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">47</td>
+<td><a href="/python/os_rename.htm">os.rename(src, dst)</a>
+<p>Rename the file or directory src to dst.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">48</td>
+<td><a href="/python/os_renames.htm">os.renames(old, new)</a>
+<p>Recursive directory or file renaming function.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">49</td>
+<td><a href="/python/os_rmdir.htm">os.rmdir(path)</a>
+<p>Remove the directory path</p>
+</td>
+</tr>
+<tr>
+<td class="ts">50</td>
+<td><a href="/python/os_stat.htm">os.stat(path)</a>
+<p>Perform a stat system call on the given path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">51</td>
+<td><a href="/python/os_stat_float_times.htm">os.stat_float_times([newvalue])</a>
+<p>Determine whether stat_result represents time stamps as float objects.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">52</td>
+<td><a href="/python/os_statvfs.htm">os.statvfs(path)</a>
+<p>Perform a statvfs system call on the given path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">53</td>
+<td><a href="/python/os_symlink.htm">os.symlink(src, dst)</a>
+<p>Create a symbolic link pointing to src named dst.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">54</td>
+<td><a href="/python/os_tcgetpgrp.htm">os.tcgetpgrp(fd)</a>
+<p>Return the process group associated with the terminal given by fd (an open file descriptor as returned by open()).</p>
+</td>
+</tr>
+<tr>
+<td class="ts">55</td>
+<td><a href="/python/os_tcsetpgrp.htm">os.tcsetpgrp(fd, pg)</a>
+<p>Set the process group associated with the terminal given by fd (an open file descriptor as returned by open()) to pg.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">56</td>
+<td><a href="/python/os_tempnam.htm">os.tempnam([dir[, prefix]])</a>
+<p>Return a unique path name that is reasonable for creating a temporary file.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">57</td>
+<td><a href="/python/os_tmpfile.htm">os.tmpfile()</a>
+<p>Return a new file object opened in update mode (w+b).</p>
+</td>
+</tr>
+<tr>
+<td class="ts">58</td>
+<td><a href="/python/os_tmpnam.htm">os.tmpnam()</a>
+<p>Return a unique path name that is reasonable for creating a temporary file.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">59</td>
+<td><a href="/python/os_ttyname.htm">os.ttyname(fd)</a>
+<p>Return a string which specifies the terminal device associated with file descriptor fd. If fd is not associated with a terminal device, an exception is raised.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">60</td>
+<td><a href="/python/os_unlink.htm">os.unlink(path)</a>
+<p>Remove the file path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">61</td>
+<td><a href="/python/os_utime.htm">os.utime(path, times)</a>
+<p>Set the access and modified times of the file specified by path.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">62</td>
+<td><a href="/python/os_walk.htm">os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]])</a>
+<p>Generate the file names in a directory tree by walking the tree either top-down or bottom-up.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">63</td>
+<td><a href="/python/os_write.htm">os.write(fd, str)</a>
+<p>Write the string str to file descriptor fd. Return the number of bytes actually written.</p>
+</td>
+</tr>
+</tbody>
+</table>

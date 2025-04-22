@@ -1,0 +1,153 @@
+<p>Reading from a file involves opening the file, reading its contents, and then closing the file to free up system resources. Python provides several methods to read from a file, each suited for different use cases.</p>
+<h2>Opening a File for Reading</h2>
+<p>Opening a file is the first step in reading its contents. In Python, you use the open() function to open a file. This function requires at least one argument, the filename, and optionally a mode that specifies the purpose of opening the file.</p>
+<p>To open a file for reading, you use the mode <strong>'r'</strong>. This is the default mode, so you can omit it if you only need to read from the file.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Reading a File Using read() Method</h2>
+<p>The read() method is used to read the contents of a file in Python. It reads the entire content of the file as a single string. This method is particularly useful when you need to process the whole file at once.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the read() method in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">file_object<span class="token punctuation">.</span>read<span class="token punctuation">(</span>size<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>file_object</strong> is the file object returned by the open() function.</li>
+<li><strong>size</strong> is the number of bytes to read from the file. This parameter is optional. If omitted or set to a negative value, the method reads until the end of the file.</li>
+</ul>
+<h3>Example</h3>
+<p>In the following example, we are opening the file "example.txt" in read mode. We then use the read() method to read the entire content of the file &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in read mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token comment"># Read the entire content of the file</span> content <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Print the content</span> <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token comment"># Close the file</span> <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">welcome to Tutorialspoint.
+</pre>
+<h2>Reading a File Using readline() Method</h2>
+<p>The readline() method is used to read one line from a file at a time. This method is useful when you need to process a file line by line, especially for large files where reading the entire content at once is not practical.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the readline() method in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">file_object<span class="token punctuation">.</span>readline<span class="token punctuation">(</span>size<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>file_object</strong> is the file object returned by the open() function.</li>
+<li><strong>size</strong> is an optional parameter specifying the maximum number of bytes to read from the line. If omitted or set to a negative value, the method reads until the end of the line.</li>
+</ul>
+<h3>Example</h3>
+<p>In the example below, we are opening the file "example.txt" in read mode. We then use the readline() method to read the first line of the file &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in read mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token comment"># Read the first line of the file</span> line <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Print the line</span> <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span> <span class="token comment"># Close the file</span> <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">welcome to Tutorialspoint.
+</pre>
+<h2>Reading a File Using readlines() Method</h2>
+<p>The readlines() method reads all the lines from a file and returns them as a list of strings. Each string in the list represents a single line from the file, including the newline character at the end of each line.</p>
+<p>This method is particularly useful when you need to process or analyse all lines of a file at once.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the readlines() method in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">file_object<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span>hint<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>file_object</strong> is the file object returned by the open() function.</li>
+<li><strong>hint</strong> is an optional parameter that specifies the number of bytes to read. If specified, it reads lines up to the specified bytes, not necessarily reading the entire file.</li>
+</ul>
+<h3>Example</h3>
+<p>In this example, we are opening the file "example.txt" in read mode. We then use the readlines() method to read all the lines from the file and return them as a list of strings &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in read mode</span> <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token comment"># Read all lines from the file</span> lines <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Print the lines</span> <span class="token keyword">for</span> line <span class="token keyword">in</span> lines<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token comment"># Close the file</span> <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">welcome to Tutorialspoint.
+Hi Surya.
+How are you?.
+</pre>
+<h2>Using "with" Statement</h2>
+<p>The "with" statement in Python is used for exception handling. When dealing with files, using the "with" statement ensures that the file is properly closed after reading, even if an exception occurs.</p>
+<blockquote>When you use a <strong>with</strong> statement to open a file, the file is automatically closed at the end of the block, even if an error occurs within the block.</blockquote>
+<h3>Example</h3>
+<p>Following is a simple example of using the <strong>with</strong> statement to open, read, and print the contents of a file &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Using the with statement to open a file</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> content <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></div>
+<p>We get the output as follows &minus;</p>
+<pre class="result notranslate">welcome to Tutorialspoint.
+Hi Surya.
+How are you?.
+</pre>
+<h2>Reading a File in Binary Mode</h2>
+<p>By default, read/write operation on a file object are performed on text string data. If we want to handle files of different types, such as media files (mp3), executables (exe), or pictures (jpg), we must open the file in binary mode by adding the 'b' prefix to the read/write mode.</p>
+<h3>Writing to a Binary File</h3>
+<p>Assuming that the <strong>test.bin</strong> file has already been written in binary mode &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in binary write mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.bin'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> data <span class="token operator">=</span> <span class="token string">b"Hello World"</span> f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<p>To read a binary file, we need to open it in 'rb' mode. The returned value of the read() method is then decoded before printing &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in binary read mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.bin'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Hello World
+</pre>
+<h2>Reading Integer Data From a File</h2>
+<p>To write integer data to a binary file, the integer object should be converted to bytes using the to_bytes() method.</p>
+<h3>Writing an Integer to a Binary File</h3>
+<p>Following is an example on how to write an integer to a binary file &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Convert the integer to bytes and write to a binary file</span> n <span class="token operator">=</span> <span class="token number">25</span> data <span class="token operator">=</span> n<span class="token punctuation">.</span>to_bytes<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'big'</span><span class="token punctuation">)</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.bin'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span></div>
+<h3>Reading an Integer from a Binary File</h3>
+<p>To read back the integer data from the binary file, convert the output of the read() function back to an integer using the from_bytes() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Read the binary data from the file and convert it back to an integer</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.bin'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> n <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">.</span>from_bytes<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">'big'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span></div>
+<h2>Reading Float Data From a File</h2>
+<p>For handling floating-point data in binary files, we need to use the <strong>struct</strong> module from Python's standard library. This module helps convert between Python values and C structs represented as Python bytes objects.</p>
+<h3>Writing a Float to a Binary File</h3>
+<p>To write floating-point data to a binary file, we use the struct.pack() method to convert the float into a bytes object &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> struct <span class="token comment"># Define a floating-point number</span> x <span class="token operator">=</span> <span class="token number">23.50</span> <span class="token comment"># Pack the float into a binary format</span> data <span class="token operator">=</span> struct<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token comment"># Open the file in binary write mode and write the packed data</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.bin'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span></div>
+<h3>Reading Float Numbers from a Binary File</h3>
+<p>To read floating-point data from a binary file, we use the struct.unpack() method to convert the bytes object back into a float &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> struct <span class="token comment"># Open the file in binary read mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.bin'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> <span class="token comment"># Read the binary data from the file</span> data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Unpack the binary data to retrieve the float</span> x <span class="token operator">=</span> struct<span class="token punctuation">.</span>unpack<span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment"># Print the float value</span> <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span></div>
+<h2>Reading and Writing to a File Using "r+" Mode</h2>
+<p>When a file is opened for reading (with 'r' or 'rb'), writing data is not possible unless the file is closed and reopened in a different mode. To perform both read and write operations simultaneously, we add the '+' character to the mode parameter. Using 'w+' or 'r+' mode enables using both write() and read() methods without closing the file.</p>
+<p>The File object also supports the seek() function, which allows repositioning the read/write pointer to any desired byte position within the file.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax for seek() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">fileObject<span class="token punctuation">.</span>seek<span class="token punctuation">(</span>offset<span class="token punctuation">[</span><span class="token punctuation">,</span> whence<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h3>Parameters</h3>
+<ul class="list">
+<li>
+<p><strong>offset</strong> &minus; This is the position of the read/write pointer within the file.</p>
+</li>
+<li>
+<p><strong>whence</strong> &minus; This is optional and defaults to 0 which means absolute file positioning, other values are 1 which means seek relative to the current position and 2 means seek relative to the file's end.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>The following program opens a file in 'r+' mode (read-write mode), seeks a certain position in the file, and reads data from that position &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in read-write mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fo<span class="token punctuation">:</span> <span class="token comment"># Move the read/write pointer to the 10th byte position</span> fo<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># Read 3 bytes from the current position</span> data <span class="token operator">=</span> fo<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># Print the read data</span> <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">rat
+</pre>
+<h2>Reading and Writing to a File Simultaneously in Python</h2>
+<p>When a file is opened for writing (with 'w' or 'a'), it is not possible to read from it, and attempting to do so will throw an <strong>UnsupportedOperation</strong> error.</p>
+<p>Similarly, when a file is opened for reading (with 'r' or 'rb'), writing to it is not allowed. To switch between reading and writing, you would typically need to close the file and reopen it in the desired mode.</p>
+<p>To perform both read and write operations simultaneously, you can add the '+' character to the mode parameter. Using 'w+' or 'r+' mode enables both write() and read() methods without needing to close the file.</p>
+<p>Additionally, the File object supports the seek() function, which allows you to reposition the read/write pointer to any desired byte position within the file.</p>
+<h3>Example</h3>
+<p>In this example, we open the file in 'r+' mode and write data to the file. The seek(0) method repositions the pointer to the beginning of the file &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open the file in read-write mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fo<span class="token punctuation">:</span> <span class="token comment"># Write data to the file</span> fo<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is a rat race"</span><span class="token punctuation">)</span> <span class="token comment"># Rewind the pointer to the beginning of the file</span> fo<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># Read data from the file</span> data <span class="token operator">=</span> fo<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></div>
+<h2>Reading a File from Specific Offset</h2>
+<p>We can set the he file's current position at the specified offset using the <a href="/python/file_seek.htm" target="_blank">seek()</a> method.</p>
+<ul class="list">
+<li>If the file is opened for appending using either 'a' or 'a+', any seek() operations will be undone at the next write.</li>
+<li>If the file is opened only for writing in append mode using 'a', this method is essentially a no-op, but it remains useful for files opened in append mode with reading enabled (mode 'a+').</li>
+<li>If the file is opened in text mode using 't', only offsets returned by tell() are legal. Use of other offsets causes undefined behavior.</li>
+</ul>
+<p>Note that not all file objects are seekable.</p>
+<h3>Example</h3>
+<p>The following example demonstrates how to use the seek() method to perform simultaneous read/write operations on a file. The file is opened in w+ mode (read-write mode), some data is added, and then the file is read and modified at a specific position &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Open a file in read-write mode</span> fo <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"w+"</span><span class="token punctuation">)</span> <span class="token comment"># Write initial data to the file</span> fo<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"This is a rat race"</span><span class="token punctuation">)</span> <span class="token comment"># Seek to a specific position in the file</span> fo<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># Read a few bytes from the current position</span> data <span class="token operator">=</span> fo<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Data read from position 10:"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token comment"># Seek back to the same position</span> fo<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># Overwrite the earlier contents with new text</span> fo<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"cat"</span><span class="token punctuation">)</span> <span class="token comment"># Rewind to the beginning of the file</span> fo<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># Read the entire file content</span> data <span class="token operator">=</span> fo<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated file content:"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token comment"># Close the file</span> fo<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Data read from position 10: rat
+Updated file content: This is a cat race
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

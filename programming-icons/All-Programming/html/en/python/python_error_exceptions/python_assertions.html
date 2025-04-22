@@ -1,0 +1,60 @@
+
+<h2>Assertions in Python</h2>
+<p>Assertions in Python are statements that assert or assume a condition to be true. If the condition turns out to be false, Python raises an <strong>AssertionError</strong> exception. They are used to detect programming errors that should never occur if the code is correct.</p>
+<ul class="list">
+<li>
+<p>The easiest way to think of an assertion is to liken it to a raise-if statement (or to be more accurate, a raise-if-not statement). An expression is tested, and if the result comes up false, an exception is raised.</p>
+</li>
+<li>
+<p>Assertions are carried out by the assert statement, the newest keyword to Python, introduced in version 1.5.</p>
+</li>
+<li>
+<p>Programmers often place assertions at the start of a function to check for valid input, and after a function call to check for valid output.</p>
+</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>The assert Statement</h2>
+<p>In Python, assertions use the assert keyword followed by an expression. If the expression evaluates to False, an AssertionError is raised. Following is the syntax of assertion &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">assert</span> condition<span class="token punctuation">,</span> message</div>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p><strong>condition &minus;</strong> A boolean expression that should be true.</p>
+</li>
+<li>
+<p><strong>message (optional) &minus;</strong> An optional message to be displayed if the assertion fails.</p>
+</li>
+</ul>
+<h2>Using Assertions</h2>
+<p>Assertions are generally used during development and testing phases to check conditions that should always hold true.</p>
+<h3>Example</h3>
+<p>In the following example, we are using assertions to ensure that the variable "num" falls within the valid range of "0" to "100". If the assertion fails, Python raises an "AssertionError", preventing further execution of the subsequent print statement &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Enter marks out of 100:'</span><span class="token punctuation">)</span> num <span class="token operator">=</span> <span class="token number">75</span> <span class="token keyword">assert</span> num <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token keyword">and</span> num <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Marks obtained:'</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> num <span class="token operator">=</span> <span class="token number">125</span> <span class="token keyword">assert</span> num <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token keyword">and</span> num <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Marks obtained:'</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> <span class="token comment"># This line won't be reached if assertion fails</span></div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Enter marks out of 100:
+Marks obtained: 75
+Traceback (most recent call last):
+  File "/home/cg/root/66723bd115007/main.py", line 7, in &lt;module&gt;
+    assert num &gt;= 0 and num &lt;= 100
+AssertionError
+</pre>
+<h2>Custom Error Messages</h2>
+<p>To display a custom error message when an assertion fails, include a string after the expression in the assert statement &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">assert</span> num <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token keyword">and</span> num <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">"Only numbers in the range 0-100 are accepted"</span></div>
+<h2>Handling AssertionError</h2>
+<p>Assertions can be caught and handled like any other exception using a try-except block. If they are not handled, they will terminate the program and produce a traceback &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> num <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'Enter a number: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">assert</span> num <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"Only non-negative numbers are accepted"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">except</span> AssertionError <span class="token keyword">as</span> msg<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span></div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Enter a number: -87
+Only non-negative numbers are accepted
+</pre>
+<h2>Assertions vs. Exceptions</h2>
+<p>Assertions are used to check internal state and invariants that should always be true. Whereas, exceptions helps in handling runtime errors and exceptional conditions that may occur during normal execution.</p>
+<p>Assertions are disabled by default in Python's optimized mode (-O or python -O <strong>script.py</strong>). Therefore, they should not be used to enforce constraints that are required for the correct functioning of the program in production environments.</p>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,88 @@
+
+<p>The <a href="/python/dictionary_items.htm" target="_blank">items()</a>, <a href="/python/dictionary_keys.htm" target="_blank">keys()</a>, and <a href="/python/dictionary_values.htm" target="_blank">values()</a> methods of dict class return view objects. These views are refreshed dynamically whenever any change occurs in the contents of their source <a href="/python/python_dictionaries.htm" target="_blank">dictionary</a> object.</p>
+<h2>The items() Method</h2>
+<p>The <strong>items()</strong> method returns a dict_items view object. It contains a <a href="/python/python_lists.htm" target="_blank">list</a> of <a href="/python/python_tuples.htm" target="_blank">tuples</a>, each tuple made up of respective key, value pairs.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax of the items() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Obj <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Return value</h3>
+<p>The <strong>items()</strong> method returns dict_items object which is a dynamic view of (key,value) tuples.</p>
+<h3>Example</h3>
+<p>In the following example, we first obtain the dict_items object with items() method and check how it is dynamically updated when the dictionary object is updated.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> obj <span class="token operator">=</span> numbers<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'type of obj: '</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"update numbers dictionary"</span><span class="token punctuation">)</span> numbers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token string">"Fifty"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"View automatically updated"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">type of obj: &lt;class 'dict_items'&gt;
+dict_items([(10, 'Ten'), (20, 'Twenty'), (30, 'Thirty'), (40, 'Forty')])
+update numbers dictionary
+View automatically updated
+dict_items([(10, 'Ten'), (20, 'Twenty'), (30, 'Thirty'), (40, 'Forty'), (50, 'Fifty')])
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>The keys() Method</h2>
+<p>The <strong>keys()</strong> method of dict class returns dict_keys object which is a list of all keys defined in the dictionary. It is a view object, as it gets automatically updated whenever any update action is done on the dictionary object.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax of the keys() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Obj <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Return value</h3>
+<p>The keys() method returns dict_keys object which is a view of keys in the dictionary.</p>
+<h3>Example</h3>
+<p>In this example, we are creating a dictionary named "numbers" with integer keys and their corresponding string values. Then, we obtain a view object "obj" of the keys using the keys() method, and retrieve its type and content &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> obj <span class="token operator">=</span> numbers<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'type of obj: '</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"update numbers dictionary"</span><span class="token punctuation">)</span> numbers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token string">"Fifty"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"View automatically updated"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">type of obj: &lt;class 'dict_keys'&gt;
+dict_keys([10, 20, 30, 40])
+update numbers dictionary
+View automatically updated
+dict_keys([10, 20, 30, 40, 50])
+</pre>
+<h2>The values() Method</h2>
+<p>The <strong>values()</strong> method returns a view of all the values present in the dictionary. The object is of dict_value type, which gets automatically updated.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax of the values() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Obj <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Return value</h3>
+<p>The values() method returns a dict_values view of all the values present in the dictionary.</p>
+<h3>Example</h3>
+<p>In the example below, we obtain a view object "obj" of the values using the values() method from the "numbers" dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> obj <span class="token operator">=</span> numbers<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'type of obj: '</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"update numbers dictionary"</span><span class="token punctuation">)</span> numbers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token string">"Fifty"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"View automatically updated"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">type of obj: &lt;class 'dict_values'&gt;
+dict_values(['Ten', 'Twenty', 'Thirty', 'Forty'])
+update numbers dictionary
+View automatically updated
+dict_values(['Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty'])
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

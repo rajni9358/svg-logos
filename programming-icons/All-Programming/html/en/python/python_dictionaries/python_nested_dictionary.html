@@ -1,0 +1,132 @@
+<h2>Nested Dictionaries</h2>
+<p>Nested dictionaries in Python refer to dictionaries that are stored as values within another <a href="/python/python_dictionaries.htm" target="_blank">dictionary</a>. In other words, a dictionary can contain other dictionaries as its values, forming a hierarchical or nested structure.</p>
+<p>Nested dictionaries can be modified, updated, or extended in the same way as regular dictionaries. You can add, remove, or update key-value pairs at any level of the nested structure.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating a Nested Dictionary in Python</h2>
+<p>We can create a nested dictionary in Python by defining a dictionary where the values of certain keys are themselves dictionaries. This allows for the creation of a hierarchical structure where each key-value pair represents a level of nested information. This can be achieved in several ways &minus;</p>
+<h3>Example: Direct Assignment</h3>
+<p>In this approach, we can directly assign dictionaries as values to outer keys within a single dictionary definition &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define the outer dictionary</span> nested_dict <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"outer_key1"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"inner_key1"</span><span class="token punctuation">:</span> <span class="token string">"value1"</span><span class="token punctuation">,</span> <span class="token string">"inner_key2"</span><span class="token punctuation">:</span> <span class="token string">"value2"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"outer_key2"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"inner_key3"</span><span class="token punctuation">:</span> <span class="token string">"value3"</span><span class="token punctuation">,</span> <span class="token string">"inner_key4"</span><span class="token punctuation">:</span> <span class="token string">"value4"</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>nested_dict<span class="token punctuation">)</span></div>
+</div>
+<h3>Example: Using a Loop</h3>
+<p>With this method, an empty outer dictionary is initialized, and then populated with dictionaries as values using a loop to define nested dictionaries &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define an empty outer dictionary</span> nested_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment"># Add key-value pairs to the outer dictionary</span> outer_keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"outer_key1"</span><span class="token punctuation">,</span> <span class="token string">"outer_key2"</span><span class="token punctuation">]</span> <span class="token keyword">for</span> key <span class="token keyword">in</span> outer_keys<span class="token punctuation">:</span> nested_dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"inner_key1"</span><span class="token punctuation">:</span> <span class="token string">"value1"</span><span class="token punctuation">,</span> <span class="token string">"inner_key2"</span><span class="token punctuation">:</span> <span class="token string">"value2"</span><span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>nested_dict<span class="token punctuation">)</span></div>
+</div>
+<h2>Adding Items to a Nested Dictionary in Python</h2>
+<p>Once a nested dictionary is created, we can add items to it by accessing the specific nested dictionary using its key and then assigning a new key-value pair to it.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining a nested dictionary "students" where each key represents a student's name and its value is another dictionary containing details about the student.</p>
+<p>Then, we add a new key-value pair to Alice's nested dictionary and add a new nested dictionary for a new student, Charlie &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial nested dictionary</span> students <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Alice"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Engineering"</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token comment"># Adding a new key-value pair to Alice's nested dictionary</span> students<span class="token punctuation">[</span><span class="token string">"Alice"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"GPA"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3.8</span> <span class="token comment"># Adding a new nested dictionary for a new student</span> students<span class="token punctuation">[</span><span class="token string">"Charlie"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Mathematics"</span><span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{'Alice': {'age': 21, 'major': 'Computer Science', 'GPA': 3.8}, 'Bob': {'age': 20, 'major': 'Engineering'}, 'Charlie': {'age': 22, 'major': 'Mathematics'}}
+</pre>
+<h2>Accessing Items of a Nested Dictionary in Python</h2>
+<p>Accessing items of a nested dictionary in Python refers to retrieving values stored within the nested structure by using a series of keys. Each key corresponds to a level in the hierarchy of the dictionary.</p>
+<p>We can achieve this through direct indexing with square brackets or by using the get() method</p>
+<h3>Example: Using Direct Indexing</h3>
+<p>In this approach, we access values in a nested dictionary by specifying each key in a sequence of square brackets. Each key in the sequence refers to a level in the nested dictionary, progressing one level deeper with each key &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a nested dictionary</span> students <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Alice"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Engineering"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Mathematics"</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token comment"># Access Alice's major</span> alice_major <span class="token operator">=</span> students<span class="token punctuation">[</span><span class="token string">"Alice"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"major"</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Alice's major:"</span><span class="token punctuation">,</span> alice_major<span class="token punctuation">)</span> <span class="token comment"># Access Bob's age</span> bob_age <span class="token operator">=</span> students<span class="token punctuation">[</span><span class="token string">"Bob"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Bob's age:"</span><span class="token punctuation">,</span> bob_age<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Alice's major: Computer Science
+Bob's age: 20
+</pre>
+<h3>Example: Using the get() Method</h3>
+<p>The get() method is used to fetch the value associated with the specified key. If the key does not exist, it returns a default value (which is None if not specified) &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a nested dictionary</span> students <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Alice"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Engineering"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Mathematics"</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token comment"># Access Alice's major using .get()</span> alice_major <span class="token operator">=</span> students<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"major"</span><span class="token punctuation">,</span> <span class="token string">"Not Found"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Alice's major:"</span><span class="token punctuation">,</span> alice_major<span class="token punctuation">)</span> <span class="token comment"># Safely access a non-existing key using .get()</span> dave_major <span class="token operator">=</span> students<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Dave"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"major"</span><span class="token punctuation">,</span> <span class="token string">"Not Found"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Dave's major:"</span><span class="token punctuation">,</span> dave_major<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Alice's major: Computer Science
+Dave's major: Not Found
+</pre>
+<h2>Deleting a Dictionary from a Nested Dictionary</h2>
+<p>We can delete dictionaries from a nested dictionary by using the <strong>del</strong> keyword. This keyword allows us to remove a specific key-value pair from the nested dictionary.</p>
+<h3>Example</h3>
+<p>In the following example, we delete the nested dictionary for "Bob" from "students" dictionary using the del statement &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a nested dictionary</span> students <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Alice"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Engineering"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Mathematics"</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token comment"># Delete the dictionary for Bob</span> <span class="token keyword">del</span> students<span class="token punctuation">[</span><span class="token string">"Bob"</span><span class="token punctuation">]</span> <span class="token comment"># Print the updated nested dictionary</span> <span class="token keyword">print</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">{'Alice': {'age': 21, 'major': 'Computer Science'}, 'Charlie': {'age': 22, 'major': 'Mathematics'}}
+</pre>
+<h2>Iterating Through a Nested Dictionary in Python</h2>
+<p>Iterating through a nested dictionary refers to looping through the keys and values at each level of the dictionary. This allows you to access and manipulate items within the nested structure.</p>
+<p>We can iterate through a nested dictionary by using nested loops. The outer loop iterates over the keys and values of the main dictionary, while the inner loop iterates over the keys and values of the nested dictionaries.</p>
+<h3>Example</h3>
+<p>In this example, we are iterating through the "students" dictionary, retrieving each student's name and their corresponding details by iterating through the nested dictionaries &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining a nested dictionary</span> students <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Alice"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Engineering"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Mathematics"</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token comment"># Iterating through the Nested Dictionary:</span> <span class="token keyword">for</span> student<span class="token punctuation">,</span> details <span class="token keyword">in</span> students<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Student: </span><span class="token interpolation"><span class="token punctuation">{</span>student<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> details<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f" </span><span class="token interpolation"><span class="token punctuation">{</span>key<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as shown below &minus;</p>
+<pre class="result notranslate">Student: Alice
+  age: 21
+major: Computer Science
+Student: Bob
+  age: 20
+  major: Engineering
+Student: Charlie
+  age: 22
+  major: Mathematics
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

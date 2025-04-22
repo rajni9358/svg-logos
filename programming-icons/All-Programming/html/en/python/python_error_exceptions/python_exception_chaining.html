@@ -1,0 +1,98 @@
+
+<h2>Exception Chaining</h2>
+<p>Exception chaining is a technique of handling exceptions by re-throwing a caught exception after wrapping it inside a new exception. The original exception is saved as a property (such as cause) of the new exception.</p>
+<p>During the handling of one exception 'A', it is possible that another exception 'B' may occur. It is useful to know about both exceptions in order to debug the problem. Sometimes it is useful for an exception handler to deliberately re-raise an exception, either to provide extra information or to translate an exception to another type.</p>
+<p>In Python 3.x, it is possible to implement exception chaining. If there is any unhandled exception inside an except section, it will have the exception being handled attached to it and included in the error message.</p>
+<h3>Example</h3>
+<p>In the following code snippet, trying to open a non-existent file raises FileNotFoundError. It is detected by the except block. While handling another exception is raised.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"nofile.txt"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> OSError<span class="token punctuation">:</span> <span class="token keyword">raise</span> RuntimeError<span class="token punctuation">(</span><span class="token string">"unable to handle error"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+  File "/home/cg/root/64afcad39c651/main.py", line 2, in &lt;module&gt;
+open("nofile.txt")
+FileNotFoundError: [Errno 2] No such file or directory: 'nofile.txt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/cg/root/64afcad39c651/main.py", line 4, in &lt;module&gt;
+    raise RuntimeError("unable to handle error")
+RuntimeError: unable to handle error
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>The raise . . from Statement</h2>
+<p>If you use an optional from clause in the raise statement, it indicates that an exception is a direct consequence of another. This can be useful when you are transforming exceptions. The token after from keyword should be the exception object.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"nofile.txt"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> OSError <span class="token keyword">as</span> exc<span class="token punctuation">:</span> <span class="token keyword">raise</span> RuntimeError <span class="token keyword">from</span> exc</div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+  File "/home/cg/root/64afcad39c651/main.py", line 2, in &lt;module&gt;
+    open("nofile.txt")
+FileNotFoundError: [Errno 2] No such file or directory: 'nofile.txt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/cg/root/64afcad39c651/main.py", line 4, in &lt;module&gt;
+    raise RuntimeError from exc
+RuntimeError
+</pre>
+<h2>The raise . . from None Statement</h2>
+<p>If we use None in from clause instead of exception object, the automatic exception chaining that was found in the earlier example is disabled.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"nofile.txt"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> OSError <span class="token keyword">as</span> exc<span class="token punctuation">:</span> <span class="token keyword">raise</span> RuntimeError <span class="token keyword">from</span> <span class="token boolean">None</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+ File "C:\Python311\hello.py", line 4, in &lt;module&gt;
+  raise RuntimeError from None
+RuntimeError
+</pre>
+<h2>The __context__ and __cause__ Expression</h2>
+<p>Raising an exception in the except block will automatically add the captured exception to the __context__ attribute of the new exception. Similarly, you can also add __cause__ to any exception using the expression <strong>raise ... from</strong> syntax.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"ValueError"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> ValueError <span class="token keyword">as</span> e1<span class="token punctuation">:</span> <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">"TypeError"</span><span class="token punctuation">)</span> <span class="token keyword">from</span> e1 <span class="token keyword">except</span> TypeError <span class="token keyword">as</span> e2<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"The exception was"</span><span class="token punctuation">,</span> <span class="token builtin">repr</span><span class="token punctuation">(</span>e2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Its __context__ was"</span><span class="token punctuation">,</span> <span class="token builtin">repr</span><span class="token punctuation">(</span>e2<span class="token punctuation">.</span>__context__<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Its __cause__ was"</span><span class="token punctuation">,</span> <span class="token builtin">repr</span><span class="token punctuation">(</span>e2<span class="token punctuation">.</span>__cause__<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">The exception was TypeError('TypeError')
+Its __context__ was ValueError('ValueError')
+Its __cause__ was ValueError('ValueError')
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

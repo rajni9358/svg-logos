@@ -1,0 +1,110 @@
+<div id="mainContent" class="tutorial-content">
+<h1>&nbsp;</h1>
+<div class="library-page-top-nav">&nbsp;</div>
+<div class="clearer">&nbsp;</div>
+<h2>Loop Through Dictionaries</h2>
+<p>Looping through dictionaries in Python refers to iterating over key-value pairs within the dictionary and performing operations on each pair. This allows you to access both keys and their corresponding values. There are several ways/methods for looping through dictionaries &minus;</p>
+<ul class="list">
+<li>Using a for Loop</li>
+<li>Using dict.items() method</li>
+<li>Using dict.keys() method</li>
+<li>Using dict.values() method</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Loop Through Dictionary Using a For Loop</h2>
+<p>A for loop in Python is a control flow statement that iterates over a sequence of elements. It repeatedly executes a block of code for each item in the sequence. The sequence can be a range of numbers, a list, a tuple, a string, or any iterable object.</p>
+<p>We can loop through dictionaries using a for loop in Python by iterating over the keys or key-value pairs within the dictionary. There are two common approaches &minus;</p>
+<h3>Example: Iterating over Keys</h3>
+<p>In this approach, the loop iterates over the keys of the dictionary. Inside the loop, you can access the value corresponding to each key using dictionary indexing &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">student <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span> <span class="token keyword">for</span> key <span class="token keyword">in</span> student<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> student<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">name Alice
+age 21
+major Computer Science
+</pre>
+<h3>Example: Iterating over Key-Value Pairs</h3>
+<p>In this approach, the loop iterates over the key-value pairs using the items() method of the dictionary. Each iteration provides both the key and its corresponding value &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">student <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> student<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">name Alice
+age 21
+major Computer Science
+</pre>
+<h2>Loop Through Dictionary Using dict.items() Method</h2>
+<p>The dict.items() method in Python is used to return a view object that displays a list of key-value pairs in the dictionary. This view object provides a dynamic view of the dictionary's items, allowing you to access both the keys and their corresponding values.</p>
+<p>We can loop through dictionaries using the dict.items() method by iterating over the key-value pairs returned by this method.</p>
+<h3>Example</h3>
+<p>In this example, the items() method is called on the "student" dictionary, returning a view object containing the key-value pairs. The for loop iterates over each pair, assigning the key to the variable "key" and the corresponding value to the variable "value" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">student <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span> <span class="token comment"># Looping through key-value pairs </span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> student<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span></div>
+</div>
+<p>The output produced is as shown below &minus;</p>
+<pre class="result notranslate">name Alice
+age 21
+major Computer Science
+</pre>
+<h2>Loop Through Dictionary Using dict.keys() Method</h2>
+<p>The dict.keys() method in Python is used to return a view object that displays a list of keys in the dictionary. This view object provides a dynamic view of the dictionary's keys, allowing you to access and iterate over them.</p>
+<p>We can loop through dictionaries using the dict.keys() method by iterating over the keys returned by this method. This allows us to access and iterate over the keys of the dictionary.</p>
+<h3>Example</h3>
+<p>In the example below, the keys() method is called on the "student" dictionary, returning a view object containing the keys. The for loop iterates over each key in the view object, allowing you to perform operations based on the keys of the dictionary during each iteration &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">student <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span> <span class="token comment"># Looping through keys </span> <span class="token keyword">for</span> key <span class="token keyword">in</span> student<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">name
+age
+major
+</pre>
+<h2>Loop Through Dictionary Using dict.values() Method</h2>
+<p>The dict.values() method in Python is used to return a view object that displays a list of values in the dictionary. This view object provides a dynamic view of the dictionary's values, allowing you to access and iterate over them.</p>
+<p>We can loop through dictionaries using the dict.values() method by iterating over the values returned by this method. This allows us to access and iterate over the values of the dictionary.</p>
+<h3>Example</h3>
+<p>In the following example, the values() method is called on the "student" dictionary, returning a view object containing the values &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">student <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span><span class="token punctuation">}</span> <span class="token comment"># Looping through values </span> <span class="token keyword">for</span> value <span class="token keyword">in</span> student<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">Alice
+21
+Computer Science&nbsp;</pre>
+</div>

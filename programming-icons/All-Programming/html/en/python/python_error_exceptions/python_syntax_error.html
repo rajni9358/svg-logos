@@ -1,0 +1,133 @@
+<h2>Python Syntax Errors</h2>
+<p>In Python, syntax errors are among the most common errors encountered by programmers, especially those who are new to the language. This tutorial will help you understand what syntax errors are, how to identify them, and how to fix them.</p>
+<h3>What is a Syntax Error?</h3>
+<p>A syntax error in Python (or any programming language) is an error that occurs when the code does not follow the syntax rules of the language. Syntax errors are detected by the interpreter or compiler at the time of parsing the code, and they prevent the code from being executed.</p>
+<p>These errors occur because the written code does not conform to the grammatical rules of Python, making it impossible for the interpreter to understand and execute the commands.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Common Causes of Syntax Errors</h2>
+<p>Following are the common causes of syntax errors &minus;</p>
+<ul>
+<li>Missing colons (:) after control flow statements (e.g., if, for, while) &minus; Colons are used to define the beginning of an indented block, such as in functions, loops, and conditionals.</li>
+</ul>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Error: Missing colon (:) after the if statement</span> <span class="token keyword">if</span> <span class="token boolean">True</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"This will cause a syntax error"</span><span class="token punctuation">)</span></div>
+</div>
+<ul>
+<li>Incorrect indentation &minus; Python uses indentation to define the structure of code blocks. Incorrect indentation can lead to syntax errors.</li>
+</ul>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Error: The print statement is not correctly indented</span> <span class="token keyword">def</span> <span class="token function">example_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"This will cause a syntax error"</span><span class="token punctuation">)</span></div>
+</div>
+<ul>
+<li>Misspelled keywords or incorrect use of keywords.</li>
+</ul>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Error: 'print' is misspelled as 'prnt'</span> prnt<span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span></div>
+</div>
+<ul>
+<li>Unmatched parentheses, brackets, or braces &minus; Python requires that all opening parentheses (, square brackets [, and curly braces { have corresponding closing characters ), ], and }.</li>
+</ul>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Error: The closing parenthesis is missing.</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"This will cause a syntax error"</span></div>
+</div>
+<h2>How to Identify Syntax Errors</h2>
+<p>Identifying syntax errors in Python can sometimes be easy, especially when you get a clear error message from the interpreter. However, other times, it can be a bit tricky. Here are several ways to help you identify and resolve syntax errors effectively &minus;</p>
+<h3>Reading Error Messages</h3>
+<p>When you run a Python script, the interpreter will stop execution and display an error message if it encounters a syntax error. Understanding how to read these error messages is very important.</p>
+<p><strong>Example Error Message</strong></p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">File <span class="token string">"script.py"</span><span class="token punctuation">,</span> line <span class="token number">1</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span> <span class="token operator">^</span> SyntaxError<span class="token punctuation">:</span> EOL <span class="token keyword">while</span> scanning string literal</div>
+<p>This error message can be broken down into parts &minus;</p>
+<ul class="list">
+<li>
+<p><strong>File "script.py":</strong> Indicates the file where the error occurred.</p>
+</li>
+<li><strong>line 1:</strong> Indicates the line number in the file where the interpreter detected the error.</li>
+<li>
+<p><strong>print("Hello, World!":</strong> Shows the line of code with the error.</p>
+</li>
+<li>
+<p><strong>^:</strong> Points to the location in the line where the error was detected.</p>
+</li>
+</ul>
+<h3>Using an Integrated Development Environment (IDE)</h3>
+<p>IDEs are helpful in identifying syntax errors as they often provide real-time feedback. Here are some features of IDEs that helps in identifying syntax errors &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Syntax Highlighting:</strong> IDEs highlight code syntax in different colors. If a part of the code is incorrectly colored, it may indicate a syntax error.</p>
+</li>
+<li>
+<p><strong>Linting:</strong> Tools like pylint or flake8 check your code for errors and stylistic issues.</p>
+</li>
+<li>
+<p><strong>Error Underlining:</strong> Many IDEs underline syntax errors with a red squiggly line.</p>
+</li>
+<li>
+<p><strong>Tooltips and Error Messages:</strong> Hovering over the underlined code often provides a tooltip with a description of the error.</p>
+</li>
+</ul>
+<p>Popular IDEs with these features include PyCharm, Visual Studio Code, and Jupyter Notebook.</p>
+<h3>Running Code in Small Chunks</h3>
+<p>If you have a large script, it can be useful to run the code in smaller chunks. This can help isolate the part of the code causing the syntax error.</p>
+<p>For example, if you have a script with multiple functions and you get a syntax error, try running each function independently to narrow down where the error might be.</p>
+<h3>Using Version Control</h3>
+<p>Version control systems like Git can help you track changes to your code. If you encounter a syntax error, you can compare the current version of the code with previous versions to see what changes might have introduced the error.</p>
+<h2>Fixing Syntax Errors</h2>
+<p>Fixing syntax errors in Python involves understanding the error message provided by the interpreter, identifying the exact issue in the code, and then making the necessary corrections. Here is a detailed guide on how to systematically approach and fix syntax errors &minus;</p>
+<h3>Read the Error Message Carefully</h3>
+<p>Pythons error messages are quite informative. They indicate the file name, line number, and the type of syntax error &minus;</p>
+<p><strong>Example Error Message</strong></p>
+<p>Assume we have written a print statement as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span></div>
+<p>The following message indicates that there is a syntax error on line 1, showing that somewhere in the code, a parenthesis was left unclosed, which leads to a syntax error.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">File <span class="token string">"/home/cg/root/66634a37734ad/main.py"</span><span class="token punctuation">,</span> line <span class="token number">1</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span> <span class="token operator">^</span> SyntaxError<span class="token punctuation">:</span> <span class="token string">'('</span> was never closed</div>
+<p>To fix this error, you need to ensure that every opening parenthesis has a corresponding closing parenthesis. Here is the corrected code &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Locate the Error</h3>
+<p>To locate the error, you need to go to the line number mentioned in the error message. Additionally, check not only the indicated line but also the lines around it, as sometimes the issue might stem from previous lines.</p>
+<h3>Understand the Nature of the Error</h3>
+<p>To understand the nature of the error, you need to identify what type of syntax error it is (e.g., missing parenthesis, incorrect indentation, missing colon, etc.). Also, refer to common syntax errors and their patterns.</p>
+<h3>Correct the Syntax</h3>
+<p>Based on the error type, fix the code.</p>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

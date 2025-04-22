@@ -1,0 +1,95 @@
+
+<h2>User-Defined Exceptions in Python</h2>
+<p>User-defined exceptions in Python are custom error classes that you create to handle specific error conditions in your code. They are derived from the built-in Exception class or any of its sub classes.</p>
+<p>User-defined exceptions provide more precise control over error handling in your application &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Clarity &minus;</strong> They provide specific error messages that make it clear what went wrong.</p>
+</li>
+<li>
+<p><strong>Granularity &minus;</strong> They allow you to handle different error conditions separately.</p>
+</li>
+<li>
+<p><strong>Maintainability &minus;</strong> They centralize error handling logic, making your code easier to maintain.</p>
+</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>How to Create a User-Defined Exception</h2>
+<p>To create a user-defined exception, follow these steps &minus;</p>
+<h3>Step 1 &minus; Define the Exception Class</h3>
+<p>Create a new class that inherits from the built-in "Exception" class or any other appropriate base class. This new class will serve as your custom exception.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">MyCustomError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">pass</span></div>
+<p><strong>Explanation</strong></p>
+<ul class="list">
+<li>
+<p><strong>Inheritance &minus;</strong> By inheriting from "Exception", your custom exception will have the same behaviour and attributes as the built-in exceptions.</p>
+</li>
+<li>
+<p><strong>Class Definition &minus;</strong> The class is defined using the standard Python class syntax. For simple custom exceptions, you can define an empty class body using the "pass" statement.</p>
+</li>
+</ul>
+<h3>Step 2 &minus; Initialize the Exception</h3>
+<p>Implement the "__init__" method to initialize any attributes or provide custom error messages. This allows you to pass specific information about the error when raising the exception.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">InvalidAgeError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> age<span class="token punctuation">,</span> message<span class="token operator">=</span><span class="token string">"Age must be between 18 and 100"</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> age self<span class="token punctuation">.</span>message <span class="token operator">=</span> message <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">.</span>message<span class="token punctuation">)</span></div>
+<p><strong>Explanation</strong></p>
+<ul class="list">
+<li>
+<p><strong>Attributes &minus;</strong> Define attributes such as "age" and "message" to store information about the error.</p>
+</li>
+<li>
+<p><strong>Initialization &minus;</strong> The "__init__" method initializes these attributes. The "super().__init__(self.message)" call ensures that the base "Exception" class is properly initialized with the error message.</p>
+</li>
+<li>
+<p><strong>Default Message &minus;</strong> A default message is provided, but you can override it when raising the exception.</p>
+</li>
+</ul>
+<h3>Step 3 &minus; Optionally Override "__str__" or "__repr__"</h3>
+<p>Override the "__str__" or "__repr__" method to provide a custom string representation of the exception. This is useful for printing or logging the exception.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">InvalidAgeError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> age<span class="token punctuation">,</span> message<span class="token operator">=</span><span class="token string">"Age must be between 18 and 100"</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> age self<span class="token punctuation">.</span>message <span class="token operator">=</span> message <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>message<span class="token punctuation">}</span></span><span class="token string">. Provided age: </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string">"</span></span></div>
+<p><strong>Explanation</strong></p>
+<ul class="list">
+<li>
+<p><strong>__str__ Method &minus;</strong> The "__str__" method returns a string representation of the exception. This is what will be displayed when the exception is printed.</p>
+</li>
+<li>
+<p><strong>Custom Message &minus;</strong> Customize the message to include relevant information, such as the provided age in this example.</p>
+</li>
+</ul>
+<h2>Raising User-Defined Exceptions</h2>
+<p>Once you have defined a custom exception, you can raise it in your code to signify specific error conditions. Raising user-defined exceptions involves using the <strong>raise</strong> statement, which can be done with or without custom messages and attributes.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax for raising an exception &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">raise</span> ExceptionType<span class="token punctuation">(</span>args<span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<p>In this example, the "set_age" function raises an "InvalidAgeError" if the age is outside the valid range &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">set_age</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> age <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token keyword">or</span> age <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> InvalidAgeError<span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Age is set to </span><span class="token interpolation"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+<h2>Handling User-Defined Exceptions</h2>
+<p>Handling user-defined exceptions in Python refers to using "try-except" blocks to catch and respond to the specific conditions that your custom exceptions represent. This allows your program to handle errors gracefully and continue running or to take specific actions based on the type of exception raised.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax for handling exceptions &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token comment"># Code that may raise an exception</span> <span class="token keyword">except</span> ExceptionType <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token comment"># Code to handle the exception</span></div>
+<h3>Example</h3>
+<p>In the below example, the "try" block calls "set_age" with an invalid age. The "except" block catches the "InvalidAgeError" and prints the custom error message &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">try</span><span class="token punctuation">:</span> set_age<span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">)</span> <span class="token keyword">except</span> InvalidAgeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Invalid age: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string">. </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">.</span>message<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+<h2>Complete Example</h2>
+<p>Combining all the steps, here is a complete example of creating and using a user-defined exception &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">InvalidAgeError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> age<span class="token punctuation">,</span> message<span class="token operator">=</span><span class="token string">"Age must be between 18 and 100"</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> age self<span class="token punctuation">.</span>message <span class="token operator">=</span> message <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>message<span class="token punctuation">}</span></span><span class="token string">. Provided age: </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string">"</span></span> <span class="token keyword">def</span> <span class="token function">set_age</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> age <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token keyword">or</span> age <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> InvalidAgeError<span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Age is set to </span><span class="token interpolation"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> set_age<span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">)</span> <span class="token keyword">except</span> InvalidAgeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Invalid age: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string">. </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">.</span>message<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Invalid age: 150. Age must be between 18 and 100
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

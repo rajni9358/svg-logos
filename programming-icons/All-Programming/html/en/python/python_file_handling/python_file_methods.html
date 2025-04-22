@@ -1,0 +1,104 @@
+
+<p>A file object is created using open() function. The file class defines the following methods with which different file IO operations can be done. The methods can be used with any file like object such as byte stream or network stream.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center;">Methods &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong><a href="/python/file_close.htm">file.close()</a></strong></p>
+<p>Close the file. A closed file cannot be read or written any more.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong><a href="/python/file_flush.htm">file.flush()</a></strong></p>
+<p>Flush the internal buffer, like stdio's fflush. This may be a no-op on some file-like objects.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong><a href="/python/file_fileno.htm">file.fileno()</a></strong></p>
+<p>Returns the integer file descriptor that is used by the underlying implementation to request I/O operations from the operating system.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong><a href="/python/file_isatty.htm">file.isatty()</a></strong></p>
+<p>Returns True if the file is connected to a tty(-like) device, else False.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong><a href="/python/file_next.htm">file.next()</a></strong></p>
+<p>Returns the next line from the file each time it is being called.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong><a href="/python/file_read.htm">file.read([size])</a></strong></p>
+<p>Reads at most size bytes from the file (less if the read hits EOF before obtaining size bytes).</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong><a href="/python/file_readline.htm">file.readline([size])</a></strong></p>
+<p>Reads one entire line from the file. A trailing newline character is kept in the string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td>
+<p><strong><a href="/python/file_readlines.htm">file.readlines([sizehint])</a></strong></p>
+<p>Reads until EOF using readline() and return a list containing the lines. If the optional sizehint argument is present, instead of reading up to EOF, whole lines totalling approximately sizehint bytes (possibly after rounding up to an internal buffer size) are read.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td>
+<p><strong><a href="/python/file_seek.htm">file.seek(offset[, whence])</a></strong></p>
+<p>Sets the file's current position</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td>
+<p><strong><a href="/python/file_tell.htm">file.tell()</a></strong></p>
+<p>Returns the file's current position</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td>
+<p><strong><a href="/python/file_truncate.htm">file.truncate([size])</a></strong></p>
+<p>Truncates the file's size. If the optional size argument is present, the file is truncated to (at most) that size.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td>
+<p><strong><a href="/python/file_write.htm">file.write(str)</a></strong></p>
+<p>Writes a string to the file. There is no return value.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td>
+<p><strong><a href="/python/file_writelines.htm">file.writelines(sequence)</a></strong></p>
+<p>Writes a sequence of strings to the file. The sequence can be any iterable object producing strings, typically a list of strings.</p>
+</td>
+</tr>
+</tbody>
+</table>
+&nbsp;</div>
+</div>

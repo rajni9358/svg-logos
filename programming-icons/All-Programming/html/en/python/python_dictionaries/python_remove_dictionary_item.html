@@ -1,0 +1,145 @@
+<h2>Remove Dictionary Items</h2>
+<p>Removing dictionary items in Python refers to deleting key-value pairs from an existing dictionary. Dictionaries are mutable data structures that hold pairs of keys and their associated values. Each key acts as a unique identifier, mapping to a specific value within the dictionary.</p>
+<p>Removing items from a dictionary allows you to eliminate unnecessary or unwanted data from the dictionary, thereby reducing its size and modifying its content.</p>
+<p>We can remove dictionary items in Python using various ways such as &minus;</p>
+<ul class="list">
+<li>using the del keyword</li>
+<li>using the pop() method</li>
+<li>using the popitem() method</li>
+<li>using the clear() method</li>
+<li>using dictionary comprehension</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Remove Dictionary Items Using del Keyword</h2>
+<p>The del keyword in Python is used to delete objects. In the context of dictionaries, it is used to remove an item or a slice of items from the <a href="/python/python_dictionaries.htm" target="_blank">dictionary</a>, based on the specified key(s).</p>
+<p>We can remove dictionary items using the del keyword by specifying the key of the item we want to remove. This will delete the key-value pair associated with the specified key from the dictionary.</p>
+<h3>Example 1</h3>
+<p>In the following example, we are creating a dictionary named numbers with integer keys and their corresponding string values. Then, delete the item with the key '20' using the del keyword &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before delete operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> <span class="token keyword">del</span> numbers<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before delete operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">numbers dictionary before delete operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+numbers dictionary before delete operation: 
+ {10: 'Ten', 30: 'Thirty', 40: 'Forty'}
+</pre>
+<h3>Example 2</h3>
+<p>The del keyword, when used with a dictionary object, removes the dictionary from memory &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before delete operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> <span class="token keyword">del</span> numbers <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before delete operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output obtained &minus;</p>
+<pre class="result notranslate">numbers dictionary before delete operation:
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+Traceback (most recent call last):
+ File "C:\Users\mlath\examples\main.py", line 5, in &lt;module&gt;
+  print ("numbers dictionary before delete operation: \n", numbers)
+                                                           ^^^^^^^
+NameError: name 'numbers' is not defined
+</pre>
+<h2>Remove Dictionary Items Using pop() Method</h2>
+<p>The pop() method in Python is used to remove a specified key from a dictionary and return the corresponding value. If the specified key is not found, it can optionally return a default value instead of raising a KeyError.</p>
+<p>We can remove dictionary items using the pop() method by specifying the key of the item we want to remove. This method will return the value associated with the specified key and remove the key-value pair from the dictionary.</p>
+<h3>Example</h3>
+<p>In this example, we are using the pop() method to remove the item with the key '20' (storing its value in val) from the 'numbers' dictionary. We then retrieve the updated dictionary and the popped value &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before pop operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> val <span class="token operator">=</span> numbers<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"nubvers dictionary after pop operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Value popped: "</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">numbers dictionary before pop operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+nubvers dictionary after pop operation: 
+ {10: 'Ten', 30: 'Thirty', 40: 'Forty'}
+Value popped:  Twenty
+</pre>
+<h2>Remove Dictionary Items Using popitem() Method</h2>
+<p>The popitem() method in Python is used to remove and return the last key-value pair from a dictionary.</p>
+<blockquote>Since Python 3.7, dictionaries maintain the insertion order, so popitem() removes the most recently added item. If the dictionary is empty, calling popitem() raises a KeyError.</blockquote>
+<p>We can remove dictionary items using the popitem() method by calling the method on the dictionary, which removes and returns the last key-value pair added to the dictionary.</p>
+<h3>Example</h3>
+<p>In the example below, we use the popitem() method to remove an arbitrary item from the dictionary 'numbers' (storing both its key-value pair in val), and retrieve the updated dictionary along with the popped key-value pair &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before pop operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> val <span class="token operator">=</span> numbers<span class="token punctuation">.</span>popitem<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary after pop operation: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Value popped: "</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">numbers dictionary before pop operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+numbers dictionary after pop operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty'}
+Value popped:  (40, 'Forty')
+</pre>
+<h2>Remove Dictionary Items Using clear() Method</h2>
+<p>The <a href="/python/dictionary_clear.htm" target="_blank">clear() method</a> in Python is used to remove all items from a dictionary. It effectively empties the dictionary, leaving it with a length of 0.</p>
+<p>We can remove dictionary items using the clear() method by calling it on the dictionary object. This method removes all key-value pairs from the dictionary, effectively making it empty.</p>
+<h3>Example</h3>
+<p>In the following example, we are using the clear() method to remove all items from the dictionary 'numbers' &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token string">"Ten"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">:</span><span class="token string">"Twenty"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">:</span><span class="token string">"Thirty"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token string">"Forty"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary before clear method: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span> numbers<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"numbers dictionary after clear method: \n"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">numbers dictionary before clear method: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+numbers dictionary after clear method: 
+ {}
+</pre>
+<h2>Remove Dictionary Items Using Dictionary Comprehension</h2>
+<p>Dictionary comprehension is a concise way to create dictionaries in Python. It follows the same syntax as list comprehension but generates dictionaries instead of lists. With dictionary comprehension, you can iterate over iterable objects (such as lists, tuples, or other dictionaries), apply an expression to each item, and construct key-value pairs based on the result of that expression.</p>
+<blockquote>We cannot directly remove dictionary items using dictionary comprehension. Dictionary comprehension is primarily used for creating new dictionaries based on some transformation or filtering of existing data, rather than for removing items from dictionaries.</blockquote>
+<p>If you need to remove items from a dictionary based on certain conditions, you would typically use other methods like del, pop(), or popitem(). These methods allow you to explicitly specify which items to remove from the dictionary.</p>
+<h3>Example</h3>
+<p>In this example, we remove items 'age' and 'major' from the 'student_info' dictionary based on a predefined list of keys to remove &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary</span> student_info <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token comment"># Removing items based on conditions</span> keys_to_remove <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">]</span> <span class="token keyword">for</span> key <span class="token keyword">in</span> keys_to_remove<span class="token punctuation">:</span> student_info<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>student_info<span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice'}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

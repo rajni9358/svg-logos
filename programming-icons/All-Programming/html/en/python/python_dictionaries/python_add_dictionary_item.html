@@ -1,0 +1,153 @@
+<h2>Add Dictionary Items</h2>
+<p>Adding dictionary items in Python refers to inserting new key-value pairs into an existing dictionary. Dictionaries are mutable data structures that store collections of key-value pairs, where each key is associated with a corresponding value.</p>
+<p>Adding items to a dictionary allows you to dynamically update and expand its contents as needed during program execution.</p>
+<p>We can add dictionary items in Python using various ways such as &minus;</p>
+<ul class="list">
+<li>Using square brackets</li>
+<li>Using the update() method</li>
+<li>Using a comprehension</li>
+<li>Using unpacking</li>
+<li>Using the Union Operator</li>
+<li>Using the |= Operator</li>
+<li>Using setdefault() method</li>
+<li>Using collections.defaultdict() method</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Add Dictionary Item Using Square Brackets</h2>
+<p>The square brackets <strong>[]</strong> in Python is used to access elements in sequences like lists and strings through indexing and slicing operations. Additionally, when working with dictionaries, square brackets are used to specify keys for accessing or modifying associated values.</p>
+<p>You can add items to a dictionary by specifying the key within square brackets and assigning a value to it. If the key is already present in the dictionary object, its value will be updated to val. If the key is not present in the dictionary, a new key-value pair will be added.</p>
+<h3>Example</h3>
+<p>In this example, we are creating a dictionary named "marks" with keys representing names and their corresponding integer values. Then, we add a new key-value pair 'Kavta': 58 to the dictionary using square bracket notation &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">marks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Savita"</span><span class="token punctuation">:</span><span class="token number">67</span><span class="token punctuation">,</span> <span class="token string">"Imtiaz"</span><span class="token punctuation">:</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span><span class="token number">91</span><span class="token punctuation">,</span> <span class="token string">"David"</span><span class="token punctuation">:</span><span class="token number">49</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Initial dictionary: "</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span> marks<span class="token punctuation">[</span><span class="token string">'Kavya'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">58</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Dictionary after new addition: "</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Initial dictionary:  {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+Dictionary after new addition:  {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49, 'Kavya': 58}
+</pre>
+<h2>Add Dictionary Item Using the update() Method</h2>
+<p>The update() method in Python dictionaries is used to merge the contents of another dictionary or an iterable of key-value pairs into the current dictionary. It adds or updates key-value pairs, ensuring that existing keys are updated with new values and new keys are added to the dictionary.</p>
+<p>You can add multiple items to a dictionary using the update() method by passing another dictionary or an iterable of key-value pairs.</p>
+<h3>Example</h3>
+<p>In the following example, we use the update() method to add multiple new key-value pairs 'Kavya': 58 and 'Mohan': 98 to the dictionary 'marks' &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">marks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Savita"</span><span class="token punctuation">:</span><span class="token number">67</span><span class="token punctuation">,</span> <span class="token string">"Imtiaz"</span><span class="token punctuation">:</span><span class="token number">88</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Initial dictionary: "</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span> marks<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'Kavya'</span><span class="token punctuation">:</span> <span class="token number">58</span><span class="token punctuation">,</span> <span class="token string">'Mohan'</span><span class="token punctuation">:</span> <span class="token number">98</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Dictionary after new addition: "</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">Initial dictionary:  {'Savita': 67, 'Imtiaz': 88}
+Dictionary after new addition:  {'Savita': 67, 'Imtiaz': 88, 'Kavya': 58, 'Mohan': 98}
+</pre>
+<h2>Add Dictionary Item Using Unpacking</h2>
+<p>Unpacking in Python refers to extracting individual elements from a collection, such as a list, tuple, or dictionary, and assigning them to variables in a single statement. This can be done using the <strong>*</strong> operator for iterables like lists and tuples, and the <strong>**</strong> operator for <strong>dictionaries</strong>.</p>
+<p>We can add dictionary items using unpacking by combining two or more dictionaries with the ** unpacking operator.</p>
+<h3>Example</h3>
+<p>In the example below, we are initializing two dictionaries named "marks" and "marks1", both containing names and their corresponding integer values. Then, we create a new dictionary "newmarks" by merging "marks" and "marks1" using dictionary unpacking &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">marks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Savita"</span><span class="token punctuation">:</span><span class="token number">67</span><span class="token punctuation">,</span> <span class="token string">"Imtiaz"</span><span class="token punctuation">:</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span><span class="token number">91</span><span class="token punctuation">,</span> <span class="token string">"David"</span><span class="token punctuation">:</span><span class="token number">49</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"marks dictionary before update: \n"</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span> marks1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Sharad"</span><span class="token punctuation">:</span> <span class="token number">51</span><span class="token punctuation">,</span> <span class="token string">"Mushtaq"</span><span class="token punctuation">:</span> <span class="token number">61</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span> <span class="token number">89</span><span class="token punctuation">}</span> newmarks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">**</span>marks<span class="token punctuation">,</span> <span class="token operator">**</span>marks1<span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"marks dictionary after update: \n"</span><span class="token punctuation">,</span> newmarks<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">marks dictionary before update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 89, 'David': 49, 'Sharad': 51, 'Mushtaq': 61}
+</pre>
+<h2>Add Dictionary Item Using the Union Operator (|)</h2>
+<p>The union operator in Python, represented by the <strong>|</strong> symbol, is used to combine the elements of two sets into a new set that contains all the unique elements from both sets. It can also be used with dictionaries in Python 3.9 and later to merge the contents of two dictionaries.</p>
+<p>We can add dictionary items using the union operator by merging two dictionaries into a new dictionary, which includes all key-value pairs from both dictionaries.</p>
+<h3>Example</h3>
+<p>In this example, we are using the | operator to combine the dictionaries "marks" and "marks1" with "marks1" values taking precedence in case of duplicate keys &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">marks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Savita"</span><span class="token punctuation">:</span><span class="token number">67</span><span class="token punctuation">,</span> <span class="token string">"Imtiaz"</span><span class="token punctuation">:</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span><span class="token number">91</span><span class="token punctuation">,</span> <span class="token string">"David"</span><span class="token punctuation">:</span><span class="token number">49</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"marks dictionary before update: \n"</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span> marks1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Sharad"</span><span class="token punctuation">:</span> <span class="token number">51</span><span class="token punctuation">,</span> <span class="token string">"Mushtaq"</span><span class="token punctuation">:</span> <span class="token number">61</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span> <span class="token number">89</span><span class="token punctuation">}</span> newmarks <span class="token operator">=</span> marks <span class="token operator">|</span> marks1 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"marks dictionary after update: \n"</span><span class="token punctuation">,</span> newmarks<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">marks dictionary before update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 89, 'David': 49, 'Sharad': 51, 'Mushtaq': 61}
+</pre>
+<h2>Add Dictionary Item Using the "|=" Operator</h2>
+<p>The <strong>|=</strong> operator in Python is an in-place union operator for sets and dictionaries. It updates the set or dictionary on the left-hand side with elements from the set or dictionary on the right-hand side.</p>
+<p>We can add dictionary items using the |= operator by updating an existing dictionary with key-value pairs from another dictionary. If there are overlapping keys, the values from the right-hand dictionary will overwrite those in the left-hand dictionary.</p>
+<h3>Example</h3>
+<p>In the following example, we use the |= operator to update "marks" with the key-value pairs from "marks1", with values from "marks1" taking precedence in case of duplicate keys &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">marks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Savita"</span><span class="token punctuation">:</span><span class="token number">67</span><span class="token punctuation">,</span> <span class="token string">"Imtiaz"</span><span class="token punctuation">:</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span><span class="token number">91</span><span class="token punctuation">,</span> <span class="token string">"David"</span><span class="token punctuation">:</span><span class="token number">49</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"marks dictionary before update: \n"</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span> marks1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Sharad"</span><span class="token punctuation">:</span> <span class="token number">51</span><span class="token punctuation">,</span> <span class="token string">"Mushtaq"</span><span class="token punctuation">:</span> <span class="token number">61</span><span class="token punctuation">,</span> <span class="token string">"Laxman"</span><span class="token punctuation">:</span> <span class="token number">89</span><span class="token punctuation">}</span> marks <span class="token operator">|</span><span class="token operator">=</span> marks1 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"marks dictionary after update: \n"</span><span class="token punctuation">,</span> marks<span class="token punctuation">)</span></div>
+</div>
+<p>The output produced is as shown below &minus;</p>
+<pre class="result notranslate">marks dictionary before update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 89, 'David': 49, 'Sharad': 51, 'Mushtaq': 61}
+</pre>
+<h2>Add Dictionary Item Using the setdefault() Method</h2>
+<p>The setdefault() method in Python is used to get the value of a specified key in a dictionary. If the key does not exist, it inserts the key with a specified default value.</p>
+<p>We can add dictionary items using the setdefault() method by specifying a key and a default value.</p>
+<h3>Example</h3>
+<p>In this example, we use the setdefault() to add the key-value pair "major": "Computer Science" to the "student" dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> student <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">}</span> <span class="token comment"># Adding a new key-value pair</span> major <span class="token operator">=</span> student<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">"major"</span><span class="token punctuation">,</span> <span class="token string">"Computer Science"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span></div>
+</div>
+<p>Since the key "major" does not exist, it is added with the specified default value as shown in the output below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 21, 'major': 'Computer Science'}
+</pre>
+<h2>Add Dictionary Item Using the collections.defaultdict() Method</h2>
+<p>The collections.defaultdict() method in Python is a subclass of the built-in "dict" class that creates dictionaries with default values for keys that have not been set yet. It is part of the collections module in Python's standard library.</p>
+<p>We can add dictionary items using the collections.defaultdict() method by specifying a default factory, which determines the default value for keys that have not been set yet. When accessing a missing key for the first time, the default factory is called to create a default value, and this value is inserted into the dictionary.</p>
+<h3>Example</h3>
+<p>In this example, we are initializing instances of defaultdict with different default factories: int to initialize missing keys with 0, list to initialize missing keys with an empty list, and a custom function default_value to initialize missing keys with the return value of the function &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict <span class="token comment"># Using int as the default factory to initialize missing keys with 0</span> d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment"># Incrementing the value for key 'a'</span> d<span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token comment"># Using list as the default factory to initialize missing keys with an empty list</span> d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token comment"># Appending to the list for key 'b'</span> d<span class="token punctuation">[</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token comment"># Using a custom function as the default factory</span> <span class="token keyword">def</span> <span class="token function">default_value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"N/A"</span> d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span>default_value<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span><span class="token string">"c"</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as follows &minus;</p>
+<pre class="result notranslate">defaultdict(&lt;class 'int'&gt;, {'a': 1})
+defaultdict(&lt;class 'list'&gt;, {'b': [1]})
+N/A&nbsp;</pre>

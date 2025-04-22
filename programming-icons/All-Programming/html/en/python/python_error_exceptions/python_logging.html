@@ -1,0 +1,141 @@
+
+<h2>Logging in Python</h2>
+<p>Logging is the process of recording messages during the execution of a program to provide runtime information that can be useful for monitoring, debugging, and auditing.</p>
+<p>In Python, logging is achieved through the built-in <strong>logging</strong> module, which provides a flexible framework for generating log messages.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Benefits of Logging</h2>
+<p>Following are the benefits of using logging in Python &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Debugging &minus;</strong> Helps identify and diagnose issues by capturing relevant information during program execution.</p>
+</li>
+<li>
+<p><strong>Monitoring &minus;</strong> Provides insights into the application's behavior and performance.</p>
+</li>
+<li>
+<p><strong>Auditing &minus;</strong> Keeps a record of important events and actions for security purposes.</p>
+</li>
+<li>
+<p><strong>Troubleshooting &minus;</strong> Facilitates tracking of program flow and variable values to understand unexpected behavior.</p>
+</li>
+</ul>
+<h2>Components of Python Logging</h2>
+<p>Python logging consists of several key components that work together to manage and output log messages effectively &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Logger &minus;</strong> It is the main entry point that you use to emit log messages. Each logger instance is named and can be configured independently.</p>
+</li>
+<li>
+<p><strong>Handler &minus;</strong> It determines where log messages are sent. Handlers send log messages to different destinations such as the console, files, sockets, etc.</p>
+</li>
+<li>
+<p><strong>Formatter &minus;</strong> It specifies the layout of log messages. Formatters define the structure of log records by specifying which information to include (e.g., timestamp, log level, message).</p>
+</li>
+<li>
+<p><strong>Logger Level &minus;</strong> It defines the severity level of log messages. Messages below this level are ignored. Common levels include DEBUG, INFO, WARNING, ERROR, and CRITICAL.</p>
+</li>
+<li>
+<p><strong>Filter &minus;</strong> It is the optional components that provide finer control over which log records are processed and emitted by a handler.</p>
+</li>
+</ul>
+<h2>Logging Levels</h2>
+<p>Logging levels in Python define the severity of log messages, allowing developers to categorize and filter messages based on their importance. Each logging level has a specific purpose and helps in understanding the significance of the logged information &minus;</p>
+<ul class="list">
+<li>
+<p><strong>DEBUG &minus;</strong> Detailed information, typically useful only for debugging purposes. These messages are used to trace the flow of the program and are usually not seen in production environments.</p>
+</li>
+<li>
+<p><strong>INFO &minus;</strong> Confirmation that things are working as expected. These messages provide general information about the progress of the application.</p>
+</li>
+<li>
+<p><strong>WARNING &minus;</strong> Indicates potential issues that do not prevent the program from running but might require attention. These messages can be used to alert developers about unexpected situations.</p>
+</li>
+<li>
+<p><strong>ERROR &minus;</strong> Indicates a more serious problem that prevents a specific function or operation from completing successfully. These messages highlight errors that need immediate attention but do not necessarily terminate the application.</p>
+</li>
+<li>
+<p><strong>CRITICAL &minus;</strong> The most severe level, indicating a critical error that may lead to the termination of the program. These messages are reserved for critical failures that require immediate intervention.</p>
+</li>
+</ul>
+<h3>Usage</h3>
+<p>Following are the usage scenarios for each logging level in Python applications &minus;</p>
+<p><strong>Choosing the Right Level &minus;</strong> Selecting the appropriate logging level ensures that log messages provide relevant information without cluttering the logs.</p>
+<p><strong>Setting Levels &minus;</strong> Loggers, handlers, and specific log messages can be configured with different levels to control which messages are recorded and where they are outputted.</p>
+<p><strong>Hierarchy &minus;</strong> Logging levels are hierarchical, meaning that setting a level on a logger also affects the handlers and log messages associated with it.</p>
+<h2>Basic Logging Example</h2>
+<p>Following is a basic logging example in Python to demonstrate its usage and functionality &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> logging <span class="token comment"># Configure logging</span> logging<span class="token punctuation">.</span>basicConfig<span class="token punctuation">(</span>level<span class="token operator">=</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">,</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%(asctime)s - %(levelname)s - %(message)s'</span><span class="token punctuation">)</span> <span class="token comment"># Example usage</span> <span class="token keyword">def</span> <span class="token function">calculate_sum</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Calculating sum of </span><span class="token interpolation"><span class="token punctuation">{</span>a<span class="token punctuation">}</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token punctuation">{</span>b<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> result <span class="token operator">=</span> a <span class="token operator">+</span> b logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Sum calculated successfully: </span><span class="token interpolation"><span class="token punctuation">{</span>result<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">return</span> result <span class="token comment"># Main program</span> <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span> logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"Starting the program"</span><span class="token punctuation">)</span> result <span class="token operator">=</span> calculate_sum<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"Program completed"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">2024-06-19 09:00:06,774 - INFO - Starting the program
+2024-06-19 09:00:06,774 - DEBUG - Calculating sum of 10 and 20
+2024-06-19 09:00:06,774 - INFO - Sum calculated successfully: 30
+2024-06-19 09:00:06,775 - INFO - Program completed
+</pre>
+<h2>Configuring Logging</h2>
+<p>Configuring logging in Python refers to setting up various components such as loggers, handlers, and formatters to control how and where log messages are stored and displayed. This configuration allows developers to customize logging behavior according to their application's requirements and deployment environment.</p>
+<h3>Example</h3>
+<p>In the following example, the getLogger() function retrieves or creates a named logger. Loggers are organized hierarchically based on their names. Then, handlers like "StreamHandler" (console handler) are created to define where log messages go. They can be configured with specific log levels and formatters.</p>
+<p>The formatters specify the layout of log records, determining how log messages appear when printed or stored &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> logging <span class="token comment"># Create logger</span> logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">'my_app'</span><span class="token punctuation">)</span> logger<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span> <span class="token comment"># Set global log level</span> <span class="token comment"># Create console handler and set level to debug</span> console_handler <span class="token operator">=</span> logging<span class="token punctuation">.</span>StreamHandler<span class="token punctuation">(</span><span class="token punctuation">)</span> console_handler<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span> <span class="token comment"># Create formatter</span> formatter <span class="token operator">=</span> logging<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="token punctuation">)</span> console_handler<span class="token punctuation">.</span>setFormatter<span class="token punctuation">(</span>formatter<span class="token punctuation">)</span> <span class="token comment"># Add console handler to logger</span> logger<span class="token punctuation">.</span>addHandler<span class="token punctuation">(</span>console_handler<span class="token punctuation">)</span> <span class="token comment"># Example usage</span> logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">'This is a debug message'</span><span class="token punctuation">)</span> logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">'This is an info message'</span><span class="token punctuation">)</span> logger<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string">'This is a warning message'</span><span class="token punctuation">)</span> logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">'This is an error message'</span><span class="token punctuation">)</span> logger<span class="token punctuation">.</span>critical<span class="token punctuation">(</span><span class="token string">'This is a critical message'</span><span class="token punctuation">)</span></div>
+</div>
+<p>The result produced is as shown below &minus;</p>
+<pre class="result notranslate">2024-06-19 09:05:20,852 - my_app - DEBUG - This is a debug message
+2024-06-19 09:05:20,852 - my_app - INFO - This is an info message
+2024-06-19 09:05:20,852 - my_app - WARNING - This is a warning message
+2024-06-19 09:05:20,852 - my_app - ERROR - This is an error message
+2024-06-19 09:05:20,852 - my_app - CRITICAL - This is a critical message
+</pre>
+<h2>Logging Handlers</h2>
+<p>Logging handlers in Python determine where and how log messages are processed and outputted. They play an important role in directing log messages to specific destinations such as the console, files, email, databases, or even remote servers.</p>
+<p>&nbsp;</p>
+<p>Each handler can be configured independently to control the format, log level, and other properties of the messages it processes.</p>
+<h3>Types of Logging Handlers</h3>
+<p>Following are the various types of logging handlers in Python &minus;</p>
+<ul class="list">
+<li>
+<p><strong>StreamHandler &minus;</strong> Sends log messages to streams such as sys.stdout or sys.stderr. Useful for displaying log messages in the console or command line interface.</p>
+</li>
+<li>
+<p><strong>FileHandler &minus;</strong> Writes log messages to a specified file on the file system. Useful for persistent logging and archiving of log data.</p>
+</li>
+<li>
+<p><strong>RotatingFileHandler &minus;</strong> Similar to FileHandler but automatically rotates log files based on size or time intervals. Helps manage log file sizes and prevent them from growing too large.</p>
+</li>
+<li>
+<p><strong>SMTPHandler &minus;</strong> Sends log messages as emails to designated recipients via SMTP. Useful for alerting administrators or developers about critical issues.</p>
+</li>
+<li>
+<p><strong>SysLogHandler &minus;</strong> Sends log messages to the system log on Unix-like systems (e.g., syslog). Allows integration with system-wide logging facilities.</p>
+</li>
+<li>
+<p><strong>MemoryHandler &minus;</strong> Buffers log messages in memory and sends them to a target handler after reaching a certain buffer size or timeout. Useful for batching and managing bursts of log messages.</p>
+</li>
+<li>
+<p><strong>HTTPHandler &minus;</strong> Sends log messages to a web server via HTTP or HTTPS. Enables logging messages to a remote server or logging service.</p>
+</li>
+</ul>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

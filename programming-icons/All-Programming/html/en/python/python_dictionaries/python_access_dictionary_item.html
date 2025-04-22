@@ -1,0 +1,202 @@
+<h2>Access Dictionary Items</h2>
+<p>Accessing <a href="/python/python_dictionaries.htm" target="_blank">dictionary </a> items in Python involves retrieving the values associated with specific keys within a dictionary data structure. Dictionaries are composed of key-value pairs, where each key is unique and maps to a corresponding value. Accessing dictionary items allows you to retrieve these values by providing the respective keys.</p>
+<p>There are various ways to access dictionary items in Python. They include &minus;</p>
+<ul class="list">
+<li>Using square brackets []</li>
+<li>The get() method</li>
+<li>Iterating through the dictionary using loops</li>
+<li>Or specific methods like keys(), values(), and items()</li>
+</ul>
+<p>We will discuss each method in detail to understand how to access and retrieve data from dictionaries.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Access Dictionary Items Using Square Brackets []</h2>
+<p>In Python, the square brackets <strong>[]</strong> are used for creating lists, accessing elements from a list or other iterable objects (like strings, tuples, or dictionaries), and for list comprehension.</p>
+<p>We can access dictionary items using square brackets by providing the key inside the brackets. This retrieves the value associated with the specified key.</p>
+<h3>Example 1</h3>
+<p>In the following example, we are defining a dictionary named "capitals" where each key represents a state and its corresponding value represents the capital city.</p>
+<p>Then, we access and retrieve the capital cities of Gujarat and Karnataka using their respective keys 'Gujarat' and 'Karnataka' from the dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">capitals <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Maharashtra"</span><span class="token punctuation">:</span><span class="token string">"Mumbai"</span><span class="token punctuation">,</span> <span class="token string">"Gujarat"</span><span class="token punctuation">:</span><span class="token string">"Gandhinagar"</span><span class="token punctuation">,</span> <span class="token string">"Telangana"</span><span class="token punctuation">:</span><span class="token string">"Hyderabad"</span><span class="token punctuation">,</span> <span class="token string">"Karnataka"</span><span class="token punctuation">:</span><span class="token string">"Bengaluru"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Capital of Gujarat is : "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">[</span><span class="token string">'Gujarat'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Capital of Karnataka is : "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">[</span><span class="token string">'Karnataka'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Capital of Gujarat is: Gandhinagar
+Capital of Karnataka is: Bengaluru
+</pre>
+<h3>Example 2</h3>
+<p>Python raises a <strong>KeyError</strong> if the key given inside the square brackets is not present in the dictionary object &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">capitals <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Maharashtra"</span><span class="token punctuation">:</span><span class="token string">"Mumbai"</span><span class="token punctuation">,</span> <span class="token string">"Gujarat"</span><span class="token punctuation">:</span><span class="token string">"Gandhinagar"</span><span class="token punctuation">,</span> <span class="token string">"Telangana"</span><span class="token punctuation">:</span><span class="token string">"Hyderabad"</span><span class="token punctuation">,</span> <span class="token string">"Karnataka"</span><span class="token punctuation">:</span><span class="token string">"Bengaluru"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Captial of Haryana is : "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">[</span><span class="token string">'Haryana'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the error obtained &minus;</p>
+<pre class="result notranslate">   print ("Captial of Haryana is : ", capitals['Haryana'])
+                                      ~~~~~~~~^^^^^^^^^^^
+KeyError: 'Haryana'
+</pre>
+<h2>Access Dictionary Items Using get() Method</h2>
+<p>The <a href="/python/dictionary_get.htm" target="_blank">get() method</a> in Python's dict class is used to retrieve the value associated with a specified key. If the key is not found in the dictionary, it returns a default value (usually None) instead of raising a KeyError.</p>
+<p>We can access dictionary items using the get() method by specifying the key as an argument. If the key exists in the dictionary, the method returns the associated value; otherwise, it returns a default value, which is often None unless specified otherwise.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax of the get() method in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Val <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span></div>
+<p>where, <strong>key</strong> is an immutable object used as key in the dictionary object.</p>
+<h3>Example 1</h3>
+<p>In the example below, we are defining a dictionary named "capitals" where each key-value pair maps a state to its capital city. Then, we use the get() method to retrieve the capital cities of "Gujarat" and "Karnataka" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">capitals <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Maharashtra"</span><span class="token punctuation">:</span><span class="token string">"Mumbai"</span><span class="token punctuation">,</span> <span class="token string">"Gujarat"</span><span class="token punctuation">:</span><span class="token string">"Gandhinagar"</span><span class="token punctuation">,</span> <span class="token string">"Telangana"</span><span class="token punctuation">:</span><span class="token string">"Hyderabad"</span><span class="token punctuation">,</span> <span class="token string">"Karnataka"</span><span class="token punctuation">:</span><span class="token string">"Bengaluru"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Capital of Gujarat is: "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Gujarat'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Capital of Karnataka is: "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Karnataka'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">Capital of Gujarat is: Gandhinagar
+Capital of Karnataka is: Bengaluru
+</pre>
+<h3>Example 2</h3>
+<p>Unlike the "[]" operator, the get() method doesn't raise error if the key is not found; it return None &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">capitals <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Maharashtra"</span><span class="token punctuation">:</span><span class="token string">"Mumbai"</span><span class="token punctuation">,</span> <span class="token string">"Gujarat"</span><span class="token punctuation">:</span><span class="token string">"Gandhinagar"</span><span class="token punctuation">,</span> <span class="token string">"Telangana"</span><span class="token punctuation">:</span><span class="token string">"Hyderabad"</span><span class="token punctuation">,</span> <span class="token string">"Karnataka"</span><span class="token punctuation">:</span><span class="token string">"Bengaluru"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Capital of Haryana is : "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Haryana'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Capital of Haryana is : None
+</pre>
+<h3>Example 3</h3>
+<p>The get() method accepts an optional <a href="/python/python_strings.htm" target="_blank">string</a> argument. If it is given, and if the key is not found, this string becomes the return value &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">capitals <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Maharashtra"</span><span class="token punctuation">:</span><span class="token string">"Mumbai"</span><span class="token punctuation">,</span> <span class="token string">"Gujarat"</span><span class="token punctuation">:</span><span class="token string">"Gandhinagar"</span><span class="token punctuation">,</span> <span class="token string">"Telangana"</span><span class="token punctuation">:</span><span class="token string">"Hyderabad"</span><span class="token punctuation">,</span> <span class="token string">"Karnataka"</span><span class="token punctuation">:</span><span class="token string">"Bengaluru"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Capital of Haryana is : "</span><span class="token punctuation">,</span> capitals<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Haryana'</span><span class="token punctuation">,</span> <span class="token string">'Not found'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">Capital of Haryana is: Not found
+</pre>
+<h2>Access Dictionary Keys</h2>
+<p>In a dictionary, keys are the unique identifiers associated with each value. They act as labels or indices that allow you to access and retrieve the corresponding value. Keys are immutable, meaning they cannot be changed once they are assigned. They must be of an immutable data type, such as strings, numbers, or tuples.</p>
+<p>We can access dictionary keys in Python using the keys() method, which returns a view object containing all the keys in the dictionary.</p>
+<h3>Example</h3>
+<p>In this example, we are retrieving all the keys from the dictionary "student_info" using the keys() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary with keys and values</span> student_info <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token comment"># Accessing all keys using the keys() method</span> all_keys <span class="token operator">=</span> student_info<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Keys:"</span><span class="token punctuation">,</span> all_keys<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Keys: dict_keys(['name', 'age', 'major'])
+</pre>
+<h2>Access Dictionary Values</h2>
+<p>In a dictionary, values are the data associated with each unique key. They represent the actual information stored in the dictionary and can be of any data type, such as strings, integers, lists, other dictionaries, and more. Each key in a dictionary maps to a specific value, forming a key-value pair.</p>
+<p>We can access dictionary values in Python using &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Square Brackets ([]) &minus;</strong> By providing the key inside the brackets.</p>
+</li>
+<li>
+<p><strong>The get() Method &minus;</strong> By calling the method with the key as an argument, optionally providing a default value.</p>
+</li>
+<li>
+<p><strong>The values() Method &minus;</strong> which returns a view object containing all the values in the dictionary</p>
+</li>
+</ul>
+<h3>Example 1</h3>
+<p>In this example, we are directly accessing associated with the key "name" and "age" using the sqaure brackets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary with student information</span> student_info <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token comment"># Accessing dictionary values using square brackets</span> name <span class="token operator">=</span> student_info<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> age <span class="token operator">=</span> student_info<span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Name:"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Age:"</span><span class="token punctuation">,</span> age<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Name: Alice
+Age: 21
+</pre>
+<h3>Example 2</h3>
+<p>In here, we use the get() method to retrieve the value associated with the key "major" and provide a default value of "2023" for the key "graduation_year" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary with student information</span> student_info <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token comment"># Accessing dictionary values using the get() method</span> major <span class="token operator">=</span> student_info<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"major"</span><span class="token punctuation">)</span> <span class="token comment"># Default value provided if key is not found</span> grad_year <span class="token operator">=</span> student_info<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"graduation_year"</span><span class="token punctuation">,</span> <span class="token string">"2023"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Major:"</span><span class="token punctuation">,</span> major<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Graduation Year:"</span><span class="token punctuation">,</span> grad_year<span class="token punctuation">)</span></div>
+</div>
+<p>We get the result as follows &minus;</p>
+<pre class="result notranslate">Major: Computer Science
+Graduation Year: 2023
+</pre>
+<h3>Example 3</h3>
+<p>Now, we are retrieving all the values from the dictionary "student_info" using the values() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary with keys and values</span> student_info <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token comment"># Accessing all values using the values() method</span> all_values <span class="token operator">=</span> student_info<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Values:"</span><span class="token punctuation">,</span> all_values<span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">Values: dict_values(['Alice', 21, 'Computer Science'])
+</pre>
+<h2>Access Dictionary Items Using the items() Function</h2>
+<p>The items() function in Python is used to return a view object that displays a list of a dictionary's key-value tuple pairs.</p>
+<p>This view object can be used to iterate over the dictionary's keys and values simultaneously, making it easy to access both the keys and the values in a single loop.</p>
+<h3>Example</h3>
+<p>In the following example, we are using the items() function to retrieve all the key-value pairs from the dictionary "student_info" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary with student information</span> student_info <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"major"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token comment"># Using the items() method to get key-value pairs</span> all_items <span class="token operator">=</span> student_info<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Items:"</span><span class="token punctuation">,</span> all_items<span class="token punctuation">)</span> <span class="token comment"># Iterating through the key-value pairs</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Iterating through key-value pairs:"</span><span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> all_items<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>key<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Items: dict_items([('name', 'Alice'), ('age', 21), ('major', 'Computer Science')])
+Iterating through key-value pairs:
+name: Alice
+age: 21
+major: Computer Science&nbsp;</pre>
+</div>

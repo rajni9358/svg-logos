@@ -1,0 +1,67 @@
+<h2>Dictionary Exercise 1</h2>
+<p>Python program to create a new dictionary by extracting the keys from a given <a href="/python/python_dictionaries.htm" target="_blank">dictionary</a>.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">d1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"one"</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token string">"two"</span><span class="token punctuation">:</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"three"</span><span class="token punctuation">:</span><span class="token number">33</span><span class="token punctuation">,</span> <span class="token string">"four"</span><span class="token punctuation">:</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token string">"five"</span><span class="token punctuation">:</span><span class="token number">55</span><span class="token punctuation">}</span> keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'five'</span><span class="token punctuation">]</span> d2<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> keys<span class="token punctuation">:</span> d2<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">=</span>d1<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d2<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">{'two': 22, 'five': 55}
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Dictionary Exercise 2</h2>
+<p>Python program to convert a dictionary to <a href="/python/python_lists.htm" target="_blank">list</a> of (k,v) <a href="/python/python_tuples.htm" target="_blank">tuples</a>.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">d1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"one"</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token string">"two"</span><span class="token punctuation">:</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token string">"three"</span><span class="token punctuation">:</span><span class="token number">33</span><span class="token punctuation">,</span> <span class="token string">"four"</span><span class="token punctuation">:</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token string">"five"</span><span class="token punctuation">:</span><span class="token number">55</span><span class="token punctuation">}</span> L1 <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>d1<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>L1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">[('one', 11), ('two', 22), ('three', 33), ('four', 44), ('five', 55)]
+</pre>
+<h2>Dictionary Exercise 3</h2>
+<p>Python program to remove keys with same values in a dictionary.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">d1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"one"</span><span class="token punctuation">:</span><span class="token string">"eleven"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"three"</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"11"</span><span class="token punctuation">:</span><span class="token string">"eleven"</span><span class="token punctuation">,</span> <span class="token string">"four"</span><span class="token punctuation">:</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token string">"two"</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span> vals <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>d1<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#all values</span> uvals <span class="token operator">=</span> <span class="token punctuation">[</span>v <span class="token keyword">for</span> v <span class="token keyword">in</span> vals <span class="token keyword">if</span> vals<span class="token punctuation">.</span>count<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token comment">#unique values</span> d2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span>v <span class="token keyword">in</span> d1<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> v <span class="token keyword">in</span> uvals<span class="token punctuation">:</span> d <span class="token operator">=</span> <span class="token punctuation">{</span>k<span class="token punctuation">:</span>v<span class="token punctuation">}</span> d2<span class="token punctuation">.</span>update<span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"dict with unique value:"</span><span class="token punctuation">,</span>d2<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">dict with unique value: {'three': 3, 'four': 44}
+</pre>
+<h2>Dictionary Exercise Programs</h2>
+<ul class="list">
+<li>
+<p>Python program to sort list of dictionaries by values</p>
+</li>
+<li>
+<p>Python program to extract dictionary with each key having non-numeric value from a given dictionary.</p>
+</li>
+<li>
+<p>Python program to build a dictionary from list of two item (k,v) tuples.</p>
+</li>
+<li>
+<p>Python program to merge two dictionary objects, using unpack operator.</p>
+</li>
+</ul>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

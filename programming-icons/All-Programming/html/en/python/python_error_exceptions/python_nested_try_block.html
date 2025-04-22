@@ -1,0 +1,75 @@
+<h2>Nested try Block in Python</h2>
+<p>In a Python program, if there is another <strong>try-except</strong> construct either inside either a <strong>try</strong> block or inside its <strong>except</strong> block, it is known as a nested-try block. This is needed when different blocks like outer and inner may cause different errors. To handle them, we need nested try blocks.</p>
+<p>We start with an example having a single "try &minus; except &minus; finally" construct. If the statements inside try encounter exception, it is handled by except block. With or without exception occurred, the finally block is always executed.</p>
+<h3>Example 1</h3>
+<p>Here, the <strong>try</strong> block has "division by 0" situation, hence the <strong>except</strong> block comes into play. It is equipped to handle the generic exception with Exception class.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token operator">/</span>b<span class="token punctuation">)</span> <span class="token keyword">except</span> Exception<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"General Exception"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside outer finally block"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">General Exception
+inside outer finally block
+</pre>
+<h3>Example 2</h3>
+<p>Let us now see how to nest the <strong>try</strong> constructs. We put another "try &minus; except &minus; finally" blocks inside the existing try block. The except keyword for inner try now handles generic Exception, while we ask the except block of outer try to handle ZeroDivisionError.</p>
+<p>Since exception doesn't occur in the inner <strong>try</strong> block, its corresponding generic Except isn't called. The division by 0 situation is handled by outer except clause.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token operator">/</span>b<span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"This is inner try block"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> Exception<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"General exception"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside inner finally block"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> ZeroDivisionError<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Division by 0"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside outer finally block"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Division by 0
+inside outer finally block
+</pre>
+<h3>Example 3</h3>
+<p>Now we reverse the situation. Out of the nested <strong>try</strong> blocks, the outer one doesn't have any exception raised, but the statement causing division by 0 is inside inner try, and hence the exception handled by inner <strong>except</strong> block. Obviously, the <strong>except</strong> part corresponding to outer <strong>try</strong>: will not be called upon.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"This is outer try block"</span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token operator">/</span>b<span class="token punctuation">)</span> <span class="token keyword">except</span> ZeroDivisionError<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Division by 0"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside inner finally block"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> Exception<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"General Exception"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside outer finally block"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">This is outer try block
+Division by 0
+inside inner finally block
+inside outer finally block
+</pre>
+<p>In the end, let us discuss another situation which may occur in case of nested blocks. While there isn't any exception in the outer <strong>try</strong>:, there isn't a suitable except block to handle the one inside the inner <strong>try</strong>: block.</p>
+<h3>Example 4</h3>
+<p>In the following example, the inner <strong>try</strong>: faces "division by 0", but its corresponding except: is looking for KeyError instead of ZeroDivisionError. Hence, the exception object is passed on to the except: block of the subsequent except statement matching with outer try: statement. There, the zeroDivisionError exception is trapped and handled.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token number">10</span> b<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"This is outer try block"</span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token operator">/</span>b<span class="token punctuation">)</span> <span class="token keyword">except</span> KeyError<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Key Error"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside inner finally block"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> ZeroDivisionError<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Division by 0"</span><span class="token punctuation">)</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"inside outer finally block"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">This is outer try block
+inside inner finally block
+Division by 0
+inside outer finally block
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>

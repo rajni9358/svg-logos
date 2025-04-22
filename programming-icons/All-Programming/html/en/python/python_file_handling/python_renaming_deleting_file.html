@@ -1,0 +1,38 @@
+
+<h2>Renaming and Deleting Files in Python</h2>
+<p>In Python, you can rename and delete files using built-in functions from the <strong>os</strong> module. These operations are important when managing files within a file system. In this tutorial, we will explore how to perform these actions step-by-step.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Renaming Files in Python</h2>
+<p>To rename a file in Python, you can use the <a href="/python/os_rename.htm" target="_blank"><strong>os.rename()</strong> function</a>. This function takes two arguments: the current filename and the new filename.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the rename() function in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>current_file_name<span class="token punctuation">,</span> new_file_name<span class="token punctuation">)</span></div>
+<h3>Parameters</h3>
+<p>Following are the parameters accepted by this function &minus;</p>
+<ul class="list">
+<li>
+<p><strong>current_file_name &minus;</strong> It is the current name of the file you want to rename.</p>
+</li>
+<li>
+<p><strong>new_file_name &minus;</strong> It is the new name you want to assign to the file.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>Following is an example to rename an existing file "oldfile.txt" to "newfile.txt" using the rename() function &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> os <span class="token comment"># Current file name</span> current_name <span class="token operator">=</span> <span class="token string">"oldfile.txt"</span> <span class="token comment"># New file name</span> new_name <span class="token operator">=</span> <span class="token string">"newfile.txt"</span> <span class="token comment"># Rename the file</span> os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>current_name<span class="token punctuation">,</span> new_name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File '</span><span class="token interpolation"><span class="token punctuation">{</span>current_name<span class="token punctuation">}</span></span><span class="token string">' renamed to '</span><span class="token interpolation"><span class="token punctuation">{</span>new_name<span class="token punctuation">}</span></span><span class="token string">' successfully."</span></span><span class="token punctuation">)</span></div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">File 'oldfile.txt' renamed to 'newfile.txt' successfully.
+</pre>
+<h2>Deleting Files in Python</h2>
+<p>You can delete a file in Python using the <a href="/python/os_remove.htm" target="_blank"><strong>os.remove()</strong> function</a>. This function deletes a file specified by its filename.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the remove() function in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>file_name<span class="token punctuation">)</span></div>
+<h3>Parameters</h3>
+<p>This function accepts the name of the file as a parameter which needs to be deleted.</p>
+<h3>Example</h3>
+<p>Following is an example to delete an existing file "file_to_delete.txt" using the remove() function &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> os <span class="token comment"># File to be deleted</span> file_to_delete <span class="token operator">=</span> <span class="token string">"file_to_delete.txt"</span> <span class="token comment"># Delete the file</span> os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>file_to_delete<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File '</span><span class="token interpolation"><span class="token punctuation">{</span>file_to_delete<span class="token punctuation">}</span></span><span class="token string">' deleted successfully."</span></span><span class="token punctuation">)</span></div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">File 'file_to_delete.txt' deleted successfully.&nbsp;</pre>
+</div>

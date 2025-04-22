@@ -1,0 +1,144 @@
+
+<h2>Change Dictionary Items</h2>
+<p>Changing dictionary items in Python refers to modifying the values associated with specific keys within a dictionary. This can involve updating the value of an existing key, adding a new key-value pair, or removing a key-value pair from the dictionary.</p>
+<p>Dictionaries are mutable, meaning their contents can be modified after they are created.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Modifying Dictionary Values</h2>
+<p>Modifying values in a Python dictionary refers to changing the value associated with an existing key. To achieve this, you can directly assign a new value to that key.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining a dictionary named "person" with keys 'name', 'age', and 'city' and their corresponding values. Then, we modify the value associated with the key 'age' to 26 &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Modifying the value associated with the key 'age'</span> person<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">26</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 26, 'city': 'New York'}
+</pre>
+<h2>Updating Multiple Dictionary Values</h2>
+<p>If you need to update multiple values in a dictionary at once, you can use the update() method. This method is used to update a dictionary with elements from another dictionary or an iterable of key-value pairs.</p>
+<p>The update() method adds the key-value pairs from the provided dictionary or iterable to the original dictionary, overwriting any existing keys with the new values if they already exist in the original dictionary.</p>
+<h3>Example</h3>
+<p>In the example below, we are using the update() method to modify the values associated with the keys 'age' and 'city' in the 'persons' dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Updating multiple values</span> person<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'Los Angeles'</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 26, 'city': 'Los Angeles'}
+</pre>
+<h2>Conditional Dictionary Modification</h2>
+<p>Conditional modification in a Python dictionary refers to changing the value associated with a key only if a certain condition is met.</p>
+<p>You can use an if statement to check whether a certain condition is true before modifying the value associated with a key.</p>
+<h3>Example</h3>
+<p>In this example, we conditionally modify the value associated with the key 'age' to '26' if the current value is '25' in the 'persons' dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Conditionally modifying the value associated with 'age'</span> <span class="token keyword">if</span> person<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">25</span><span class="token punctuation">:</span> person<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">26</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 26, 'city': 'New York'}
+</pre>
+<h2>Modify Dictionary by Adding New Key-Value Pairs</h2>
+<p>Adding new key-value pairs to a Python dictionary refers to inserting a new key along with its corresponding value into the dictionary.</p>
+<p>This process allows you to dynamically expand the data stored in the dictionary by including additional information as needed.</p>
+<h3>Example: Using Assignment Operator</h3>
+<p>You can add a new key-value pair to a dictionary by directly assigning a value to a new key as shown below. In the example below, the key 'city' with the value 'New York' is added to the 'person' dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span> <span class="token comment"># Adding a new key-value pair 'city': 'New York'</span> person<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'New York'</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span></div>
+</div>
+<p>The result produced is as follows &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 25, 'city': 'New York'}
+</pre>
+<h3>Example: Using the setdefault() Method</h3>
+<p>You can use the setdefault() method to add a new key-value pair to a dictionary if the key does not already exist.</p>
+<p>In this example, the setdefault() method adds the new key 'city' with the value 'New York' to the 'person' dictionary only if the key 'city' does not already exist &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span> <span class="token comment"># Adding a new key-value pair 'city': 'New York'</span> person<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'New York'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 25, 'city': 'New York'}
+</pre>
+<h2>Modify Dictionary by Removing Key-Value Pairs</h2>
+<p>Removing key-value pairs from a Python dictionary refers to deleting specific keys along with their corresponding values from the dictionary.</p>
+<p>This process allows you to selectively remove data from the dictionary based on the keys you want to eliminate.</p>
+<h3>Example: Using the <em>del</em> Statement</h3>
+<p>You can use the <strong>del</strong> statement to remove a specific key-value pair from a dictionary. In this example, the del statement removes the key 'age' along with its associated value from the 'person' dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Removing the key-value pair associated with the key 'age'</span> <span class="token keyword">del</span> person<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'city': 'New York'}
+</pre>
+<h3>Example: Using the pop() Method</h3>
+<p>You can also use the <strong>pop()</strong> method to remove a specific key-value pair from a dictionary and return the value associated with the removed key.</p>
+<p>In here, the pop() method removes the key 'age' along with its associated value from the 'person' dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Removing the key-value pair associated with the key 'age'</span> removed_age <span class="token operator">=</span> person<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Removed age:"</span><span class="token punctuation">,</span> removed_age<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'city': 'New York'}
+Removed age: 25
+</pre>
+<h3>Example: Using the popitem() Method</h3>
+<p>You can use the <strong>popitem()</strong> method as well to remove the last key-value pair from a dictionary and return it as a tuple.</p>
+<p>Now, the popitem() method removes the last key-value pair from the 'person' dictionary and returns it as a tuple &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Initial dictionary</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Removing the last key-value pair </span> removed_item <span class="token operator">=</span> person<span class="token punctuation">.</span>popitem<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Removed item:"</span><span class="token punctuation">,</span> removed_item<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 25}
+Removed item: ('city', 'New York')&nbsp;</pre>
+</div>

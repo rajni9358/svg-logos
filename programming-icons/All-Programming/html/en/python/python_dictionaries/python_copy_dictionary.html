@@ -1,0 +1,90 @@
+
+<h2>Copy Dictionaries</h2>
+<p>&nbsp;</p>
+<p>Copying dictionaries in Python refers to creating a new dictionary that contains the same key-value pairs as the original dictionary.</p>
+<p>We can copy dictionaries using various ways, depending on the requirements and the nature of the dictionary's values (whether they are mutable or immutable, nested or not).</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Shallow Copy</h2>
+<p>When you perform a shallow copy, a new dictionary object is created, but it contains references to the same objects that the original dictionary references.</p>
+<p>This is useful when you want to duplicate the structure of a dictionary without duplicating the nested objects it contains.</p>
+<p>This can be done using the copy() method or the dict() function as shown below &minus;</p>
+<h3>Example: Using the copy() Method</h3>
+<p>In the following example, we can see that changing the "age" in the shallow copy does not affect the original.</p>
+<p>However, modifying the list in the shallow copy also affects the original because the list is a mutable object and only a reference is copied.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">original_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">"skills"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Python"</span><span class="token punctuation">,</span> <span class="token string">"Data Science"</span><span class="token punctuation">]</span><span class="token punctuation">}</span> shallow_copy <span class="token operator">=</span> original_dict<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Modifying the shallow copy</span> shallow_copy<span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">26</span> shallow_copy<span class="token punctuation">[</span><span class="token string">"skills"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"Machine Learning"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original dictionary:"</span><span class="token punctuation">,</span> original_dict<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Shallow copy:"</span><span class="token punctuation">,</span> shallow_copy<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Original dictionary: {'name': 'Alice', 'age': 25, 'skills': ['Python', 'Data Science', 'Machine Learning']}
+Shallow copy: {'name': 'Alice', 'age': 26, 'skills': ['Python', 'Data Science', 'Machine Learning']}
+</pre>
+<h3>Example: Using the dict() Method</h3>
+<p>Similar to the copy() method, the <a href="/python/python-dict-function.htm" target="_blank">dict() method</a> creates a shallow copy as shown in the example below &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">original_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token string">"skills"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"C++"</span><span class="token punctuation">]</span><span class="token punctuation">}</span> shallow_copy <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>original_dict<span class="token punctuation">)</span> <span class="token comment"># Modifying the shallow copy</span> shallow_copy<span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">31</span> shallow_copy<span class="token punctuation">[</span><span class="token string">"skills"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"C#"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original dictionary:"</span><span class="token punctuation">,</span> original_dict<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Shallow copy:"</span><span class="token punctuation">,</span> shallow_copy<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Original dictionary: {'name': 'Bob', 'age': 30, 'skills': ['Java', 'C++', 'C#']}
+Shallow copy: {'name': 'Bob', 'age': 31, 'skills': ['Java', 'C++', 'C#']}
+</pre>
+<h2>Deep Copy</h2>
+<p>A deep copy creates a new dictionary and recursively copies all objects found in the original dictionary. This means that not only the dictionary itself but also all objects it contains (including nested dictionaries, lists, etc.) are copied. As a result, changes made to the deep copy do not affect the original dictionary and vice versa.</p>
+<p>We can achieve this using the deepcopy() function in the copy module.</p>
+<h3>Example</h3>
+<p>We can see in the example below that the "age" value in the deep copy is changed, the "skills" list in the deep copy is modified (an item is appended) and the "education" dictionary in the deep copy is modified, all without affecting the original &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> copy original_dict <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">"skills"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Python"</span><span class="token punctuation">,</span> <span class="token string">"Data Science"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"education"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"degree"</span><span class="token punctuation">:</span> <span class="token string">"Bachelor's"</span><span class="token punctuation">,</span> <span class="token string">"field"</span><span class="token punctuation">:</span> <span class="token string">"Computer Science"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token comment"># Creating a deep copy</span> deep_copy <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>original_dict<span class="token punctuation">)</span> <span class="token comment"># Modifying the deep copy</span> deep_copy<span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">26</span> deep_copy<span class="token punctuation">[</span><span class="token string">"skills"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"Machine Learning"</span><span class="token punctuation">)</span> deep_copy<span class="token punctuation">[</span><span class="token string">"education"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"degree"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Master's"</span> <span class="token comment"># Retrieving both dictionaries</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original dictionary:"</span><span class="token punctuation">,</span> original_dict<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Deep copy:"</span><span class="token punctuation">,</span> deep_copy<span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following output &minus;</p>
+<pre class="result notranslate">Original dictionary: {'name': 'Alice', 'age': 25, 'skills': ['Python', 'Data Science'], 'education': {'degree': "Bachelor's", 'field': 'Computer Science'}}
+Deep copy: {'name': 'Alice', 'age': 26, 'skills': ['Python', 'Data Science', 'Machine Learning'], 'education': {'degree': "Master's", 'field': 'Computer Science'}}
+</pre>
+<h2>Copy Dictionaries Using copy() Method</h2>
+<p><a href="/python/python_dictionaries.htm" target="_blank">Dictionaries</a> cannot be copied directly by using the assignment operator (=), you can use the <a href="/python/dictionary_copy.htm" target="_blank">copy() method</a> to create a shallow <strong>copy of a dictionary</strong>.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the copy() method in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">new_dict <span class="token operator">=</span> original_dict<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>Where, <strong>original_dict</strong> is the dictionary you want to copy.</p>
+<h3>Example</h3>
+<p>The following example demonstrates the creation of a shallow copy of a dictionary using the copy() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a dictionary</span> dict1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Krishna"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token string">"27"</span><span class="token punctuation">,</span> <span class="token string">"doy"</span><span class="token punctuation">:</span> <span class="token number">1992</span><span class="token punctuation">}</span> <span class="token comment"># Copying the dictionary</span> dict2 <span class="token operator">=</span> dict1<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Printing both of the dictionaries</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"dict1 :"</span><span class="token punctuation">,</span> dict1<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"dict2 :"</span><span class="token punctuation">,</span> dict2<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>We will get the output as shown below &minus;</p>
+<pre class="result notranslate">dict1 : {'name': 'Krishna', 'age': '27', 'doy': 1992}
+dict2 : {'name': 'Krishna', 'age': '27', 'doy': 1992}</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

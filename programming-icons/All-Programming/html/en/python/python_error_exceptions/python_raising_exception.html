@@ -1,0 +1,97 @@
+<div id="mainContent" class="tutorial-content">
+<h1>&nbsp;</h1>
+<div class="library-page-top-nav">&nbsp;</div>
+<div class="clearer">&nbsp;</div>
+<h2>Raising Exceptions in Python</h2>
+<p>In Python, you can raise exceptions explicitly using the <strong>raise</strong> statement. Raising exceptions allows you to indicate that an error has occurred and to control the flow of your program by handling these exceptions appropriately.</p>
+<p>Raising an exception refers to explicitly trigger an error condition in your program. This can be useful for handling situations where the normal flow of your program cannot continue due to an error or an unexpected condition.</p>
+<p>In Python, you can raise built-in exceptions like ValueError or TypeError to indicate common error conditions. Additionally, you can create and raise custom exceptions.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Raising Built-in Exceptions</h2>
+<p>You can raise any built-in exception by creating an instance of the exception class and using the raise statement. Following is the syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"This is a general exception"</span><span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<p>Here is an example where we raise a ValueError when a function receives an invalid argument &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">divide</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"Cannot divide by zero"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> a <span class="token operator">/</span> b <span class="token keyword">try</span><span class="token punctuation">:</span> result <span class="token operator">=</span> divide<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">except</span> ValueError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Cannot divide by zero
+</pre>
+<h2>Raising Custom Exceptions</h2>
+<p>In addition to built-in exceptions, you can define and raise your own custom exceptions by creating a new exception class that inherits from the base Exception class or any of its subclasses &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">MyCustomError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">pass</span> <span class="token keyword">def</span> <span class="token function">risky_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> MyCustomError<span class="token punctuation">(</span><span class="token string">"Something went wrong in risky_function"</span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> risky_function<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">except</span> MyCustomError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">Something went wrong in risky_function
+</pre>
+<h2>Creating Custom Exceptions</h2>
+<p>Custom exceptions is useful for handling specific error conditions that are unique to your application, providing more precise error reporting and control.</p>
+<p>To create a custom exception in Python, you define a new class that inherits from the built-in Exception class or any other appropriate built-in exception class. This custom exception class can have additional attributes and methods to provide more detailed context about the error condition.</p>
+<h3>Example</h3>
+<p>In this example &minus;</p>
+<ul class="list">
+<li>We define a custom exception class "InvalidAgeError" that inherits from "Exception".</li>
+<li>The <strong>__init__()</strong> method initializes the exception with the invalid age and a default error message.</li>
+<li>The <strong>set_age()</strong> function raises "InvalidAgeError" if the provided age is outside the valid range.</li>
+</ul>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">InvalidAgeError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> age<span class="token punctuation">,</span> message<span class="token operator">=</span><span class="token string">"Age must be between 18 and 100"</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> age self<span class="token punctuation">.</span>message <span class="token operator">=</span> message <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">set_age</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> age <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token keyword">or</span> age <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> InvalidAgeError<span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Age is set to </span><span class="token interpolation"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> set_age<span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">)</span> <span class="token keyword">except</span> InvalidAgeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Invalid age: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string">. </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">.</span>message<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">Invalid age: 150. Age must be between 18 and 100
+</pre>
+<h2>Re-Raising Exceptions</h2>
+<p>Sometimes, you may need to catch an exception, perform specific actions (such as logging, cleanup, or providing additional context), and then re-raise the same exception to be handled further up the call stack</p>
+<p>This is useful when you want to ensure certain actions are taken when an exception occurs, but still allow the exception to propagate for higher-level handling.</p>
+<p>To re-raise an exception in Python, you use the "raise" statement without specifying an exception, which will re-raise the last exception that was active in the current scope.</p>
+<h3>Example</h3>
+<p>In the following example &minus;</p>
+<ul class="list">
+<li>The <strong>process_file()</strong> function attempts to open and read a file.</li>
+<li>If the file is not found, it prints an error message and re-raises the "FileNotFoundError" exception.</li>
+<li>The exception is then caught and handled at a higher level in the call stack.</li>
+</ul>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">process_file</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> data <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Process data</span> <span class="token keyword">except</span> FileNotFoundError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File not found: </span><span class="token interpolation"><span class="token punctuation">{</span>filename<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Re-raise the exception</span> <span class="token keyword">raise</span> <span class="token keyword">try</span><span class="token punctuation">:</span> process_file<span class="token punctuation">(</span><span class="token string">"nonexistentfile.txt"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> FileNotFoundError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Handling the exception at a higher level"</span><span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">File not found: nonexistentfile.txt
+Handling the exception at a higher level
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>
