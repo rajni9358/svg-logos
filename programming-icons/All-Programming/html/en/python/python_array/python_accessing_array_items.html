@@ -1,0 +1,110 @@
+
+<p>Accessing an array items in Python refers to the process of retrieving the value stored at a specific index in the given array. Here, index is an numerical value that indicates the location of array items. Thus, you can use this index to access elements of an array in Python.</p>
+<blockquote>An array is a container that holds a fix number of items of the same type. Python uses <span class="tp-codespan">array module</span> to achieve the functionality like an array.</blockquote>
+<h2>Accessing array items in Python</h2>
+<p>You can use the following ways to access array items in Python &minus;</p>
+<ul class="list">
+<li>Using indexing</li>
+<li>Using iteration</li>
+<li>Using enumerate() function</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using indexing</h2>
+<p>The process of accessing elements of an array through the index is known as <span class="tp-codespan">Indexing</span>. In this process, we simply need to pass the index number inside the index operator []. The index of an array in Python starts with 0 which means you can find its first element at index 0 and the last at one less than the length of given array.</p>
+<h3>Example</h3>
+<p>The following example shows how to access elements of an array using indexing.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">211</span><span class="token punctuation">,</span> <span class="token number">311</span><span class="token punctuation">,</span> <span class="token number">411</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#indexing</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>numericArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>numericArray<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>numericArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>When you run the above code, it will show the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">111
+211
+311
+</pre>
+<h2>Using iteration</h2>
+<p>In this approach, a block of code is executed repeatedely using <a href="/python/python_loops.htm" target="_blank">loops</a> such as for and while. It is used when you want to access array elements one by one.</p>
+<h3>Example</h3>
+<p>In the below code, we use the for loop to access all the elements of the specified array.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">211</span><span class="token punctuation">,</span> <span class="token number">311</span><span class="token punctuation">,</span> <span class="token number">411</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># iteration through for loop</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> numericArray<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it will display the following result &minus;</p>
+<pre class="result notranslate">111
+211
+311
+411
+511
+</pre>
+<h2>Using enumerate() function</h2>
+<p>The <a href="/python/python_enumerate_function.htm" target="_blank">enumerate() function</a> can be used to access elements of an array. It accepts an array and an optional starting index as parameter values and returns the array items by iterating.</p>
+<h3>Example</h3>
+<p>In the below example, we will see how to use the enumerate() function to access array items.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">211</span><span class="token punctuation">,</span> <span class="token number">311</span><span class="token punctuation">,</span> <span class="token number">411</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># use of enumerate() function</span> <span class="token keyword">for</span> loc<span class="token punctuation">,</span> val <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>numericArray<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Index: </span><span class="token interpolation"><span class="token punctuation">{</span>loc<span class="token punctuation">}</span></span><span class="token string">, value: </span><span class="token interpolation"><span class="token punctuation">{</span>val<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Index: 0, value: 111
+Index: 1, value: 211
+Index: 2, value: 311
+Index: 3, value: 411
+Index: 4, value: 511
+</pre>
+<h2>Accessing a range of array items in Python</h2>
+<p>In Python, to access a range of array items, you can use the <span class="tp-codespan">slicing operation</span> which is performed using index operator [] and colon (:).</p>
+<p>This operation is implemented using multiple formats, which are listed below &minus;</p>
+<ul class="list">
+<li>
+<p>Use the [:index] format to access elements from beginning to desired range.</p>
+</li>
+<li>
+<p>To access array items from end, use [:-index] format.</p>
+</li>
+<li>
+<p>Use the [index:] format to access array items from specific index number till the end.</p>
+</li>
+<li>
+<p>Use the [start index : end index] to slice the array elements within a range. You can also pass an optional argument after end index to determine the increment between each index.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>The following example demonstrates the slicing operation in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">211</span><span class="token punctuation">,</span> <span class="token number">311</span><span class="token punctuation">,</span> <span class="token number">411</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># slicing operation</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>numericArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>numericArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it will display the following result &minus;</p>
+<pre class="result notranslate">array('i', [311, 411, 511])
+array('i', [111, 211, 311])</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div

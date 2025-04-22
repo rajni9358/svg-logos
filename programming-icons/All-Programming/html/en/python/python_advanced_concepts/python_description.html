@@ -1,0 +1,176 @@
+<h2>Python Descriptors</h2>
+<p><strong>Python Descriptors</strong> are a way to customize the access, assignment and deletion of object attributes. They provide a powerful mechanism for managing the behavior of attributes by defining methods that get, set and delete their values. Descriptors are often used to implement properties, methods and attribute validation.</p>
+<p>A <strong>descriptor</strong> is any object that implements at least one of the methods such as __get__, __set__ and __delete__. These methods control how an attribute's value is accessed and modified.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>How Python Descriptors Work?</h2>
+<p>When an attribute is accessed on an instance then Python looks up the attribute in the instance's class. If the attribute is found and it is a descriptor then Python invokes the appropriate descriptor method instead of simply returning the attribute's value. This allows the descriptor to control what happens during attribute access.</p>
+<p>The descriptor protocol is a low-level mechanism that is used by many high-level features in Python such as properties, methods, static methods and class methods. Descriptors can be used to implement patterns like lazy loading, type checking and computed properties.</p>
+<h2>Descriptor Methods</h2>
+<p><strong>Python Descriptors</strong> involve three main methods namely __get__(), __set__() and __delete__(). As we already discussed above these methods control the behavior of attribute access, assignment and deletion, respectively.</p>
+<h3>1. The __get__() Method</h3>
+<p>The <strong>__get__() method</strong> in descriptors is a key part of the descriptor protocol in Python. It is called to retrieve the value of an attribute from an instance or from the class. Understanding how the <strong>__get__() method</strong> works is crucial for creating custom descriptors that can manage attribute access in sophisticated ways.</p>
+<h4>Syntax</h4>
+<p>The following is the syntax of <strong>Python Descriptor __get__ method</strong> &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">__get__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> owner<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" instance: the instance that the attribute is accessed through, or None when accessed through the owner class. owner: the owner class where the descriptor is defined. """</span></div>
+<h4>Parameters</h4>
+<p>Below are the parameters of this method &minus;</p>
+<ul class="list">
+<li><strong>self:</strong> The descriptor instance.</li>
+<li><strong>instance:</strong> The instance of the class where the attribute is accessed. It is None when the attribute is accessed through the class rather than an instance.</li>
+<li><strong>owner:</strong> The class that owns the descriptor.</li>
+</ul>
+<h4>Example</h4>
+<p>Following is the basic example of __get__() method in which it returns the stored value <strong>_value</strong> when <strong>obj.attr</strong> is accessed &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Descriptor</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__get__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> owner<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> instance <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span><span class="token keyword">return</span> self <span class="token keyword">return</span> instance<span class="token punctuation">.</span>_value <span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span> attr <span class="token operator">=</span> Descriptor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_value <span class="token operator">=</span> value obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">42
+</pre>
+<h3>2. The __set__() Method</h3>
+<p>The <strong>__set__() method</strong> is part of the descriptor protocol in Python and is used to control the behavior of setting an attribute's value. When an attribute managed by a descriptor is assigned a new value then the <strong>__set__() method</strong> is called by allowing the user to customize or enforce rules for the assignment.</p>
+<h4>Syntax</h4>
+<p>The following is the syntax of <strong>Python Descriptor __set__() method</strong> &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">__set__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" instance: the instance of the class where the attribute is being set. value: the value to assign to the attribute. """</span></div>
+<h4>Parameters</h4>
+<p>Below are the parameters of this method &minus;</p>
+<ul class="list">
+<li><strong>self:</strong> The descriptor instance.</li>
+<li><strong>instance:</strong> The instance of the class where the attribute is being set.</li>
+<li><strong>value:</strong> The value being assigned to the attribute.</li>
+</ul>
+<h4>Example</h4>
+<p>Following is the basic example of __set__() method in which ensures that the value assigned to attr is an integer &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Descriptor</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__set__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">"Value must be an integer"</span><span class="token punctuation">)</span> instance<span class="token punctuation">.</span>_value <span class="token operator">=</span> value <span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span> attr <span class="token operator">=</span> Descriptor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>attr <span class="token operator">=</span> value obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span> obj<span class="token punctuation">.</span>attr <span class="token operator">=</span> <span class="token number">100</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">&lt;__main__.Descriptor object at 0x000001E5423ED3D0&gt;
+&lt;__main__.Descriptor object at 0x000001E5423ED3D0&gt;
+</pre>
+<h3>3. The __delete__() Method</h3>
+<p>The <strong>__delete__() method</strong> in the descriptor protocol allows us to control what happens when an attribute is deleted from an instance. This can be useful for managing resources, cleaning up or enforcing constraints when an attribute is removed.</p>
+<h4>Syntax</h4>
+<p>The following is the syntax of <strong>Python Descriptor __delete__() method</strong> &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">__delete__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" instance: the instance of the class from which the attribute is being deleted. """</span></div>
+<h4>Parameters</h4>
+<p>Below are the parameters of this method &minus;</p>
+<ul class="list">
+<li><strong>self:</strong> The descriptor instance.</li>
+<li><strong>instance:</strong> The instance of the class where the attribute is being deleted.</li>
+</ul>
+<h4>Example</h4>
+<p>Following is the basic example of __set__() method in which ensures that the value assigned to attr is an integer &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">LoggedDescriptor</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token keyword">def</span> <span class="token function">__get__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> owner<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> instance<span class="token punctuation">.</span>__dict__<span class="token punctuation">.</span>get<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__set__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> instance<span class="token punctuation">.</span>__dict__<span class="token punctuation">[</span>self<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> value <span class="token keyword">def</span> <span class="token function">__delete__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> self<span class="token punctuation">.</span>name <span class="token keyword">in</span> instance<span class="token punctuation">.</span>__dict__<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Deleting </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string"> from </span><span class="token interpolation"><span class="token punctuation">{</span>instance<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">del</span> instance<span class="token punctuation">.</span>__dict__<span class="token punctuation">[</span>self<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> AttributeError<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string"> not found"</span></span><span class="token punctuation">)</span> <span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span> name <span class="token operator">=</span> LoggedDescriptor<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span> age <span class="token operator">=</span> LoggedDescriptor<span class="token punctuation">(</span><span class="token string">"age"</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age <span class="token comment"># Example usage</span> p <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">"Tutorialspoint"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>age<span class="token punctuation">)</span> <span class="token keyword">del</span> p<span class="token punctuation">.</span>name <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">del</span> p<span class="token punctuation">.</span>age <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>age<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Tutorialspoint
+30
+Deleting name from &lt;__main__.Person object at 0x0000021A1A67E2D0&gt;
+None
+Deleting age from &lt;__main__.Person object at 0x0000021A1A67E2D0&gt;
+None
+</pre>
+<h2>Types of Python Descriptors</h2>
+<p>In Python <strong>descriptors</strong> can be broadly categorized into two types based on the methods they implement. They are &minus;</p>
+<ul class="list">
+<li>Data Descriptors</li>
+<li>Non-data Descriptors</li>
+</ul>
+<p>Let's see about the two types of python descriptors in detail for our better understanding.</p>
+<h3>1. Data Descriptors</h3>
+<p><strong>Data descriptors</strong> are a type of descriptor in Python that define both <strong>__get__()</strong>and <strong>__set__()</strong> methods. These descriptors have precedence over instance attributes which meand that the descriptors <strong>__get__()</strong>and <strong>__set__()</strong> methods are always called, even if an instance attribute with the same name exists.</p>
+<h4>Example</h4>
+<p>Below is the example of a data descriptor that ensures an attribute is always an integer and logs access and modification operations &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Integer</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__get__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> owner<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Getting value"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> instance<span class="token punctuation">.</span>_value <span class="token keyword">def</span> <span class="token function">__set__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Setting value"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">"Value must be an integer"</span><span class="token punctuation">)</span> instance<span class="token punctuation">.</span>_value <span class="token operator">=</span> value <span class="token keyword">def</span> <span class="token function">__delete__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Deleting value"</span><span class="token punctuation">)</span> <span class="token keyword">del</span> instance<span class="token punctuation">.</span>_value <span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span> attr <span class="token operator">=</span> Integer<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Usage</span> obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token punctuation">)</span> obj<span class="token punctuation">.</span>attr <span class="token operator">=</span> <span class="token number">42</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span> obj<span class="token punctuation">.</span>attr <span class="token operator">=</span> <span class="token number">100</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span> <span class="token keyword">del</span> obj<span class="token punctuation">.</span>attr</div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Setting value
+Getting value
+42
+Setting value
+Getting value
+100
+Deleting value
+</pre>
+<h3>2. Non-data Descriptors</h3>
+<p><strong>Non-data descriptors</strong> are a type of descriptor in Python that define only the <strong>__get__()</strong> method. Unlike data descriptors, non-data descriptors can be overridden by instance attributes. This means that if an instance attribute with the same name exists then it will take precedence over the non-data descriptor.</p>
+<h4>Example</h4>
+<p>Following is an example of a non-data descriptor that provides a default value if the attribute is not set on the instance &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Default</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> default<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>default <span class="token operator">=</span> default <span class="token keyword">def</span> <span class="token function">__get__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> owner<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token string">'_value'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>default<span class="token punctuation">)</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span> attr <span class="token operator">=</span> Default<span class="token punctuation">(</span><span class="token string">"default_value"</span><span class="token punctuation">)</span> <span class="token comment"># Usage</span> obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span> obj<span class="token punctuation">.</span>_value <span class="token operator">=</span> <span class="token string">"Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>attr<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">default_value
+Tutorialspoint
+</pre>
+<h2>Data Descriptors Vs. Non-data Descriptors</h2>
+<p>Understanding the differences between <strong>Data Descriptors</strong> and <strong>Non-data Descriptors</strong> of python Descriptors is crucial for leveraging their capabilities effectively.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Criteria</th>
+<th style="width: 50%;">Data Descriptors</th>
+<th style="width: 40%;">Non-Data Descriptors</th>
+</tr>
+<tr>
+<td><strong>Definition</strong></td>
+<td>Implements both __get__(), __set__() methods, and the __delete__() method optionally.</td>
+<td>Implements only __get__() method.</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td>__get__(self, instance, owner)<br /> __set__(self, instance, value)<br /> __delete__(self, instance) (optional)</td>
+<td>__get__(self, instance, owner)</td>
+</tr>
+<tr>
+<td><strong>Precedence</strong></td>
+<td>Takes precedence over instance attributes.</td>
+<td>Overridden by instance attributes.</td>
+</tr>
+<tr>
+<td><strong>Use Cases</strong></td>
+<td>Attribute validation and enforcement,<br /> Managed attributes (e.g., properties),<br /> Logging attribute access and modification,<br /> Enforcing read-only attributes.</td>
+<td>Method binding,<br /> Caching and,<br /> Providing default values..</td>
+</tr>
+</tbody>
+</table>
+<p>Finally we can say <strong>Descriptors</strong> in Python provide a powerful mechanism for managing attribute access and modification. Understanding the differences between data descriptors and non-data descriptors as well as their appropriate use cases is essential for creating robust and maintainable Python code.</p>
+<p>By leveraging the descriptor protocol developers can implement advanced behaviors such as type checking, caching and read-only properties.&nbsp;</p>

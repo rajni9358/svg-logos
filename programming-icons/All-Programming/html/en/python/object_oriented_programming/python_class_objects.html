@@ -1,0 +1,219 @@
+<p>Python is an <strong>object-oriented programming language</strong>, which means that it is based on principle of OOP concept. The entities used within a Python program is an object of one or another class. For instance, numbers, strings, lists, dictionaries, and other similar entities of a program are objects of the corresponding built-in class.</p>
+<p>In Python, a class named <strong>Object</strong> is the base or parent class for all the classes, built-in as well as user defined.</p>
+<h2>What is a Class in Python?</h2>
+<p>In Python, a <span class="tp-codespan">class</span> is a user defined entity (data types) that defines the type of data an object can contain and the actions it can perform. It is used as a template for creating objects. For instance, if we want to define a class for Smartphone in a Python program, we can use the type of data like RAM, ROM, screen-size and actions like call and message.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating Classes in Python</h2>
+<p>The <span class="tp-codespan">class</span> keyword is used to create a new class in Python. The name of the class immediately follows the keyword <span class="tp-codespan">class</span> followed by a colon as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">ClassName</span><span class="token punctuation">:</span> <span class="token string">'Optional class documentation string'</span> class_suite</div>
+<ul class="list">
+<li>
+<p>The class has a documentation string, which can be accessed via ClassName.__doc__.</p>
+</li>
+<li>
+<p>The class_suite consists of all the component statements defining class members, data attributes and functions.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>Following is the example of a simple Python class &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token string">'Common base class for all employees'</span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> salary<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>salary <span class="token operator">=</span> salary Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">displayCount</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token string">"Total Employee %d"</span> <span class="token operator">%</span> Employee<span class="token punctuation">.</span>empCount <span class="token keyword">def</span> <span class="token function">displayEmployee</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token string">"Name : "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">", Salary: "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>salary</div>
+<ul class="list">
+<li>
+<p>The variable <span class="tp-codespan">empCount</span> is a class variable whose value is shared among all instances of a this class. This can be accessed as <span class="tp-codespan">Employee.empCount</span> from inside the class or outside the class.</p>
+</li>
+<li>
+<p>The first method <span class="tp-codespan">__init__()</span> is a special method, which is called class constructor or initialization method that Python calls when you create a new instance of this class.</p>
+</li>
+<li>
+<p>You declare other class methods like normal functions with the exception that the first argument to each method is <span class="tp-codespan">self</span>. Python adds the <span class="tp-codespan">self</span> argument to the list for you; you do not need to include it when you call the methods.</p>
+</li>
+</ul>
+<h2>What is an Object?</h2>
+<p>An <span class="tp-codespan">object</span> is refered to as an instance of a given Python class. Each object has its own attributes and methods, which are defined by its class.</p>
+<p>When a class is created, it only describes the structure of obejcts. The memory is allocated when an object is instantiated from a class.</p>
+<p><img src="/python/images/class_object.jpg" alt="class object in python" /></p>
+<p>In the above figure, <span class="tp-codespan">Vehicle</span> is the class name and <span class="tp-codespan">Car</span>, <span class="tp-codespan">Bus</span> and <span class="tp-codespan">SUV</span> are its objects.</p>
+<h2>Creating Objects of Classes in Python</h2>
+<p>To create instances of a class, you call the class using class name and pass in whatever arguments its <span class="tp-codespan">__init__</span> method accepts.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># This would create first object of Employee class</span> emp1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Zara"</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span> <span class="token comment"># This would create second object of Employee class</span> emp2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Manni"</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span></div>
+<h2>Accessing Attributes of Objects in Python</h2>
+<p>You access the object's attributes using the dot operator with object. Class variable would be accessed using class name as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">emp1<span class="token punctuation">.</span>displayEmployee<span class="token punctuation">(</span><span class="token punctuation">)</span> emp2<span class="token punctuation">.</span>displayEmployee<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total Employee %d"</span> <span class="token operator">%</span> Employee<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span></div>
+<p>Now, putting all the concepts together &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token string">"Common base class for all employees"</span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> salary<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>salary <span class="token operator">=</span> salary Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">displayCount</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total Employee %d"</span> <span class="token operator">%</span> Employee<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">displayEmployee</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name : "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">", Salary: "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>salary<span class="token punctuation">)</span> <span class="token comment"># This would create first object of Employee class</span> emp1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Zara"</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span> <span class="token comment"># This would create second object of Employee class</span> emp2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Manni"</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span> emp1<span class="token punctuation">.</span>displayEmployee<span class="token punctuation">(</span><span class="token punctuation">)</span> emp2<span class="token punctuation">.</span>displayEmployee<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total Employee %d"</span> <span class="token operator">%</span> Employee<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Name :  Zara , Salary:  2000
+Name :  Manni , Salary:  5000
+Total Employee 2
+</pre>
+<p>You can add, remove, or modify attributes of classes and objects at any time &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Add an 'age' attribute</span> emp1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">7</span> <span class="token comment"># Modify 'age' attribute</span> emp1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">8</span> <span class="token comment"># Delete 'age' attribute</span> <span class="token keyword">del</span> emp1<span class="token punctuation">.</span>age</div>
+<p>Instead of using the normal statements to access attributes, you can also use the following functions &minus;</p>
+<ul class="list">
+<li>
+<p><strong>getattr(obj, name[, default])</strong> &minus; to access the attribute of object.</p>
+</li>
+<li>
+<p><strong>hasattr(obj,name)</strong> &minus; to check if an attribute exists or not.</p>
+</li>
+<li>
+<p><strong>setattr(obj,name,value)</strong> &minus; to set an attribute. If attribute does not exist, then it would be created.</p>
+</li>
+<li>
+<p><strong>delattr(obj, name)</strong> &minus; to delete an attribute.</p>
+</li>
+</ul>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Returns true if 'age' attribute exists</span> <span class="token builtin">hasattr</span><span class="token punctuation">(</span>emp1<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token comment"># Returns value of 'age' attribute</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>emp1<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token comment"># Set attribute 'age' at 8</span> <span class="token builtin">setattr</span><span class="token punctuation">(</span>emp1<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token comment"># Delete attribute 'age'</span> <span class="token builtin">delattr</span><span class="token punctuation">(</span>empl<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">)</span></div>
+<h2>Built-In Class Attributes in Python</h2>
+<p>Every Python class keeps following built-in attributes and they can be accessed using dot operator like any other attribute &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>SNo.</th>
+<th>Attributes &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>__dict__</strong>
+<p>Dictionary containing the class's namespace.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>__doc__</strong>
+<p>Class documentation string or none, if undefined.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>__name__</strong>
+<p>Class name</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>__module__</strong>
+<p>Module name in which the class is defined. This attribute is "__main__" in interactive mode.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>__bases__</strong>
+<p>A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example</h3>
+<p>For the above <span class="tp-codespan">Employee</span> class, let us try to access its attributes &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token string">'Common base class for all employees'</span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> salary<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>salary <span class="token operator">=</span> salary Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">displayCount</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total Employee %d"</span> <span class="token operator">%</span> Employee<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">displayEmployee</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name : "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">", Salary: "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>salary<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__doc__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__doc__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__name__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__module__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__module__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__bases__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__bases__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__dict__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Employee.__doc__: Common base class for all employees
+Employee.__name__: Employee
+Employee.__module__: __main__
+Employee.__bases__: ()
+Employee.__dict__: {'__module__': '__main__', 'displayCount':
+&lt;function displayCount at 0xb7c84994&gt;, 'empCount': 2, 
+'displayEmployee': &lt;function displayEmployee at 0xb7c8441c&gt;, 
+'__doc__': 'Common base class for all employees', 
+'__init__': &lt;function __init__ at 0xb7c846bc&gt;}
+</pre>
+<h2>Built-in Class of Python datatypes</h2>
+<p>As mentioned earlier, Python follows object-oriented programming paradigm. Entities like strings, lists and data types belongs to one or another built-in class.</p>
+<p>If we want to see which data type belongs to which built-in class, we can use the Python type() function. This function accepts a data type and returns its corresponding class.</p>
+<h3>Example</h3>
+<p>The below example demonstrates how to check built-in class of a given data type.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">num <span class="token operator">=</span> <span class="token number">20</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span> num1 <span class="token operator">=</span> <span class="token number">55.50</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">)</span> s <span class="token operator">=</span> <span class="token string">"TutorialsPoint"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span> dct <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>dct<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">SayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>SayHello<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>When you execute this code, it will display the corresponding classes of Python data types &minus;</p>
+<pre class="result notranslate">&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;
+&lt;class 'dict'&gt;
+&lt;class 'function'&gt;
+</pre>
+<h2>Garbage Collection(Destroying Objects) in Python</h2>
+<p>Python deletes unwanted objects (built-in types or class instances) automatically to free the memory space. The process by which Python periodically reclaims blocks of memory that no longer are in use is termed <span class="tp-codespan">Garbage Collection</span>.</p>
+<p>Python's garbage collector runs during program execution and is triggered when an object's reference count reaches zero. An object's reference count changes as the number of aliases that point to it changes.</p>
+<p>An object's reference count increases when it is assigned a new name or placed in a container (list, tuple, or dictionary). The object's reference count decreases when it's deleted with <span class="tp-codespan">del</span>, its reference is reassigned, or its reference goes out of scope. When an object's reference count reaches zero, Python collects it automatically.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Create object &lt;40&gt;</span> a <span class="token operator">=</span> <span class="token number">40</span> <span class="token comment"># Increase ref. count of &lt;40&gt; </span> b <span class="token operator">=</span> a <span class="token comment"># Increase ref. count of &lt;40&gt; </span> c <span class="token operator">=</span> <span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token comment"># Decrease ref. count of &lt;40&gt;</span> <span class="token keyword">del</span> a <span class="token comment"># Decrease ref. count of &lt;40&gt;</span> b <span class="token operator">=</span> <span class="token number">100</span> <span class="token comment"># Decrease ref. count of &lt;40&gt;</span> c<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span></div>
+<p>You normally will not notice when the garbage collector destroys an unused instance and reclaims its space. But a class can implement the special method <span class="tp-codespan">__del__()</span>, called a destructor, that is invoked when the instance is about to be destroyed. This method might be used to clean up any non memory resources used by an instance.</p>
+<h3>Example</h3>
+<p>The __del__() destructor prints the class name of an instance that is about to be destroyed as shown in the below code block &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Point</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span> self<span class="token punctuation">,</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>x <span class="token operator">=</span> x self<span class="token punctuation">.</span>y <span class="token operator">=</span> y <span class="token keyword">def</span> <span class="token function">__del__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> class_name <span class="token operator">=</span> self<span class="token punctuation">.</span>__class__<span class="token punctuation">.</span>__name__ <span class="token keyword">print</span> <span class="token punctuation">(</span>class_name<span class="token punctuation">,</span> <span class="token string">"destroyed"</span><span class="token punctuation">)</span> pt1 <span class="token operator">=</span> Point<span class="token punctuation">(</span><span class="token punctuation">)</span> pt2 <span class="token operator">=</span> pt1 pt3 <span class="token operator">=</span> pt1 <span class="token comment"># prints the ids of the obejcts</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>pt1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>pt2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>pt3<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">del</span> pt1 <span class="token keyword">del</span> pt2 <span class="token keyword">del</span> pt3</div>
+</div>
+<p>On executing, the above code will produces following result &minus;</p>
+<pre class="result notranslate">135007479444176 135007479444176 135007479444176
+Point destroyed
+</pre>
+<h2>Data Hiding in Python</h2>
+<p>An object's attributes may or may not be visible outside the class definition. You need to name attributes with a double underscore prefix, and those attributes then are not be directly visible to outsiders.</p>
+<h3>Example</h3>
+<p>&nbsp;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">JustCounter</span><span class="token punctuation">:</span> __secretCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">count</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__secretCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">print</span> self<span class="token punctuation">.</span>__secretCount counter <span class="token operator">=</span> JustCounter<span class="token punctuation">(</span><span class="token punctuation">)</span> counter<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span> counter<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> counter<span class="token punctuation">.</span>__secretCount</div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">1
+2
+ERROR!
+Traceback (most recent call last):
+  File &lt;main.py&gt;", line 11, in &lt;module&gt;
+AttributeError: 'JustCounter' object has no attribute '__secretCount'
+</pre>
+<p>Python protects those members by internally changing the name to include the class name. You can access such attributes as <em>object._className__attrName</em>. If you would replace your last line as following, then it works for you &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span>counter<span class="token punctuation">.</span>_JustCounter__secretCount<span class="token punctuation">)</span></div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">1
+2
+2
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

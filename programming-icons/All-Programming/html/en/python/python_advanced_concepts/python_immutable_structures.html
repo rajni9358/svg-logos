@@ -1,0 +1,168 @@
+<p>The Python <strong>Immutable data structures</strong> are the data structures that once created, cannot be changed. This means that any attempt to modify the data structure will result in a new instance being created rather than altering the original. Immutable data structures are useful for ensuring that data remains constant throughout the execution of a program which can help prevent bugs and make code easier to understand and maintain.</p>
+<p>Before proceeding deep into this topic let's have a quick recall of <strong>what is datastructure?</strong> The Data structures are specialized formats for organizing, processing, retrieving and storing data. They define how data is arranged in memory and how operations such as accessing, inserting, deleting and updating can be performed efficiently.</p>
+<h2>Different Immutable Data Structures in Python</h2>
+<p>Immutable data structures are essential in Python for their stability, thread-safety and ease of use. Here are the different immutable data structures in Python &minus;</p>
+<ul class="list">
+<li><a href="/python/python_tuples.htm" target="_blank"><strong>Tuples</strong></a>: These are the ordered collections of items that cannot be changed after their creation. They can contain mixed data types and are useful for representing fixed collections of related items.</li>
+<li><a href="/python/python_strings.htm" target="_blank"><strong>Strings</strong></a>: These Data structures are sequences of characters and are immutable. Any operation that modifies a string will create a new string.</li>
+<li><strong>Frozensets:</strong> These are immutable versions of sets. Unlike regular sets, frozensets do not allow modification after creation.</li>
+<li><strong>Named Tuples:</strong> These are a subclass of tuples with named fields which provide more readable and self-documenting code. They are immutable like regular tuples.</li>
+</ul>
+<p>Now, let's proceed about the each Immutable data structures in detail.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Tuples</h2>
+<p>Tuples in Python are immutable sequences of elements which means once created, they cannot be modified. They are defined using parentheses '()' and can hold a collection of items such as numbers, strings and even other tuples.</p>
+<h3>Creating Tuples</h3>
+<p>Tuples are created using parentheses '()' and elements separated by commas ','. Even tuples with a single element require a trailing comma to distinguish them from grouped expressions.</p>
+<p>Following is the example of creating a tuple by assigning parentheses '()' to a variable &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">empty_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> single_element_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token comment"># Note the comma after the single element</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Single element tuple:"</span><span class="token punctuation">,</span> single_element_tuple<span class="token punctuation">)</span> multi_element_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'Tutorialspoint'</span><span class="token punctuation">,</span> <span class="token number">3.14</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Multi elements tuple:"</span><span class="token punctuation">,</span> multi_element_tuple<span class="token punctuation">)</span> nested_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'Learning'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Nested tuple:"</span><span class="token punctuation">,</span> nested_tuple<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Single element tuple: (5,)
+Multi elements tuple: (1, 2, 'Tutorialspoint', 3.14)
+Nested tuple: (1, (2, 3), 'Learning')
+</pre>
+<h3>Understanding Tuple Immutability in Python</h3>
+<p>Here we are going understand the immutability of the tuples in python. Below is the example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a tuple</span> my_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">)</span> <span class="token comment"># Attempt to modify an element (which is not possible with tuples)</span> <span class="token comment"># This will raise a TypeError</span> <span class="token keyword">try</span><span class="token punctuation">:</span> my_tuple<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">except</span> TypeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Even trying to append or extend a tuple will result in an error</span> <span class="token keyword">try</span><span class="token punctuation">:</span> my_tuple<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">except</span> AttributeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Trying to reassign the entire tuple to a new value is also not allowed</span> <span class="token keyword">try</span><span class="token punctuation">:</span> my_tuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token keyword">except</span> TypeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original tuple:"</span><span class="token punctuation">,</span> my_tuple<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Error: 'tuple' object does not support item assignment
+Error: 'tuple' object has no attribute 'append'
+Original tuple: (4, 5, 6)
+</pre>
+<h2>Strings</h2>
+<p>Strings in Python are sequences of characters which are used to represent and manipulate textual data. They are enclosed within either single quotes <strong>'</strong> or double quotes <strong>"</strong> with the option to use triple quotes <strong>"""</strong> for multi-line strings.</p>
+<p>Key characteristics include immutability which means once created those strings cannot be changed, ordered indexing where characters are accessed by position and support for various operations such as concatenation, slicing and iteration.</p>
+<p>Strings are fundamental in Python for tasks such as text processing, input/output operations and data representation in applications offering a versatile toolset with built-in methods for efficient manipulation and formatting of textual information.</p>
+<h3>Creating Strings</h3>
+<p>Each type of string creation method i.e. ', ", """ has its own use case depending on whether we need to include quotes within the string, handle multi-line text or other specific formatting requirements in our Python code.</p>
+<p>Following is the example of creating the string with the help od three types of quotes ', ", """ &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Single line string</span> single_quoted_string <span class="token operator">=</span> <span class="token string">'Hello, Welcome to Tutorialspoint'</span> <span class="token comment"># Double quoted string</span> double_quoted_string <span class="token operator">=</span> <span class="token string">"Python Programming"</span> <span class="token comment"># Triple quoted string for multi-line strings</span> multi_line_string <span class="token operator">=</span> <span class="token triple-quoted-string string">"""This is a multi-line string"""</span> <span class="token keyword">print</span><span class="token punctuation">(</span>single_quoted_string<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>double_quoted_string<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>multi_line_string<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Hello, Welcome to Tutorialspoint
+Python Programming
+This is a
+multi-line
+string
+</pre>
+<h3>Understanding String Immutability in Python</h3>
+<p>With the help of following example we are going to understand the immutability of the strings in python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Example demonstrating string immutability</span> my_string <span class="token operator">=</span> <span class="token string">"Hello"</span> <span class="token comment"># Attempting to modify a string will create a new string instead of modifying the original</span> modified_string <span class="token operator">=</span> my_string <span class="token operator">+</span> <span class="token string">" Learners"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>modified_string<span class="token punctuation">)</span> <span class="token comment"># Output: Hello Learners</span> <span class="token comment"># Original string remains unchanged</span> <span class="token keyword">print</span><span class="token punctuation">(</span>my_string<span class="token punctuation">)</span> <span class="token comment"># Output: Hello</span> <span class="token comment"># Trying to modify the string directly will raise an error</span> <span class="token keyword">try</span><span class="token punctuation">:</span> my_string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'h'</span> <span class="token comment"># TypeError: 'str' object does not support item assignment</span> <span class="token keyword">except</span> TypeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Hello Learners
+Hello
+Error: 'str' object does not support item assignment
+</pre>
+<h2>Frozen Sets</h2>
+<p>A frozen set in Python is an immutable version of a set. Once created its elements cannot be changed, added or removed. Frozen sets are particularly useful in situations where we need a set that remains constant throughout the execution of a program especially when we want to use it as a key in a dictionary or as an element in another set.</p>
+<h3>Creating Frozen Sets</h3>
+<p>We can create a frozen set using the <strong>frozenset()</strong> constructor by passing an iterable such as a list or another set as an argument. Following is the example of creating the Frozen set &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a frozen set</span> fset <span class="token operator">=</span> <span class="token builtin">frozenset</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Printing the frozen set</span> <span class="token keyword">print</span><span class="token punctuation">(</span>fset<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">frozenset({1, 2, 3, 4})
+</pre>
+<h3>Understanding Frozen Sets Immutability in Python</h3>
+<p>Here's an example shows how frozensets being immutable and do not allow modifications after creation.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Creating a frozenset</span> frozen_set <span class="token operator">=</span> <span class="token builtin">frozenset</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Attempting to add an element to the frozenset will raise an error</span> <span class="token keyword">try</span><span class="token punctuation">:</span> frozen_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">except</span> AttributeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Attempting to remove an element from the frozenset will also raise an error</span> <span class="token keyword">try</span><span class="token punctuation">:</span> frozen_set<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">except</span> AttributeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># The original frozenset remains unchanged</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original frozenset:"</span><span class="token punctuation">,</span> frozen_set<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Error: 'frozenset' object has no attribute 'add'
+Error: 'frozenset' object has no attribute 'remove'
+Original frozenset: frozenset({1, 2, 3, 4})
+</pre>
+<h2>Named Tuples</h2>
+<p>A Named tuple in Python is a lightweight data structure available in the collections module that behaves same as a tuple but allows us to access its elements using named attributes as well as indices.</p>
+<p>It combines the advantages of tuples such as immutable, memory-efficient with the ability to refer to elements by name, enhancing readability and maintainability of code.</p>
+<h3>Creating Named Tuples</h3>
+<p>we can define a named tuple using the <strong>namedtuple() </strong>factory function from the collections module. It takes two arguments such as a name for the named tuple type and a sequence i.e. string of field names or iterable of strings which specifies the names of its fields.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> collections <span class="token keyword">import</span> namedtuple <span class="token comment"># Define a named tuple type 'Point' with fields 'x' and 'y'</span> Point <span class="token operator">=</span> namedtuple<span class="token punctuation">(</span><span class="token string">'Point'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Create an instance of Point</span> p1 <span class="token operator">=</span> Point<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># Access elements by index (like a tuple)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Access elements by name</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>y<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">1
+1
+2
+</pre>
+<h3>Understanding Named Tuples Immutability in Python</h3>
+<p>The Named tuples in Python are provided by the <strong>collections.namedtuple</strong> factory functions are indeed immutable. They behave similarly to regular tuples but have named fields by making them more readable and self-documenting.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> collections <span class="token keyword">import</span> namedtuple <span class="token comment"># Define a named tuple called Point with fields 'x' and 'y'</span> Point <span class="token operator">=</span> namedtuple<span class="token punctuation">(</span><span class="token string">'Point'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Create an instance of Point</span> p <span class="token operator">=</span> Point<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token comment"># Attempt to modify the named tuple</span> <span class="token comment"># This will raise an AttributeError since named tuples are immutable</span> <span class="token keyword">try</span><span class="token punctuation">:</span> p<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">except</span> AttributeError <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error occurred: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Accessing elements in a named tuple is similar to accessing elements in a regular tuple</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>y<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Point(x=1, y=2)
+Error occurred: can't set attribute
+1
+2
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

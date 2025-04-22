@@ -1,0 +1,64 @@
+
+<p>Python's built-in <strong>type()</strong> function returns the class that an object belongs to. In <a href="/python/index.htm" target="_blank">Python</a>, a class, both a built-in class or a user-defined class are objects of type class.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">myclass</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>myvar<span class="token operator">=</span><span class="token number">10</span> <span class="token keyword">return</span> obj <span class="token operator">=</span> myclass<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'class of int'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'class of list'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'class of dict'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'class of myclass'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>myclass<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'class of obj'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">class of int &lt;class 'type'&gt;
+class of list &lt;class 'type'&gt;
+class of dict &lt;class 'type'&gt;
+class of myclass &lt;class 'type'&gt;
+</pre>
+<p>The type() has a three argument version as follows &minus;</p>
+<h3>Syntax</h3>
+<pre class="result notranslate">newclass=type(name, bases, dict)
+</pre>
+<p>Using above syntax, a class can be dynamically created. Three arguments of type function are &minus;</p>
+<ul class="list">
+<li>
+<p><strong>name</strong> &minus; name of the class which becomes __name__ attribute of new class</p>
+</li>
+<li>
+<p><strong>bases</strong> &minus; tuple consisting of parent classes. Can be blank if not a derived class</p>
+</li>
+<li>
+<p><strong>dict</strong> &minus; dictionary forming namespace of the new class containing attributes and methods and their values.</p>
+</li>
+</ul>
+<h2>Create an Anonymous Class</h2>
+<p>We can create an anonymous class with the above version of <strong>type()</strong> function. The name argument is a null <a href="/python/python_strings.htm" target="_blank">string</a>, second argument is a <a href="/python/python_tuples.htm" target="_blank">tuple</a> of one class the object class (note that each class in Python is inherited from object class). We add certain instance variables as the third argument <a href="/python/python_dictionaries.htm" target="_blank">dictionary</a>. We keep it empty for now.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">anon<span class="token operator">=</span><span class="token builtin">type</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span></div>
+<div class="inserted-div">&nbsp;</div>
+<h2>Create an Anonymous Object</h2>
+<p>To create an object of this anonymous class &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">obj <span class="token operator">=</span> anon<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"type of obj:"</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>The result shows that the object is of anonymous class</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">type</span> of obj<span class="token punctuation">:</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.'</span><span class="token operator">&gt;</span></div>
+<h2>Anonymous Class and Object Example</h2>
+<p>We can also add instance variables and instance methods dynamically. Take a look at this example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">getA</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>a obj <span class="token operator">=</span> <span class="token builtin">type</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token string">'getA'</span><span class="token punctuation">:</span>getA<span class="token punctuation">,</span><span class="token string">'getB'</span><span class="token punctuation">:</span><span class="token keyword">lambda</span> self <span class="token punctuation">:</span> self<span class="token punctuation">.</span>b<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>getA<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> obj<span class="token punctuation">.</span>getB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">5 6</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

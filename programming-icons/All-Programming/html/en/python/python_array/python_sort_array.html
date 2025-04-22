@@ -1,0 +1,78 @@
+<p><a href="/python/python_arrays.htm" target="_blank">Python's array</a> module defines the array class. An object of array class is similar to the array as present in Java or C/C++. Unlike the built-in Python sequences, array is a homogenous collection of either <a href="/python/python_strings.htm" target="_blank">strings</a>, or integers, or float objects.</p>
+<p>The array class doesn't have any function/method to give a sorted arrangement of its elements. However, we can achieve it with one of the following approaches &minus;</p>
+<ul class="list">
+<li>
+<p>Using a sorting algorithm</p>
+</li>
+<li>
+<p>Using the <strong>sort()</strong> method from List</p>
+</li>
+<li>
+<p>Using the built-in <strong>sorted()</strong> function</p>
+</li>
+</ul>
+<p>Let's discuss each of these methods in detail.</p>
+<p><img src="/python/images/sorting_array_python.jpg" alt="Python Array Sorting" /></p>
+<h2>Sort Arrays Using a Sorting Algorithm</h2>
+<p>We implement the classical <a href="/data_structures_algorithms/bubble_sort_algorithm.htm" target="_blank"><strong>bubble sort algorithm</strong></a> to obtain the sorted array. To do it, we use two <a href="/python/python_nested_loops.htm" target="_blank">nested loops</a> and swap the elements for rearranging in sorted order.</p>
+<h3>Example</h3>
+<p>Run the following code using a Python code editor &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span> temp <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [4, 5, 6, 9, 10, 15, 20])
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Sort Arrays Using sort() Method of List</h2>
+<p>Even though array module doesn't have a <a href="/python/list_sort.htm" target="_blank"><strong>sort()</strong> method</a>, Python's built-in <a href="/python/python_lists.htm" target="_blank">List</a> class does have a sort method. We shall use it in the next example.</p>
+<p>First, declare an array and obtain a list object from it, using <span class="tp-codespan">tolist()</span> method. Then, use the sort() method to get a sorted list. Lastly, create another array using the sorted list which will display a sorted array.</p>
+<h3>Example</h3>
+<p>The following code shows how to get sorted array using the sort() method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> orgnlArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original array:"</span><span class="token punctuation">,</span> orgnlArray<span class="token punctuation">)</span> <span class="token comment"># converting to list </span> sortedList <span class="token operator">=</span> orgnlArray<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># sorting the list</span> sortedList<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># creating array from sorted list</span> sortedArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> sortedList<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Array after sorting:"</span><span class="token punctuation">,</span>sortedArray<span class="token punctuation">)</span></div>
+</div>
+<p>The above code will display the following output &minus;</p>
+<pre class="result notranslate">Original array: array('i', [10, 5, 15, 4, 6, 20, 9])
+Array after sorting: array('i', [4, 5, 6, 9, 10, 15, 20])
+</pre>
+<h2>Sort Arrays Using sorted() Method</h2>
+<p>The third technique to sort an array is with the <span class="tp-codespan">sorted()</span> function, which is a <a href="/python/python_built_in_functions.htm" target="_blank">built-in function</a>.</p>
+<p>The <strong>syntax</strong> of sorted() function is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">sorted</span><span class="token punctuation">(</span>iterable<span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></div>
+<p>The function returns a new list containing all items from the iterable in ascending order. Set reverse parameter to True to get a descending order of items.</p>
+<p>The <span class="tp-codespan">sorted()</span> function can be used along with any iterable. Python array is an iterable as it is an indexed collection. Hence, an array can be used as a parameter to sorted() function.</p>
+<h3>Example</h3>
+<p>In this example, we will see the use of sorted() method in sorting an array.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler<span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+</div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [4, 5, 6, 9, 10, 15, 20])
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

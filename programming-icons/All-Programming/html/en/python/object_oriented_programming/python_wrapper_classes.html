@@ -1,0 +1,27 @@
+
+<p>A <a href="/python/python_functions.htm" target="_blank">function</a> in Python is a first-order object. A function can have another function as its argument and wrap another function definition inside it. This helps in modifying a function without actually changing it. Such functions are called <a href="/python/python_decorators.htm" target="_blank">decorators</a>.</p>
+<p>This feature is also available for <strong>wrapping a class</strong>. This technique is used to manage the class after it is instantiated by wrapping its logic inside a decorator.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">decorator_function</span><span class="token punctuation">(</span>Wrapped<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">class</span> <span class="token class-name">Wrapper</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>wrap <span class="token operator">=</span> Wrapped<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">print_name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>wrap<span class="token punctuation">.</span>name <span class="token keyword">return</span> Wrapper <span class="token decorator annotation punctuation">@decorator_function</span> <span class="token keyword">class</span> <span class="token class-name">Wrapped</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> x obj <span class="token operator">=</span> Wrapped<span class="token punctuation">(</span><span class="token string">'TutorialsPoint'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>print_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>Here, <strong>Wrapped</strong> is the name of the class to be wrapped. It is passed as argument to a function. Inside the function, we have a <strong>Wrapper class</strong>, modify its behavior with the <a href="/python/python_class_attributes.htm" target="_blank">attributes</a> of the passed class, and return the modified class. The returned class is instantiated and its <a href="/python/python_class_methods.htm" target="_blank">method</a> can now be called.</p>
+<p>When you execute this code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">TutorialsPoint
+</pre>
+<div class="library-page-bottom-nav ">
+<div id="print-page" class="button button--blue">&nbsp;</div>
+</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

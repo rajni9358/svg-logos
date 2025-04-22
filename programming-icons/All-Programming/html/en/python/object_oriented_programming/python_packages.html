@@ -1,0 +1,61 @@
+
+<p>In <a href="/python/index.htm" target="_blank">Python</a>, the module is a Python script with a <strong>.py</strong> extension and contains objects such as classes, <a href="/python/python_functions.htm" target="_blank">functions</a>, etc. <strong>Packages in Python</strong> extend the concept of the modular approach further. The package is a folder containing one or more module files; additionally, a special file <strong>"__init__.py"</strong> file may be empty but may contain the package list.</p>
+<h2>Create a Python Package</h2>
+<p>Let us create a <strong>Python package</strong> with the name <strong><em>mypackage</em></strong>. Follow the steps given below &minus;</p>
+<ul class="list">
+<li>Create an outer folder to hold the contents of mypackage. Let its name be <strong>packagedemo</strong>.</li>
+<li>Inside it, create another folder <strong>mypackage</strong>. This will be the <strong>Python package</strong> we are going to construct. Two Python modules areafunctions.py and mathfunctions.py will be created inside <strong>mypackage</strong>.</li>
+<li>Create an empty <strong>"__.init__.py"</strong> file inside <strong>mypackage</strong> folder.</li>
+<li>Inside the outer folder, we shall later store a Python script <strong>example.py</strong> to test our package.</li>
+</ul>
+<p>The <strong>file/folder structure</strong> should be as shown below &minus;</p>
+<img src="/python/images/folder_structure.jpg" alt="folder_structure" />
+<p>Using your favorite code editor, save the following two <a href="/python/python_modules.htm" target="_blank">Python modules</a> in <strong>mypackage</strong> folder.</p>
+<h3>Example to Create a Python Package</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># mathfunctions.py</span> <span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span> val <span class="token operator">=</span> x<span class="token operator">+</span>y <span class="token keyword">return</span> val <span class="token keyword">def</span> <span class="token function">average</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span> val <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span> <span class="token keyword">return</span> val <span class="token keyword">def</span> <span class="token function">power</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span> val <span class="token operator">=</span> x<span class="token operator">**</span>y <span class="token keyword">return</span> val</div>
+<p>Create another Python script &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># areafunctions.py</span> <span class="token keyword">def</span> <span class="token function">rectangle</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">:</span> area <span class="token operator">=</span> w<span class="token operator">*</span>h <span class="token keyword">return</span> area <span class="token keyword">def</span> <span class="token function">circle</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">import</span> math area <span class="token operator">=</span> math<span class="token punctuation">.</span>pi<span class="token operator">*</span>math<span class="token punctuation">.</span><span class="token builtin">pow</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> area</div>
+<p>Let us now test the <strong>myexample</strong> package with the help of a Python script above this package folder. Refer to the folder structure above.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#example.py</span> <span class="token keyword">from</span> mypackage<span class="token punctuation">.</span>areafunctions <span class="token keyword">import</span> rectangle <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Area :"</span><span class="token punctuation">,</span> rectangle<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">from</span> mypackage<span class="token punctuation">.</span>mathsfunctions <span class="token keyword">import</span> average <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"average:"</span><span class="token punctuation">,</span> average<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>This program imports functions from <strong>mypackage</strong>. If the above script is executed, you should get following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Area : 200
+average: 15.0
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Define Package List</h2>
+<p>You can put selected functions or any other resources from the package in the "__init__.py" file. Let us put the following code in it.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> <span class="token punctuation">.</span>areafunctions <span class="token keyword">import</span> circle <span class="token keyword">from</span> <span class="token punctuation">.</span>mathsfunctions <span class="token keyword">import</span> <span class="token builtin">sum</span><span class="token punctuation">,</span> power</div>
+<p>To import the available functions from this package, save the following script as testpackage.py, above the package folder as before.</p>
+<h3>Example to Define a Package List</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#testpackage.py</span> <span class="token keyword">from</span> mypackage <span class="token keyword">import</span> power<span class="token punctuation">,</span> circle <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Area of circle:"</span><span class="token punctuation">,</span> circle<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"10 raised to 2:"</span><span class="token punctuation">,</span> power<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Area of circle: 78.53981633974483
+10 raised to 2: 100
+</pre>
+<h2>Package Installation</h2>
+<p>Right now, we are able to access the package resources from a script just above the package folder. To be able to use the package anywhere in the file system, you need to install it using the PIP utility.</p>
+<p>First of all, save the following script in the parent folder, at the level of package folder.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#setup.py</span> <span class="token keyword">from</span> setuptools <span class="token keyword">import</span> setup setup<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'mypackage'</span><span class="token punctuation">,</span> version<span class="token operator">=</span><span class="token string">'0.1'</span><span class="token punctuation">,</span> description<span class="token operator">=</span><span class="token string">'Package setup script'</span><span class="token punctuation">,</span> url<span class="token operator">=</span><span class="token string">'#'</span><span class="token punctuation">,</span> author<span class="token operator">=</span><span class="token string">'anonymous'</span><span class="token punctuation">,</span> author_email<span class="token operator">=</span><span class="token string">'test@gmail.com'</span><span class="token punctuation">,</span> license<span class="token operator">=</span><span class="token string">'MIT'</span><span class="token punctuation">,</span> packages<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'mypackage'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> zip_safe<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></div>
+<p>Run the PIP utility from command prompt, while remaining in the parent folder.</p>
+<pre class="result notranslate">C:\Users\user\packagedemo&gt;pip3 install .
+Processing c:\users\user\packagedemo
+ Preparing metadata (setup.py) ... done
+Installing collected packages: mypackage
+ Running setup.py install for mypackage ... done
+Successfully installed mypackage-0.1
+</pre>
+<p>You should now be able to import the contents of the <strong>package</strong> in any environment.</p>
+<pre class="result notranslate">C:\Users&gt;python
+Python 3.11.2 (tags/v3.11.2:878ead1, Feb 7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import mypackage
+&gt;&gt;&gt; mypackage.circle(5)
+78.53981633974483
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

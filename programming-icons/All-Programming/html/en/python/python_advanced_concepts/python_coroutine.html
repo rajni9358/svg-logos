@@ -1,0 +1,136 @@
+<p>Python <strong>Coroutines</strong> are a fundamental concept in programming that extend the capabilities of traditional functions. They are particularly useful for asynchronous programming and complex data processing pipelines.</p>
+<p><strong>Coroutines</strong> are an extension of the concept of functions and generators. They are designed to perform cooperative multitasking and manage asynchronous operations.</p>
+<p>In traditional functions i.e. subroutines which have a single entry and exit point where as coroutines can pause and resume their execution at various points by making them highly flexible.</p>
+<h2>Key Characteristics of Coroutines</h2>
+<p>Following are the key characteristics of Coroutines in python &minus;</p>
+<ul class="list">
+<li><strong>Multiple Entry Points:</strong> Coroutines are not constrained to a single entry point like traditional functions. They can pause their execution at certain points, when they hit a yield statement and resume later. This allows coroutines to handle complex workflows that involve waiting for or processing asynchronous data.</li>
+<li><strong>No Central Coordinator:</strong> When we see traditional functions i.e subroutines, which are often coordinated by a main function but coroutines operate more independently. They can interact with each other in a pipeline fashion where data flows through a series of coroutines, each performing a different task.</li>
+<li><strong>Cooperative Multitasking:</strong> Coroutines enable cooperative multitasking. This means that instead of relying on the operating system or runtime to switch between tasks the programmer controls when coroutines yield and resume by allowing for more fine-grained control over execution flow.</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Subroutines Vs. Coroutines</h2>
+<p><strong>Subroutines</strong> are the traditional functions with a single entry point and no inherent mechanism for pausing or resuming execution. They are called in a defined sequence and handle tasks with straightforward control flow.</p>
+<p><strong>Coroutines</strong> are the advanced functions with multiple entry points that can pause and resume their execution. They are useful for tasks that require asynchronous execution, complex control flows and data pipelines. They support cooperative multitasking by allowing the programmer to control when execution switches between tasks.</p>
+<p>The following table helps in understanding the key differences and similarities between subroutines and coroutines by making us easier to grasp their respective roles and functionalities in programming.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Criteria</th>
+<th style="width: 26%;">Subroutines</th>
+<th style="width: 16%;">Coroutines</th>
+</tr>
+<tr>
+<td>Definition</td>
+<td>A sequence of instructions performing a task.</td>
+<td>A generalization of subroutines that can pause and resume execution.</td>
+</tr>
+<tr>
+<td>Entry Points</td>
+<td>Single entry point.</td>
+<td>Multiple entry points; can pause and resume execution.</td>
+</tr>
+<tr>
+<td>Execution Control</td>
+<td>Called by a main function or control structure.</td>
+<td>These can suspend execution and be resumed later and programmer controls switching.</td>
+</tr>
+<tr>
+<td>Purpose</td>
+<td>Perform a specific task or computation.</td>
+<td>Manage asynchronous operations, cooperative multitasking and complex workflows.</td>
+</tr>
+<tr>
+<td>Calling Mechanism</td>
+<td>Typically called by a main function or other subroutines.</td>
+<td>Invoked and controlled using 'next()', 'send()', and 'close()' methods.</td>
+</tr>
+<tr>
+<td>Data Handling</td>
+<td>No built-in mechanism for handling data exchanges; typically uses parameters and return values.</td>
+<td>Can receive and process data using 'yield' with 'send()'.</td>
+</tr>
+<tr>
+<td>State Management</td>
+<td>No inherent mechanism to maintain state between calls.</td>
+<td>Maintains execution state between suspensions and can resume from where it left off.</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>These are used for modularizing code into manageable chunks.</td>
+<td>These are used for asynchronous programming, managing data pipelines and cooperative multitasking.</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Not inherently designed for concurrent execution; typically used in sequential programming.</td>
+<td>Supports cooperative multitasking and can work with asynchronous tasks.</td>
+</tr>
+<tr>
+<td>Example Usage</td>
+<td>Helper functions, utility functions.</td>
+<td>Data pipelines, asynchronous tasks, cooperative multitasking.</td>
+</tr>
+<tr>
+<td>Control Flow</td>
+<td>Execution follows a linear path through the code.</td>
+<td>Execution can jump back and forth between coroutines based on yield points.</td>
+</tr>
+</tbody>
+</table>
+<h2>Execution of Coroutines</h2>
+<p><strong>Coroutines</strong> are initiated with the <strong> __next__()</strong> method which starts the coroutine and advances execution to the first yield statement. The coroutine then waits for a value to be sent to it. The <strong>send()</strong> method is used to send values to the coroutine which can then process these values and potentially yield results.</p>
+<h3>Example of Basic Coroutine</h3>
+<p>A coroutine uses the yield statement which can both send and receive values. Unlike a <a href="/python/python_generators.htm" target="_blank">generator</a> which yields values for iteration where as a coroutine typically uses yield to receive input and perform actions based on that input. Following is the basic example of the Python coroutine &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">print_name</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Searching prefix: </span><span class="token interpolation"><span class="token punctuation">{</span>prefix<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">yield</span><span class="token punctuation">)</span> <span class="token keyword">if</span> prefix <span class="token keyword">in</span> name<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token comment"># Instantiate the coroutine</span> corou <span class="token operator">=</span> print_name<span class="token punctuation">(</span><span class="token string">"Welcome to"</span><span class="token punctuation">)</span> <span class="token comment"># Start the coroutine</span> corou<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Send values to the coroutine</span> corou<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">"Tutorialspoint"</span><span class="token punctuation">)</span> corou<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">"Welcome to Tutorialspoint"</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Searching prefix: Welcome to
+Welcome to Tutorialspoint
+</pre>
+<h2>Closing a Coroutine</h2>
+<p><strong>Coroutines</strong> can run indefinitely so it's important to close them properly when they are no longer needed. The <strong>close()</strong> method terminates the coroutine and handles cleanup. If we attempt to send data to a closed coroutine it will raise a <strong>StopIteration exception.</strong></p>
+<h3>Example</h3>
+<p>Following is the example of closing a coroutine in python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">print_name</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Searching prefix: </span><span class="token interpolation"><span class="token punctuation">{</span>prefix<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">yield</span><span class="token punctuation">)</span> <span class="token keyword">if</span> prefix <span class="token keyword">in</span> name<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">except</span> GeneratorExit<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Closing coroutine!!"</span><span class="token punctuation">)</span> <span class="token comment"># Instantiate and start the coroutine</span> corou <span class="token operator">=</span> print_name<span class="token punctuation">(</span><span class="token string">"Come"</span><span class="token punctuation">)</span> corou<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Send values to the coroutine</span> corou<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">"Come back Thank You"</span><span class="token punctuation">)</span> corou<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">"Thank you"</span><span class="token punctuation">)</span> <span class="token comment"># Close the coroutine</span> corou<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Searching prefix: Come
+Come back Thank You
+Closing coroutine!!
+</pre>
+<h2>Chaining Coroutines for Pipelines</h2>
+<p><strong>Coroutines</strong> can be chained together to form a processing pipeline which allows data to flow through a series of stages. This is particularly useful for processing sequences of data in stages where each stage performs a specific task.</p>
+<h3>Example</h3>
+<p>Below is the example which shows chaining coroutines for pipelines &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">producer</span><span class="token punctuation">(</span>sentence<span class="token punctuation">,</span> next_coroutine<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">''' Splits the input sentence into tokens and sends them to the next coroutine. '''</span> tokens <span class="token operator">=</span> sentence<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span> <span class="token keyword">for</span> token <span class="token keyword">in</span> tokens<span class="token punctuation">:</span> next_coroutine<span class="token punctuation">.</span>send<span class="token punctuation">(</span>token<span class="token punctuation">)</span> next_coroutine<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">pattern_filter</span><span class="token punctuation">(</span>pattern<span class="token operator">=</span><span class="token string">"ing"</span><span class="token punctuation">,</span> next_coroutine<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">''' Filters tokens based on the specified pattern and sends matching tokens to the next coroutine. '''</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Searching for </span><span class="token interpolation"><span class="token punctuation">{</span>pattern<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> token <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">yield</span><span class="token punctuation">)</span> <span class="token keyword">if</span> pattern <span class="token keyword">in</span> token<span class="token punctuation">:</span> next_coroutine<span class="token punctuation">.</span>send<span class="token punctuation">(</span>token<span class="token punctuation">)</span> <span class="token keyword">except</span> GeneratorExit<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Done with filtering!!"</span><span class="token punctuation">)</span> next_coroutine<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">print_token</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">''' Receives tokens and prints them. '''</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I'm the sink, I'll print tokens"</span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> token <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">yield</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span> <span class="token keyword">except</span> GeneratorExit<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Done with printing!"</span><span class="token punctuation">)</span> <span class="token comment"># Setting up the pipeline</span> pt <span class="token operator">=</span> print_token<span class="token punctuation">(</span><span class="token punctuation">)</span> pt<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span> pf <span class="token operator">=</span> pattern_filter<span class="token punctuation">(</span>next_coroutine<span class="token operator">=</span>pt<span class="token punctuation">)</span> pf<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span> sentence <span class="token operator">=</span> <span class="token string">"Tutorialspoint is welcoming you to learn and succeed in Career!!!"</span> producer<span class="token punctuation">(</span>sentence<span class="token punctuation">,</span> pf<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">I'm the sink, I'll print tokens
+Searching for ing
+welcoming
+Done with filtering!!
+Done with printing!&nbsp;</pre>

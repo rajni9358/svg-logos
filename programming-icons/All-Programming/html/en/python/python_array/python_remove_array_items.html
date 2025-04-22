@@ -1,0 +1,53 @@
+<h2>Removing array items in Python</h2>
+<p>Python arrays are a mutable sequence which means operation like adding new elements and removing existing elements can be performed with ease. We can remove an element from an array by specifying its value or position within the given array.</p>
+<p>The <a href="/python/python_arrays.htm" target="_blank">array</a> module defines two methods namely remove() and pop(). The remove() method removes the element by value whereas the pop() method removes array item by its position.</p>
+<blockquote>Python does not provide built-in support for arrays, however, we can use the <span class="tp-codespan">array module</span> to achieve the functionality like an array.</blockquote>
+<div class="inserted-div">&nbsp;</div>
+<h2>Remove First Occurrence</h2>
+<p>To remove the first occurrence of a given value from the array, use <span class="tp-codespan">remove()</span> method. This method accepts an element and removes it if the element is available in the array.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">array<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>v<span class="token punctuation">)</span></div>
+<p>Where, <strong>v</strong> is the value to be removed from the array.</p>
+<h3>Example</h3>
+<p>The below example shows the usage of remove() method. Here, we are removing an element from the specified array.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">211</span><span class="token punctuation">,</span> <span class="token number">311</span><span class="token punctuation">,</span> <span class="token number">411</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># before removing array</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Before removing:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span> <span class="token comment"># removing array</span> numericArray<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">311</span><span class="token punctuation">)</span> <span class="token comment"># after removing array</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"After removing:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Before removing: array('i', [111, 211, 311, 411, 511])
+After removing: array('i', [111, 211, 411, 511])
+</pre>
+<h2>Remove Items from Specific Indices</h2>
+<p>To remove an array element from specific index, use the <span class="tp-codespan">pop()</span> method. This method removes an element at the specified index from the array and returns the element at i<sup>th</sup> position after removal.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">array<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>i<span class="token punctuation">)</span></div>
+<p>Where, <strong>i</strong> is the index for the element to be removed.</p>
+<h3>Example</h3>
+<p>In this example, we will see how to use pop() method to remove elements from an array.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">211</span><span class="token punctuation">,</span> <span class="token number">311</span><span class="token punctuation">,</span> <span class="token number">411</span><span class="token punctuation">,</span> <span class="token number">511</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># before removing array</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Before removing:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span> <span class="token comment"># removing array</span> numericArray<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># after removing array</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"After removing:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Before removing: array('i', [111, 211, 311, 411, 511])
+After removing: array('i', [111, 211, 311, 511])
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

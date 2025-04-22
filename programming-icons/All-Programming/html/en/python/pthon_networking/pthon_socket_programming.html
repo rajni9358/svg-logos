@@ -1,0 +1,222 @@
+<h2>Python Socket Programming</h2>
+<p><strong>Socket programming</strong> is a technique in which we communicate between two nodes connected in a network where the server node listens to the incoming requests from the client nodes.</p>
+<p>In Python, the <strong>socket</strong> module is used for socket programming. The <strong>socket</strong> module in the standard library included functionality required for communication between server and client at hardware level.</p>
+<p>This module provides access to the BSD socket interface. It is available on all operating systems such as Linux, Windows, MacOS.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>What are Sockets?</h2>
+<p>Sockets are the endpoints of a bidirectional communications channel. Sockets may communicate within a process, between processes on the same machine, or between processes on different continents.</p>
+<p>A socket is identified by the combination of IP address and the port number. It should be properly configured at both ends to begin communication.</p>
+<p><img src="https://www.tutorialspoint.com/python/images/connection.jpg" alt="connection" /> <img src="	https://www.tutorialspoint.com/python/images/ip_address.jpg" alt="IP_address" /></p>
+<p>Sockets may be implemented over a number of different channel types: Unix domain sockets, TCP, UDP, and so on. The socket library provides specific classes for handling the common transports as well as a generic interface for handling the rest.</p>
+<p>The term socket programming implies programmatically setting up sockets to be able to send and receive data.</p>
+<p>There are two types of communication protocols &minus;</p>
+<ul class="list">
+<li>
+<p>connection-oriented protocol</p>
+</li>
+<li>
+<p>connection-less protocol</p>
+</li>
+</ul>
+<p>TCP or Transmission Control Protocol is a connection-oriented protocol. The data is transmitted in packets by the server, and assembled in the same order of transmission by the receiver. Since the sockets at either end of the communication need to be set before starting, this method is more reliable.</p>
+<p>UDP or User Datagram Protocol is connectionless. The method is not reliable because the sockets does not require establishing any connection and termination process for transferring the data.</p>
+<h2>Python socket Module</h2>
+<p>The <strong>socket</strong> module is used for creating and managing socket programming for the connected nodes in a network. The <strong>socket</strong> module provides a <strong>socket</strong> class. You need to create a socket using the <strong>socket.socket()</strong> constructor.</p>
+<p>An object of the <strong>socket</strong> class represents the pair of host name and the port numbers.</p>
+<h3>Syntax</h3>
+<p>The following is the syntax of socket.socket() constructor &ndash;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">socket<span class="token punctuation">.</span>socket <span class="token punctuation">(</span>socket_family<span class="token punctuation">,</span> socket_type<span class="token punctuation">,</span> protocol<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<h3>Parameters</h3>
+<ul class="list">
+<li>
+<p><strong>family</strong> &minus; AF_INET by default. Other values - AF_INET6 (eight groups of four hexadecimal digits), AF_UNIX, AF_CAN (Controller Area Network) or AF_RDS (Reliable Datagram Sockets).</p>
+</li>
+<li>
+<p><strong>socket_type</strong> &minus; should be SOCK_STREAM (the default), SOCK_DGRAM, SOCK_RAW or perhaps one of the other SOCK_ constants.</p>
+</li>
+<li>
+<p><strong>protocol</strong> &minus; number is usually zero and may be omitted.</p>
+</li>
+</ul>
+<h3>Return Type</h3>
+<p>This method returns a socket object.</p>
+<p>Once you have the socket object, then you can use the required methods to create your client or server program.</p>
+<h2>Server Socket Methods</h2>
+<p>The socket instantiated on server is called server socket. Following methods are available to the socket object on the server &minus;</p>
+<ul class="list">
+<li>
+<p><strong>bind() method</strong> &minus; This method binds the socket to specified IP address and port number.</p>
+</li>
+<li>
+<p><strong>listen() method</strong> &minus; This method starts server and runs into a listen loop looking for connection request from client.</p>
+</li>
+<li>
+<p><strong>accept() method</strong> &minus; When connection request is intercepted by server, this method accepts it and identifies the client socket with its address.</p>
+</li>
+</ul>
+<p>To create a socket on a server, use the following snippet &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socket server <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span> server<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span><span class="token number">12345</span><span class="token punctuation">)</span><span class="token punctuation">)</span> server<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token punctuation">)</span> client<span class="token punctuation">,</span> addr <span class="token operator">=</span> server<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"connection request from: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>addr<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>By default, the server is bound to local machine's IP address 'localhost' listening at arbitrary empty port number.</p>
+<h2>Client Socket Methods</h2>
+<p>Similar socket is set up on the client end. It mainly sends connection request to server socket listening at its IP address and port number</p>
+<h3>connect() method</h3>
+<p>This method takes a two-item tuple object as argument. The two items are IP address and port number of the server.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">obj<span class="token operator">=</span>socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span> obj<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>Once the connection is accepted by the server, both the socket objects can send and/or receive data.</p>
+<h3>send() method</h3>
+<p>The server sends data to client by using the address it has intercepted.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">client<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">)</span></div>
+<p>Client socket sends data to socket it has established connection with.</p>
+<h3>sendall() method</h3>
+<p>similar to send(). However, unlike send(),this method continues to send data from bytes until either all data has been sent or an error occurs. None is returned on success.</p>
+<h3>sendto() method</h3>
+<p>This method is to be used in case of UDP protocol only.</p>
+<h3>recv() method</h3>
+<p>This method is used to retrieve data sent to the client. In case of server, it uses the remote socket whose request has been accepted.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">client<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">)</span></div>
+<h3>recvfrom() method</h3>
+<p>This method is used in case of UDP protocol.</p>
+<h2>Python - Socket Server</h2>
+<p>To write Internet servers, we use the socket function available in socket module to create a socket object. A socket object is then used to call other functions to setup a socket server.</p>
+<p>Now call the <strong>bind(hostname, port)</strong> function to specify a port for your service on the given host.</p>
+<p>Next, call the accept method of the returned object. This method waits until a client connects to the port you specified, and then returns a connection object that represents the connection to that client.</p>
+<h3>Example of Server Socket</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socket host <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span> port <span class="token operator">=</span> <span class="token number">5001</span> server <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span> server<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span> server<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token punctuation">)</span> conn<span class="token punctuation">,</span> addr <span class="token operator">=</span> server<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Connection from: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>addr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span> <span class="token keyword">break</span> data <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">" from client: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> data <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"type message: "</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span>data<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>Python - Socket Client</h2>
+<p>Let us write a very simple client program, which opens a connection to a given port 5001 and a given localhost. It is very simple to create a socket client using the Python's socket module function.</p>
+<p>The <strong>socket.connect(hosname, port)</strong> opens a TCP connection to hostname on the port. Once you have a socket open, you can read from it like any IO object. When done, remember to close it, as you would close a file.</p>
+<h3>Example of Client Socket</h3>
+<p>The following code is a very simple client that connects to a given host and port, reads any available data from the socket, and then exits when 'q' is entered.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socket host <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span> port <span class="token operator">=</span> <span class="token number">5001</span> obj <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span> obj<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span> message <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"type message: "</span><span class="token punctuation">)</span> <span class="token keyword">while</span> message <span class="token operator">!=</span> <span class="token string">'q'</span><span class="token punctuation">:</span> obj<span class="token punctuation">.</span>send<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> data <span class="token operator">=</span> obj<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Received from server: '</span> <span class="token operator">+</span> data<span class="token punctuation">)</span> message <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"type message: "</span><span class="token punctuation">)</span> obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<ul class="list">
+<li>
+<p>Run Server code first. It starts listening.</p>
+</li>
+<li>
+<p>Then start client code. It sends request.</p>
+</li>
+<li>
+<p>Request accepted. Client address identified</p>
+</li>
+<li>
+<p>Type some text and press Enter.</p>
+</li>
+<li>
+<p>Data received is printed. Send data to client.</p>
+</li>
+<li>
+<p>Data from server is received.</p>
+</li>
+<li>
+<p>Loop terminates when 'q' is input.</p>
+</li>
+</ul>
+<p>Server-client interaction is shown below &minus;</p>
+<p><img src="/python/images/server_client_interaction.jpg" alt="server_client_interaction" /></p>
+<p>We have implemented client-server communication with socket module on the local machine. To put server and client codes on two different machines on a network, we need to find the IP address of the server machine.</p>
+<p>On Windows, you can find the IP address by running ipconfig command. The ifconfig command is the equivalent command on Ubuntu.</p>
+<p><img src="/python/images/ipv4_address.jpg" alt="ipv4_address" /></p>
+<p>Change host string in both the server and client codes with IPv4 Address value and run them as before.</p>
+<h2>Python File Transfer with Socket Module</h2>
+<p>The following program demonstrates how socket communication can be used to transfer a file from server to the client</p>
+<h3>Server Code</h3>
+<p>The code for establishing connection is same as before. After the connection request is accepted, a file on server is opened in binary mode for reading, and bytes are successively read and sent to the client stream till end of file is reached.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socket host <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span> port <span class="token operator">=</span> <span class="token number">5001</span> server <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span> server<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">)</span> server<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token punctuation">)</span> conn<span class="token punctuation">,</span> addr <span class="token operator">=</span> server<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span> data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span> filename<span class="token operator">=</span><span class="token string">'test.txt'</span> f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> l <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token keyword">not</span> l<span class="token punctuation">:</span> <span class="token keyword">break</span> conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span>l<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Sent '</span><span class="token punctuation">,</span><span class="token builtin">repr</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">)</span> f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'File transferred'</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Client Code</h3>
+<p>On the client side, a new file is opened in <strong>wb</strong> mode. The stream of data received from server is written to the file. As the stream ends, the output file is closed. A new file will be created on the client machine.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socket s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span> host <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span> port <span class="token operator">=</span> <span class="token number">5001</span> s<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">)</span> s<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">"Hello server!"</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'recv.txt'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'receiving data...'</span><span class="token punctuation">)</span> data <span class="token operator">=</span> s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span> <span class="token keyword">break</span> f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span> f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Successfully received'</span><span class="token punctuation">)</span> s<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'connection closed'</span><span class="token punctuation">)</span></div>
+<h2>The Python socketserver Module</h2>
+<p>The socketserver module in Python's standard library is a framework for simplifying task of writing network servers. There are following classes in module, which represent synchronous servers &minus;</p>
+<p><img src="/python/images/socketserver_module.jpg" alt="socketserver_module" /></p>
+<p>These classes work with corresponding RequestHandler classes for implementing the service. BaseServer is the superclass of all Server objects in the module.</p>
+<p><strong>TCPServer</strong> class uses the internet TCP protocol, to provide continuous streams of data between the client and server. The constructor automatically attempts to invoke server_bind() and server_activate(). The other parameters are passed to the BaseServer base class.</p>
+<p>You must also create a subclass of <strong>StreamRequestHandler</strong> class. IT provides self.rfile and self.wfile attributes to read or write to get the request data or return data to the client.</p>
+<ul class="list">
+<li>
+<p><strong>UDPServer</strong> and <strong>DatagramRequestHandler</strong> &minus; These classes are meant to be used for UDP protocol.</p>
+</li>
+<li>
+<p><strong>DatagramRequestHandler</strong> and <strong>UnixDatagramServer</strong> &minus; These classes use Unix domain sockets; they're not available on non-Unix platforms.</p>
+</li>
+</ul>
+<h3>Server Code</h3>
+<p>You must write a RequestHandler class. It is instantiated once per connection to the server, and must override the handle() method to implement communication to the client.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socketserver <span class="token keyword">class</span> <span class="token class-name">MyTCPHandler</span><span class="token punctuation">(</span>socketserver<span class="token punctuation">.</span>BaseRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">handle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> host<span class="token punctuation">,</span>port<span class="token operator">=</span>self<span class="token punctuation">.</span>client_address <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{}:{} wrote:"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> msg<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"enter text .. "</span><span class="token punctuation">)</span> self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span>msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>On the server's assigned port number, an object of TCPServer class calls the forever() method to put the server in the listening mode and accepts incoming requests from clients.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span> HOST<span class="token punctuation">,</span> PORT <span class="token operator">=</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span> <span class="token number">9999</span> <span class="token keyword">with</span> socketserver<span class="token punctuation">.</span>TCPServer<span class="token punctuation">(</span><span class="token punctuation">(</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">,</span> MyTCPHandler<span class="token punctuation">)</span> <span class="token keyword">as</span> server<span class="token punctuation">:</span> server<span class="token punctuation">.</span>serve_forever<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Client Code</h3>
+<p>When working with socketserver, the client code is more or less similar with the socket client application.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> socket <span class="token keyword">import</span> sys HOST<span class="token punctuation">,</span> PORT <span class="token operator">=</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span> <span class="token number">9999</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">with</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> <span class="token keyword">as</span> sock<span class="token punctuation">:</span> <span class="token comment"># Connect to server and send data</span> sock<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">)</span> data <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"enter text .. ."</span><span class="token punctuation">)</span> sock<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>data <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Receive data from the server and shut down</span> received <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>sock<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sent: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Received: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>received<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>Run the server code in one command prompt terminal. Open multiple terminals for client instances. You can simulate a concurrent communication between the server and more than one clients.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Server</th>
+<th style="text-align: center;">Client-1</th>
+<th style="text-align: center;">Client-2</th>
+</tr>
+<tr>
+<td>
+<p>D:\socketsrvr&gt;python myserver.py</p>
+<p>127.0.0.1:54518 wrote:</p>
+<p>from client-1</p>
+<p>enter text ..</p>
+<p>hello</p>
+<p>127.0.0.1:54522 wrote:</p>
+<p>how are you</p>
+<p>enter text ..</p>
+<p>fine</p>
+<p>127.0.0.1:54523 wrote:</p>
+<p>from client-2</p>
+<p>enter text ..</p>
+<p>hi client-2</p>
+<p>127.0.0.1:54526 wrote:</p>
+<p>good bye</p>
+<p>enter text ..</p>
+<p>bye bye</p>
+<p>127.0.0.1:54530 wrote:</p>
+<p>thanks</p>
+<p>enter text ..</p>
+<p>bye client-2</p>
+</td>
+<td>
+<p>D:\socketsrvr&gt;python myclient.py</p>
+<p>enter text .. .</p>
+<p>from client-1</p>
+<p>Sent:</p>
+<p>from client-1</p>
+<p>Received: hello</p>
+<p>enter text .. .</p>
+<p>how are you</p>
+<p>Sent:</p>
+<p>how are you</p>
+<p>Received: fine</p>
+<p>enter text .. .</p>
+<p>good bye</p>
+<p>Sent: good bye</p>
+<p>Received: bye bye</p>
+<p>enter text .. .</p>
+</td>
+<td>
+<p>D:\socketsrvr&gt;python myclient.py</p>
+<p>enter text .. .</p>
+<p>from client-2</p>
+<p>Sent:</p>
+<p>from client-2</p>
+<p>Received: hi client-2</p>
+<p>enter text .. .</p>
+<p>thanks</p>
+<p>Sent: thanks</p>
+<p>Received:</p>
+<p>bye client-2</p>
+<p>enter text .. .</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

@@ -1,0 +1,153 @@
+<h2>Provide User Input in Python</h2>
+<p>In this chapter, we will learn how Python accepts the user input from the console, and displays the output on the same console.</p>
+<p>Every computer application should have a provision to accept input from the user when it is running. This makes the application interactive. Depending on how it is developed, an application may accept the user input in the form of text entered in the console <strong>(sys.stdin)</strong>, a graphical layout, or a web-based interface.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python User Input Functions</h2>
+<p>Python provides us with two built-in functions to read the input from the keyboard.</p>
+<ul class="list">
+<li>The input () Function</li>
+<li>The raw_input () Function</li>
+</ul>
+<p>Python interpreter works in interactive and scripted mode. While the interactive mode is good for quick evaluations, it is less productive. For repeated execution of same set of instructions, scripted mode should be used.</p>
+<p>Let us write a simple Python script to start with.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> name <span class="token operator">=</span> <span class="token string">"Kiran"</span> city <span class="token operator">=</span> <span class="token string">"Hyderabad"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello My name is"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am from"</span><span class="token punctuation">,</span> city<span class="token punctuation">)</span></div>
+</div>
+<p>Save the above code as hello.py and run it from the command-line. Here's the output</p>
+<pre class="result notranslate">C:\python311&gt; python hello.py
+Hello My name is Kiran
+I am from Hyderabad
+</pre>
+<p>The program simply prints the values of the two variables in it. If you run the program repeatedly, the same output will be displayed every time. To use the program for another name and city, you can edit the code, change name to say "Ravi" and city to "Chennai". Every time you need to assign different value, you will have to edit the program, save and run, which is not the ideal way.</p>
+<h2>The input() Function</h2>
+<p>Obviously, you need some mechanism to assign different value to the variable in the runtime &minus; while the program is running. Python's <strong>input()</strong> function does the same job.</p>
+<p>Following is the syntax of Python's standard library input() function.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> var <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>When the interpreter encounters input() function, it waits for the user to enter data from the standard input stream (keyboard) till the Enter key is pressed. The sequence of characters may be stored in a string variable for further use.</p>
+<p>On reading the Enter key, the program proceeds to the next statement. Let use change our program to store the user input in name and city variables.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> city <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello My name is"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am from "</span><span class="token punctuation">,</span> city<span class="token punctuation">)</span></div>
+<p>When you run, you will find the cursor waiting for user's input. Enter values for name and city. Using the entered data, the output will be displayed.</p>
+<pre class="result notranslate">Ravi
+Chennai
+Hello My name is Ravi
+I am from Chennai
+</pre>
+<p>Now, the variables are not assigned any specific value in the program. Every time you run, different values can be input. So, your program has become truly interactive.</p>
+<p>Inside the input() function, you may give a <strong>prompt</strong> text, which will appear before the cursor when you run the code.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter your name : "</span><span class="token punctuation">)</span> city <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter your city : "</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello My name is"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am from "</span><span class="token punctuation">,</span> city<span class="token punctuation">)</span></div>
+<p>When you run the program displays the prompt message, basically helping the user what to enter.</p>
+<pre class="result notranslate">Enter your name: Praveen Rao
+Enter your city: Bengaluru
+Hello My name is Praveen Rao
+I am from Bengaluru
+</pre>
+<h2>The raw_input() Function</h2>
+<p>The <strong>raw_input()</strong> function works similar to <strong>input()</strong> function. Here only point is that this function was available in Python 2.7, and it has been renamed to <strong>input()</strong> in Python 3.6</p>
+<p>Following is the syntax of the <strong>raw_input()</strong> function:</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> var <span class="token operator">=</span> <span class="token builtin">raw_input</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>prompt text<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<p>Let's re-write the above program using raw_input() function:</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> name <span class="token operator">=</span> <span class="token builtin">raw_input</span><span class="token punctuation">(</span><span class="token string">"Eneter your name - "</span><span class="token punctuation">)</span> city <span class="token operator">=</span> <span class="token builtin">raw_input</span><span class="token punctuation">(</span><span class="token string">"Enter city name - "</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello My name is"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am from "</span><span class="token punctuation">,</span> city<span class="token punctuation">)</span></div>
+<p>When you run, you will find the cursor waiting for user's input. Enter values for name and city. Using the entered data, the output will be displayed.</p>
+<pre class="result notranslate">Eneter your name - Ravi
+Enter city name - Chennai
+Hello My name is Ravi
+I am from Chennai
+</pre>
+<h2>Taking Numeric Input in Python</h2>
+<p>Let us write a Python code that accepts width and height of a rectangle from the user and computes the area.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> width <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter width : "</span><span class="token punctuation">)</span> height <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter height : "</span><span class="token punctuation">)</span> area <span class="token operator">=</span> width<span class="token operator">*</span>height <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Area of rectangle = "</span><span class="token punctuation">,</span> area<span class="token punctuation">)</span></div>
+<p>Run the program, and enter width and height.</p>
+<pre class="result notranslate">Enter width: 20
+Enter height: 30
+Traceback (most recent call last):
+  File "C:\Python311\var1.py", line 5, in &lt;module&gt;
+   area = width*height
+TypeError: can't multiply sequence by non-int of type 'str'
+</pre>
+<p>Why do you get a <strong>TypeError</strong> here? The reason is, Python always read the user input as a string. Hence, width="20" and height="30" are the strings and obviously you cannot perform multiplication of two strings.</p>
+<p>To overcome this problem, we shall use <strong>int()</strong>, another built-in function from Python's standard library. It converts a string object to an integer.</p>
+<p>To accept an integer input from the user, read the input in a string, and type cast it to integer with int() function &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">w <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter width : "</span><span class="token punctuation">)</span> width <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span> h <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter height : "</span><span class="token punctuation">)</span> height <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span></div>
+<p>You can combine the input and type cast statements in one &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> width <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter width : "</span><span class="token punctuation">)</span><span class="token punctuation">)</span> height <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter height : "</span><span class="token punctuation">)</span><span class="token punctuation">)</span> area <span class="token operator">=</span> width<span class="token operator">*</span>height <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Area of rectangle = "</span><span class="token punctuation">,</span> area<span class="token punctuation">)</span></div>
+<p>Now you can input any integer value to the two variables in the program &minus;</p>
+<pre class="result notranslate">Enter width: 20
+Enter height: 30
+Area of rectangle = 600
+</pre>
+<p>Python's <strong>float()</strong> function converts a string into a float object. The following program accepts the user input and parses it to a float variable &minus; rate, and computes the interest on an amount which is also input by the user.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> amount <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter Amount : "</span><span class="token punctuation">)</span><span class="token punctuation">)</span> rate <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Enter rate of interest : "</span><span class="token punctuation">)</span><span class="token punctuation">)</span> interest <span class="token operator">=</span> amount<span class="token operator">*</span>rate<span class="token operator">/</span><span class="token number">100</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Amount: "</span><span class="token punctuation">,</span> amount<span class="token punctuation">,</span> <span class="token string">"Interest: "</span><span class="token punctuation">,</span> interest<span class="token punctuation">)</span></div>
+<p>The program ask user to enter amount and rate; and displays the result as follows &minus;</p>
+<pre class="result notranslate">Enter Amount: 12500
+Enter rate of interest: 6.5
+Amount: 12500.0 Interest: 812.5
+</pre>
+<h2>The print() Function</h2>
+<p>Python's print() function is a built-in function. It is the most frequently used function, that displays value of Python expression given in parenthesis, on Python's console, or standard output <strong>(sys.stdout)</strong>.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Hello World "</span><span class="token punctuation">)</span></div>
+</div>
+<p>Any number of Python expressions can be there inside the parenthesis. They must be separated by comma symbol. Each item in the list may be any Python object, or a valid Python expression.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> a <span class="token operator">=</span> <span class="token string">"Hello World"</span> b <span class="token operator">=</span> <span class="token number">100</span> c <span class="token operator">=</span> <span class="token number">25.50</span> d <span class="token operator">=</span> <span class="token number">5</span><span class="token operator">+</span><span class="token number">6j</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>"Message<span class="token punctuation">:</span> a<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> b<span class="token operator">-</span>c<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>The first call to print() displays a string literal and a string variable. The second prints value of two variables and their subtraction. The <strong>pow()</strong> function computes the square root of a number and square value of a variable.</p>
+<pre class="result notranslate">Message Hello World
+100 25.5 74.5
+10.0 650.25
+</pre>
+<p>If there are multiple comma separated objects in the print() function's parenthesis, the values are separated by a white space " ". To use any other character as a separator, define a <strong>sep</strong> parameter for the print() function. This parameter should follow the list of expressions to be printed.</p>
+<p>In the following output of print() function, the variables are separated by comma.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3.11</span> city<span class="token operator">=</span><span class="token string">"Hyderabad"</span> state<span class="token operator">=</span><span class="token string">"Telangana"</span> country<span class="token operator">=</span><span class="token string">"India"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>city<span class="token punctuation">,</span> state<span class="token punctuation">,</span> country<span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">','</span><span class="token punctuation">)</span></div>
+</div>
+<p>The effect of sep=',' can be seen in the result &minus;</p>
+<pre class="result notranslate">Hyderabad,Telangana,India
+</pre>
+<p>The print() function issues a newline character ('\n') at the end, by default. As a result, the output of the next print() statement appears in the next line of the console.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">city<span class="token operator">=</span><span class="token string">"Hyderabad"</span> state<span class="token operator">=</span><span class="token string">"Telangana"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"City:"</span><span class="token punctuation">,</span> city<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"State:"</span><span class="token punctuation">,</span> state<span class="token punctuation">)</span></div>
+</div>
+<p>Two lines are displayed as the output &minus;</p>
+<pre class="result notranslate">City: Hyderabad
+State: Telangana
+</pre>
+<p>To make these two lines appear in the same line, define <strong>end</strong> parameter in the first print() function and set it to a whitespace string " ".</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">city<span class="token operator">=</span><span class="token string">"Hyderabad"</span> state<span class="token operator">=</span><span class="token string">"Telangana"</span> country<span class="token operator">=</span><span class="token string">"India"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"City:"</span><span class="token punctuation">,</span> city<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"State:"</span><span class="token punctuation">,</span> state<span class="token punctuation">)</span></div>
+</div>
+<p>Output of both the print() functions appear in continuation.</p>
+<pre class="result notranslate">City: Hyderabad State: Telangana&nbsp;</pre>

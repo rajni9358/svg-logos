@@ -1,0 +1,94 @@
+<h2>What is Polymorphism in Python?</h2>
+<p>The term <strong>polymorphism</strong> refers to a function or method taking different forms in different contexts. Since Python is a dynamically typed language, polymorphism in Python is very easily implemented.</p>
+<p>If a method in a parent class is overridden with different business logic in its different child classes, the base class method is a polymorphic method.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Ways of implementing Polymorphism in Python</h2>
+<p>There are four ways to implement polymorphism in Python &minus;</p>
+<ul class="list">
+<li>Duck Typing</li>
+<li>Operator Overloading</li>
+<li>Method Overriding</li>
+<li>Method Overloading</li>
+</ul>
+<p><img src="/python/images/ways_to_implement_polymorphism.jpg" alt="implementing polymorphism" /></p>
+<h2>Duck Typing in Python</h2>
+<p><span class="tp-codespan">Duck typing</span> is a concept where the type or class of an object is less important than the methods it defines. Using this concept, you can call any method on an object without checking its type, as long as the method exists.</p>
+<p>This term is defined by a very famous quote that states: Suppose there is a bird that walks like a duck, swims like a duck, looks like a duck, and quaks like a duck then it probably is a duck.</p>
+<h3>Example</h3>
+<p>In the code given below, we are practically demonstrating the concept of duck typing.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Duck</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">sound</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"Quack, quack!"</span> <span class="token keyword">class</span> <span class="token class-name">AnotherBird</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">sound</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"I'm similar to a duck!"</span> <span class="token keyword">def</span> <span class="token function">makeSound</span><span class="token punctuation">(</span>duck<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>duck<span class="token punctuation">.</span>sound<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># creating instances</span> duck <span class="token operator">=</span> Duck<span class="token punctuation">(</span><span class="token punctuation">)</span> anotherBird <span class="token operator">=</span> AnotherBird<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># calling methods</span> makeSound<span class="token punctuation">(</span>duck<span class="token punctuation">)</span> makeSound<span class="token punctuation">(</span>anotherBird<span class="token punctuation">)</span></div>
+</div>
+<p>When you execute this code, it will produce the following output &minus;</p>
+<pre class="result notranslate">Quack, quack!
+I'm similar to a duck!
+</pre>
+<h2>Method Overriding in Python</h2>
+<p>In <span class="tp-codespan">method overriding</span>, a method defined inside a subclass has the same name as a method in its superclass but implements a different functionality.</p>
+<h3>Example</h3>
+<p>As an example of polymorphism given below, we have <strong>shape</strong> which is an abstract class. It is used as parent by two classes circle and rectangle. Both classes override parent's draw() method in different ways.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> abc <span class="token keyword">import</span> ABC<span class="token punctuation">,</span> abstractmethod <span class="token keyword">class</span> <span class="token class-name">shape</span><span class="token punctuation">(</span>ABC<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token decorator annotation punctuation">@abstractmethod</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token string">"Abstract method"</span> <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">circle</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>draw<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Draw a circle"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">rectangle</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>draw<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Draw a rectangle"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> shapes <span class="token operator">=</span> <span class="token punctuation">[</span>circle<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rectangle<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> shp <span class="token keyword">in</span> shapes<span class="token punctuation">:</span> shp<span class="token punctuation">.</span>draw<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>When you run the above code, it will produce the following output &minus;</p>
+<pre class="result notranslate">Draw a circle
+Draw a rectangle
+</pre>
+<p>The variable <strong>shp</strong> first refers to circle object and calls draw() method from circle class. In next iteration, it refers to rectangle object and calls draw() method from rectangle class. Hence draw() method in shape class is polymorphic.</p>
+<h2>Overloading Operators in Python</h2>
+<p>Suppose you have created a Vector class to represent two-dimensional vectors, what happens when you use the plus operator to add them? Most likely Python will yell at you.</p>
+<p>You could, however, define the <strong>__add__</strong> method in your class to perform vector addition and then the plus operator would behave as per expectation &minus;</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Vector</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>a <span class="token operator">=</span> a self<span class="token punctuation">.</span>b <span class="token operator">=</span> b <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">'Vector (%d, %d)'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>a<span class="token punctuation">,</span> self<span class="token punctuation">.</span>b<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__add__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>other<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> Vector<span class="token punctuation">(</span>self<span class="token punctuation">.</span>a <span class="token operator">+</span> other<span class="token punctuation">.</span>a<span class="token punctuation">,</span> self<span class="token punctuation">.</span>b <span class="token operator">+</span> other<span class="token punctuation">.</span>b<span class="token punctuation">)</span> v1 <span class="token operator">=</span> Vector<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> v2 <span class="token operator">=</span> Vector<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>v1 <span class="token operator">+</span> v2<span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Vector(7,8)
+</pre>
+<h2>Method Overloading in Python</h2>
+<p>When a class contains two or more methods with the same name but different number of parameters then this scenario can be termed as method overloading.</p>
+<p>Python does not allow overloading of methods by default, however, we can use the techniques like variable-length argument lists, multiple dispatch and default parameters to achieve this.</p>
+<h3>Example</h3>
+<p>In the following example, we are using the variable-length argument lists to achieve method overloading.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">*</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token comment"># Call the function with different number of parameters</span> result1 <span class="token operator">=</span> add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span> result2 <span class="token operator">=</span> add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">35
+70
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

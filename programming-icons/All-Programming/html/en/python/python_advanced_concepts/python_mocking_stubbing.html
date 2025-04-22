@@ -1,0 +1,111 @@
+<p><strong>Python mocking and stubbing</strong> are important techniques in unit testing that help to isolate the functionality being tested by replacing real objects or methods with controlled substitutes. In this chapter we are going to understand about Mocking and Stubbing in detail &minus;</p>
+<h2>Python Mocking</h2>
+<p><strong>Mocking</strong> is a testing technique in which mock objects are created to simulate the behavior of real objects.</p>
+<p>This is useful when testing a piece of code that interacts with complex, unpredictable or slow components such as databases, web services or hardware devices.</p>
+<p>The primary purpose of mocking is to isolate the code under test and ensure that its behavior is evaluated independently of its dependencies.</p>
+<h3>Key Characteristics of Mocking</h3>
+<p>The following are the key characteristics of mocking in python &minus;</p>
+<ul class="list">
+<li><strong>Behavior Simulation:</strong> Mock objects can be programmed to return specific values, raise exceptions or mimic the behavior of real objects under various conditions.</li>
+<li><strong>Interaction Verification:</strong> Mocks can record how they were used by allowing the tester to verify that specific methods were called with the expected arguments.</li>
+<li><strong>Test Isolation:</strong>By replacing real objects with mocks, tests can focus on the logic of the code under test without worrying about the complexities or availability of external dependencies.</li>
+</ul>
+<h3>Example of Python Mocking</h3>
+<p>Following is the example of the <strong>database.get_user</strong> method, which is mocked to return a predefined user dictionary. The test can then verify that the method was called with the correct arguments &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> unittest<span class="token punctuation">.</span>mock <span class="token keyword">import</span> Mock <span class="token comment"># Create a mock object</span> database <span class="token operator">=</span> Mock<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Simulate a method call</span> database<span class="token punctuation">.</span>get_user<span class="token punctuation">.</span>return_value <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Prasad"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">}</span> <span class="token comment"># Use the mock object</span> user <span class="token operator">=</span> database<span class="token punctuation">.</span>get_user<span class="token punctuation">(</span><span class="token string">"prasad_id"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token comment"># Verify the interaction</span> database<span class="token punctuation">.</span>get_user<span class="token punctuation">.</span>assert_called_with<span class="token punctuation">(</span><span class="token string">"prasad_id"</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">{'name': 'Prasad', 'age': 30}
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Stubbing</h2>
+<p><strong>Stubbing</strong> is a related testing technique where certain <a href="/python/python_class_methods.htm" target="_blank">methods</a> or <a href="/python/python_functions.htm" target="_blank">functions</a> are replaced with "stubs" that return fixed, predetermined responses.</p>
+<p>Stubbing is simpler than mocking because it typically does not involve recording or verifying interactions. Instead, stubbing focuses on providing controlled inputs to the code under test by ensuring consistent and repeatable results.</p>
+<h3>Key Characteristics of Stubbing</h3>
+<p>The following are the key characteristics of Stubbing in python &minus;</p>
+<ul class="list">
+<li><strong>Fixed Responses:</strong> Stubs return specific, predefined values or responses regardless of how they are called.</li>
+<li><strong>Simplified Dependencies:</strong> By replacing complex methods with stubs, tests can avoid the need to set up or manage intricate dependencies.</li>
+<li><strong>Focus on Inputs:</strong> Stubbing emphasizes providing known inputs to the code under test by allowing the tester to focus on the logic and output of the tested code.</li>
+</ul>
+<h3>Example of Python Stubbing</h3>
+<p>Following is the example of the <strong>get_user_from_db</strong> function, which is stubbed to always return a predefined user dictionary. The test does not need to interact with a real database for simplifying the setup and ensuring consistent results &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> unittest<span class="token punctuation">.</span>mock <span class="token keyword">import</span> patch <span class="token comment"># Define the function to be stubbed</span> <span class="token keyword">def</span> <span class="token function">get_user_from_db</span><span class="token punctuation">(</span>user_id<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># Simulate a complex database operation</span> <span class="token keyword">pass</span> <span class="token comment"># Test the function with a stub</span> <span class="token keyword">with</span> patch<span class="token punctuation">(</span><span class="token string">'__main__.get_user_from_db'</span><span class="token punctuation">,</span> return_value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Prasad"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> user <span class="token operator">=</span> get_user_from_db<span class="token punctuation">(</span><span class="token string">"prasad_id"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">{'name': 'Prasad', 'age': 25}
+</pre>
+<h2>Python Mocking Vs. Stubbing</h2>
+<p>The comparison of the Mocking and Stubbing key features, purposes and use cases gives the clarity on when to use each method. By exploring these distinctions, developers can create more effective and maintainable tests which ultimately leads to higher quality software.</p>
+<p>The following table shows the key difference between mocking and stubbing based on the different criteria &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Criteria</th>
+<th style="width: 26%;">Mocking</th>
+<th style="width: 16%;">Stubbing</th>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Simulate the behavior of real objects</td>
+<td>Provide fixed, predetermined responses</td>
+</tr>
+<tr>
+<td><strong>Interaction Verification</strong></td>
+<td>Can verify method calls and arguments</td>
+<td>Typically does not verify interactions</td>
+</tr>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>More complex; can simulate various behaviors</td>
+<td>Simpler; focuses on providing controlled inputs</td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>Isolate and test code with complex dependencies</td>
+<td>Simplify tests by providing known responses</td>
+</tr>
+<tr>
+<td><strong>Recording Behavior</strong></td>
+<td>Records how methods were called</td>
+<td>Does not record interactions</td>
+</tr>
+<tr>
+<td><strong>State Management</strong></td>
+<td>Can maintain state across calls</td>
+<td>Usually stateless; returns fixed output</td>
+</tr>
+<tr>
+<td><strong>Framework Support</strong></td>
+<td>Primarily uses <strong>unittest.mock</strong> with features like Mock and MagicMock</td>
+<td>Uses unittest.mock's patch for simple replacements</td>
+</tr>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Highly flexible; can simulate exceptions and side effects</td>
+<td>Limited flexibility; focused on return values</td>
+</tr>
+</tbody>
+</table>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

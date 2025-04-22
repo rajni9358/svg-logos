@@ -1,0 +1,68 @@
+
+<h2>What is Python Static Method?</h2>
+<p>In Python, a <strong>static method</strong> is a type of method that does not require any instance to be called. It is very similar to the class method but the difference is that the static method doesn't have a mandatory argument like reference to the object <strong>&minus; self</strong> or reference to the class <strong>&minus; cls</strong>.</p>
+<p>Static methods are used to access static fields of a given class. They cannot modify the state of a class since they are bound to the class, not instance.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>How to Create Static Method in Python?</h2>
+<p>There are two ways to create Python static methods &minus;</p>
+<ul class="list">
+<li>Using staticmethod() Function</li>
+<li>Using @staticmethod Decorator</li>
+</ul>
+<h2>Using staticmethod() Function</h2>
+<p>Python's standard library function named staticmethod() is used to create a static method. It accepts a method as an argument and converts it into a static method.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">staticmethod</span><span class="token punctuation">(</span>method<span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<p>In the Employee class below, the showcount() method is converted into a static method. This static method can now be called by its object or reference of class itself.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__name <span class="token operator">=</span> name self<span class="token punctuation">.</span>__age <span class="token operator">=</span> age Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token comment"># creating staticmethod</span> <span class="token keyword">def</span> <span class="token function">showcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>Employee<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span> <span class="token keyword">return</span> counter <span class="token operator">=</span> <span class="token builtin">staticmethod</span><span class="token punctuation">(</span>showcount<span class="token punctuation">)</span> e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Rajesh"</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span> e3 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span> e1<span class="token punctuation">.</span>counter<span class="token punctuation">(</span><span class="token punctuation">)</span> Employee<span class="token punctuation">.</span>counter<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>Executing the above code will print the following result &minus;</p>
+<pre class="result notranslate">3
+3
+</pre>
+<h2>Using @staticmethod Decorator</h2>
+<p>The second way to create a static method is by using the Python @staticmethod decorator. When we use this decorator with a method it indicates to the Interpreter that the specified method is static.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token decorator annotation punctuation">@staticmethod</span> <span class="token keyword">def</span> <span class="token function">method_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># your code</span></div>
+<h3>Example</h3>
+<p>In the following example, we are creating a static method using the @staticmethod decorator.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">:</span> stdCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__name <span class="token operator">=</span> name self<span class="token punctuation">.</span>__age <span class="token operator">=</span> age Student<span class="token punctuation">.</span>stdCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token comment"># creating staticmethod</span> <span class="token decorator annotation punctuation">@staticmethod</span> <span class="token keyword">def</span> <span class="token function">showcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>Student<span class="token punctuation">.</span>stdCount<span class="token punctuation">)</span> e1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Rajesh"</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span> e3 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Number of Students:"</span><span class="token punctuation">)</span> Student<span class="token punctuation">.</span>showcount<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>Running the above code will print the following result &minus;</p>
+<pre class="result notranslate">Number of Students:
+3
+</pre>
+<h2>Advantages of Static Method</h2>
+<p>There are several advantages of using static method, which includes &minus;</p>
+<ul class="list">
+<li>Since a static method cannot access class attributes, it can be used as a utility function to perform frequently re-used tasks.</li>
+<li>We can invoke this method using the class name. Hence, it eliminates the dependency on the instances.</li>
+<li>A static method is always predictable as its behavior remain unchanged regardless of the class state.</li>
+<li>We can declare a method as a static method to prevent overriding.</li>
+</ul>
+<div class="library-page-bottom-nav ">
+<div id="print-page" class="button button--blue">&nbsp;</div>
+</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

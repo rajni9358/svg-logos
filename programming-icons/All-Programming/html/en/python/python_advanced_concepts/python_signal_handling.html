@@ -1,0 +1,85 @@
+<p><strong>Signal handling</strong> in Python allows you to define custom handlers for managing asynchronous events such as interrupts or termination requests from keyboard, alarms, and even system signals. You can control how your program responds to various signals by defining custom handlers. The <strong>signal</strong> module in Python provides mechanisms to set and manage signal handlers.</p>
+<p>A <strong>signal handler</strong> is a function that gets executed when a specific signal is received. The <strong>signal.signal()</strong> function allows defining custom handlers for signals. The <strong>signal</strong> module offers a way to define custom handlers that will be executed when a specific signal is received. Some default handlers are already installed in Python, which are &minus;</p>
+<ul class="list">
+<li><strong>SIGPIPE</strong> is ignored.</li>
+<li><strong>SIGINT</strong> is translated into a KeyboardInterrupt exception.</li>
+</ul>
+<h2>Commonly Used Signals</h2>
+<p>Python signal handlers are executed in the main Python thread of the main interpreter, even if the signal is received in another thread. Signals can't be used for inter-thread communication.</p>
+<p>Following are the list of some common signals and their default actions &minus;</p>
+<ul class="list">
+<li><strong>SIGINT</strong> &minus; Interrupt from keyboard (Ctrl+C), which raises a KeyboardInterrupt.</li>
+<li><strong>SIGTERM</strong> &minus; Termination signal.</li>
+<li><strong>SIGALRM</strong>&minus; Timer signal from alarm().</li>
+<li><strong>SIGCHLD</strong> &minus; Child process stopped or terminated.</li>
+<li><strong>SIGUSR1</strong> and <strong>SIGUSR2</strong> &minus; User-defined signals.</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Setting a Signal Handler</h2>
+<p>To set a signal handler, we can use the <strong>signal.signal()</strong> function. It allows you to define custom handlers for signals. A handler remains installed until explicitly reset, except for <strong>SIGCHLD</strong>.</p>
+<h3>Example</h3>
+<p>Here is an example of setting a signal handler using the <strong>signal.signal()</strong> function with the <strong>SIGINT</strong> handler.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> signal <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">handle_signal</span><span class="token punctuation">(</span>signum<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Signal </span><span class="token interpolation"><span class="token punctuation">{</span>signum<span class="token punctuation">}</span></span><span class="token string"> received"</span></span><span class="token punctuation">)</span> <span class="token comment"># Setting the handler for SIGINT</span> signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGINT<span class="token punctuation">,</span> handle_signal<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Press Ctrl+C to trigger SIGINT"</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Press Ctrl+C to trigger SIGINT
+Signal 2 received
+Signal 2 received
+Signal 2 received
+Signal 2 received
+</pre>
+<h2>Signal Handling on Windows</h2>
+<p>On Windows, the <strong>signal.signal()</strong> function can only handle a limited set of signals. If you try to use a signal not supported on Windows, a <strong>ValueError</strong> will be raised. And, an <strong>AttributeError</strong> will be raised if a signal name is not defined as a SIG* module level constant.</p>
+<p>The supported signals on Windows are follows &minus;</p>
+<ul class="list">
+<li>SIGABRT</li>
+<li>SIGFPE</li>
+<li>SIGILL</li>
+<li>SIGINT</li>
+<li>SIGSEGV</li>
+<li>SIGTERM</li>
+<li>SIGBREAK</li>
+</ul>
+<h2>Handling Timers and Alarms</h2>
+<p>Timers and alarms can be used to schedule signal delivery after a certain amount of time.</p>
+<h3>Example</h3>
+<p>Let's observe following example of handling alarms.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> signal <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">handler</span><span class="token punctuation">(</span>signum<span class="token punctuation">,</span> stack<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Alarm: '</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGALRM<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> signal<span class="token punctuation">.</span>alarm<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> signal<span class="token punctuation">.</span>alarm<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"interrupted #%d"</span> <span class="token operator">%</span> i<span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Alarm:  Wed Jul 17 17:30:11 2024
+Alarm:  Wed Jul 17 17:30:16 2024
+interrupted #0
+Alarm:  Wed Jul 17 17:30:21 2024
+interrupted #1
+Alarm:  Wed Jul 17 17:30:26 2024
+interrupted #2
+Alarm:  Wed Jul 17 17:30:31 2024
+interrupted #3
+Alarm:  Wed Jul 17 17:30:36 2024
+interrupted #4
+</pre>
+<h2>Getting Signal Names from Numbers</h2>
+<p>There is no straightforward way of getting signal names from numbers in Python. You can use the <strong>signal</strong> module to get all its attributes, filter out those that start with <strong>SIG</strong>, and store them in a dictionary.</p>
+<h3>Example</h3>
+<p>This example creates a dictionary where the keys are signal numbers and the values are the corresponding signal names. This is useful for dynamically resolving signal names from their numeric values.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> signal sig_items <span class="token operator">=</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">sorted</span><span class="token punctuation">(</span>signal<span class="token punctuation">.</span>__dict__<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> final <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword">for</span> v<span class="token punctuation">,</span> k <span class="token keyword">in</span> sig_items <span class="token keyword">if</span> v<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'SIG'</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token keyword">not</span> v<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'SIG_'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>final<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">{&lt;Signals.SIGXFSZ: 25&gt;: 'SIGXFSZ', &lt;Signals.SIGXCPU: 24&gt;: 'SIGXCPU', &lt;Signals.SIGWINCH: 28&gt;: 'SIGWINCH', &lt;Signals.SIGVTALRM: 26&gt;: 'SIGVTALRM', &lt;Signals.SIGUSR2: 12&gt;: 'SIGUSR2', &lt;Signals.SIGUSR1: 10&gt;: 'SIGUSR1', &lt;Signals.SIGURG: 23&gt;: 'SIGURG', &lt;Signals.SIGTTOU: 22&gt;: 'SIGTTOU', &lt;Signals.SIGTTIN: 21&gt;: 'SIGTTIN', &lt;Signals.SIGTSTP: 20&gt;: 'SIGTSTP', &lt;Signals.SIGTRAP: 5&gt;: 'SIGTRAP', &lt;Signals.SIGTERM: 15&gt;: 'SIGTERM', &lt;Signals.SIGSYS: 31&gt;: 'SIGSYS', &lt;Signals.SIGSTOP: 19&gt;: 'SIGSTOP', &lt;Signals.SIGSEGV: 11&gt;: 'SIGSEGV', &lt;Signals.SIGRTMIN: 34&gt;: 'SIGRTMIN', &lt;Signals.SIGRTMAX: 64&gt;: 'SIGRTMAX', &lt;Signals.SIGQUIT: 3&gt;: 'SIGQUIT', &lt;Signals.SIGPWR: 30&gt;: 'SIGPWR', &lt;Signals.SIGPROF: 27&gt;: 'SIGPROF', &lt;Signals.SIGIO: 29&gt;: 'SIGIO', &lt;Signals.SIGPIPE: 13&gt;: 'SIGPIPE', &lt;Signals.SIGKILL: 9&gt;: 'SIGKILL', &lt;Signals.SIGABRT: 6&gt;: 'SIGABRT', &lt;Signals.SIGINT: 2&gt;: 'SIGINT', &lt;Signals.SIGILL: 4&gt;: 'SIGILL', &lt;Signals.SIGHUP: 1&gt;: 'SIGHUP', &lt;Signals.SIGFPE: 8&gt;: 'SIGFPE', &lt;Signals.SIGCONT: 18&gt;: 'SIGCONT', &lt;Signals.SIGCHLD: 17&gt;: 'SIGCHLD', &lt;Signals.SIGBUS: 7&gt;: 'SIGBUS', &lt;Signals.SIGALRM: 14&gt;: 'SIGALRM'}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

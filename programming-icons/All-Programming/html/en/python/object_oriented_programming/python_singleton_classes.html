@@ -1,0 +1,55 @@
+<p>In Python, a <strong>Singleton class</strong> is the implementation of singleton design pattern which means this type of class can have only one object. This helps in optimizing memory usage when you perform some heavy operation, like creating a database connection.</p>
+<p>If we try to create multiple objects for a singleton class, the object will be created only for the first time. After that, the same object instance will be returned.</p>
+<h2>Creating Singleton Classes in Python</h2>
+<p>We can create and implement singleton classes in Python using the following ways &minus;</p>
+<ul class="list">
+<li>using __init__</li>
+<li>using __new__</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using __init__</h2>
+<p>The <span class="tp-codespan">__init__ method</span> is an instance method that is used for initializing a newly created object. Its automatically called when an object is created from a class.</p>
+<p>If we use this method with a static method and provide necessary checks i.e., whether an instance of the class already exists or not, we can restrict the creation of a new object after the first one is created.</p>
+<h3>Example</h3>
+<p>In the below example, we are creating a singleton class using the __init__ method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">:</span> __uniqueInstance <span class="token operator">=</span> <span class="token boolean">None</span> <span class="token decorator annotation punctuation">@staticmethod</span> <span class="token keyword">def</span> <span class="token function">createInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> Singleton<span class="token punctuation">.</span>__uniqueInstance <span class="token operator">==</span> <span class="token boolean">None</span><span class="token punctuation">:</span> Singleton<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">return</span> Singleton<span class="token punctuation">.</span>__uniqueInstance <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> Singleton<span class="token punctuation">.</span>__uniqueInstance <span class="token operator">!=</span> <span class="token boolean">None</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"Object exist!"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> Singleton<span class="token punctuation">.</span>__uniqueInstance <span class="token operator">=</span> self obj1 <span class="token operator">=</span> Singleton<span class="token punctuation">.</span>createInstance<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span> obj2 <span class="token operator">=</span> Singleton<span class="token punctuation">.</span>createInstance<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span></div>
+</div>
+<p>When we run the above code, it will show the following result &minus;</p>
+<pre class="result notranslate">&lt;__main__.Singleton object at 0x7e4da068a910&gt;
+&lt;__main__.Singleton object at 0x7e4da068a910&gt;
+</pre>
+<h2>Using __new__</h2>
+<p>The <span class="tp-codespan">__new__ method</span> is a special static method in Python that is called to create a new instance of a class. It takes the class itself as the first argument and returns a new instance of that class.</p>
+<p>When an instance of a Python class is declared, it internally calls the __new__() method. If you want to implement a Singleton class, you can override this method.</p>
+<p>In the overridden method, you first check whether an instance of the class already exists. If it doesnt (i.e., if the instance is None), you call the super() method to create a new object. At the end, save this instance in a class attribute and return the result.</p>
+<h3>Example</h3>
+<p>In the following example, we are creating a singleton class using the __new__ method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">SingletonClass</span><span class="token punctuation">:</span> _instance <span class="token operator">=</span> <span class="token boolean">None</span> <span class="token keyword">def</span> <span class="token function">__new__</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> cls<span class="token punctuation">.</span>_instance <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Creating the object'</span><span class="token punctuation">)</span> cls<span class="token punctuation">.</span>_instance <span class="token operator">=</span> <span class="token builtin">super</span><span class="token punctuation">(</span>SingletonClass<span class="token punctuation">,</span> cls<span class="token punctuation">)</span><span class="token punctuation">.</span>__new__<span class="token punctuation">(</span>cls<span class="token punctuation">)</span> <span class="token keyword">return</span> cls<span class="token punctuation">.</span>_instance obj1 <span class="token operator">=</span> SingletonClass<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span> obj2 <span class="token operator">=</span> SingletonClass<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span></div>
+</div>
+<p>The above code gives the following result &minus;</p>
+<pre class="result notranslate">Creating the object
+&lt;__main__.SingletonClass object at 0x000002A5293A6B50&gt;
+&lt;__main__.SingletonClass object at 0x000002A5293A6B50&gt;
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

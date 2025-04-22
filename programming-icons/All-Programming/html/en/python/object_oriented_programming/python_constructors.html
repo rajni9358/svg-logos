@@ -1,0 +1,132 @@
+<p>Python <strong>constructor</strong> is an instance method in a class, that is automatically called whenever a new object of the class is created. The constructor's role is to assign value to instance variables as soon as the object is declared.</p>
+<p>Python uses a special method called <strong>__init__()</strong> to initialize the instance variables for the object, as soon as it is declared.</p>
+<h2>Creating a constructor in Python</h2>
+<p>The <span class="tp-codespan">__init__()</span> method acts as a constructor. It needs a mandatory argument named <span class="tp-codespan">self</span>, which is the reference to the object.</p>
+<!--May use this content-->
+<p>&nbsp;</p>
+<!--<p>In object-oriented programming, an object of a class is characterized by one or more instance variables or attributes, whose values are unique to each object. For example, if the Employee class has an instance attribute as name. Each of its objects e1 and e2 may have different value for the name variable.</p>-->
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#initialize instance variables</span></div>
+<p>The <span class="tp-codespan">__init__()</span> method as well as any instance method in a class has a mandatory parameter, <span class="tp-codespan">self</span>. However, you can give any name to the first parameter, not necessarily self.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Types of Constructor in Python</h2>
+<p>Python has two types of constructor &minus;</p>
+<ul class="list">
+<li>Default Constructor</li>
+<li>Parameterized Constructor</li>
+</ul>
+<h2>Default Constructor in Python</h2>
+<p>The Python constructor which does not accept any parameter other than <span class="tp-codespan">self</span> is called as default constructor.</p>
+<h3>Example</h3>
+<p>Let us define the <span class="tp-codespan">constructor</span> in the Employee class to initialize name and age as instance variables. We can then access these attributes through its object.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token string">'Common base class for all employees'</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Bhavana"</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">24</span> e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"age: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Name: Bhavana
+age: 24
+</pre>
+<p>For the above Employee class, each object we declare will have same value for its instance variables name and age. To declare objects with varying attributes instead of the default, define arguments for the __init__() method.</p>
+<h2>Parameterized Constructor</h2>
+<p>If a constructor is defined with multiple parameters along with <span class="tp-codespan">self</span> is called as parameterized constructor.</p>
+<h3>Example</h3>
+<p>In this example, the __init__() constructor has two formal arguments. We declare Employee objects with different values &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token string">'Common base class for all employees'</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bharat"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"age: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e2<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"age: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e2<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Name: Bhavana
+age: 24
+Name: Bharat
+age: 25
+</pre>
+<p>You can also assign default values to the formal arguments in the constructor so that the object can be instantiated with or without passing parameters.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token string">'Common base class for all employees'</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bharat"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"age: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e2<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"age: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e2<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Name: Bhavana
+age: 24
+Name: Bharat
+age: 25
+</pre>
+<h2>Python - Instance Methods</h2>
+<p>In addition to the __init__() constructor, there may be one or more instance methods defined in a class. A method with self as one of the formal arguments is called instance method, as it is called by a specific object.</p>
+<h3>Example</h3>
+<p>In the following example a displayEmployee() method has been defined as an instance method. It returns the name and age attributes of the Employee object that calls the method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age <span class="token keyword">def</span> <span class="token function">displayEmployee</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name : "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">", age: "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>age<span class="token punctuation">)</span> e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bharat"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span> e1<span class="token punctuation">.</span>displayEmployee<span class="token punctuation">(</span><span class="token punctuation">)</span> e2<span class="token punctuation">.</span>displayEmployee<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Name : Bhavana , age: 24
+Name : Bharat , age: 25
+</pre>
+<p>You can add, remove, or modify attributes of classes and objects at any time &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Add a 'salary' attribute</span> emp1<span class="token punctuation">.</span>salary <span class="token operator">=</span> <span class="token number">7000</span> <span class="token comment"># Modify 'name' attribute</span> emp1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'xyz'</span> <span class="token comment"># Delete 'salary' attribute</span> <span class="token keyword">del</span> emp1<span class="token punctuation">.</span>salary</div>
+<p>Instead of using the normal statements to access attributes, you can use the following functions &minus;</p>
+<ul class="list">
+<li>
+<p>The <strong>getattr(obj, name[, default])</strong> &minus; to access the attribute of object.</p>
+</li>
+<li>
+<p>The <strong>hasattr(obj,name)</strong> &minus; to check if an attribute exists or not.</p>
+</li>
+<li>
+<p>The <strong>setattr(obj,name,value)</strong> &minus; to set an attribute. If attribute does not exist, then it would be created.</p>
+</li>
+<li>
+<p>The <strong>delattr(obj, name)</strong> &minus; to delete an attribute.</p>
+</li>
+</ul>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Returns true if 'salary' attribute exists</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">hasattr</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> <span class="token string">'salary'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Returns value of 'name' attribute</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">getattr</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Set attribute 'salary' at 8</span> <span class="token builtin">setattr</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> <span class="token string">'salary'</span><span class="token punctuation">,</span> <span class="token number">7000</span><span class="token punctuation">)</span> <span class="token comment"># Delete attribute 'age'</span> <span class="token builtin">delattr</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">False
+Bhavana
+</pre>
+<h2>Python Multiple Constructors</h2>
+<p>As mentioned earlier, we define the __init__() method to create a constructor. However, unlike other programming languages like C++ and Java, Python does not allow multiple constructors.</p>
+<p>If you try to create multiple constructors, Python will not throw an error, but it will only consider the last __init__() method in your class. Its previous definition will be overridden by the last one.</p>
+<p>But, there is a way to achieve similar functionality in Python. We can overload constructors based on the type or number of arguments passed to the __init__() method. This will allow a single constructor method to handle various initialization scenarios based on the arguments provided.</p>
+<h3>Example</h3>
+<p>The following example shows how to achieve functionality similar to multiple constructors.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">elif</span> <span class="token builtin">len</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">elif</span> <span class="token builtin">len</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> self<span class="token punctuation">.</span>age <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> self<span class="token punctuation">.</span>gender <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> st1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Shrey"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Name:"</span><span class="token punctuation">,</span> st1<span class="token punctuation">.</span>name<span class="token punctuation">)</span> st2 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Ram"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Name: </span><span class="token interpolation"><span class="token punctuation">{</span>st2<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string"> and Age: </span><span class="token interpolation"><span class="token punctuation">{</span>st2<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> st3 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Shyam"</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">,</span> <span class="token string">"M"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Name: </span><span class="token interpolation"><span class="token punctuation">{</span>st3<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string">, Age: </span><span class="token interpolation"><span class="token punctuation">{</span>st3<span class="token punctuation">.</span>age<span class="token punctuation">}</span></span><span class="token string"> and Gender: </span><span class="token interpolation"><span class="token punctuation">{</span>st3<span class="token punctuation">.</span>gender<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<p>When we run the above code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Name: Shrey
+Name: Ram and Age: 25
+Name: Shyam, Age: 26 and Gender: M&nbsp;</pre>

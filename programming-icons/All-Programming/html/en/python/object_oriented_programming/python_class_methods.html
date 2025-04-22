@@ -1,0 +1,109 @@
+<p><strong>Methods</strong> belongs to an object of a class and used to perform specific operations. We can divide Python methods in three different categories, which are class method, instance method and static method.</p>
+<p>A Python <strong>class method</strong> is a method that is bound to the class and not to the instance of the class. It can be called on the class itself, rather than on an instance of the class.</p>
+<p>Most of us often get class methods confused with static methods. Always remember, while both are called on the class, <strong>static methods</strong> do not have access to the "cls" parameter and therefore it cannot modify the class state.</p>
+<p>Unlike class method, the <strong>instance method</strong> can access the instance <a href="/python/python_variables.htm" target="_blank">variables</a> of the an object. It can also access the class variable as it is common to all the objects.</p>
+<h2>Creating Class Methods in Python</h2>
+<p>There are two ways to create class methods in Python &minus;</p>
+<ul class="list">
+<li>Using classmethod() Function</li>
+<li>Using @classmethod Decorator</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using classmethod() Function</h2>
+<p><a href="/python/index.htm" target="_blank">Python</a> has a built-in function <strong>classmethod()</strong> which transforms an instance method to a <strong>class method</strong> which can be called with the reference to the class only and not the object.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">classmethod</span><span class="token punctuation">(</span>instance_method<span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<p>In the Employee class, define a showcount() instance method with the "<strong>self</strong>" argument (reference to calling object). It prints the value of empCount. Next, transform the method to class method counter() that can be accessed through the class reference.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__name <span class="token operator">=</span> name self<span class="token punctuation">.</span>__age <span class="token operator">=</span> age Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">showcount</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span> counter <span class="token operator">=</span> <span class="token builtin">classmethod</span><span class="token punctuation">(</span>showcount<span class="token punctuation">)</span> e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Rajesh"</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span> e3 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span> e1<span class="token punctuation">.</span>showcount<span class="token punctuation">(</span><span class="token punctuation">)</span> Employee<span class="token punctuation">.</span>counter<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>Call showcount() with object and call count() with class, both show the value of employee count.</p>
+<pre class="result notranslate">3
+3
+</pre>
+<h2>Using @classmethod Decorator</h2>
+<p>Use of <strong>@classmethod()</strong> decorator is the prescribed way to define a class method as it is more convenient than first declaring an instance method and then transforming it into a class method.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token decorator annotation punctuation">@classmethod</span> <span class="token keyword">def</span> <span class="token function">method_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># your code</span></div>
+<h3>Example</h3>
+<p>The class method acts as an alternate constructor. Define a <strong>newemployee()</strong> class method with arguments required to construct a new object. It returns the constructed object, something that the <strong>__init__()</strong> method does.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token decorator annotation punctuation">@classmethod</span> <span class="token keyword">def</span> <span class="token function">showcount</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>cls<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span> <span class="token decorator annotation punctuation">@classmethod</span> <span class="token keyword">def</span> <span class="token function">newemployee</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> cls<span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Rajesh"</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span> e3 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span> e4 <span class="token operator">=</span> Employee<span class="token punctuation">.</span>newemployee<span class="token punctuation">(</span><span class="token string">"Anil"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span> Employee<span class="token punctuation">.</span>showcount<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>There are four Employee objects now. If we run the above program, it will show the count of Employee object &minus;</p>
+<pre class="result notranslate">4
+</pre>
+<h2>Access Class Attributes in Class Method</h2>
+<p><span class="tp-codespan">Class attributes</span> are those variables that belong to a class and whose value is shared among all the instances of that class.</p>
+<p>To access class attributes within a class method, use the <span class="tp-codespan">cls parameter</span> followed by dot (.) notation and name of the attribute.</p>
+<h3>Example</h3>
+<p>In this example, we are accessing a class attribute in class method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Cloth</span><span class="token punctuation">:</span> <span class="token comment"># Class attribute</span> price <span class="token operator">=</span> <span class="token number">4000</span> <span class="token decorator annotation punctuation">@classmethod</span> <span class="token keyword">def</span> <span class="token function">showPrice</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> cls<span class="token punctuation">.</span>price <span class="token comment"># Accessing class attribute</span> <span class="token keyword">print</span><span class="token punctuation">(</span>Cloth<span class="token punctuation">.</span>showPrice<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On running the above code, it will show the following output &minus;</p>
+<pre class="result notranslate">4000
+</pre>
+<h2>Dynamically Add Class Method to a Class</h2>
+<p>The Python <span class="tp-codespan">setattr()</span> function is used to set an attribute dynamically. If you want to add a class method to a class, pass the method name as a parameter value to setattr() function.</p>
+<h3>Example</h3>
+<p>The following example shows how to add a class method dynamically to a Python class.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Cloth</span><span class="token punctuation">:</span> <span class="token keyword">pass</span> <span class="token comment"># class method</span> <span class="token decorator annotation punctuation">@classmethod</span> <span class="token keyword">def</span> <span class="token function">brandName</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Name of the brand is Raymond"</span><span class="token punctuation">)</span> <span class="token comment"># adding dynamically</span> <span class="token builtin">setattr</span><span class="token punctuation">(</span>Cloth<span class="token punctuation">,</span> <span class="token string">"brand_name"</span><span class="token punctuation">,</span> brandName<span class="token punctuation">)</span> newObj <span class="token operator">=</span> Cloth<span class="token punctuation">(</span><span class="token punctuation">)</span> newObj<span class="token punctuation">.</span>brand_name<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When we execute the above code, it will show the following output &minus;</p>
+<pre class="result notranslate">Name of the brand is Raymond
+</pre>
+<h2>Dynamically Delete Class Methods</h2>
+<p>The Python <span class="tp-codespan">del</span> operator is used to delete a class method dynamically. If you try to access the deleted method, the code will raise AttributeError.</p>
+<h3>Example</h3>
+<p>In the below example, we are deleting the class method named "brandName" using del operator.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Cloth</span><span class="token punctuation">:</span> <span class="token comment"># class method</span> <span class="token decorator annotation punctuation">@classmethod</span> <span class="token keyword">def</span> <span class="token function">brandName</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Name of the brand is Raymond"</span><span class="token punctuation">)</span> <span class="token comment"># deleting dynamically</span> <span class="token keyword">del</span> Cloth<span class="token punctuation">.</span>brandName <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Method deleted"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it will show the following output &minus;</p>
+<pre class="result notranslate">Method deleted
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

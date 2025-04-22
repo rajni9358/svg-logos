@@ -1,0 +1,119 @@
+<p><strong>Context managers</strong> in Python provide a powerful way to manage resources efficiently and safely. A <strong>context manager</strong> in Python is an object that defines a runtime context for use with the <strong>with</strong> statement. It ensures that setup and cleanup operations are performed automatically.</p>
+<p>For instance, when working with file operations, context managers handle the opening and closing of files, ensuring that resources are managed correctly.</p>
+<h2>How Context Managers Work?</h2>
+<p>Python context managers work by implementing the <strong>__enter__()</strong> and <strong>__exit__()</strong> methods (or their asynchronous equivalents for async operations). These methods ensure that resources are correctly acquired and released. Also, Python's <strong>contextlib</strong> module further simplifies the creation of custom context managers.</p>
+<h3>Example</h3>
+<p>Here's a simple example demonstrating how a context manager works with file operations in Python.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'Hello, Tutorialspoint!'</span><span class="token punctuation">)</span></div>
+<p>In this example, a file is opened in the write mode, and then automatically closed when the block inside the <strong>with</strong> statement is exited.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Context Manager Types</h2>
+<p>Python supports both synchronous and asynchronous context managers. Each type has specific methods that need to be implemented to manage the life cycle of the context.</p>
+<h3>Synchronous Context Managers</h3>
+<p>A synchronous context managers are implemented using the <strong>__enter__()</strong> and <strong>__exit__()</strong> methods.</p>
+<h4>1. The __enter__() Method</h4>
+<p>The <strong>__enter__(self)</strong> method is called when execution enters the context of the with statement. This method should return the resource to be used within the with block.</p>
+<p><strong>Example</strong></p>
+<p>Here is a simple example of creating our own context manager using the <span class="tp-codespan">__enter__()</span> and <span class="tp-codespan">__exit__()</span> methods.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">MyContextManager</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Entering the context"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> self <span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exc_type<span class="token punctuation">,</span> exc_value<span class="token punctuation">,</span> traceback<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting the context"</span><span class="token punctuation">)</span> <span class="token keyword">with</span> MyContextManager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"body"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code you will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Entering the context
+body
+Exiting the context
+</pre>
+<h4>2. The __exit__() Method</h4>
+<p>The <strong>__exit__(self, exc_type, exc_value, traceback)</strong> method is called when execution leaves the context of the with statement. It can handle exceptions if any occur, and it returns a Boolean flag indicating if the exception should be suppressed.</p>
+<p>This example demonstrates creating the our own context manager and how the <span class="tp-codespan">__exit__()</span> methods handle exceptions.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">MyContextManager</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Entering the context"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> self <span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exc_type<span class="token punctuation">,</span> exc_value<span class="token punctuation">,</span> traceback<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting the context"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> exc_type<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"An exception occurred"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">True</span> <span class="token comment"># Suppress exception</span> <span class="token keyword">with</span> MyContextManager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"body"</span><span class="token punctuation">)</span> name <span class="token operator">=</span> <span class="token string">"Python"</span><span class="token operator">/</span><span class="token number">3</span> <span class="token comment">#to raise an exception</span></div>
+</div>
+<p>While executing the above code you will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Entering the context
+body
+Exiting the context
+An exception occurred
+</pre>
+<h3>Asynchronous Context Managers</h3>
+<p>Similar to the synchronous context managers, Asynchronous context managers are also implemented using the two methods which are <span class="tp-codespan">__aenter__()</span> and <span class="tp-codespan">__aexit__()</span>. These are used within <strong>async with</strong> statements.</p>
+<p><strong>The __aenter__(self) Method</strong> &minus; It must return an awaitable that will be awaited when entering the context.</p>
+<p><strong>__aexit__(self, exc_type, exc_value, traceback) Method</strong> &minus; It must return an awaitable that will be awaited when exiting the context.</p>
+<p><strong>Example</strong></p>
+<p>Following is the example of creating an asynchronous context manager class &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> asyncio <span class="token keyword">class</span> <span class="token class-name">AsyncContextManager</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">__aenter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Entering the async context class"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> self <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">__aexit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exc_type<span class="token punctuation">,</span> exc_value<span class="token punctuation">,</span> traceback<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting the async context class"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> exc_type<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exception occurred"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">True</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token keyword">with</span> AsyncContextManager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Inside the async context"</span><span class="token punctuation">)</span> name <span class="token operator">=</span> <span class="token string">"Python"</span><span class="token operator">/</span><span class="token number">3</span> <span class="token comment">#to raise an exception</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code you will get the following output &minus;</p>
+<pre class="result notranslate">Entering the async context class
+Inside the async context
+Exiting the async context class
+Exception occurred
+</pre>
+<h2>Creating Custom Context Managers</h2>
+<p>The <strong>contextlib</strong> module from the Python standard library provides the utilities to create context managers more easily.</p>
+<h3>Using the contextlib.contextmanager() Function</h3>
+<p>The <strong>contextlib.contextmanager()</strong> function is a decorator allows you to create factory functions for with statement context managers. It eliminates the need to define a separate class or implement the <strong>__enter__()</strong> and <strong>__exit__()</strong> methods individually.</p>
+<p><strong>Example</strong></p>
+<p>Here's an example using the <span class="tp-codespan">contextlib.contextmanager</span> to create a context manager function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> contextlib <span class="token keyword">import</span> contextmanager <span class="token decorator annotation punctuation">@contextmanager</span> <span class="token keyword">def</span> <span class="token function">my_context_manager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Entering the context manager method"</span><span class="token punctuation">)</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">yield</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting the context manager method"</span><span class="token punctuation">)</span> <span class="token keyword">with</span> my_context_manager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Inside the context"</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code you will get the following output &minus;</p>
+<pre class="result notranslate">Entering the context manager method
+Inside the context
+Exiting the context manager method
+</pre>
+<h3>Using the contextlib.asynccontextmanager() Function</h3>
+<p>The <strong>contextlib</strong> module also provides asynccontextmanager, specifically designed for creating asynchronous context managers. It is similar to contextmanager and eliminates the need to define a separate class or implement the <strong>__aenter__()</strong> and <strong>__aexit__()</strong> methods individually.</p>
+<p><strong>Example</strong></p>
+<p>Here's an example demonstrating the usage of <span class="tp-codespan">contextlib.asynccontextmanager()</span> to create an asynchronous context manager function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> asyncio <span class="token keyword">from</span> contextlib <span class="token keyword">import</span> asynccontextmanager <span class="token decorator annotation punctuation">@asynccontextmanager</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">async_context_manager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Entering the async context"</span><span class="token punctuation">)</span> <span class="token comment"># Perform async setup tasks if needed</span> <span class="token keyword">yield</span> <span class="token keyword">finally</span><span class="token punctuation">:</span> <span class="token comment"># Perform async cleanup tasks if needed</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting the async context"</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token keyword">with</span> async_context_manager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Inside the async context"</span><span class="token punctuation">)</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># Simulating an async operation</span> <span class="token comment"># Run the asyncio event loop</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code you will get the following output &minus;</p>
+<pre class="result notranslate">Entering the async context
+Inside the async context
+Exiting the async context
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

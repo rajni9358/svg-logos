@@ -1,0 +1,93 @@
+<p>&nbsp;</p>
+<div id="mainContent" class="tutorial-content">
+<p>Python array is a mutable sequence which means they can be changed or modified whenever required. However, items of same data type can be added to an array. In the similar way, you can only join two arrays of the same data type.</p>
+<br />
+<h2>Adding Elements to Python Array</h2>
+<p>There are multiple ways to add elements to an array in Python &minus;</p>
+<ul class="list">
+<li>Using append() method</li>
+<li>Using insert() method</li>
+<li>Using extend() method</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using append() method</h2>
+<p>To add a new element to an <a href="/python/python_arrays.htm" target="_blank">array</a>, use the <strong>append()</strong> method. It accepts a single item as an argument and append it at the end of given array.</p>
+<h3>Syntax</h3>
+<p>Syntax of the append() method is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">append<span class="token punctuation">(</span>v<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p><strong>v</strong> &minus; new value is added at the end of the array. The new value must be of the same type as datatype argument used while declaring array object.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>Here, we are adding element at the end of specified array using append() method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> a<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [1, 2, 3, 10])
+</pre>
+<h2>Using insert() method</h2>
+<p>It is possible to add a new element at the specified index using the <strong>insert()</strong> method. The array module in Python defines this method. It accepts two parameters which are index and value and returns a new array after adding the specified value.</p>
+<h3>Syntax</h3>
+<p>Syntax of this method is shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">insert<span class="token punctuation">(</span>i<span class="token punctuation">,</span> v<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p><strong>i</strong> &minus; The index at which new value is to be inserted.</p>
+</li>
+<li>
+<p><strong>v</strong> &minus; The value to be inserted. Must be of the arraytype.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>The following example shows how to add array elements at specific index with the help of insert() method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> a<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [1, 20, 2, 3])
+</pre>
+<h2>Using extend() method</h2>
+<p>The <strong>extend()</strong> method belongs to Python array module. It is used to add all elements from an iterable or array of same data type.</p>
+<h3>Syntax</h3>
+<p>This method has the following syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">extend<span class="token punctuation">(</span>x<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p><strong>x</strong> &minus; This parameter specifies an array or iterable.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>In this example, we are adding items from another array to the specified array.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span> a<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])&nbsp;</pre>
+</div>

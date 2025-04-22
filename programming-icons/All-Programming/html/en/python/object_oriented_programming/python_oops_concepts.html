@@ -1,0 +1,240 @@
+
+<p>OOP is an abbreviation that stands for <strong>Object-oriented programming</strong> paradigm. It is defined as a programming model that uses the concept of <strong>objects</strong> which refers to real-world entities with state and behavior. This chapter helps you become an expert in using object-oriented programming support in Python language.</p>
+<p>Python is a programming language that supports object-oriented programming. This makes it simple to create and use classes and objects. If you do not have any prior experience with object-oriented programming, you are at the right place. Let's start by discussing a small introduction of Object-Oriented Programming (OOP) to help you.</p>
+<h2>Procedural Oriented Approach</h2>
+<p>Early programming languages developed in 50s and 60s are recognized as procedural (or procedure oriented) languages.</p>
+<p>A computer program describes procedure of performing certain task by writing a series of instructions in a logical order. Logic of a more complex program is broken down into smaller but independent and reusable blocks of statements called functions.</p>
+<p>Every function is written in such a way that it can interface with other functions in the program. Data belonging to a function can be easily shared with other in the form of arguments, and called function can return its result back to calling function.</p>
+<p>Prominent problems related to procedural approach are as follows &minus;</p>
+<ul class="list">
+<li>
+<p>Its top-down approach makes the program difficult to maintain.</p>
+</li>
+<li>
+<p>It uses a lot of global data items, which is undesired. Too many global data items would increase memory overhead.</p>
+</li>
+<li>
+<p>It gives more importance to process and doesn't consider data of same importance and takes it for granted, thereby it moves freely through the program.</p>
+</li>
+<li>
+<p>Movement of data across functions is unrestricted. In real-life scenario where there is unambiguous association of a function with data it is expected to process.</p>
+</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python - OOP Concepts</h2>
+<p>In the real world, we deal with and process objects, such as student, employee, invoice, car, etc. Objects are not only data and not only functions, but combination of both. Each real-world object has attributes and behavior associated with it.</p>
+<img src="/python/images/oop_concepts.jpg" alt="oop_concepts" />
+<h3>Attributes</h3>
+<ul class="list">
+<li>
+<p>Name, class, subjects, marks, etc., of student</p>
+</li>
+<li>
+<p>Name, designation, department, salary, etc., of employee</p>
+</li>
+<li>
+<p>Invoice number, customer, product code and name, price and quantity, etc., in an invoice</p>
+</li>
+<li>
+<p>Registration number, owner, company, brand, horsepower, speed, etc., of car</p>
+</li>
+</ul>
+<p>Each attribute will have a value associated with it. Attribute is equivalent to data.</p>
+<h3>Behavior</h3>
+<p>Processing attributes associated with an object.</p>
+<ul class="list">
+<li>
+<p>Compute percentage of student's marks</p>
+</li>
+<li>
+<p>Calculate incentives payable to employee</p>
+</li>
+<li>
+<p>Apply GST to invoice value</p>
+</li>
+<li>
+<p>Measure speed of car</p>
+</li>
+</ul>
+<p>Behavior is equivalent to function. In real life, attributes and behavior are not independent of each other, rather they co-exist.</p>
+<p>The most important feature of object-oriented approach is defining attributes and their functionality as a single unit called class. It serves as a blueprint for all objects having similar attributes and behavior.</p>
+<p>In OOP, class defines what are the attributes its object has, and how is its behavior. Object, on the other hand, is an instance of the class.</p>
+<h3>Principles of OOPs Concepts</h3>
+<p>Object-oriented programming paradigm is characterized by the following principles &minus;</p>
+<ul class="list">
+<li>
+<p>Class</p>
+</li>
+<li>
+<p>Object</p>
+</li>
+<li>
+<p>Encapsulation</p>
+</li>
+<li>
+<p>Inheritance</p>
+</li>
+<li>
+<p>Polymorphism</p>
+</li>
+</ul>
+<img src="/python/images/principles_of_oop.jpg" alt="principles_of_oop" />
+<h2>Class &amp; Object</h2>
+<p>A <span class="tp-codespan">class</span> is an user-defined prototype for an object that defines a set of attributes that characterize any object of the class. The attributes are data members (class variables and instance variables) and methods, accessed via dot notation.</p>
+<p>An <span class="tp-codespan">object</span> refers to an instance of a certain class. For example, an object named <span class="tp-codespan">obj</span> that belongs to a class <span class="tp-codespan">Circle</span> is an instance of that class. A unique instance of a data structure that is defined by its class. An object comprises both data members (class variables and instance variables) and methods.</p>
+<h3>Example</h3>
+<p>The below example illustrates how to create a class and its object in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># defining class</span> <span class="token keyword">class</span> <span class="token class-name">Smartphone</span><span class="token punctuation">:</span> <span class="token comment"># constructor </span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> device<span class="token punctuation">,</span> brand<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>device <span class="token operator">=</span> device self<span class="token punctuation">.</span>brand <span class="token operator">=</span> brand <span class="token comment"># method of the class</span> <span class="token keyword">def</span> <span class="token function">description</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>device<span class="token punctuation">}</span></span><span class="token string"> of </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>brand<span class="token punctuation">}</span></span><span class="token string"> supports Android 14"</span></span> <span class="token comment"># creating object of the class</span> phoneObj <span class="token operator">=</span> Smartphone<span class="token punctuation">(</span><span class="token string">"Smartphone"</span><span class="token punctuation">,</span> <span class="token string">"Samsung"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>phoneObj<span class="token punctuation">.</span>description<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it will display the following output &minus;</p>
+<pre class="result notranslate">Smartphone of Samsung supports Android 14
+</pre>
+<h2>Encapsulation</h2>
+<p>Data members of class are available for processing to functions defined within the class only. Functions of class on the other hand are accessible from outside class context. So object data is hidden from environment that is external to class. Class function (also called method) encapsulates object data so that unwarranted access to it is prevented.</p>
+<h3>Example</h3>
+<p>In this example, we are using the concept of encapsulation to set the price of desktop.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Desktop</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__max_price <span class="token operator">=</span> <span class="token number">25000</span> <span class="token keyword">def</span> <span class="token function">sell</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"Selling Price: </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>__max_price<span class="token punctuation">}</span></span><span class="token string">"</span></span> <span class="token keyword">def</span> <span class="token function">set_max_price</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> price<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> price <span class="token operator">&gt;</span> self<span class="token punctuation">.</span>__max_price<span class="token punctuation">:</span> self<span class="token punctuation">.</span>__max_price <span class="token operator">=</span> price <span class="token comment"># Object</span> desktopObj <span class="token operator">=</span> Desktop<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>desktopObj<span class="token punctuation">.</span>sell<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># modifying the price directly</span> desktopObj<span class="token punctuation">.</span>__max_price <span class="token operator">=</span> <span class="token number">35000</span> <span class="token keyword">print</span><span class="token punctuation">(</span>desktopObj<span class="token punctuation">.</span>sell<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># modifying the price using setter function</span> desktopObj<span class="token punctuation">.</span>set_max_price<span class="token punctuation">(</span><span class="token number">35000</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>desktopObj<span class="token punctuation">.</span>sell<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Selling Price: 25000
+Selling Price: 25000
+Selling Price: 35000
+</pre>
+<h2>Inheritance</h2>
+<p>A software modelling approach of OOP enables extending capability of an existing class to build new class instead of building from scratch. In OOP terminology, existing class is called <span class="tp-codespan">base or parent class</span>, while new class is called <span class="tp-codespan">child or sub class</span>.</p>
+<p>Child class inherits data definitions and methods from parent class. This facilitates reuse of features already available. Child class can add few more definitions or redefine a base class function.</p>
+<h3>Syntax</h3>
+<p>Derived classes are declared much like their parent class; however, a list of base classes to inherit from is given after the class name &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">SubClassName</span> <span class="token punctuation">(</span>ParentClass1<span class="token punctuation">[</span><span class="token punctuation">,</span> ParentClass2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token string">'Optional class documentation string'</span> class_suite</div>
+<h3>Example</h3>
+<p>The following example demonstrates the concept of Inheritance in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#!/usr/bin/python</span> <span class="token comment"># define parent class</span> <span class="token keyword">class</span> <span class="token class-name">Parent</span><span class="token punctuation">:</span> parentAttr <span class="token operator">=</span> <span class="token number">100</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling parent constructor"</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">parentMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling parent method"</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">setAttr</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> attr<span class="token punctuation">)</span><span class="token punctuation">:</span> Parent<span class="token punctuation">.</span>parentAttr <span class="token operator">=</span> attr <span class="token keyword">def</span> <span class="token function">getAttr</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Parent attribute :"</span><span class="token punctuation">,</span> Parent<span class="token punctuation">.</span>parentAttr<span class="token punctuation">)</span> <span class="token comment"># define child class</span> <span class="token keyword">class</span> <span class="token class-name">Child</span><span class="token punctuation">(</span>Parent<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling child constructor"</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">childMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling child method"</span><span class="token punctuation">)</span> <span class="token comment"># instance of child</span> c <span class="token operator">=</span> Child<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># child calls its method </span> c<span class="token punctuation">.</span>childMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># calls parent's method </span> c<span class="token punctuation">.</span>parentMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># again call parent's method </span> c<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span> <span class="token comment"># again call parent's method </span> c<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Calling child constructor
+Calling child method
+Calling parent method
+Parent attribute : 200
+</pre>
+<p>Similar way, you can drive a class from multiple parent classes as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span> <span class="token comment"># define your class A</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">:</span> <span class="token comment"># define your class B</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># subclass of A and B</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></div>
+<p>You can use issubclass() or isinstance() functions to check a relationships of two classes and instances.</p>
+<ul class="list">
+<li>
+<p>The <strong>issubclass(sub, sup)</strong> boolean function returns true if the given subclass <strong>sub</strong> is indeed a subclass of the superclass <strong>sup</strong>.</p>
+</li>
+<li>
+<p>The <strong>isinstance(obj, Class)</strong> boolean function returns true if <em>obj</em> is an instance of class <em>Class</em> or is an instance of a subclass of Class</p>
+</li>
+</ul>
+<h2>Polymorphism</h2>
+<p>Polymorphism is a Greek word meaning having multiple forms. In OOP, polymorphism occurs when each sub class provides its own implementation of an abstract method in base class.</p>
+<p>You can always override your parent class methods. One reason for overriding parent's methods is because you may want special or different functionality in your subclass.</p>
+<h3>Example</h3>
+<p>In this example, we are overriding the parent's method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># define parent class</span> <span class="token keyword">class</span> <span class="token class-name">Parent</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">myMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling parent method"</span><span class="token punctuation">)</span> <span class="token comment"># define child class</span> <span class="token keyword">class</span> <span class="token class-name">Child</span><span class="token punctuation">(</span>Parent<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">myMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling child method"</span><span class="token punctuation">)</span> <span class="token comment"># instance of child</span> c <span class="token operator">=</span> Child<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># child calls overridden method </span> c<span class="token punctuation">.</span>myMethod<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Calling child method
+</pre>
+<h3>Base Overloading Methods in Python</h3>
+<p>Following table lists some generic functionality that you can override in your own classes &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Method, Description &amp; Sample Call</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>__init__ ( self [,args...] )</strong></p>
+<p>Constructor (with any optional arguments)</p>
+<p>Sample Call : <em>obj = className(args)</em></p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>__del__( self )</strong></p>
+<p>Destructor, deletes an object</p>
+<p>Sample Call : <em>del obj</em></p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>__repr__( self )</strong></p>
+<p>Evaluable string representation</p>
+<p>Sample Call : <em>repr(obj)</em></p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>__str__( self )</strong></p>
+<p>Printable string representation</p>
+<p>Sample Call : <em>str(obj)</em></p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>__cmp__ ( self, x )</strong></p>
+<p>Object comparison</p>
+<p>Sample Call : <em>cmp(obj, x)</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Overloading Operators in Python</h3>
+<p>Suppose you have created a Vector class to represent two-dimensional vectors, what happens when you use the plus operator to add them? Most likely Python will yell at you.</p>
+<p>You could, however, define the <em>__add__</em> method in your class to perform vector addition and then the plus operator would behave as per expectation &minus;</p>
+<h4>Example</h4>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Vector</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>a <span class="token operator">=</span> a self<span class="token punctuation">.</span>b <span class="token operator">=</span> b <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">'Vector (%d, %d)'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>a<span class="token punctuation">,</span> self<span class="token punctuation">.</span>b<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">__add__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>other<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> Vector<span class="token punctuation">(</span>self<span class="token punctuation">.</span>a <span class="token operator">+</span> other<span class="token punctuation">.</span>a<span class="token punctuation">,</span> self<span class="token punctuation">.</span>b <span class="token operator">+</span> other<span class="token punctuation">.</span>b<span class="token punctuation">)</span> v1 <span class="token operator">=</span> Vector<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> v2 <span class="token operator">=</span> Vector<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>v1 <span class="token operator">+</span> v2<span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Vector(7,8)&nbsp;</pre>
+</div>

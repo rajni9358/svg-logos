@@ -1,0 +1,289 @@
+<h2>Python Variables</h2>
+<p>Python variables are the reserved memory locations used to store values with in a Python Program. This means that when you create a variable you reserve some space in the memory.</p>
+<p>Based on the data type of a variable, Python interpreter allocates memory and decides what can be stored in the reserved memory. Therefore, by assigning different data types to Python variables, you can store integers, decimals or characters in these variables.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Memory Addresses</h2>
+<p>Data items belonging to different data types are stored in computer's memory. Computer's memory locations are having a number or address, internally represented in binary form. Data is also stored in binary form as the computer works on the principle of binary representation. In the following diagram, a string <strong>May</strong> and a number <strong>18</strong> is shown as stored in memory locations.</p>
+<img src="https://www.tutorialspoint.com/python/images/memory.jpg" alt="memory" />
+<p>If you know the assembly language, you will covert these data items and the memory address, and give a machine language instruction. However, it is not easy for everybody. Language translator such as Python interpreter performs this type of conversion. It stores the object in a randomly chosen memory location. Python's built-in <strong>id()</strong> function returns the address where the object is stored.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"May"</span> May <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span><span class="token string">"May"</span><span class="token punctuation">)</span> <span class="token number">2167264641264</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token number">18</span> <span class="token number">18</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span> <span class="token number">140714055169352</span></div>
+<p>Once the data is stored in the memory, it should be accessed repeatedly for performing a certain process. Obviously, fetching the data from its ID is cumbersome. High level languages like Python make it possible to give a suitable alias or a label to refer to the memory location.</p>
+<p>In the above example, let us label the location of May as month, and location in which 18 is stored as age. Python uses the assignment operator (=) to bind an object with the label.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> month<span class="token operator">=</span><span class="token string">"May"</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> age<span class="token operator">=</span><span class="token number">18</span></div>
+<p>The data object (May) and its name (month) have the same id(). The id() of 18 and age are also same.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span> <span class="token number">2167264641264</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token number">140714055169352</span></div>
+<p>The label is an identifier. It is usually called as a variable. A Python variable is a symbolic name that is a reference or pointer to an object.</p>
+<h2>Creating Python Variables</h2>
+<p>Python variables do not need explicit declaration to reserve memory space or you can say to create a variable. A Python variable is created automatically when you assign a value to it. The equal sign (=) is used to assign values to variables.</p>
+<p>The operand to the left of the = operator is the name of the variable and the operand to the right of the = operator is the value stored in the variable. For example &minus;</p>
+<h3>Example to Create Python Variables</h3>
+<p>This example creates different types (an integer, a float, and a string) of variables.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">counter <span class="token operator">=</span> <span class="token number">100</span> <span class="token comment"># Creates an integer variable</span> miles <span class="token operator">=</span> <span class="token number">1000.0</span> <span class="token comment"># Creates a floating point variable</span> name <span class="token operator">=</span> <span class="token string">"Zara Ali"</span> <span class="token comment"># Creates a string variable</span></div>
+<h2>Printing Python Variables</h2>
+<p>Once we create a Python variable and assign a value to it, we can print it using <strong>print()</strong> function. Following is the extension of previous example and shows how to print different variables in Python:</p>
+<h3>Example to Print Python Variables</h3>
+<p>This example prints variables.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">counter <span class="token operator">=</span> <span class="token number">100</span> <span class="token comment"># Creates an integer variable</span> miles <span class="token operator">=</span> <span class="token number">1000.0</span> <span class="token comment"># Creates a floating point variable</span> name <span class="token operator">=</span> <span class="token string">"Zara Ali"</span> <span class="token comment"># Creates a string variable</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>counter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>miles<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span></div>
+</div>
+<p>Here, 100, 1000.0 and "Zara Ali" are the values assigned to <em>counter</em>, <em>miles</em>, and <em>name</em> variables, respectively. When running the above Python program, this produces the following result &minus;</p>
+<pre class="result notranslate">100
+1000.0
+Zara Ali
+</pre>
+<h2>Deleting Python Variables</h2>
+<p>You can delete the reference to a number object by using the del statement. The syntax of the del statement is &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">del</span> var1<span class="token punctuation">[</span><span class="token punctuation">,</span>var2<span class="token punctuation">[</span><span class="token punctuation">,</span>var3<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>varN<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span></div>
+<p>You can delete a single object or multiple objects by using the del statement. For example &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">del</span> var <span class="token keyword">del</span> var_a<span class="token punctuation">,</span> var_b</div>
+<h3>Example</h3>
+<p>Following examples shows how we can delete a variable and if we try to use a deleted variable then Python interpreter will throw an error:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">counter <span class="token operator">=</span> <span class="token number">100</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>counter<span class="token punctuation">)</span> <span class="token keyword">del</span> counter <span class="token keyword">print</span> <span class="token punctuation">(</span>counter<span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">100
+Traceback (most recent call last):
+  File "main.py", line 7, in &lt;module&gt;
+    print (counter)
+NameError: name 'counter' is not defined
+</pre>
+<h2>Getting Type of a Variable</h2>
+<p>You can get the data type of a Python variable using the python built-in function type() as follows.</p>
+<h3>Example: Printing Variables Type</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x <span class="token operator">=</span> <span class="token string">"Zara"</span> y <span class="token operator">=</span> <span class="token number">10</span> z <span class="token operator">=</span> <span class="token number">10.10</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">&lt;class 'str'&gt;
+&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+</pre>
+<h2>Casting Python Variables</h2>
+<p>You can specify the data type of a variable with the help of casting as follows:</p>
+<h3>Example</h3>
+<p>This example demonstrates case sensitivity of variables.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># x will be '10'</span> y <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># y will be 10 </span> z <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># z will be 10.0</span> <span class="token keyword">print</span><span class="token punctuation">(</span> <span class="token string">"x ="</span><span class="token punctuation">,</span> x <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span> <span class="token string">"y ="</span><span class="token punctuation">,</span> y <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span> <span class="token string">"z ="</span><span class="token punctuation">,</span> z <span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">x = 10
+y = 10
+z = 10.0
+</pre>
+<h2>Case-Sensitivity of Python Variables</h2>
+<p>Python variables are case sensitive which means <strong>Age</strong> and <strong>age</strong> are two different variables:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">age <span class="token operator">=</span> <span class="token number">20</span> Age <span class="token operator">=</span> <span class="token number">30</span> <span class="token keyword">print</span><span class="token punctuation">(</span> <span class="token string">"age ="</span><span class="token punctuation">,</span> age <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span> <span class="token string">"Age ="</span><span class="token punctuation">,</span> Age <span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">age = 20
+Age = 30
+</pre>
+<h2>Python Variables - Multiple Assignment</h2>
+<p>Python allows to initialize more than one variables in a single statement. In the following case, three variables have same value.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token operator">=</span><span class="token number">10</span></div>
+<p>Instead of separate assignments, you can do it in a single assignment statement as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span>b<span class="token operator">=</span>c<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token number">10</span> <span class="token number">10</span> <span class="token number">10</span></div>
+<p>In the following case, we have three variables with different values.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b<span class="token operator">=</span><span class="token number">20</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token operator">=</span><span class="token number">30</span></div>
+<p>These separate assignment statements can be combined in one. You need to give comma separated variable names on left, and comma separated values on the right of = operator.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token number">10</span> <span class="token number">20</span> <span class="token number">30</span></div>
+<p>Let's try few examples in script mode: &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> b <span class="token operator">=</span> c <span class="token operator">=</span> <span class="token number">100</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span></div>
+</div>
+<p>This produces the following result:</p>
+<pre class="result notranslate">100
+100
+100
+</pre>
+<p>Here, an integer object is created with the value 1, and all three variables are assigned to the same memory location. You can also assign multiple objects to multiple variables. For example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"Zara Ali"</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span></div>
+</div>
+<p>This produces the following result:</p>
+<pre class="result notranslate">1
+2
+Zara Ali
+</pre>
+<p>Here, two integer objects with values 1 and 2 are assigned to variables a and b respectively, and one string object with the value "Zara Ali" is assigned to the variable c.</p>
+<h2>Python Variables - Naming Convention</h2>
+<p>Every Python variable should have a unique name like a, b, c. A variable name can be meaningful like color, age, name etc. There are certain rules which should be taken care while naming a Python variable:</p>
+<ul class="list">
+<li>A variable name must start with a letter or the underscore character</li>
+<li>A variable name cannot start with a number or any special character like $, (, * % etc.</li>
+<li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+<li>Python variable names are case-sensitive which means Name and NAME are two different variables in Python.</li>
+<li>Python reserved keywords cannot be used naming the variable.</li>
+</ul>
+<p>If the name of variable contains multiple words, we should use these naming patterns &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Camel case</strong> &minus; First letter is a lowercase, but first letter of each subsequent word is in uppercase. For example: kmPerHour, pricePerLitre</p>
+</li>
+<li>
+<p><strong>Pascal case</strong> &minus; First letter of each word is in uppercase. For example: KmPerHour, PricePerLitre</p>
+</li>
+<li>
+<p><strong>Snake case</strong> &minus; Use single underscore (_) character to separate words. For example: km_per_hour, price_per_litre</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>Following are valid Python variable names:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">counter <span class="token operator">=</span> <span class="token number">100</span> _count <span class="token operator">=</span> <span class="token number">100</span> name1 <span class="token operator">=</span> <span class="token string">"Zara"</span> name2 <span class="token operator">=</span> <span class="token string">"Nuha"</span> Age <span class="token operator">=</span> <span class="token number">20</span> zara_salary <span class="token operator">=</span> <span class="token number">100000</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>counter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>_count<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>name1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>name2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>Age<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>zara_salary<span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">100
+100
+Zara
+Nuha
+20
+100000
+</pre>
+<h3>Example</h3>
+<p>Following are invalid Python variable names:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">1counter <span class="token operator">=</span> <span class="token number">100</span> $_count <span class="token operator">=</span> <span class="token number">100</span> zara<span class="token operator">-</span>salary <span class="token operator">=</span> <span class="token number">100000</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>1counter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>$count<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>zara<span class="token operator">-</span>salary<span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result:</p>
+<pre class="result notranslate">File "main.py", line 3
+    1counter = 100
+           ^
+SyntaxError: invalid syntax
+</pre>
+<h3>Example</h3>
+<p>Once you use a variable to identify a data object, it can be used repeatedly without its id() value. Here, we have a variables height and width of a rectangle. We can compute the area and perimeter with these variables.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> width<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> height<span class="token operator">=</span><span class="token number">20</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> area<span class="token operator">=</span>width<span class="token operator">*</span>height <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> area <span class="token number">200</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> perimeter<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>width<span class="token operator">+</span>height<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> perimeter <span class="token number">60</span></div>
+<p>Use of variables is especially advantageous when writing scripts or programs. Following script also uses the above variables.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment">#! /usr/bin/python3</span> width <span class="token operator">=</span> <span class="token number">10</span> height <span class="token operator">=</span> <span class="token number">20</span> area <span class="token operator">=</span> width<span class="token operator">*</span>height perimeter <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>width<span class="token operator">+</span>height<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Area = "</span><span class="token punctuation">,</span> area<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Perimeter = "</span><span class="token punctuation">,</span> perimeter<span class="token punctuation">)</span></div>
+</div>
+<p>Save the above script with .py extension and execute from command-line. The result would be &minus;</p>
+<pre class="result notranslate">Area = 200
+Perimeter = 60
+</pre>
+<h2>Python Local Variables</h2>
+<p>Python Local Variables are defined inside a function. We can not access variable outside the function.</p>
+<blockquote>A Python functions is a piece of reusable code and you will learn more about function in <a href="/python/python_functions.htm">Python - Functions</a> tutorial.</blockquote>
+<h3>Example</h3>
+<p>Following is an example to show the usage of local variables:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">sum</span> <span class="token operator">=</span> x <span class="token operator">+</span> y <span class="token keyword">return</span> <span class="token builtin">sum</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result &minus;</p>
+<pre class="result notranslate">15
+</pre>
+<h2>Python Global Variables</h2>
+<p>Any variable created outside a function can be accessed within any function and so they have global scope.</p>
+<h3>Example</h3>
+<p>Following is an example of global variables &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x <span class="token operator">=</span> <span class="token number">5</span> y <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">sum</span> <span class="token operator">=</span> x <span class="token operator">+</span> y <span class="token keyword">return</span> <span class="token builtin">sum</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following result &minus;</p>
+<pre class="result notranslate">15
+</pre>
+<h2>Constants in Python</h2>
+<p>Python doesn't have any formally defined constants, However you can indicate a variable to be treated as a constant by using all-caps names with underscores. For example, the name PI_VALUE indicates that you don't want the variable redefined or changed in any way.</p>
+<br />
+<h2>Python vs C/C++ Variables</h2>
+<p>The concept of variable works differently in Python than in C/C++. In C/C++, a variable is a named memory location. If a=10 and also b=10, both are two different memory locations. Let us assume their memory address is 100 and 200 respectively.</p>
+<img src="https://www.tutorialspoint.com/python/images/named_memory_location.jpg" alt="named memory location" />
+<p>If a different value is assigned to "a" - say 50, 10 in the address 100 is overwritten.</p>
+<img src="https://www.tutorialspoint.com/python/images/different_value_assigned.jpg" alt="Image-20" />
+<p>A Python variable refers to the object and not the memory location. An object is stored in memory only once. Multiple variables are really the multiple labels to the same object.</p>
+<img src="https://www.tutorialspoint.com/python/images/address_100.jpg" alt="address_100" />
+<p>The statement a=50 creates a new <strong>int</strong> object 50 in the memory at some other location, leaving the object 10 referred by "b".</p>
+<img src="https://www.tutorialspoint.com/python/images/address_150.jpg" alt="address_150" />
+<p>Further, if you assign some other value to b, the object 10 remains unreferred.</p>
+<img src="https://www.tutorialspoint.com/python/images/address_200.jpg" alt="address_200" />
+<p>Python's garbage collector mechanism releases the memory occupied by any unreferred object.</p>
+<p>Python's identity operator <strong>is</strong> returns True if both the operands have same id() value.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span>b<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token keyword">is</span> b <span class="token boolean">True</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">140731955278920</span><span class="token punctuation">,</span> <span class="token number">140731955278920</span><span class="token punctuation">)</span>&nbsp;</div>
+</div>

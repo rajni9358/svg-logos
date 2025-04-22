@@ -1,0 +1,68 @@
+<p>The process of joining two arrays is termed as Merging or concatenating. Python provides multiple ways to merge two arrays such as append() and extend() methods. But, before merging two arrays always ensure that both arrays are of the same data type otherwise program will throw error.</p>
+<p>In <a href="/python/index.htm" target="_blank">Python</a>, <a href="/python/python_arrays.htm" target="_blank">array</a> is a homogenous collection of Python's built in <a href="/python/python_data_types.htm" target="_blank">data types</a> such as <a href="/python/python_strings.htm" target="_blank">strings</a>, integer or float objects. However, array itself is not a built-in type, instead we need to use the Python's built-in array module.</p>
+<p><img src="/python/images/join_arrays_python.jpg" alt="Merge Python Array" /></p>
+<h2>Join two Arrays in Python</h2>
+<p>To join arrays in Python, use the following approaches &minus;</p>
+<ul class="list">
+<li>Using append() method</li>
+<li>Using + operator</li>
+<li>Using extend() method</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using append() Method</h2>
+<p>To join two arrays, we can append each item from one array to other using <span class="tp-codespan">append() method</span>. To perform this operation, run a <a href="/python/python_for_loops.htm" target="_blank">for loop</a> on the original array, fetch each element and append it to a new array.</p>
+<h3>Example: Join Two Arrays by Appending Elements</h3>
+<p>Here, we use the append() method to join two arrays.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating two arrays</span> a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># merging both arrays</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span> a<span class="token punctuation">.</span>append<span class="token punctuation">(</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [10, 5, 15, 4, 6, 20, 9, 2, 7, 8, 11, 3, 10])
+</pre>
+<h2>Using + operator</h2>
+<p>We can also use <span class="tp-codespan">+ operator</span> to concatenate or merge two arrays. In this approach, we first convert arrays to <a href="/python/python_lists.htm" target="_blank">list</a> objects, then concatenate the lists using the + operator and convert back to get merged array.</p>
+<h3>Example: Join Two Arrays by Converting to List Objects</h3>
+<p>In this example, we will see how to join two arrays using + operator.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span> x <span class="token operator">=</span> a<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span> y <span class="token operator">=</span> b<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span> z <span class="token operator">=</span> x<span class="token operator">+</span>y a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>The above code will display the following output &minus;</p>
+<pre class="result notranslate">array('i', [10, 5, 15, 4, 6, 20, 9, 2, 7, 8, 11, 3, 10])
+</pre>
+<h2>Using extend() Method</h2>
+<p>Another approach to concatenate arrays is the use of <a href="/python/list_extend.htm" target="_blank">extend() method</a> from the List class. Similar to above approach, we first convert the array to a list and then call the extend() method to merge the two lists.</p>
+<h3>Example: Join Two Arrays using extend() Method</h3>
+<p>In the following example, we will use the extend() method to concatenate two arrays in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">77</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span> a<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [88, 99, 77, 66, 44, 22, 12, 17, 18, 11, 13, 10])
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

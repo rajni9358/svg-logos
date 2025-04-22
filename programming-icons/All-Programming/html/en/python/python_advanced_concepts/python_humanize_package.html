@@ -1,0 +1,114 @@
+<div id="mainContent" class="tutorial-content">
+<h1>&nbsp;</h1>
+<p>The <strong>Humanize Package</strong> in Python is a library which is specifically designed to convert numerical values, dates, times and file sizes into formats that are more easily understood by humans.</p>
+<ul class="list">
+<li>This package is essential for creating user-friendly interfaces and readable reports where data interpretation needs to be quick and intuitive.</li>
+<li>The primary goal of the <strong>Humanize Package</strong> is to bridge the gap between raw data and human understanding.</li>
+</ul>
+<p>Although computers and databases excel at processing raw numerical data but these formats can be challenging for humans to quickly grasp. The <strong>Humanize Package</strong> tackles this issue by converting these data points into more intuitive and user-friendly formats.</p>
+<h2>Installation of Humanize Package</h2>
+<p>To install the humanize package in Python we can use pip which is the standard package manager for Python. Following code has to be run in the command line or terminal to install Humanize Package &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install humanize</div>
+<p>After installation we can verify if humanize is installed correctly by running a Python interpreter and importing the Humanize package by using the below code &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize</div>
+<div class="inserted-div">&nbsp;</div>
+<h2>Different Utilities in Humanize Package</h2>
+<p>The <strong>Humanize package</strong> in Python provides a wide range of utilities that transform data into human-readable formats by enhancing usability and comprehension. Let's explore the different utilities offered by humanize package in detail &minus;</p>
+<h2>Number Utilities</h2>
+<p>The Humanize package in Python provides several number of utilities that enhance the readability and comprehension of numerical data. These utilities convert numbers into formats that are more natural and understandable for humans.</p>
+<h3>Integer Formatting</h3>
+<p>The Integer Formatting utility converts large integers into strings with commas for improved readability. Following is the example of applying the integer formatting utility &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>intcomma<span class="token punctuation">(</span><span class="token number">123456</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">123,456
+</pre>
+<h3>Integer Word Representation</h3>
+<p>The Integer Word Representation converts large integers into their word representation for easier understanding, especially for very large numbers. Below is the example of it &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>intword<span class="token punctuation">(</span><span class="token number">12345678908545944</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">12.3 quadrillion
+</pre>
+<h3>Ordinal Numbers</h3>
+<p>The Ordinal numbers converts integers into their ordinal form. For example 1 will be given as 1st and 2 as 2nd. Below is the example converting 3 as 3rd &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>ordinal<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">3rd
+</pre>
+<h3>AP Numbers</h3>
+<p>These converts the integers into their corresponding words. Here is the example of it &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>apnumber<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">nine
+</pre>
+<h3>Fractional Units</h3>
+<p>This converts decimal numbers into fractions for more intuitive representation. Following is the example of it &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>fractional<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">1/2
+</pre>
+<h2>File Size Utilities</h2>
+<p>As we already know that the humanize package in Python provides several utilities among them <strong>File Size Utilities</strong> is one which is specifically designed to convert raw byte values into human-readable file sizes.</p>
+<p>These utilities help to make file sizes more understandable by converting them into formats that are easier to read and interpret. Here is a detailed overview of the file size utilities available in the humanize package &minus;</p>
+<h3>File Size Formatting using naturalsize()</h3>
+<p>The <strong>naturalsize()</strong> function is the primary utility for converting file sizes into human-readable formats. It automatically selects the appropriate units such as bytes, KB, MB, GB based on the size provided.</p>
+<p><strong>Syntax</strong></p>
+<p>Following is the syntax of the naturalsize() function of the File Size Utilities of Python Humanize package &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">humanize<span class="token punctuation">.</span>naturalsize<span class="token punctuation">(</span>value<span class="token punctuation">,</span>binary<span class="token punctuation">,</span>gnu<span class="token punctuation">,</span><span class="token builtin">format</span><span class="token punctuation">)</span></div>
+<p><strong>Parameter</strong></p>
+<p>Below are the parameters of the naturalsize() function of the python humanize package &minus;</p>
+<ul class="list">
+<li><strong>value:</strong> The file size in bytes.</li>
+<li><strong>binary:</strong> A boolean flag to indicate whether to use binary units. The default value is False.</li>
+<li><strong>gnu:</strong> A boolean flag to indicate whether to use GNU-style output and the default value is False.</li>
+<li><strong>format:</strong> A string to specify the output format. The default value is "%.1f".</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Following is the example of using the naturalsize() of humanize package in python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token comment"># Default usage with decimal units</span> file_size <span class="token operator">=</span> <span class="token number">123456789</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File size: </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturalsize<span class="token punctuation">(</span>file_size<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Using binary units</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File size (binary): </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturalsize<span class="token punctuation">(</span>file_size<span class="token punctuation">,</span> binary<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Using GNU-style prefixes</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File size (GNU): </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturalsize<span class="token punctuation">(</span>file_size<span class="token punctuation">,</span> gnu<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token comment"># Custom format</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"File size (custom format): </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturalsize<span class="token punctuation">(</span>file_size<span class="token punctuation">,</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%.2f'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+<p>Following is the output &minus;</p>
+<pre class="result notranslate">File size: 123.5 MB
+File size (binary): 117.7 MiB
+File size (GNU): 117.7M
+File size (custom format): 123.46 MB
+</pre>
+<h2>Date Time Utilities</h2>
+<p>The <strong>Humanize package</strong> in Python provides several utilities for making dates and times more readable. These utilities transform date-time objects into formats that are easier for humans to understand such as relative times, natural dates and more. Following is the detailed overview of the date and time utilities offered by the humanize package &minus;</p>
+<h3>Natural Time</h3>
+<p>The <strong>Natural Time</strong> converts date-time objects into human-readable relative times such as 2 days ago, 3 hours ago. Following is the example of natural time &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> timedelta past_date <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>naturaltime<span class="token punctuation">(</span>past_date<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">2 days ago
+</pre>
+<h3>Natural Date</h3>
+<p>The <strong>Natural Date</strong> formats specific dates into a readable format like "July 11, 2024". Here is the example &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime some_date <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>naturaldate<span class="token punctuation">(</span>some_date<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Jul 08 2022
+</pre>
+<h3>Natural Day</h3>
+<p>The <strong>Natural Day</strong> provides a human-readable representation of a date by considering today's date for contextual relevance, for example "today", "tomorrow", "yesterday" etc. Below is the example of it &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> timedelta today <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> tomorrow <span class="token operator">=</span> today <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>naturalday<span class="token punctuation">(</span>today<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>naturalday<span class="token punctuation">(</span>tomorrow<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">today
+tomorrow
+</pre>
+<h3>Precise Delta</h3>
+<p>The <strong>Precise Delta</strong> converts time duration into human-readable strings by breaking down into days, hours, minutes and second. Here is the example of it &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> humanize <span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta duration <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> minutes<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>humanize<span class="token punctuation">.</span>precisedelta<span class="token punctuation">(</span>duration<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">2 days, 3 hours and 30 minutes
+</pre>
+<h2>Duration Utilities</h2>
+<p>The humanize package in Python also includes the <strong>Duration Utilities</strong> for converting duration (time intervals) into human-readable formats. These utilities help to present duration in a way that is understandable and meaningful to users. Here's an overview of the duration utilities provided by humanize package &minus;</p>
+<h3>Duration Formatting using naturaldelta()</h3>
+<p>The <strong>naturaldelta()</strong> function converts time deltas (duration) into human-readable strings that describe the duration in a natural language format such as "2 hours ago", "3 days from now", etc.</p>
+<p>Following is the example of using the naturaldelta() function of the Python Humanize Package &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta <span class="token keyword">import</span> humanize Using naturaldelta <span class="token keyword">for</span> time durations delta1 <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Time duration: </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturaldelta<span class="token punctuation">(</span>delta1<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> from now"</span></span><span class="token punctuation">)</span> Example of a future duration <span class="token punctuation">(</span>delta2<span class="token punctuation">)</span> delta2 <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>hours<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Future duration: in </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturaldelta<span class="token punctuation">(</span>delta2<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> Example of a past duration <span class="token punctuation">(</span>delta3<span class="token punctuation">)</span> delta3 <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Past duration: </span><span class="token interpolation"><span class="token punctuation">{</span>humanize<span class="token punctuation">.</span>naturaldelta<span class="token punctuation">(</span>delta3<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> ago"</span></span><span class="token punctuation">)</span></div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Time duration: 3 days from now
+Future duration: in 5 hours
+Past duration: a day ago
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>

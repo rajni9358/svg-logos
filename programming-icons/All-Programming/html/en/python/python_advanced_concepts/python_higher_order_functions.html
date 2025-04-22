@@ -1,0 +1,108 @@
+<p>Higher-order functions in Python allows you to manipulate functions for increasing the flexibility and re-usability of your code. You can create higher-order functions using nested scopes or callable objects.</p>
+<p>Additionally, the <strong>functools</strong> module provides utilities for working with higher-order functions, making it easier to create decorators and other function-manipulating constructs. This tutorial will explore the concept of higher-order functions in Python and demonstrate how to create them.</p>
+<h2>What is a Higher-Order Function?</h2>
+<p>A higher-order function is a function that either, takes one or more functions as arguments or returns a function as its result. Below you can observe the some of the properties of the higher-order function in Python &minus;</p>
+<ul class="list">
+<li>A function can be stored in a variable.</li>
+<li>A function can be passed as a parameter to another function.</li>
+<li>A high order functions can be stored in the form of lists, hash tables, etc.</li>
+<li>Function can be returned from a function.</li>
+</ul>
+<p>To create higher-order function in Python you can use nested scopes or callable objects. Below we will discuss about them briefly.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating Higher Order Function with Nested Scopes</h2>
+<p>One way to defining a higher-order function in Python is by using nested scopes. This involves defining a function within another function and returns the inner function.</p>
+<h3>Example</h3>
+<p>Let's observe following example for creating a higher order function in Python. In this example, the <strong>multiplier</strong> function takes one argument, a, and returns another function multiply, which calculates the value a * b</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">multiplier</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># Nested function with second number </span> <span class="token keyword">def</span> <span class="token function">multiply</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># Multiplication of two numbers </span> <span class="token keyword">return</span> a <span class="token operator">*</span> b <span class="token keyword">return</span> multiply <span class="token comment"># Assigning nested multiply function to a variable </span> multiply_second_number <span class="token operator">=</span> multiplier<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment"># Using variable as high order function </span> Result <span class="token operator">=</span> multiply_second_number<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># Printing result </span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Multiplication of Two numbers is: "</span><span class="token punctuation">,</span> Result<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Multiplication of Two numbers is:  50
+</pre>
+<h2>Creating Higher-Order Functions with Callable Objects</h2>
+<p>Another approach to create higher-order functions is by using callable objects. This involves defining a class with a <strong>__call__</strong> method.</p>
+<h3>Example</h3>
+<p>Here is the another approach to creating higher-order functions is using callable objects.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Multiplier</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> factor<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>factor <span class="token operator">=</span> factor <span class="token keyword">def</span> <span class="token function">__call__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>factor <span class="token operator">*</span> x <span class="token comment"># Create an instance of the Multiplier class</span> multiply_second_number <span class="token operator">=</span> Multiplier<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># Call the Multiplier object to computes factor * x</span> Result <span class="token operator">=</span> multiply_second_number<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment"># Printing result </span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Multiplication of Two numbers is: "</span><span class="token punctuation">,</span> Result<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Multiplication of Two numbers is:  200
+</pre>
+<h2>Higher-order functions with the 'functools' Module</h2>
+<p>The <strong>functools</strong> module provides higher-order functions that act on or return other functions. Any callable object can be treated as a function for the purposes of this module.</p>
+<h3>Working with Higher-order functions using the wraps()</h3>
+<p>In this example, <strong>my_decorator</strong> is a higher-order function that modifies the behavior of <strong>invite</strong> function using the <strong>functools.wraps()</strong> function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> functools <span class="token keyword">def</span> <span class="token function">my_decorator</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token decorator annotation punctuation">@functools<span class="token punctuation">.</span>wraps</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Calling"</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span> <span class="token keyword">return</span> f<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span> <span class="token keyword">return</span> wrapper <span class="token decorator annotation punctuation">@my_decorator</span> <span class="token keyword">def</span> <span class="token function">invite</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Welcome to, </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">!"</span></span><span class="token punctuation">)</span> invite<span class="token punctuation">(</span><span class="token string">"Tutorialspoint"</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Calling invite
+Welcome to, Tutorialspoint!
+</pre>
+<h3>Working with Higher-order functions using the partial()</h3>
+<p>The <strong>partial()</strong> function of the <strong>functools</strong> module is used to create a callable 'partial' object. This object itself behaves like a function. The <strong>partial()</strong> function receives another function as argument and freezes some portion of a functions arguments resulting in a new object with a simplified signature.</p>
+<p><strong>Example</strong></p>
+<p>In following example, a user defined function <strong>myfunction()</strong> is used as argument to a partial function by setting default value on one of the arguments of original function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> functools <span class="token keyword">def</span> <span class="token function">myfunction</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> a<span class="token operator">*</span>b partfunction <span class="token operator">=</span> functools<span class="token punctuation">.</span>partial<span class="token punctuation">(</span>myfunction<span class="token punctuation">,</span>b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>partfunction<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">100
+</pre>
+<h3>Working with Higher-order functions using the reduce()</h3>
+<p>Similar to the above approach the <strong>functools</strong> module provides the <strong>reduce()</strong> function, that receives two arguments, a function and an iterable. And, it returns a single value. The argument function is applied cumulatively two arguments in the list from left to right. Result of the function in first call becomes first argument and third item in list becomes second. This is repeated till list is exhausted.</p>
+<p><strong>Example</strong></p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> functools <span class="token keyword">def</span> <span class="token function">mult</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> x<span class="token operator">*</span>y <span class="token comment"># Define a number to calculate factorial</span> n <span class="token operator">=</span> <span class="token number">4</span> num <span class="token operator">=</span> functools<span class="token punctuation">.</span><span class="token builtin">reduce</span><span class="token punctuation">(</span>mult<span class="token punctuation">,</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Factorial of </span><span class="token interpolation"><span class="token punctuation">{</span>n<span class="token punctuation">}</span></span><span class="token string">: '</span></span><span class="token punctuation">,</span>num<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Factorial of 4:  24
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

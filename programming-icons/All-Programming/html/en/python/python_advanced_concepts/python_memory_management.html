@@ -1,0 +1,87 @@
+<p>In Python, <strong>memory management</strong> is automatic, it involves handling a private heap that contains all Python objects and <a href="/python_data_structure/index.htm" target="_blank">data structures</a>. The Python memory manager internally ensures the efficient allocation and deallocation of this memory. This tutorial will explore Python's memory management mechanisms, including garbage collection, reference counting, and how variables are stored on the stack and heap.</p>
+<h2>Memory Management Components</h2>
+<p>Python's memory management components provides efficient and effective utilization of memory resources throughout the execution of Python programs. Python has three memory management components &minus;</p>
+<ul class="list">
+<li><strong>Private Heap</strong>: Acts as the main storage for all Python objects and data. It is managed internally by the Python memory manager.</li>
+<li><strong>Raw Memory Allocator</strong>: This low-level component directly interacts with the operating system to reserve memory space in Python's private heap. It ensures there's enough room for Python's data structures and objects.</li>
+<li><strong>Object-Specific Allocators</strong>: On top of the raw memory allocator, several object-specific allocators manage memory for different types of objects, such as integers, strings, tuples, and dictionaries.</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Memory Allocation in Python</h2>
+<p>Python manages memory allocation in two primary ways &minus; Stack and Heap.</p>
+<h3>Stack &minus; Static Memory Allocation</h3>
+<p>In static memory allocation, memory is allocated at compile time and stored in the stack. This is typical for function call stacks and variable references. The stack is a region of memory used for storing local variables and function call information. It operates on a Last-In-First-Out (LIFO) basis, where the most recently added item is the first to be removed.</p>
+<p>The stack is generally used for variables of primitive data types, such as numbers, booleans, and characters. These variables have a fixed memory size, which is known at compile-time.</p>
+<p><strong>Example</strong></p>
+<p>Let us look at an example to illustrate how variables of primitive types are stored on the stack. In the above example, variables named x, y, and z are local variables within the function named example_function(). They are stored on the stack, and when the function execution completes, they are automatically removed from the stack.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">my_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> <span class="token number">5</span> y <span class="token operator">=</span> <span class="token boolean">True</span> z <span class="token operator">=</span> <span class="token string">'Hello'</span> <span class="token keyword">return</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z <span class="token keyword">print</span><span class="token punctuation">(</span>my_function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above program, you will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">(5, True, 'Hello')
+Traceback (most recent call last):
+  File "/home/cg/root/71937/main.py", line 8, in &lt;module&gt;
+    print(x, y, z)
+NameError: name 'x' is not defined
+</pre>
+<h3>Heap &minus; Dynamic Memory Allocation</h3>
+<p>Dynamic memory allocation occurs at runtime for objects and data structures of non-primitive types. The actual data of these objects is stored in the heap, while references to them are stored on the stack.</p>
+<p><strong>Example</strong></p>
+<p>Let's observe an example for creating a list dynamically allocates memory in the heap.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">10</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+</pre>
+<h2>Garbage Collection in Python</h2>
+<p>Garbage Collection in Python is the process of automatically freeing up memory that is no longer in use by objects, making it available for other objects. Pythons garbage collector runs during program execution and activates when an object's <strong>reference count</strong> drops to zero.</p>
+<h3>Reference Counting</h3>
+<p>Python's primary garbage collection mechanism is reference counting. Every object in Python maintains a reference count that tracks how many aliases (or references) point to it. When an object's reference count drops to zero, the garbage collector deallocates the object.</p>
+<p>Working of the reference counting as follows &minus;</p>
+<ul class="list">
+<li><strong>Increasing Reference Count</strong>&minus; It happens when a new reference to an object is created, the reference count increases.</li>
+<li><strong>Decreasing Reference Count</strong>&minus; When a reference to an object is removed or goes out of scope, the reference count decreases.</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Here is an example that demonstrates working of reference counting in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sys <span class="token comment"># Create a string object</span> name <span class="token operator">=</span> <span class="token string">"Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Initial reference count:"</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Assign the same string to another variable</span> other_name <span class="token operator">=</span> <span class="token string">"Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Reference count after assignment:"</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Concatenate the string with another string</span> string_sum <span class="token operator">=</span> name <span class="token operator">+</span> <span class="token string">' Python'</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Reference count after concatenation:"</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Put the name inside a list multiple times</span> list_of_names <span class="token operator">=</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> name<span class="token punctuation">,</span> name<span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Reference count after creating a list with 'name' 3 times:"</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Deleting one more reference to 'name'</span> <span class="token keyword">del</span> other_name <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Reference count after deleting 'other_name':"</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Deleting the list reference</span> <span class="token keyword">del</span> list_of_names <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Reference count after deleting the list:"</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above program, you will get the following results &minus;</p>
+<pre class="result notranslate">Initial reference count: 4
+Reference count after assignment: 5
+Reference count after concatenation: 5
+Reference count after creating a list with 'name' 3 times: 8
+Reference count after deleting 'other_name': 7
+Reference count after deleting the list: 4
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

@@ -1,0 +1,155 @@
+
+<p>The properties or variables defined inside a class are called as <strong>Attributes</strong>. An attribute provides information about the type of data a class contains. There are two types of attributes in Python namely <strong>instance attribute</strong> and <strong>class attribute</strong>.</p>
+<p>The instance attribute is defined within the constructor of a Python class and is unique to each instance of the class. And, a class attribute is declared and initialized outside the constructor of the class.</p>
+<h2>Class Attributes (Variables)</h2>
+<p><span class="tp-codespan">Class attributes</span> are those variables that belong to a class and whose value is shared among all the instances of that class. A class attribute remains the same for every instance of the class.</p>
+<p><span class="tp-codespan">Class attributes</span> are defined in the class but outside any method. They cannot be initialized inside <span class="tp-codespan">__init__()</span> constructor. They can be accessed by the name of the class in addition to the object. In other words, a class attribute is available to the class as well as its object.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Accessing Class Attributes</h2>
+<p>The object name followed by dot notation (.) is used to access class attributes.</p>
+<h3>Example</h3>
+<p>The below example demonstrates how to access the attributes of a Python class.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> name <span class="token operator">=</span> <span class="token string">"Bhavesh Aggarwal"</span> age <span class="token operator">=</span> <span class="token string">"30"</span> <span class="token comment"># instance of the class</span> emp <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># accessing class attributes</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Name of the Employee:"</span><span class="token punctuation">,</span> emp<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Age of the Employee:"</span><span class="token punctuation">,</span> emp<span class="token punctuation">.</span>age<span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<pre class="result notranslate">Name of the Employee: Bhavesh Aggarwal
+Age of the Employee: 30
+</pre>
+<h2>Modifying Class Attributes</h2>
+<p>To modify the value of a class attribute, we simply need to assign a new value to it using the class name followed by dot notation and attribute name.</p>
+<h3>Example</h3>
+<p>In the below example, we are initializing a class variable called <span class="tp-codespan">empCount</span> in Employee class. For each object declared, the __init__() method is automatically called. This method initializes the instance variables as well as increments the empCount by 1.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token comment"># class attribute </span> empCount <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__name <span class="token operator">=</span> name self<span class="token punctuation">.</span>__age <span class="token operator">=</span> age <span class="token comment"># modifying class attribute</span> Employee<span class="token punctuation">.</span>empCount <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name:"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>__name<span class="token punctuation">,</span> <span class="token string">", Age: "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>__age<span class="token punctuation">)</span> <span class="token comment"># accessing class attribute</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee Count:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>empCount<span class="token punctuation">)</span> e1 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> e2 <span class="token operator">=</span> Employee<span class="token punctuation">(</span><span class="token string">"Rajesh"</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>We have declared two objects. Every time, the empCount increments by 1.</p>
+<pre class="result notranslate">Name: Bhavana , Age:  24
+Employee Count: 1
+
+Name: Rajesh , Age:  26
+Employee Count: 2
+</pre>
+<h2>Significance of Class Attributes</h2>
+<p>The class attributes are important because of the following reasons &minus;</p>
+<ul class="list">
+<li>They are used to define those properties of a class that should have the same value for every object of that class.</li>
+<li>Class attributes can be used to set default values for objects.</li>
+<li>This is also useful in creating singletons. They are objects that are instantiated only once and used in different parts of the code.</li>
+</ul>
+<h2>Built-In Class Attributes</h2>
+<p>Every Python class keeps the following <span class="tp-codespan">built-in attributes</span> and they can be accessed using the dot operator like any other attribute &minus;</p>
+<ul class="list">
+<li>
+<p><strong>__dict__</strong> &minus; Dictionary containing the class's namespace.</p>
+</li>
+<li>
+<p><strong>__doc__</strong> &minus; Class documentation string or none, if undefined.</p>
+</li>
+<li>
+<p><strong>__name__</strong> &minus; Class name.</p>
+</li>
+<li>
+<p><strong>__module__</strong> &minus; Module name in which the class is defined. This attribute is "__main__" in interactive mode.</p>
+</li>
+<li>
+<p><strong>__bases__</strong> &minus; A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.</p>
+</li>
+</ul>
+<h2>Access Built-In Class Attributes</h2>
+<p>To access built-in class attributes in Python, we use the class name followed by a dot (.) and then attribute name.</p>
+<h3>Example</h3>
+<p>For the Employee class, we are trying to access all the built-in class attributes &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"Bhavana"</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age <span class="token keyword">def</span> <span class="token function">displayEmployee</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name : "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">", age: "</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>age<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__doc__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__doc__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__name__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__module__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__module__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__bases__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__bases__<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Employee.__dict__:"</span><span class="token punctuation">,</span> Employee<span class="token punctuation">.</span>__dict__ <span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Employee.__doc__: None
+Employee.__name__: Employee
+Employee.__module__: __main__
+Employee.__bases__: (&lt;class 'object'&gt;,)
+Employee.__dict__: {'__module__': '__main__', '__init__': &lt;function Employee.__init__ at 0x0000022F866B8B80&gt;, 'displayEmployee': &lt;function Employee.displayEmployee at 0x0000022F866B9760&gt;, '__dict__': &lt;attribute '__dict__' of 'Employee' objects&gt;, '__weakref__': &lt;attribute '__weakref__' of 'Employee' objects&gt;, '__doc__': None}
+</pre>
+<h2>Instance Attributes</h2>
+<p>As stated earlier, an <span class="tp-codespan">instance attribute</span> in Python is a variable that is specific to an individual object of a class. It is defined inside the <span class="tp-codespan">__init__()</span> method.</p>
+<p>The first parameter of this method is <span class="tp-codespan">self</span> and using this parameter the instance attributes are defined.</p>
+<h3>Example</h3>
+<p>In the following code, we are illustrating the working of instance attributes.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> grade<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>__name <span class="token operator">=</span> name self<span class="token punctuation">.</span>__grade <span class="token operator">=</span> grade <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Name:"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>__name<span class="token punctuation">,</span> <span class="token string">", Grade:"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>__grade<span class="token punctuation">)</span> <span class="token comment"># Creating instances </span> student1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Ram"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">)</span> student2 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">"Shyam"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>On running the above code, it will produce the following output &minus;</p>
+<pre class="result notranslate">Name: Ram , Grade: B
+Name: Shyam , Grade: C
+</pre>
+<h2>Instance Attributes Vs Class Attributes</h2>
+<p>The below table shows the difference between instance attributes and class attributes &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>SNo.</th>
+<th>Instance Attribute</th>
+<th>Class Attribute</th>
+</tr>
+<tr>
+<td>1</td>
+<td>It is defined directly inside the __init__() function.</td>
+<td>It is defined inside the class but outside the __init__() function.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Instance attribute is accessed using the object name followed by dot notation.</td>
+<td>Class attributes can be accessed by both class name and object name.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The value of this attribute cannot be shared among other objects.</td>
+<td>Its value is shared among other objects of the class.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Changes made to the instance attribute affect only the object within which it is defined.</td>
+<td>Changes made to the class attribute affect all the objects of the given class.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

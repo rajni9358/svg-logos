@@ -1,0 +1,70 @@
+<div id="mainContent" class="tutorial-content">
+<h1>&nbsp;</h1>
+<div class="library-page-top-nav">&nbsp;</div>
+<div class="clearer">&nbsp;</div>
+<p>Loops are used to repeatedly execute a block of code. In Python, there are two types of loops named <a href="/python/python_for_loops.htm" target="_blank">for loop</a> and <a href="/python/python_while_loops.htm" target="_blank">while loop</a>. Since the array object behaves like a sequence, you can iterate through its elements with the help of loops.</p>
+<p>The reason for looping through <a href="/python/python_arrays.htm" target="_blank">arrays</a> is to perform operations such as accessing, modifying, searching, or aggregating elements of the array.</p>
+<h2>Python for Loop with Array</h2>
+<p>The <span class="tp-codespan">for loop</span> is used when the number of iterations is known. If we use it with an iterable like array, the iteration continues until it has iterated over every element in the array.</p>
+<h3>Example</h3>
+<p>The below example demonstrates how to iterate over an array using the "for" loop &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr newArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">56</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">85</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> iterate <span class="token keyword">in</span> newArray<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>iterate<span class="token punctuation">)</span></div>
+</div>
+<p>The above code will produce the following result &minus;</p>
+<pre class="result notranslate">56
+42
+23
+85
+45
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python while Loop with Array</h2>
+<p>In <span class="tp-codespan">while loop</span>, the iteration continues as long as the specified condition is true. When you are using this loop with arrays, initialize a loop variable before entering the loop. This variable often represents an index for accessing elements in the array. Inside the while loop, iterate over the array elements and manually update the loop variable.</p>
+<h3>Example</h3>
+<p>The following example shows how you can loop through an array using a while loop &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">96</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">,</span> <span class="token number">76</span><span class="token punctuation">,</span> <span class="token number">46</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># checking the length</span> l <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment"># loop variable</span> idx <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment"># while loop</span> <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> l<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># incrementing the while loop</span> idx<span class="token operator">+=</span><span class="token number">1</span></div>
+</div>
+<p>On executing the above code, it will display the following output &minus;</p>
+<pre class="result notranslate">96
+26
+56
+76
+46
+</pre>
+<h2>Python for Loop with Array Index</h2>
+<p>We can find the length of array with built-in len() function. Use it to create a range object to get the series of indices and then access the array elements in a <span class="tp-codespan">for</span> loop.</p>
+<h3>Example</h3>
+<p>The code below illustrates how to use for loop with array index.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">56</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">85</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">]</span><span class="token punctuation">)</span> l <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>On running the above code, it will show the below output &minus;</p>
+<pre class="result notranslate">56.0
+42.0
+23.0
+85.0
+45.0&nbsp;</pre>
+</div>

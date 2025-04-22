@@ -1,0 +1,190 @@
+
+<p>The array module in Python offers an efficient object type for representing arrays of basic values like characters, integers, and floating point numbers. Arrays are similar to lists but it stores a collection of homogeneous data elements in order. At the time of creating array's type is specified using a single character type code.</p>
+<p>Array methods provides various operations on array objects, including appending, extending, and manipulating elements. These methods are used for efficient handling of homogeneous collections of basic data types, making them suitable for tasks requiring compact data storage, such as numerical computations.</p>
+<h2>Python Array Class</h2>
+<p>The array class defines several methods, including adding and removing elements, obtaining information about the array, manipulating array elements, and converting arrays to and from other data types. Below are categorized methods based on their functionality. Let's explore and understand the functionality of each method.</p>
+<p>Arrays are created using the <strong>array.array(typecode[, initializer])</strong> class, where typecode is a single character that defines the type of elements in the array, and initializer is an optional value used to initialize the array.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Adding and Removing Elements</h2>
+<p>Below methods are used for appending, extending, inserting, and removing elements from arrays &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center; width: 95%;">Methods with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong><a href="/python/python_array_append_method.htm">append(x)</a></strong></p>
+<p>Appends a new item with value x to the end of the array.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong><a href="/python/python_array_extend_method.htm">extend(iterable)</a></strong></p>
+<p>Appends items from iterable to the end of the array.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong><a href="/python/python_array_insert_method.htm">insert(i, x)</a></strong></p>
+<p>Inserts a new item with value x before position i.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong><a href="/python/python_array_pop_method.htm">pop([i])</a></strong></p>
+<p>Removes and returns the item with index i. If i is not specified, removes and returns the last item.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong><a href="/python/python_array_remove_method.htm">remove(x)</a></strong></p>
+<p>Removes the first occurrence of x from the array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Information and Utility Methods</h2>
+<p>These methods are used for obtaining information about arrays and to perform utility operations &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center; width: 95%;">Methods with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong><a href="/python/python_array_buffer_info_method.htm">buffer_info()</a></strong></p>
+<p>Returns a tuple (address, length) giving the current memory address and the length in elements of the buffer used to hold the arrays contents.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong><a href="/python/python_array_count_method.htm">count(x)</a></strong></p>
+<p>Returns the number of occurrences of x in the array.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong><a href="/python/python_array_index_method.htm">index(x[, start[, stop]])</a></strong></p>
+<p>Returns the smallest index where x is found in the array. Optional start and stop arguments can specify a sub-range to search.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Manipulating Array Elements</h2>
+<p>Following methods are used for manipulating array elements, such as reversing the array or byteswapping values.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center; width: 95%;">Methods with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong><a href="/python/python_array_reverse_method.htm">reverse()</a></strong></p>
+<p>Reverses the order of the items in the array.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>byteswap()</strong></p>
+<p>"Byteswaps" all items of the array, useful for reading data from a file written on a machine with a different byte order.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Conversion Methods</h2>
+<p>These methods are used to convert arrays to and from bytes, files, lists, and Unicode strings.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 5%;">Sr.No.</th>
+<th style="text-align: center; width: 95%;">Methods with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>frombytes(buffer)</strong></p>
+<p>Appends items from the bytes-like object, interpreting its content as an array of machine values.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>tobytes()</strong></p>
+<p>Converts the array to a bytes representation.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong><a href="/python/python_array_fromfile_method.htm">fromfile(f, n)</a></strong></p>
+<p>Reads n items from the file object f and appends them to the array.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong><a href="/python/python_array_tofile_method.htm">tofile(f)</a></strong></p>
+<p>Writes all items to the file object f.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong><a href="/python/python_array_fromlist_method.htm">fromlist(list)</a></strong></p>
+<p>Appends items from the list to the array.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong><a href="/python/python_array_tolist_method.htm">tolist()</a></strong></p>
+<p>Converts the array to a list with the same items.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p><strong><a href="/python/python_array_fromunicode_method.htm">fromunicode(s)</a></strong></p>
+<p>Extends the array with data from the given Unicode string. The array must have type code 'u'.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p><strong><a href="/python/python_array_tounicode_method.htm">tounicode()</a></strong></p>
+<p>Converts the array to a Unicode string. The array must have type code 'u'.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="library-page-bottom-nav ">
+<div id="print-page" class="button button--blue">&nbsp;</div>
+</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+&lt;/div</div>

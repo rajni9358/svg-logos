@@ -1,0 +1,53 @@
+<p>In <a href="/python/python_oops_concepts.htm" target="_blank">object-oriented programming</a>, the concept of <strong>dynamic binding</strong> is closely related to polymorphism. In Python, dynamic binding is the process of resolving a method or attribute at runtime, instead of at compile time.</p>
+<p>According to the <a href="/python/python_polymorphism.htm" target="_blank">polymorphism</a> feature, different objects respond differently to the same method call based on their implementations. This behavior is achieved through <a href="/python/python_method_overriding.htm" target="_blank">method overriding</a>, where a subclass provides its implementation of a <a href="/python/python_class_methods.htm" target="_blank">method</a> defined in its superclass.</p>
+<p>The <a href="/python/python_interpreter.htm" target="_blank">Python interpreter</a> determines which is the appropriate method or <a href="/python/python_class_attributes.htm" target="_blank">attribute</a> to invoke based on the object's type or class hierarchy at runtime. This means that the specific method or attribute to be called is determined dynamically, based on the actual type of the object.</p>
+<h3>Example</h3>
+<p>The following example illustrates dynamic binding in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">shape</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"draw method"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">circle</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Draw a circle"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">rectangle</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Draw a rectangle"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> shapes <span class="token operator">=</span> <span class="token punctuation">[</span>circle<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rectangle<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> shp <span class="token keyword">in</span> shapes<span class="token punctuation">:</span> shp<span class="token punctuation">.</span>draw<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Draw a circle
+Draw a rectangle
+</pre>
+<p>As you can see, the draw() method is bound dynamically to the corresponding implementation based on the object's type. This is how dynamic binding is implemented in Python.</p>
+<h2>Duck Typing</h2>
+<p>Another concept closely related to dynamic binding is <strong>duck typing</strong>. Whether an object is suitable for a particular use is determined by the presence of certain methods or attributes, rather than its type. This allows for greater flexibility and code reuse in Python.</p>
+<p><strong>Duck typing</strong> is an important feature of dynamic typing languages like <a href="/python/index.htm" target="_blank">Python</a> (<a href="/perl/index.htm" target="_blank">Perl</a>, <a href="/ruby/index.htm" target="_blank">Ruby</a>, <a href="/php/index.htm" target="_blank">PHP</a>, <a href="/javascript/index.htm" target="_blank">Javascript</a>, etc.) that focuses on an object's behavior rather than its specific type. According to the "duck typing" concept, "If it walks like a duck and quacks like a duck, then it must be a duck."</p>
+<p><strong>Duck typing</strong> allows objects of different types to be used interchangeably as long as they have the required methods or attributes. The goal is to promote flexibility and code reuse. It is a broader concept that emphasizes object behavior and interface rather than formal types.</p>
+<p>Here is an example of duck typing &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">circle</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Draw a circle"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">rectangle</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">draw</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Draw a rectangle"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">area</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">area</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"calculate area"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">def</span> <span class="token function">duck_function</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">:</span> obj<span class="token punctuation">.</span>draw<span class="token punctuation">(</span><span class="token punctuation">)</span> objects <span class="token operator">=</span> <span class="token punctuation">[</span>circle<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rectangle<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> area<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> obj <span class="token keyword">in</span> objects<span class="token punctuation">:</span> duck_function<span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Draw a circle
+Draw a rectangle
+Traceback (most recent call last):
+ File "C:\Python311\hello.py", line 21, in &lt;module&gt;
+  duck_function(obj)
+ File "C:\Python311\hello.py", line 17, in duck_function
+ obj.draw()
+AttributeError: 'area' object has no attribute 'draw'
+</pre>
+<p>The most important idea behind <strong>duck typing</strong> is that the <strong>duck_function()</strong> doesn't care about the specific types of objects it receives. It only requires the objects to have a <strong>draw()</strong> method. If an object "quacks like a duck" by having the necessary behavior, it is treated as a "duck" for the purpose of invoking the <strong>draw()</strong> method.</p>
+<p>Thus, in duck typing, the focus is on the object's behavior rather than its explicit type, allowing different types of objects to be used interchangeably as long as they exhibit the required behavior.</p>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

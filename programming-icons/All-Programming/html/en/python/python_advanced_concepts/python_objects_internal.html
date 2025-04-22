@@ -1,0 +1,107 @@
+<p>The <strong>internals of Python objects</strong> provides deeper insights into how Python manages and manipulates data. This knowledge is essential for writing efficient, optimized code and for effective debugging.</p>
+<p>Whether we're handling immutable or mutable objects by managing memory with reference counting and garbage collection or leveraging special methods and slots, grasping these concepts is fundamental to mastering Python programming.</p>
+<p>Understanding <strong>Python's object internals</strong> is crucial for optimizing code and debugging. Following is an overview of the key aspects of Python object internals &minus;</p>
+<h2>Object Structure</h2>
+<p>In Python every object is a complex data structure that encapsulates various pieces of information. Understanding the object structure helps developers to grasp how Python manages memory and handles data.</p>
+<p>Each python object mainly consists of two parts as mentioned below &minus;</p>
+<ul class="list">
+<li><strong>Object Header:</strong> This is a crucial part of every Python object that contains essential information for the Python interpreter to manage the object effectively. It typically consists of two main components namely <strong>Reference count</strong> and <strong>Type Pointer</strong>.</li>
+<li><strong>Object Data:</strong> This data is the actual data contained within the object which can differ based on the object's type. For example an integer contains its numeric value while a list contains references to its elements.</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Object Identity</h2>
+<p><strong>Object Identity</strong> is the identity of an object which is an unique integer that represents its memory address. It remains constant during the object's lifetime. Every object in Python has a unique identifier obtained using the <a href="/python/python_id_function.htm" target="_blank"><strong>id()</strong> function</a>.</p>
+<h3>Example</h3>
+<p>Following is the example code of getting the Object Identity &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token string">"Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Example of getting the id of an string object</span></div>
+</div>
+<p>On executing the above code we will get the following output &minus;</p>
+<pre class="result notranslate">2366993878000
+</pre>
+<p><strong>Note:</strong> The memory address will change on every execution of the code.</p>
+<h2>Object Type</h2>
+<p><strong>Object Type</strong> is the type of an object defines the operations that can be performed on it. For example integers, strings and lists have distinct types. It is defined by its class and can be accessed using the <a href="/python/python_type_function.htm" target="_blank"><strong>type()</strong> function</a>.</p>
+<h3>Example</h3>
+<p>Here is the example of it &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token string">"Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">&lt;class 'str'&gt;
+</pre>
+<h2>Object Value</h2>
+<p><strong>Object Value</strong> of an object is the actual data it holds. This can be a primitive value like an integer or string, or it can be more complex data structures like <a href="/python/python_lists.htm" target="_blank">lists</a> or <a href="/python/python_dictionary.htm" target="_blank">dictionaries</a>.</p>
+<h3>Example</h3>
+<p>Following is the example of the object value &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">b <span class="token operator">=</span> <span class="token string">"Welcome to Tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Welcome to Tutorialspoint
+</pre>
+<h2>Memory Management</h2>
+<p><a href="/python/python_memory_management.htm" target="_blank"><strong>Memory management</strong> in Python</a> is a critical aspect of the language's design by ensuring efficient use of resources while handling object lifetimes and garbage collection. Here are the key components of memory management in Python &minus;</p>
+<ul class="list">
+<li><strong>Reference Counting:</strong> Python uses reference counting to manage memory. Each object keeps track of how many references point to it. When this count drops to zero then the memory can be freed.</li>
+<li><strong>Garbage Collection:</strong> In addition to reference counting the Python employs a garbage collector to identify and clean up reference cycles.</li>
+</ul>
+<h3>Example</h3>
+<p>Following is the example of the getting the reference counting in memory management &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sys c <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>getrefcount<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Shows the reference count</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">2
+</pre>
+<h2>Attributes and Methods</h2>
+<p>Python objects can have <a href="/python/python_class_attributes.htm" target="_blank">attributes</a> and <a href="/python/python_class_methods.htm" target="_blank">methods</a> which are accessed using dot notation. In which Attributes store data while methods define the behavior.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>value <span class="token operator">=</span> value <span class="token keyword">def</span> <span class="token function">display</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>value<span class="token punctuation">)</span> obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> obj<span class="token punctuation">.</span>display<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code we will get the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">10
+</pre>
+<p>Finally, understanding Python's object internals helps optimize performance and debug effectively. By grasping how objects are structured and managed in memory where developers can make informed decisions when writing Python code.</p>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

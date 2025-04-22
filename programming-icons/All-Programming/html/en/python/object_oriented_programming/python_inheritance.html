@@ -1,0 +1,145 @@
+
+<h2>What is Inheritance in Python?</h2>
+<p><strong>Inheritance</strong> is one of the most important features of object-oriented programming languages like Python. It is used to inherit the properties and behaviours of one class to another. The class that inherits another class is called a <strong>child class</strong> and the class that gets inherited is called a <strong>base class or parent class</strong>.</p>
+<p>If you have to design a new class whose most of the attributes are already well defined in an existing class, then why redefine them? Inheritance allows capabilities of existing class to be reused and if required extended to design a new class.</p>
+<p>Inheritance comes into picture when a new class possesses 'IS A' relationship with an existing class. For example, Car IS a vehicle, Bus IS a vehicle, Bike IS also a vehicle. Here, Vehicle is the parent class, whereas car, bus and bike are the child classes.</p>
+<img src="/python/images/media_folder.jpg" alt="inheritance" />
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating a Parent Class</h2>
+<p>The class whose attributes and methods are inherited is called as parent class. It is defined just like other classes i.e. using the class keyword.</p>
+<h3>Syntax</h3>
+<p>The syntax for creating a parent class is shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">ParentClassName</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token keyword">class</span> <span class="token class-name">body</span><span class="token punctuation">}</span></div>
+<h2>Creating a Child Class</h2>
+<p>Classes that inherit from base classes are declared similarly to their parent class, however, we need to provide the name of parent classes within the parentheses.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax of child class &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">SubClassName</span> <span class="token punctuation">(</span>ParentClass1<span class="token punctuation">[</span><span class="token punctuation">,</span> ParentClass2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>sub <span class="token keyword">class</span> <span class="token class-name">body</span><span class="token punctuation">}</span></div>
+<h2>Types of Inheritance</h2>
+<p>In Python, inheritance can be divided in five different categories &minus;</p>
+<ul class="list">
+<li>Single Inheritance</li>
+<li>Multiple Inheritance</li>
+<li>Multilevel Inheritance</li>
+<li>Hierarchical Inheritance</li>
+<li>Hybrid Inheritance</li>
+</ul>
+<img src="/python/images/inheritance_type_in_python.jpg" alt="types of inheritance" />
+<h2>Python - Single Inheritance</h2>
+<p>This is the simplest form of inheritance where a child class inherits attributes and methods from only one parent class.</p>
+<h3>Example</h3>
+<p>The below example shows single inheritance concept in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># parent class</span> <span class="token keyword">class</span> <span class="token class-name">Parent</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">parentMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling parent method"</span><span class="token punctuation">)</span> <span class="token comment"># child class</span> <span class="token keyword">class</span> <span class="token class-name">Child</span><span class="token punctuation">(</span>Parent<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">childMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Calling child method"</span><span class="token punctuation">)</span> <span class="token comment"># instance of child</span> c <span class="token operator">=</span> Child<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># calling method of child class</span> c<span class="token punctuation">.</span>childMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># calling method of parent class</span> c<span class="token punctuation">.</span>parentMethod<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On running the above code, it will print the following result &minus;</p>
+<pre class="result notranslate">Calling child method
+Calling parent method
+</pre>
+<h2>Python - Multiple Inheritance</h2>
+<p>Multiple inheritance in Python allows you to construct a class based on more than one parent classes. The Child class thus inherits the attributes and method from all parents. The child can override methods inherited from any parent.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">parent1</span><span class="token punctuation">:</span> <span class="token comment">#statements</span> <span class="token keyword">class</span> <span class="token class-name">parent2</span><span class="token punctuation">:</span> <span class="token comment">#statements</span> <span class="token keyword">class</span> <span class="token class-name">child</span><span class="token punctuation">(</span>parent1<span class="token punctuation">,</span> parent2<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#statements</span></div>
+<h3>Example</h3>
+<p>Python's standard library has a built-in divmod() function that returns a two-item tuple. First number is the division of two arguments, the second is the mod value of the two operands.</p>
+<p>This example tries to emulate the divmod() function. We define two classes division and modulus, and then have a div_mod class that inherits them.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">division</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>n<span class="token operator">=</span>a self<span class="token punctuation">.</span>d<span class="token operator">=</span>b <span class="token keyword">def</span> <span class="token function">divide</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>n<span class="token operator">/</span>self<span class="token punctuation">.</span>d <span class="token keyword">class</span> <span class="token class-name">modulus</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>n<span class="token operator">=</span>a self<span class="token punctuation">.</span>d<span class="token operator">=</span>b <span class="token keyword">def</span> <span class="token function">mod_divide</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>n<span class="token operator">%</span>self<span class="token punctuation">.</span>d <span class="token keyword">class</span> <span class="token class-name">div_mod</span><span class="token punctuation">(</span>division<span class="token punctuation">,</span>modulus<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>n<span class="token operator">=</span>a self<span class="token punctuation">.</span>d<span class="token operator">=</span>b <span class="token keyword">def</span> <span class="token function">div_and_mod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> divval<span class="token operator">=</span>division<span class="token punctuation">.</span>divide<span class="token punctuation">(</span>self<span class="token punctuation">)</span> modval<span class="token operator">=</span>modulus<span class="token punctuation">.</span>mod_divide<span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">(</span>divval<span class="token punctuation">,</span> modval<span class="token punctuation">)</span></div>
+<p>The child class has a new method div_and_mod() which internally calls the divide() and mod_divide() methods from its inherited classes to return the division and mod values.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x<span class="token operator">=</span>div_mod<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"division:"</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>divide<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"mod_division:"</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>mod_divide<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"divmod:"</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>div_and_mod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h3>Output</h3>
+<pre class="result notranslate">division: 3.3333333333333335
+mod_division: 1
+divmod: (3.3333333333333335, 1)
+</pre>
+<h2>Method Resolution Order (MRO)</h2>
+<p>The term <span class="tp-codespan">method resolution order</span> is related to multiple inheritance in Python. In Python, inheritance may be spread over more than one levels. Let us say A is the parent of B, and B the parent for C. The class C can override the inherited method or its object may invoke it as defined in its parent. So, how does Python find the appropriate method to call.</p>
+<p>Each Python has a mro() method that returns the hierarchical order that Python uses to resolve the method to be called. The resolution order is from bottom of inheritance order to top.</p>
+<p>In our previous example, the div_mod class inherits division and modulus classes. So, the mro method returns the order as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">[</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.div_mod'</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.division'</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'__main__.modulus'</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'object'</span><span class="token operator">&gt;</span><span class="token punctuation">]</span></div>
+<h2>Python - Multilevel Inheritance</h2>
+<p>In multilevel inheritance, a class is derived from another derived class. There exists multiple layers of inheritance. We can imagine it as a grandparent-parent-child relationship.</p>
+<h3>Example</h3>
+<p>In the following example, we are illustrating the working of multilevel inheritance.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># parent class</span> <span class="token keyword">class</span> <span class="token class-name">Universe</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">universeMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am in the Universe"</span><span class="token punctuation">)</span> <span class="token comment"># child class</span> <span class="token keyword">class</span> <span class="token class-name">Earth</span><span class="token punctuation">(</span>Universe<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">earthMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am on Earth"</span><span class="token punctuation">)</span> <span class="token comment"># another child class</span> <span class="token keyword">class</span> <span class="token class-name">India</span><span class="token punctuation">(</span>Earth<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">indianMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am in India"</span><span class="token punctuation">)</span> <span class="token comment"># creating instance </span> person <span class="token operator">=</span> India<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># method calls</span> person<span class="token punctuation">.</span>universeMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> person<span class="token punctuation">.</span>earthMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> person<span class="token punctuation">.</span>indianMethod<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When we execute the above code, it will produce the following result &minus;</p>
+<pre class="result notranslate">I am in the Universe
+I am on Earth
+I am in India
+</pre>
+<h2>Python - Hierarchical Inheritance</h2>
+<p>This type of inheritance contains multiple derived classes that are inherited from a single base class. This is similar to the hierarchy within an organization.</p>
+<h3>Example</h3>
+<p>The following example illustrates hierarchical inheritance. Here, we have defined two child classes of <strong>Manager class</strong>.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># parent class</span> <span class="token keyword">class</span> <span class="token class-name">Manager</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">managerMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am the Manager"</span><span class="token punctuation">)</span> <span class="token comment"># child class</span> <span class="token keyword">class</span> <span class="token class-name">Employee1</span><span class="token punctuation">(</span>Manager<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">employee1Method</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am Employee one"</span><span class="token punctuation">)</span> <span class="token comment"># second child class</span> <span class="token keyword">class</span> <span class="token class-name">Employee2</span><span class="token punctuation">(</span>Manager<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">employee2Method</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am Employee two"</span><span class="token punctuation">)</span> <span class="token comment"># creating instances </span> emp1 <span class="token operator">=</span> Employee1<span class="token punctuation">(</span><span class="token punctuation">)</span> emp2 <span class="token operator">=</span> Employee2<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># method calls</span> emp1<span class="token punctuation">.</span>managerMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> emp1<span class="token punctuation">.</span>employee1Method<span class="token punctuation">(</span><span class="token punctuation">)</span> emp2<span class="token punctuation">.</span>managerMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> emp2<span class="token punctuation">.</span>employee2Method<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above program, you will get the following output &minus;</p>
+<pre class="result notranslate">I am the Manager
+I am Employee one
+I am the Manager
+I am Employee two
+</pre>
+<h2>Python - Hybrid Inheritance</h2>
+<p>Combination of two or more types of inheritance is called as Hybrid Inheritance. For instance, it could be a mix of single and multiple inheritance.</p>
+<h3>Example</h3>
+<p>In this example, we have combined single and multiple inheritance to form a hybrid inheritance of classes.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># parent class</span> <span class="token keyword">class</span> <span class="token class-name">CEO</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">ceoMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am the CEO"</span><span class="token punctuation">)</span> <span class="token keyword">class</span> <span class="token class-name">Manager</span><span class="token punctuation">(</span>CEO<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">managerMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am the Manager"</span><span class="token punctuation">)</span> <span class="token keyword">class</span> <span class="token class-name">Employee1</span><span class="token punctuation">(</span>Manager<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">employee1Method</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am Employee one"</span><span class="token punctuation">)</span> <span class="token keyword">class</span> <span class="token class-name">Employee2</span><span class="token punctuation">(</span>Manager<span class="token punctuation">,</span> CEO<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">employee2Method</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"I am Employee two"</span><span class="token punctuation">)</span> <span class="token comment"># creating instances </span> emp <span class="token operator">=</span> Employee2<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># method calls</span> emp<span class="token punctuation">.</span>managerMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> emp<span class="token punctuation">.</span>ceoMethod<span class="token punctuation">(</span><span class="token punctuation">)</span> emp<span class="token punctuation">.</span>employee2Method<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On running the above program, it will give the below result &minus;</p>
+<pre class="result notranslate">I am the Manager
+I am the CEO
+I am Employee two
+</pre>
+<h2>The super() function</h2>
+<p>In Python, <span class="tp-codespan">super()</span> function allows you to access methods and attributes of the parent class from within a child class.</p>
+<h3>Example</h3>
+<p>In the following example, we create a parent class and access its constructor from a subclass using the super() function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># parent class</span> <span class="token keyword">class</span> <span class="token class-name">ParentDemo</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>message <span class="token operator">=</span> msg <span class="token keyword">def</span> <span class="token function">showMessage</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token comment"># child class</span> <span class="token keyword">class</span> <span class="token class-name">ChildDemo</span><span class="token punctuation">(</span>ParentDemo<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># use of super function</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>msg<span class="token punctuation">)</span> <span class="token comment"># creating instance</span> obj <span class="token operator">=</span> ChildDemo<span class="token punctuation">(</span><span class="token string">"Welcome to Tutorialspoint!!"</span><span class="token punctuation">)</span> obj<span class="token punctuation">.</span>showMessage<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing, the above program will give the following result &minus;</p>
+<pre class="result notranslate">Welcome to Tutorialspoint!!</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>\

@@ -1,0 +1,64 @@
+
+<p>In Python, copying an array refers to the process of creating a new array that contains all the elements of the original array. This operation can be done using assignment operator (=) and deepcopy() method. In this chapter, we discuss how to <strong>copy an array object to another</strong>. But, before getting into the details let's breifly discuss arrays.</p>
+<p>Python's built-in sequence types i.e. <a href="/python/python_lists.htm" target="_blank">list</a>, <a href="/python/python_tuples.htm" target="_blank">tuple</a>, and <a href="/python/python_strings.htm" target="_blank">string</a> are indexed collection of items. However, unlike arrays in C/C++, Java etc. they are not homogenous, in the sense the elements in these types of collection may be of different types. Python's array module helps you to create object similar to Java like arrays.</p>
+<p><a href="/python/python_arrays.htm" target="_blank">Python arrays</a> can be of string, integer or float type. The array class constructor is used as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array obj <span class="token operator">=</span> array<span class="token punctuation">.</span>array<span class="token punctuation">(</span>typecode<span class="token punctuation">[</span><span class="token punctuation">,</span> initializer<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<p>Where, the typecode may be a character constant representing the data type.</p>
+<h2>Copy Arrays Using Assignment Operator</h2>
+<p>We can assign an array to another by using the assignment operator (=). However, such assignment doesn't create a new array in the memory. Instead, it creates a new reference to the same array.</p>
+<h3>Example</h3>
+<p>In the following example, we are using assignment operator to copy array in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">110</span><span class="token punctuation">,</span> <span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">330</span><span class="token punctuation">,</span> <span class="token number">440</span><span class="token punctuation">,</span> <span class="token number">550</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> a <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Copied array:"</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Copied array: array('i', [110, 220, 330, 440, 550])
+134485392383792 134485392383792
+</pre>
+<p>Check the id() of both a and b. Same value of id confirms that simple assignment doesn't create a copy. Since "a" and "b" refer to the same array object, any change in the array "a" will reflect in "b" too &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [110, 220, 10, 440, 550]) array('i', [110, 220, 10, 440, 550])
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Copy Arrays Using Deep Copy</h2>
+<p>To create another physical copy of an array, we use another module in Python library, named <span class="tp-codespan">copy</span> and use <span class="tp-codespan">deepcopy()</span> function in the module. A deep copy constructs a new compound object and then, recursively inserts copies into it of the objects found in the original.</p>
+<h3>Example</h3>
+<p>The following example demonstrates how to copy array in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token keyword">import</span> copy a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">110</span><span class="token punctuation">,</span> <span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">330</span><span class="token punctuation">,</span> <span class="token number">440</span><span class="token punctuation">,</span> <span class="token number">550</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Copied array:"</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span></div>
+</div>
+<p>On executing, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Copied array: array('i', [110, 220, 330, 440, 550])
+</pre>
+<p>Now check the id() of both "a" and "b". You will find the ids are different.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">2771967069936 2771967068976
+</pre>
+<p>This proves that a new object "b" is created which is an actual copy of "a". If we change an element in "a", it is not reflected in "b".</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">10</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [110, 220, 10, 440, 550]) array('i', [110, 220, 330, 440, 550])
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

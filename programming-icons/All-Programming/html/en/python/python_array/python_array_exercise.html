@@ -1,0 +1,116 @@
+<div class="tutorial-content" id="mainContent">
+<h1>Python - Array Exercises</h1>
+<hr>
+<!-- TAGNAME: 728x90_Top -->
+   <div class="adp_top_ads" style="height:90px; overflow: hidden; display: block;width: 728px;">
+       <ins class="undrads ua-display" data-ad-id="UNDR/2358294094/adunit/desktop/728X90/d215b490-b93a-4cc6-bd78-2af1f29cbf7c"></ins>
+    </div>
+<hr>
+<div class="library-page-top-nav">
+   <div class="button button--neutral" id="btn_top_previous">
+   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1.03117 8.48836C0.64065 8.09783 0.64065 7.46467 1.03117 7.07414L7.39514 0.710183C7.78566 0.319658 8.41883 0.319658 8.80935 0.710183C9.19987 1.10071 9.19987 1.73387 8.80935 2.1244L3.15249 7.78125L8.80935 13.4381C9.19987 13.8286 9.19987 14.4618 8.80935 14.8523C8.41882 15.2428 7.78566 15.2428 7.39513 14.8523L1.03117 8.48836ZM3.12109 8.78125L1.73828 8.78125L1.73828 6.78125L3.12109 6.78125L3.12109 8.78125Z" fill="black"></path></svg>
+   <a href="/python/python_array_methods.htm">
+      Previous
+   </a>
+   </div>
+   <div class="flex-group">
+      <a href="/python/quiz_on_python_array_exercises.htm" target="_blank" alt="Practice Quiz on "><span class="button button--neutral">Quiz</span></a>
+      <div class="button " id="btn_top_next">
+   <a href="/python/python_file_handling.htm">
+    Next
+   </a>
+   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M8.87117 8.48836C9.26169 8.09783 9.26169 7.46467 8.87117 7.07414L2.50721 0.710183C2.11668 0.319658 1.48352 0.319658 1.09299 0.710183C0.70247 1.10071 0.70247 1.73387 1.09299 2.1244L6.74985 7.78125L1.093 13.4381C0.702471 13.8286 0.702471 14.4618 1.093 14.8523C1.48352 15.2428 2.11668 15.2428 2.50721 14.8523L8.87117 8.48836ZM6.78125 8.78125L8.16406 8.78125L8.16406 6.78125L6.78125 6.78125L6.78125 8.78125Z" fill="white"></path></svg>
+   </div>
+   </div>
+</div>
+
+<div class="clearer"></div>
+<h2>Example 1</h2>
+<p>Python program to find the largest number in an array −</p>
+<div class="code-wrapper"><div class="code-header"><div class="logo-side"><svg fill="white" xmlns="https://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M376.5 1.8l-7.3 22.8-144 448-7.3 22.8 45.7 14.7 7.3-22.8 144-448 7.3-22.8L376.5 1.8zm61.6 135.3l17.5 16.4L564.9 256 455.6 358.5l-17.5 16.4 32.8 35 17.5-16.4 128-120L635.1 256l-18.7-17.5-128-120-17.5-16.4-32.8 35zm-269-35l-17.5 16.4-128 120L4.9 256l18.7 17.5 128 120 17.5 16.4 32.8-35-17.5-16.4L75.1 256 184.4 153.5l17.5-16.4-32.8-35z"></path></svg></div><div class="button-side"><div class="execute"></div><div class="open-compiler">Open Compiler</div></div></div><pre class="demo-code notranslate  language-python" data-lang="python3" data-index="0" id="0" tabindex="0"><div class="code-mirror  language-python" contenteditable="plaintext-only" spellcheck="false" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr
+a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+largest <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>largest<span class="token punctuation">:</span>
+      largest<span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Largest number:"</span><span class="token punctuation">,</span> largest<span class="token punctuation">)</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre></div>
+<p>It will produce the following <b>output</b> −</p>
+<pre class="result notranslate">array('i', [10, 5, 15, 4, 6, 20, 9])
+Largest number: 20
+</pre>
+
+<div class="inserted-div"><script async="true" id="PS_67ebd889ca6f1325b65a5242" type="text/javascript" src="https://ads.playstream.media/api/adserver/scripts?PS_TAGID=67ebd889ca6f1325b65a5242&amp;PS_PUB_ID=67ebd5e3ca6f1325b65a46fe"></script></div>
+<h2>Example 2</h2>
+<p>Python program to store all even numbers from an array in another array −</p>
+<div class="code-wrapper"><div class="code-header"><div class="logo-side"><svg fill="white" xmlns="https://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M376.5 1.8l-7.3 22.8-144 448-7.3 22.8 45.7 14.7 7.3-22.8 144-448 7.3-22.8L376.5 1.8zm61.6 135.3l17.5 16.4L564.9 256 455.6 358.5l-17.5 16.4 32.8 35 17.5-16.4 128-120L635.1 256l-18.7-17.5-128-120-17.5-16.4-32.8 35zm-269-35l-17.5 16.4-128 120L4.9 256l18.7 17.5 128 120 17.5 16.4 32.8-35-17.5-16.4L75.1 256 184.4 153.5l17.5-16.4-32.8-35z"></path></svg></div><div class="button-side"><div class="execute"></div><div class="open-compiler">Open Compiler</div></div></div><pre class="demo-code notranslate  language-python" data-lang="python3" data-index="1" id="1" tabindex="0"><div class="code-mirror  language-python" contenteditable="plaintext-only" spellcheck="false" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr
+a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+b <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+      b<span class="token punctuation">.</span>append<span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Even numbers:"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre></div>
+<p>It will produce the following <b>output</b> −</p>
+<pre class="result notranslate">array('i', [10, 5, 15, 4, 6, 20, 9])
+Even numbers: array('i', [10, 4, 6, 20])
+</pre>
+
+<h2>Example 3</h2>
+<p>Python program to find the average of all numbers in a Python array −</p>
+<div class="code-wrapper"><div class="code-header"><div class="logo-side"><svg fill="white" xmlns="https://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M376.5 1.8l-7.3 22.8-144 448-7.3 22.8 45.7 14.7 7.3-22.8 144-448 7.3-22.8L376.5 1.8zm61.6 135.3l17.5 16.4L564.9 256 455.6 358.5l-17.5 16.4 32.8 35 17.5-16.4 128-120L635.1 256l-18.7-17.5-128-120-17.5-16.4-32.8 35zm-269-35l-17.5 16.4-128 120L4.9 256l18.7 17.5 128 120 17.5 16.4 32.8-35-17.5-16.4L75.1 256 184.4 153.5l17.5-16.4-32.8-35z"></path></svg></div><div class="button-side"><div class="execute"></div><div class="open-compiler">Open Compiler</div></div></div><pre class="demo-code notranslate  language-python" data-lang="python3" data-index="2" id="2" tabindex="0"><div class="code-mirror  language-python" contenteditable="plaintext-only" spellcheck="false" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr
+a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+s <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   s<span class="token operator">+=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+avg <span class="token operator">=</span> s<span class="token operator">/</span><span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Average:"</span><span class="token punctuation">,</span> avg<span class="token punctuation">)</span>
+
+<span class="token comment"># Using sum() function</span>
+avg <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">/</span><span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Average:"</span><span class="token punctuation">,</span> avg<span class="token punctuation">)</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre></div>
+<p>It will produce the following <b>output</b> −</p>
+<pre class="result notranslate">array('i', [10, 5, 15, 4, 6, 20, 9])
+Average: 9.857142857142858
+Average: 9.857142857142858
+</pre>
+<h2>Exercise Programs</h2>
+<ul class="list">
+<li><p>Python program find difference between each number in the array and the average of all numbers</p></li>
+<li><p>Python program to convert a string in an array</p></li>
+<li><p>Python program to split an array in two and store even numbers in one array and odd numbers in the other.</p></li>
+<li><p>Python program to perform insertion sort on an array.</p></li>
+<li><p>Python program to store the Unicode value of each character in the given array.</p></li>
+</ul>
+<div class="library-page-bottom-nav ">
+   <div class="button button--blue" id="print-page">
+    <svg fill="white" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M112 160V64c0-8.8 7.2-16 16-16H357.5c4.2 0 8.3 1.7 11.3 4.7l26.5 26.5c3 3 4.7 7.1 4.7 11.3V160h48V90.5c0-17-6.7-33.3-18.7-45.3L402.7 18.7C390.7 6.7 374.5 0 357.5 0H128C92.7 0 64 28.7 64 64v96h48zm16 208H384v96H128V368zm-16-48c-17.7 0-32 14.3-32 32H48V256c0-8.8 7.2-16 16-16H448c8.8 0 16 7.2 16 16v96H432c0-17.7-14.3-32-32-32H112zm320 80h48c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64V368c0 17.7 14.3 32 32 32H80v80c0 17.7 14.3 32 32 32H400c17.7 0 32-14.3 32-32V400z"></path></svg>
+      Print Page
+   </div>
+   <div class="flex-group">
+   <a href="/python/python_array_methods.htm">
+   <div class="button button--neutral">
+   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1.03117 8.48836C0.64065 8.09783 0.64065 7.46467 1.03117 7.07414L7.39514 0.710183C7.78566 0.319658 8.41883 0.319658 8.80935 0.710183C9.19987 1.10071 9.19987 1.73387 8.80935 2.1244L3.15249 7.78125L8.80935 13.4381C9.19987 13.8286 9.19987 14.4618 8.80935 14.8523C8.41882 15.2428 7.78566 15.2428 7.39513 14.8523L1.03117 8.48836ZM3.12109 8.78125L1.73828 8.78125L1.73828 6.78125L3.12109 6.78125L3.12109 8.78125Z" fill="black"></path></svg>
+      Previous
+   </div>
+   </a>
+   <a href="/python/python_file_handling.htm">
+   <div class="button ">Next
+   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M8.87117 8.48836C9.26169 8.09783 9.26169 7.46467 8.87117 7.07414L2.50721 0.710183C2.11668 0.319658 1.48352 0.319658 1.09299 0.710183C0.70247 1.10071 0.70247 1.73387 1.09299 2.1244L6.74985 7.78125L1.093 13.4381C0.702471 13.8286 0.702471 14.4618 1.093 14.8523C1.48352 15.2428 2.11668 15.2428 2.50721 14.8523L8.87117 8.48836ZM6.78125 8.78125L8.16406 8.78125L8.16406 6.78125L6.78125 6.78125L6.78125 8.78125Z" fill="white"></path></svg>
+   </div>
+   </a>
+   </div>
+</div>
+   <div class="bottom-library-ads mt" style="margin:5px;">
+      <div class="google-bottom-ads" id="google-bottom-ads">
+         <div>Advertisements</div>
+                    <div style="width: 728px; height: 250px;">
+                <ins class="undrads ua-display" data-ad-id="UNDR/2358294094/adunit/desktop/728X250/a27bc5b6-536e-4adb-b117-8337f2173bca"></ins>
+           </div>
+                 </div>
+   </div>
+   </div>

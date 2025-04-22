@@ -1,0 +1,95 @@
+<h2>Enums in Python</h2>
+<p>In Python, the term <strong>enumeration</strong> refers to the process of assigning fixed constant values to a set of strings so that each string can be identified by the value bound to it. The Enum class included in <strong>enum</strong> module (which is a part of Python's standard library) is used as the parent class to define enumeration of a set of identifiers &minus; conventionally written in upper case.</p>
+<h3>Example</h3>
+<p>In the below code, "subjects" is the enumeration. It has different enumeration members and each member is an object of the enumeration class subjects. These members have name and value attributes.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># importing enum </span> <span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum <span class="token keyword">class</span> <span class="token class-name">subjects</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span> ENGLISH <span class="token operator">=</span> <span class="token number">1</span> MATHS <span class="token operator">=</span> <span class="token number">2</span> SCIENCE <span class="token operator">=</span> <span class="token number">3</span> SANSKRIT <span class="token operator">=</span> <span class="token number">4</span> obj <span class="token operator">=</span> subjects<span class="token punctuation">.</span>MATHS <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It results in following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">&lt;enum 'subjects'&gt; 
+</pre>
+<p>An enum class cannot have the same member appearing twice, however, more than one member may be assigned the same value. To ensure that each member has a unique value bound to it, use the <strong>@unique</strong> decorator.</p>
+<h3>Example</h3>
+<p>In this example, we are using the @unique decorator to restrict duplicacy.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum<span class="token punctuation">,</span> unique <span class="token decorator annotation punctuation">@unique</span> <span class="token keyword">class</span> <span class="token class-name">subjects</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span> ENGLISH <span class="token operator">=</span> <span class="token number">1</span> MATHS <span class="token operator">=</span> <span class="token number">2</span> GEOGRAPHY <span class="token operator">=</span> <span class="token number">3</span> SANSKRIT <span class="token operator">=</span> <span class="token number">2</span></div>
+</div>
+<p>This will raise an exception as shown below &minus;</p>
+<pre class="result notranslate">   @unique
+    ^^^^^^
+   raise ValueError('duplicate values found in %r: %s' %
+ValueError: duplicate values found in &lt;enum 'subjects'&gt;: SANSKRIT -&gt; MATHS
+</pre>
+<p>The Enum class is a callable class, hence you can use its constructor to create an enumeration. This constructor accepts two arguments, which are the name of enumeration and a string consisting of enumeration member symbolic names separated by a whitespace.</p>
+<h3>Example</h3>
+<p>following is an alternative method of defining an enumeration &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum subjects <span class="token operator">=</span> Enum<span class="token punctuation">(</span><span class="token string">"subjects"</span><span class="token punctuation">,</span> <span class="token string">"ENGLISH MATHS SCIENCE SANSKRIT"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>subjects<span class="token punctuation">.</span>ENGLISH<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>subjects<span class="token punctuation">.</span>MATHS<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>subjects<span class="token punctuation">.</span>SCIENCE<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>subjects<span class="token punctuation">.</span>SANSKRIT<span class="token punctuation">)</span></div>
+<p>This code will give the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">subjects.ENGLISH
+subjects.MATHS
+subjects.SCIENCE
+subjects.SANSKRIT
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Accessing Modes in Enums</h2>
+<p>Members of an enum class can be accessed in two modes &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Value</strong> &minus; In this mode, value of the enum member is accessed using the "value" keyword followed by object of the enum class.</p>
+</li>
+<li>
+<p><strong>Name</strong> &minus; Similarly, we use the "name" keyword to access name of the enum member.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>The following example illustrates how to access value and name of the enum member.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum <span class="token keyword">class</span> <span class="token class-name">subjects</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span> ENGLISH <span class="token operator">=</span> <span class="token string">"E"</span> MATHS <span class="token operator">=</span> <span class="token string">"M"</span> GEOGRAPHY <span class="token operator">=</span> <span class="token string">"G"</span> SANSKRIT <span class="token operator">=</span> <span class="token string">"S"</span> obj <span class="token operator">=</span> subjects<span class="token punctuation">.</span>SANSKRIT <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>value<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">&lt;enum 'subjects'&gt; 
+SANSKRIT
+S
+</pre>
+<h2>Iterating through Enums</h2>
+<p>You can iterate through the enum members in the order of their appearance in the definition, with the help of a <strong>for</strong> loop.</p>
+<h3>Example</h3>
+<p>The following example shows how to iterate through an enumeration using for loop &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum <span class="token keyword">class</span> <span class="token class-name">subjects</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span> ENGLISH <span class="token operator">=</span> <span class="token string">"E"</span> MATHS <span class="token operator">=</span> <span class="token string">"M"</span> GEOGRAPHY <span class="token operator">=</span> <span class="token string">"G"</span> SANSKRIT <span class="token operator">=</span> <span class="token string">"S"</span> <span class="token keyword">for</span> sub <span class="token keyword">in</span> subjects<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>sub<span class="token punctuation">.</span>name<span class="token punctuation">,</span> sub<span class="token punctuation">.</span>value<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">ENGLISH E
+MATHS M
+GEOGRAPHY G
+SANSKRIT S
+</pre>
+<p>We know that enum member can be accessed with the unique value assigned to it, or by its name attribute. Hence, subjects("E") as well as subjects["ENGLISH"] returns subjects.ENGLISH member.</p>

@@ -1,0 +1,253 @@
+<h2>Arrays in Python</h2>
+<p>Unlike other programming languages like C++ or Java, Python does not have built-in support for arrays. However, Python has several data types like lists and tuples (especially lists) that are often used as arrays but, items stored in these types of sequences need not be of the same type.</p>
+<p>In addition, we can create and manipulate arrays the using the <strong>array</strong> module. Before proceeding further, let's understand arrays in general.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>What are arrays?</h2>
+<p>An <strong>array</strong> is a container which can hold a fix number of items and these items should be of the same type. Each item stored in an array is called an <strong>element</strong> and they can be of any type including integers, floats, strings, etc.</p>
+<p>These elements are stored at contiguous memory location. Each location of an element in an array has a numerical <strong>index</strong> starting from 0. These indices are used to identify and access the elements.</p>
+<h2>Array Representation</h2>
+<p>Arrays are represented as a collection of multiple containers where each container stores one element. These containers are indexed from '0' to 'n-1', where n is the size of that particular array.</p>
+<p>Arrays can be declared in various ways in different languages. Below is an illustration &minus;</p>
+<p><img src="/python/images/python_array_representation.jpg" alt="Python Array Representation" /></p>
+<p>As per the above illustration, following are the important points to be considered &minus;</p>
+<ul class="list">
+<li>
+<p>Index starts with 0.</p>
+</li>
+<li>
+<p>Array length is 10 which means it can store 10 elements.</p>
+</li>
+<li>
+<p>Each element can be accessed via its index. For example, we can fetch an element at index 6 as 9.</p>
+</li>
+</ul>
+<h2>Creating Array in Python</h2>
+<p>To create an array in Python, import the array module and use its <span class="tp-codespan">array() function</span>. We can create an array of three basic types namely integer, float and Unicode characters using this function.</p>
+<p>The array() function accepts typecode and initializer as a parameter value and returns an object of array class.</p>
+<h3>Syntax</h3>
+<p>The syntax for creating an array in Python is &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># importing </span> <span class="token keyword">import</span> array <span class="token keyword">as</span> array_name <span class="token comment"># creating array</span> obj <span class="token operator">=</span> array_name<span class="token punctuation">.</span>array<span class="token punctuation">(</span>typecode<span class="token punctuation">[</span><span class="token punctuation">,</span> initializer<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p><strong>typecode</strong> &minus; The typecode character used to speccify the type of elements in the array.</p>
+</li>
+<li>
+<p><strong>initializer</strong> &minus; It is an optional value from which array is initialized. It must be a list, a bytes-like object, or iterable elements of the appropriate type.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>The following example shows how to create an array in Python using the array module.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating an array with integer type</span> a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token comment"># creating an array with char type</span> a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'u'</span><span class="token punctuation">,</span> <span class="token string">'BAT'</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token comment"># creating an array with float type</span> a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1.1</span><span class="token punctuation">,</span> <span class="token number">2.2</span><span class="token punctuation">,</span> <span class="token number">3.3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">&lt;class 'array.array'&gt; array('i', [1, 2, 3])
+&lt;class 'array.array'&gt; array('u', 'BAT')
+&lt;class 'array.array'&gt; array('d', [1.1, 2.2, 3.3])
+</pre>
+<p>Python array type is decided by a single character Typecode argument. The type codes and the intended data type of array is listed below &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">typecode</th>
+<th style="text-align: center;">Python data type</th>
+<th style="text-align: center;">Byte size</th>
+</tr>
+<tr>
+<td>'b'</td>
+<td>signed integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>'B'</td>
+<td>unsigned integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>'u'</td>
+<td>Unicode character</td>
+<td>2</td>
+</tr>
+<tr>
+<td>'h'</td>
+<td>signed integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>'H'</td>
+<td>unsigned integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>'i'</td>
+<td>signed integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>'I'</td>
+<td>unsigned integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>'l'</td>
+<td>signed integer</td>
+<td>4</td>
+</tr>
+<tr>
+<td>'L'</td>
+<td>unsigned integer</td>
+<td>4</td>
+</tr>
+<tr>
+<td>'q'</td>
+<td>signed integer</td>
+<td>8</td>
+</tr>
+<tr>
+<td>'Q'</td>
+<td>unsigned integer</td>
+<td>8</td>
+</tr>
+<tr>
+<td>'f'</td>
+<td>floating point</td>
+<td>4</td>
+</tr>
+<tr>
+<td>'d'</td>
+<td>floating point</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<h2>Basic Operations on Python Arrays</h2>
+<p>Following are the basic operations supported by an array &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Traverse</strong> &minus; Print all the array elements one by one.</p>
+</li>
+<li>
+<p><strong>Insertion</strong> &minus; Adds an element at the given index.</p>
+</li>
+<li>
+<p><strong>Deletion</strong> &minus; Deletes an element at the given index.</p>
+</li>
+<li>
+<p><strong>Search</strong> &minus; Searches an element using the given index or by the value.</p>
+</li>
+<li>
+<p><strong>Update</strong> &minus; Updates an element at the given index.</p>
+</li>
+</ul>
+<h2>Accessing Array Element</h2>
+<p>We can access each element of an array using the index of the element.</p>
+<h3>Example</h3>
+<p>The below code shows how to access elements of an array.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> array <span class="token keyword">import</span> <span class="token operator">*</span> array1 <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>array1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>array1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>When we compile and execute the above program, it produces the following result &minus;</p>
+<pre class="result notranslate">10
+30
+</pre>
+<h2>Insertion Operation</h2>
+<p>In insertion operation, we insert one or more data elements into an array. Based on the requirement, a new element can be added at the beginning, end, or any given index of array.</p>
+<h3>Example</h3>
+<p>Here, we add a data element at the middle of the array using the python in-built insert() method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> array <span class="token keyword">import</span> <span class="token operator">*</span> array1 <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span> array1<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> array1<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span></div>
+</div>
+<p>When we compile and execute the above program, it produces the following result which shows the element is inserted at index position 1.</p>
+<pre class="result notranslate">10
+60
+20
+30
+40
+50
+</pre>
+<h2>Deletion Operation</h2>
+<p>Deletion refers to removing an existing element from the array and re-organizing all elements of an array.</p>
+<h3>&nbsp;</h3>
+<p>Here, we remove a data element at the middle of the array using the python in-built remove() method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> array <span class="token keyword">import</span> <span class="token operator">*</span> array1 <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span> array1<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> array1<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span></div>
+</div>
+<p>When we compile and execute the above program, it produces the following result which shows the element is removed form the array.</p>
+<pre class="result notranslate">10
+20
+30
+50
+</pre>
+<h2>Search Operation</h2>
+<p>You can perform a search operation on an array to find an array element based on its value or its index.</p>
+<h3>Example</h3>
+<p>Here, we search a data element using the python in-built index() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> array <span class="token keyword">import</span> <span class="token operator">*</span> array1 <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>array1<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>When we compile and execute the above program, it will display the index of the searched element. If the value is not present in the array, it will return an error.</p>
+<pre class="result notranslate">3
+</pre>
+<h2>Update Operation</h2>
+<p>Update operation refers to updating an existing element from the array at a given index. Here, we simply reassign a new value to the desired index we want to update.</p>
+<h3>Example</h3>
+<p>In this example, we are updating the value of array element at index 2.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> array <span class="token keyword">import</span> <span class="token operator">*</span> array1 <span class="token operator">=</span> array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span> array1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">80</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> array1<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above program, it produces the following result which shows the new value at the index position 2.</p>
+<pre class="result notranslate">10
+20
+80
+40
+50
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

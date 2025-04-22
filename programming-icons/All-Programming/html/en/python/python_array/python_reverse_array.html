@@ -1,0 +1,85 @@
+<p>Reversing an array is the operation of rearranging the array elements in the opposite order. There are various methods and approaches to reverse an array in Python including reverse() and reversed() methods.</p>
+<p>In Python, <a href="/python/python_arrays.htm" target="_blank">array</a> is not one of the built-in <a href="/python/python_data_types.htm" target="_blank">data types</a>. However, Python's standard library has array module which helps us to create a homogenous collection of <a href="/python/python_strings.htm" target="_blank">string</a>, integer or float types.</p>
+<p><img src="/python/images/reverse_array_operation_python.jpg" alt="Reverse Array Operation Python" /></p>
+<h2>Ways to Reverse an Array in Python</h2>
+<p>To reverse an array, use the following approaches &minus;</p>
+<ul class="list">
+<li>Using slicing operation</li>
+<li>Using reverse() method</li>
+<li>Using reversed() method</li>
+<li>Using for loop</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using slicing operation</h2>
+<p><span class="tp-codespan">Slicing operation</span> is the process of extracting a part of array within the specified indices. In Python, if we use the slice operation in the form <span class="tp-codespan">[::-1]</span> then, it will display a new array by reversing the original one.</p>
+<p>In this process, the interpreter starts from the end and stepping backwards by 1 until it reaches the beginning of the array. As a result, we get a reverse copy of original array.</p>
+<h3>Example</h3>
+<p>The below example demonstrates how to use the slicing operation to reverse an array in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">77</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original array:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span> revArray <span class="token operator">=</span> numericArray<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Reversed array:"</span><span class="token punctuation">,</span>revArray<span class="token punctuation">)</span></div>
+</div>
+<p>When you run the code, it will produce the following output &minus;</p>
+<pre class="result notranslate">Original array: array('i', [88, 99, 77, 55, 66])
+Reversed array: array('i', [66, 55, 77, 99, 88])
+</pre>
+<h2>Reverse an Array Using reverse() Method</h2>
+<p>We can also reverse the sequence of numbers in an array using the <a href="/python/list_reverse.htm" target="_blank">reverse() method</a> of list class. Here, <a href="/python/python_lists.htm" target="_blank">list</a> is a built-in type in Python.</p>
+<p>Since reverse() is a method of list class, we cannot directly use it to reverse an array created through the Python array module. We have to first transfer the contents of an array to a list with <span class="tp-codespan">tolist()</span> method of array class, then we call the reverse() method and at the end, when we convert the list back to an array, we get the array with reversed order.</p>
+<h3>Example</h3>
+<p>Here, we will see the use of reverse() method in reversing an array in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating an array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Array before reversing:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span> <span class="token comment"># converting the array into list</span> newArray <span class="token operator">=</span> numericArray<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># reversing the list</span> newArray<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># creating a new array from reversed list</span> revArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> newArray<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Array after reversing:"</span><span class="token punctuation">,</span>revArray<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Array before reversing: array('i', [10, 5, 15, 4, 6, 20, 9])
+Array after reversing: array('i', [9, 20, 6, 4, 15, 5, 10])
+</pre>
+<h2>Reverse an Array Using reversed() Method</h2>
+<p>The <span class="tp-codespan">reversed() method</span> is another way to reverse elements of an array. It accepts an array as a parameter value and returns an iterator object that dispalys array elements in reverse order.</p>
+<h3>Example</h3>
+<p>In this example, we are using the reversed() method to reverse an array in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr <span class="token comment"># creating an array</span> numericArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Array before reversing:"</span><span class="token punctuation">,</span> numericArray<span class="token punctuation">)</span> <span class="token comment"># reversing the array</span> newArray <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">reversed</span><span class="token punctuation">(</span>numericArray<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># creating a new array from reversed list</span> revArray <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> newArray<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Array after reversing:"</span><span class="token punctuation">,</span>revArray<span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above code, it will display the following output &minus;</p>
+<pre class="result notranslate">Array before reversing: array('i', [12, 10, 14, 16, 20, 18])
+Array after reversing: array('i', [18, 20, 16, 14, 10, 12])
+</pre>
+<h2>Using for Loop</h2>
+<p>To reverse an array using a <a href="/python/python_for_loops.htm" target="_blank">for loop</a>, we first traverse the elements of the original array in reverse order and then append each element to a new array.</p>
+<h3>Example</h3>
+<p>The following example shows how to reverse an array in Python using for loop.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> array <span class="token keyword">as</span> arr a <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> b <span class="token operator">=</span> arr<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span> b<span class="token punctuation">.</span>append<span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">array('i', [10, 5, 15, 4, 6, 20, 9])
+array('i', [9, 20, 6, 4, 15, 5, 10])&nbsp;</pre>

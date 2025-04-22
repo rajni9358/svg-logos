@@ -1,0 +1,92 @@
+<h2>Method Overriding in Python</h2>
+<p>The Python <strong>method overriding</strong> refers to defining a method in a subclass with the same name as a method in its superclass. In this case, the Python interpreter determines which method to call at runtime based on the actual object being referred to.</p>
+<p>You can always override your parent class methods. One reason for overriding parent's methods is that you may want special or different functionality in your subclass.</p>
+<h3>Example</h3>
+<p>In the code below, we are overriding a method named <strong>myMethod</strong> of Parent class.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># define parent class</span> <span class="token keyword">class</span> <span class="token class-name">Parent</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">myMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Calling parent method'</span><span class="token punctuation">)</span> <span class="token comment"># define child class</span> <span class="token keyword">class</span> <span class="token class-name">Child</span><span class="token punctuation">(</span>Parent<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">myMethod</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Calling child method'</span><span class="token punctuation">)</span> <span class="token comment"># instance of child</span> c <span class="token operator">=</span> Child<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># child calls overridden method</span> c<span class="token punctuation">.</span>myMethod<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Calling child method
+</pre>
+<p>To understand Method Overriding in Python, let us take another example. We use following Employee class as parent class &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nm<span class="token punctuation">,</span> sal<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name<span class="token operator">=</span>nm self<span class="token punctuation">.</span>salary<span class="token operator">=</span>sal <span class="token keyword">def</span> <span class="token function">getName</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>name <span class="token keyword">def</span> <span class="token function">getSalary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>salary</div>
+<p>Next, we define a SalesOfficer class that uses Employee as parent class. It inherits the instance variables name and salary from the parent. Additionally, the child class has one more instance variable incentive.</p>
+<p>We shall use built-in function super() that returns reference of the parent class and call the parent constructor within the child constructor __init__() method.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">SalesOfficer</span><span class="token punctuation">(</span>Employee<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nm<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> inc<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>nm<span class="token punctuation">,</span>sal<span class="token punctuation">)</span> self<span class="token punctuation">.</span>incnt<span class="token operator">=</span>inc <span class="token keyword">def</span> <span class="token function">getSalary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>salary<span class="token operator">+</span>self<span class="token punctuation">.</span>incnt</div>
+<p>The getSalary() method is overridden to add the incentive to salary.</p>
+<h3>Example</h3>
+<p>Declare the object of parent and child classes and see the effect of overriding. Complete code is below &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nm<span class="token punctuation">,</span> sal<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name<span class="token operator">=</span>nm self<span class="token punctuation">.</span>salary<span class="token operator">=</span>sal <span class="token keyword">def</span> <span class="token function">getName</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>name <span class="token keyword">def</span> <span class="token function">getSalary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>salary <span class="token keyword">class</span> <span class="token class-name">SalesOfficer</span><span class="token punctuation">(</span>Employee<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nm<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> inc<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>nm<span class="token punctuation">,</span>sal<span class="token punctuation">)</span> self<span class="token punctuation">.</span>incnt<span class="token operator">=</span>inc <span class="token keyword">def</span> <span class="token function">getSalary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>salary<span class="token operator">+</span>self<span class="token punctuation">.</span>incnt e1<span class="token operator">=</span>Employee<span class="token punctuation">(</span><span class="token string">"Rajesh"</span><span class="token punctuation">,</span> <span class="token number">9000</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total salary for {} is Rs {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>e1<span class="token punctuation">.</span>getSalary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> s1<span class="token operator">=</span>SalesOfficer<span class="token punctuation">(</span><span class="token string">'Kiran'</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Total salary for {} is Rs {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>s1<span class="token punctuation">.</span>getSalary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>When you execute this code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Total salary for Rajesh is Rs 9000
+Total salary for Kiran is Rs 11000
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Base Overridable Methods</h2>
+<p>The following table lists some generic functionality of the object class, which is the parent class for all Python classes. You can override these methods in your own class &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Sr.No</th>
+<th style="text-align: center;">Method, Description &amp; Sample Call</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong>__init__ ( self [,args...] )</strong></p>
+<p>Constructor (with any optional arguments)</p>
+<p>Sample Call : <em>obj = className(args)</em></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong>__del__( self )</strong></p>
+<p>Destructor, deletes an object</p>
+<p>Sample Call : <em>del obj</em></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>3</p>
+</td>
+<td>
+<p><strong>__repr__( self )</strong></p>
+<p>Evaluatable string representation</p>
+<p>Sample Call : <em>repr(obj)</em></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>4</p>
+</td>
+<td>
+<p><strong>__str__( self )</strong></p>
+<p>Printable string representation</p>
+<p>Sample Call : <em>str(obj)</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>

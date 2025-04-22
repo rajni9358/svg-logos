@@ -1,0 +1,29 @@
+
+<p><strong>Monkey patching</strong> in Python refers to the practice of dynamically modifying or extending code at runtime typically replacing or adding new functionalities to existing <a href="/python/python_modules.htm" target="_blank">modules</a>, <a href="/python/python_classes_objects.htm" target="_blank">classes or methods</a> without altering their original source code. This technique is often used for quick fixes, debugging or adding temporary features.</p>
+<p>The term "<strong>monkey patching</strong>" originates from the idea of making changes in a way that is ad-hoc or temporary, akin to how a monkey might patch something up using whatever materials are at hand.</p>
+<h2>Steps to Perform Monkey Patching</h2>
+<p>Following are the steps that shows how we can perform monkey patching &minus;</p>
+<ul class="list">
+<li>First to apply a monkey patch we have to import the module or class we want to modify.</li>
+<li>In the second step we have to define a new function or method with the desired behavior.</li>
+<li>Replace the original function or method with the new implementation by assigning it to the attribute of the class or module.</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Example of Monkey Patching</h2>
+<p>Now let's understand the <strong>Monkey patching</strong> with the help of an example &minus;</p>
+<h3>Define a Class or Module to Patch</h3>
+<p>First we have to define the original class or module that we want to modify. Below is the code &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># original_module.py</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">say_hello</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"Hello, Welcome to Tutorialspoint!"</span></div>
+<h3>Create a Patching Function or Method</h3>
+<p>Next we have to define a function or method that we will use to monkey patch the original class or module. This function will contain the new behavior or functionality we want to add &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># patch_module.py</span> <span class="token keyword">from</span> original_module <span class="token keyword">import</span> MyClass <span class="token comment"># Define a new function to be patched</span> <span class="token keyword">def</span> <span class="token function">new_say_hello</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"Greetings!"</span> <span class="token comment"># Monkey patching MyClass with new_say_hello method</span> MyClass<span class="token punctuation">.</span>say_hello <span class="token operator">=</span> new_say_hello</div>
+<h3>Test the Monkey Patch</h3>
+<p>Now we can test the patched functionality. Ensure that the patching is done before we create an instance of MyClass with the patched method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># test_patch.py</span> <span class="token keyword">from</span> original_module <span class="token keyword">import</span> MyClass <span class="token keyword">import</span> patch_module <span class="token comment"># Create an instance of MyClass</span> obj <span class="token operator">=</span> MyClass<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Test the patched method</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>say_hello<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Output: Greetings!</span></div>
+<h2>Drawbacks of Monkey Patching</h2>
+<p>Following are the draw backs of monkey patching &minus;</p>
+<ul class="list">
+<li><strong>Overuse:</strong> Excessive monkey patching can lead to code that is hard to understand and maintain. We have to use it judiciously and consider alternative design patterns if possible.</li>
+<li><strong>Compatibility:</strong> Monkey patching may introduce unexpected behavior especially in complex systems or with large code-bases.&nbsp;</li>
+</ul>
+</div>

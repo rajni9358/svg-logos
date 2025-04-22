@@ -1,0 +1,61 @@
+<p><strong>Method overloading</strong> is a feature of object-oriented programming where a class can have multiple methods with the same name but different parameters. To overload method, we must change the number of parameters or the type of parameters, or both.</p>
+<h2>Method Overloading in Python</h2>
+<p>Unlike other programming languages like Java, C++, and C#, Python does not support the feature of method overloading by default. However, there are alternative ways to achieve it.</p>
+<h3>Example</h3>
+<p>If you define a method multiple times as shown in the below code, the last definition will override the previous ones. Therefore, this way of achieving method overloading in Python generates error.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">example</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> a<span class="token operator">+</span>b <span class="token keyword">return</span> x <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c <span class="token keyword">return</span> x obj <span class="token operator">=</span> example<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>The first call to add() method with three arguments is successful. However, calling add() method with two arguments as defined in the class fails.</p>
+<pre class="result notranslate">60
+Traceback (most recent call last):
+ File "C:\Users\user\example.py", line 12, in &lt;module&gt;
+  print (obj.add(10,20))
+         ^^^^^^^^^^^^^^
+TypeError: example.add() missing 1 required positional argument: 'c'
+</pre>
+<p>The output tells you that Python considers only the latest definition of add() method, discarding the earlier definitions.</p>
+<p>To simulate method overloading, we can use a workaround by defining default value to method arguments as None, so that it can be used with one, two or three arguments.</p>
+<h3>Example</h3>
+<p>The below example shows how to achieve method overloading in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">example</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span> x<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">if</span> a <span class="token operator">!=</span><span class="token boolean">None</span> <span class="token keyword">and</span> b <span class="token operator">!=</span> <span class="token boolean">None</span> <span class="token keyword">and</span> c <span class="token operator">!=</span> <span class="token boolean">None</span><span class="token punctuation">:</span> x <span class="token operator">=</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c <span class="token keyword">elif</span> a <span class="token operator">!=</span><span class="token boolean">None</span> <span class="token keyword">and</span> b <span class="token operator">!=</span> <span class="token boolean">None</span> <span class="token keyword">and</span> c <span class="token operator">==</span> <span class="token boolean">None</span><span class="token punctuation">:</span> x <span class="token operator">=</span> a<span class="token operator">+</span>b <span class="token keyword">return</span> x obj <span class="token operator">=</span> example<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">60
+30
+</pre>
+<p>With this workaround, we are able to incorporate method overloading in Python class.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Implement Method Overloading Using MultipleDispatch</h2>
+<p>Python's standard library doesn't have any other provision for implementing method overloading. However, we can use a dispatch function from a third-party module named <strong>MultipleDispatch</strong> for this purpose.</p>
+<p>First, you need to install the <strong>Multipledispatch</strong> module using the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install multipledispatch</div>
+<p>This module has a <strong>@dispatch</strong> decorator. It takes the number of arguments to be passed to the method to be overloaded. Define multiple copies of add() method with @dispatch decorator as below &minus;</p>
+<h3>Example</h3>
+<p>In this example, we are using multipledispatch to overload a method in Python.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> multipledispatch <span class="token keyword">import</span> dispatch <span class="token keyword">class</span> <span class="token class-name">example</span><span class="token punctuation">:</span> <span class="token decorator annotation punctuation">@dispatch</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> a<span class="token operator">+</span>b <span class="token keyword">return</span> x <span class="token decorator annotation punctuation">@dispatch</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c <span class="token keyword">return</span> x obj <span class="token operator">=</span> example<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h3>Output</h3>
+<pre class="result notranslate">60
+30
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
