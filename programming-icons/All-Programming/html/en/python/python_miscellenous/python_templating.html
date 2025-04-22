@@ -1,0 +1,152 @@
+<h2>Templating in Python</h2>
+<p>Templating in Python is a technique used in web development to dynamically generate static HTML pages using templates and data.</p>
+<p>In this tutorial, we will explore the basics of templating in Python, including installation, creating templates, and rendering templates with data, with a focus on the Jinja2 templating engine.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>String Templates in Python</h2>
+<p>String templates in Python is a simple way to perform string substitutions. Python's string module includes the <strong>Template</strong> class, which provides an easy way to replace placeholders in a string with actual values.</p>
+<blockquote>The Template class in the string module is useful for dynamically forming a string object through a substitution technique described in PEP 292. Its simpler syntax and functionality make it easier to translate for internationalization purposes compared to other built-in string formatting facilities in Python.</blockquote>
+<p>Template strings use the <strong>$</strong> symbol for substitution, immediately followed by an identifier that follows the rules of forming a valid Python identifier.</p>
+<h3>Creating a Template</h3>
+<p>To create a template, you instantiate the <strong>Template</strong> class with a string that contains placeholders prefixed with <strong>$</strong> as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template template <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token string">"Hello, $name!"</span><span class="token punctuation">)</span></div>
+<h3>Substituting Values</h3>
+<p>You can substitute values into the template using the <strong>substitute()</strong> method, which takes a dictionary of key-value pairs.</p>
+<p>The substitute() method replaces the placeholders (identifiers) in the template with actual values. You can provide these values using keyword arguments or a dictionary. The method then returns a new string with the placeholders filled in.</p>
+<p><strong>Example: Using Keyword Arguments</strong></p>
+<p>Following code substitute identifiers in a template string using keyword arguments &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template tempStr <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token string">'Hello. My name is $name and my age is $age'</span><span class="token punctuation">)</span> newStr <span class="token operator">=</span> tempStr<span class="token punctuation">.</span>substitute<span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'Pushpa'</span><span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>newStr<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Hello. My name is Pushpa and my age is 26
+</pre>
+<p><strong>Example: Using a Dictionary</strong></p>
+<p>In the following example, we use a dictionary object to map the substitution identifiers in the template string &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template tempStr <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token string">'Hello. My name is $name and my age is $age'</span><span class="token punctuation">)</span> dct <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'Pushpalata'</span><span class="token punctuation">,</span> <span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span> newStr <span class="token operator">=</span> tempStr<span class="token punctuation">.</span>substitute<span class="token punctuation">(</span>dct<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>newStr<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Hello. My name is Pushpalata and my age is 25
+</pre>
+<p><strong>Example: Missing Parameters Raises KeyError</strong></p>
+<p>If the substitute() method is not provided with sufficient parameters to be matched against the identifiers in the template string, Python raises KeyError &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template tempStr <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token string">'Hello. My name is $name and my age is $age'</span><span class="token punctuation">)</span> dct <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'Pushpalata'</span><span class="token punctuation">}</span> newStr <span class="token operator">=</span> tempStr<span class="token punctuation">.</span>substitute<span class="token punctuation">(</span>dct<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>newStr<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the error produced &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+  File "/home/cg/root/667e441d9ebd5/main.py", line 5, in &lt;module&gt;
+newStr = tempStr.substitute(dct)
+  File "/usr/lib/python3.10/string.py", line 121, in substitute
+    return self.pattern.sub(convert, self.template)
+  File "/usr/lib/python3.10/string.py", line 114, in convert
+return str(mapping[named])
+KeyError: 'age'
+</pre>
+<h3>Substituting Values Using safe_substitute() Method</h3>
+<p>The safe_substitute() method behaves similarly to substitute() method, except for the fact that it doesn't throw error if the keys are not sufficient or are not matching. Instead, the original placeholder will appear in the resulting string intact.</p>
+<p><strong>Example</strong></p>
+<p>In the following example, we are using the safe_substitue() method for substituting values &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template tempStr <span class="token operator">=</span> Template<span class="token punctuation">(</span><span class="token string">'Hello. My name is $name and my age is $age'</span><span class="token punctuation">)</span> dct <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'Pushpalata'</span><span class="token punctuation">}</span> newStr <span class="token operator">=</span> tempStr<span class="token punctuation">.</span>safe_substitute<span class="token punctuation">(</span>dct<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>newStr<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Hello. My name is Pushpalata and my age is $age
+</pre>
+<h2>Installing Jinja2</h2>
+<p>To use <strong>Jinja2</strong> for templating in Python, you first need to install the library. Jinja2 is a powerful templating engine that is widely used in web development for rendering HTML. It can be installed easily using pip, Python's package installer &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install jinja2</div>
+<h2>Creating and Rendering Jinja2 Templates</h2>
+<p>Jinja2 is a powerful templating engine for Python that allows you to create dynamic content by blending static template files with data. This section explores how to create Jinja2 templates and render them with data.</p>
+<h3>Creating a Jinja2 Template</h3>
+<p>To create a Jinja2 template, you define a template string or load it from a file. Templates use double curly braces <strong>{{ ... }}</strong> for placeholders and support control structures like "loops" and "conditionals" with <strong>{% ... %}</strong>.</p>
+<p><strong>Example</strong></p>
+<p>Following is an example of a simple Jinja2 template stored in a file "template.html" &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;</span>!DOCTYPE html<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>html<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>Hello<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token punctuation">}</span>!<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span>Hello<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token punctuation">}</span>!<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>Welcome to our site<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span></div>
+<h3>Rendering a Jinja2 Template</h3>
+<p>To render a Jinja2 template, follow these steps &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Loading the Template &minus;</strong> Load the template from a file or create it from a string.</p>
+</li>
+<li>
+<p><strong>Creating a Template Object &minus;</strong> Use "jinja2.Template" to create a template object.</p>
+</li>
+<li>
+<p><strong>Rendering &minus;</strong> Use the render() method on the template object, passing data as arguments or a dictionary.</p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>In here, we are rendering Jinja2 template &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> jinja2 <span class="token keyword">import</span> Template<span class="token punctuation">,</span> FileSystemLoader<span class="token punctuation">,</span> Environment <span class="token comment"># Loading a template from a file (template.html)</span> file_loader <span class="token operator">=</span> FileSystemLoader<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> env <span class="token operator">=</span> Environment<span class="token punctuation">(</span>loader<span class="token operator">=</span>file_loader<span class="token punctuation">)</span> template <span class="token operator">=</span> env<span class="token punctuation">.</span>get_template<span class="token punctuation">(</span><span class="token string">'template.html'</span><span class="token punctuation">)</span> <span class="token comment"># Rendering the template with data</span> output <span class="token operator">=</span> template<span class="token punctuation">.</span>render<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'Alice'</span><span class="token punctuation">)</span> <span class="token comment"># Output the rendered template</span> <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span></div>
+<p>The output of the rendered Jinja2 template would be an HTML document with the placeholders replaced by the actual data passed during rendering &minus;</p>
+<pre class="result notranslate">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello, Alice!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, Alice!&lt;/h1&gt;
+    &lt;p&gt;Welcome to our site.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h2>Advanced Jinja2 Features</h2>
+<p>Jinja2 supports various advanced features such as loops, conditionals, and custom filters, making it a powerful tool for creating complex templates.</p>
+<h3>Template Inheritance</h3>
+<p>Jinja2 supports template inheritance, allowing you to create a base template with common elements (like headers, footers, navigation bars) and extend or override specific blocks in child templates. This promotes code reuse and maintainability in large projects.</p>
+<p><strong>Example</strong></p>
+<p>This HTML template file named "base.html" defines a basic structure for a web page using Jinja2 templating syntax.</p>
+<p>It includes blocks "{% block title %}" and "{% block content %}" that can be overridden in derived templates to customize the title and main content of the page, respectively &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;</span>!<span class="token operator">-</span><span class="token operator">-</span> base<span class="token punctuation">.</span>html <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>!DOCTYPE html<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token operator">%</span> block title <span class="token operator">%</span><span class="token punctuation">}</span>Default Title<span class="token punctuation">{</span><span class="token operator">%</span> endblock <span class="token operator">%</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> block content <span class="token operator">%</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token operator">%</span> endblock <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span></div>
+<p>The following Jinja2 template file "child.html" extends the "base.html" template, overriding the title block to set it to "Child Page" and the content block to include an &lt;h1&gt; header with the text "Child Page Content".</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;</span>!<span class="token operator">-</span><span class="token operator">-</span> child<span class="token punctuation">.</span>html <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> extends <span class="token string">"base.html"</span> <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">%</span> block title <span class="token operator">%</span><span class="token punctuation">}</span>Child Page<span class="token punctuation">{</span><span class="token operator">%</span> endblock <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">%</span> block content <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span>Child Page Content<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> endblock <span class="token operator">%</span><span class="token punctuation">}</span></div>
+<h3>Loops</h3>
+<p>Jinja2 allows you to iterate over lists or other iterable objects using <strong>{% for %}</strong> loops. Following is an example of how you can use a loop to generate an unordered list (&lt;ul&gt;) in HTML &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> items <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span> item <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span></div>
+<h3>Conditionals</h3>
+<p>Conditional statements in Jinja2 <strong>({% if %}</strong> and <strong>{% else %})</strong> is used to control the flow of your templates based on conditions. Here is an example where "Jinja2" checks if user exists and displays a personalized greeting if true; otherwise, it prompts to log in &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> user <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>Welcome<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> user <span class="token punctuation">}</span><span class="token punctuation">}</span>!<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">else</span> <span class="token operator">%</span><span class="token punctuation">}</span> <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>Please log <span class="token keyword">in</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">}</span></div>
+<h3>Custom Filters</h3>
+<p>Custom filters in Jinja2 is used to define your own filters to manipulate data before displaying it in the template.</p>
+<p>In the following example, a custom filter reverse is defined in Jinja2 to reverse the string "hello", resulting in "olleh" when applied in the template &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a custom filter function</span> <span class="token keyword">def</span> <span class="token function">reverse_string</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment"># Register the filter with the Jinja2 environment</span> env<span class="token punctuation">.</span>filters<span class="token punctuation">[</span><span class="token string">'reverse'</span><span class="token punctuation">]</span> <span class="token operator">=</span> reverse_string</div>
+<p>In your template, you can then apply the "reverse" filter to any string &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string">"hello"</span> <span class="token operator">|</span> reverse <span class="token punctuation">}</span><span class="token punctuation">}</span></div>
+<p>Following is the output obtained &minus;</p>
+<pre class="result notranslate">olleh
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

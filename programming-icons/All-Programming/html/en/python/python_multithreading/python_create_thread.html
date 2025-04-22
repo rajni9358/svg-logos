@@ -1,0 +1,97 @@
+<p>Creating a thread in Python involves initiating a separate flow of execution within a program, allowing multiple operations to run concurrently. This is particularly useful for performing tasks simultaneously, such as handling various I/O operations in parallel.</p>
+<p>Python provides multiple ways to create and manage threads.</p>
+<ul class="list">
+<li>
+<p>Creating a thread using the <strong>threading</strong> module is generally recommended due to its higher-level interface and additional functionalities.</p>
+</li>
+<li>
+<p>On the other hand, the <strong>_thread</strong> module offers a simpler, lower-level approach to create and manage threads, which can be useful for straightforward, low-overhead threading tasks.</p>
+</li>
+</ul>
+<p>In this tutorial, you will learn the basics of creating threads in Python using different approaches. We will cover creating threads using functions, extending the Thread class from the threading module, and utilizing the _thread module.</p>
+<h2>Creating Threads with Functions</h2>
+<p>You can create threads by using the <strong>Thread</strong> class from the <strong>threading</strong> module. In this approach, you can create a thread by simply passing a function to the Thread object. Here are the steps to start a new thread &minus;</p>
+<ul class="list">
+<li>Define a function that you want the thread to execute.</li>
+<li>Create a Thread object using the Thread class, passing the target function and its arguments.</li>
+<li>Call the start method on the Thread object to begin execution.</li>
+<li>Optionally, call the join method to wait for the thread to complete before proceeding.</li>
+</ul>
+<h3>Example</h3>
+<p>The following example demonstrates concurrent execution using threads in Python. It creates and starts multiple threads that execute different tasks concurrently by specifying user-defined functions as targets within the <strong>Thread</strong> class.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread <span class="token keyword">def</span> <span class="token function">addition_of_numbers</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span> result <span class="token operator">=</span> x <span class="token operator">+</span> y <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Addition of {} + {} = {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">cube_number</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span> result <span class="token operator">=</span> i <span class="token operator">**</span> <span class="token number">3</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Cube of {} = {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">basic_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Basic function is running concurrently..."</span><span class="token punctuation">)</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>addition_of_numbers<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>cube_number<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>basic_function<span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above program, it will produces the following result &minus;</p>
+<pre class="result notranslate">Addition of 2 + 4 = 6
+Cube of 4 = 64
+Basic function is running concurrently...
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating Threads by Extending the Thread Class</h2>
+<p>Another approach to creating a thread is by extending the Thread class. This approach involves defining a new class that inherits from Thread and overriding its __init__ and run methods. Here are the steps to start a new thread &minus;</p>
+<ul class="list">
+<li>Define a new subclass of the Thread class.</li>
+<li>Override the __init__ method to add additional arguments.</li>
+<li>Override the run method to implement the thread's behavior.</li>
+</ul>
+<h3>Example</h3>
+<p>This example demonstrates how to create and manage multiple threads using a custom MyThread class that extends the <strong>threading.Thread</strong> class in Python.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time exitFlag <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">class</span> <span class="token class-name">myThread</span> <span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> threadID<span class="token punctuation">,</span> name<span class="token punctuation">,</span> counter<span class="token punctuation">)</span><span class="token punctuation">:</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span> self<span class="token punctuation">.</span>threadID <span class="token operator">=</span> threadID self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>counter <span class="token operator">=</span> counter <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Starting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> print_time<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>counter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Exiting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">print_time</span><span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> counter<span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">while</span> counter<span class="token punctuation">:</span> <span class="token keyword">if</span> exitFlag<span class="token punctuation">:</span> threadName<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>delay<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"%s: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> counter <span class="token operator">-=</span> <span class="token number">1</span> <span class="token comment"># Create new threads</span> thread1 <span class="token operator">=</span> myThread<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Thread-1"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> thread2 <span class="token operator">=</span> myThread<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"Thread-2"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># Start new Threads</span> thread1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> thread2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Exiting Main Thread"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Starting Thread-1
+Starting Thread-2
+Exiting Main Thread
+Thread-1: Mon Jun 24 16:38:10 2024
+Thread-2: Mon Jun 24 16:38:11 2024
+Thread-1: Mon Jun 24 16:38:11 2024
+Thread-1: Mon Jun 24 16:38:12 2024
+Thread-2: Mon Jun 24 16:38:13 2024
+Thread-1: Mon Jun 24 16:38:13 2024
+Thread-1: Mon Jun 24 16:38:14 2024
+Exiting Thread-1
+Thread-2: Mon Jun 24 16:38:15 2024
+Thread-2: Mon Jun 24 16:38:17 2024
+Thread-2: Mon Jun 24 16:38:19 2024
+Exiting Thread-2
+</pre>
+<h2>Creating Threads using start_new_thread() Function</h2>
+<p>The <strong>start_new_thread()</strong> function included in the <strong>_thread module</strong> is used to create a new thread in the running program. This module offers a low-level approach to threading. It is simpler but does not have some of the advanced features provided by the threading module.</p>
+<p>Here is the syntax of the _thread.start_new_thread() Function</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">_thread<span class="token punctuation">.</span>start_new_thread <span class="token punctuation">(</span> function<span class="token punctuation">,</span> args<span class="token punctuation">[</span><span class="token punctuation">,</span> kwargs<span class="token punctuation">]</span> <span class="token punctuation">)</span></div>
+<p>This function starts a new thread and returns its identifier. The <strong>function</strong> parameter specifies the function that the new thread will execute. Any arguments required by this function can be passed using args and kwargs.</p>
+<h3>Example</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> _thread <span class="token keyword">import</span> time <span class="token comment"># Define a function for the thread</span> <span class="token keyword">def</span> <span class="token function">thread_task</span><span class="token punctuation">(</span> threadName<span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> count <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>delay<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Thread name: {} Count: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span> <span class="token punctuation">(</span> threadName<span class="token punctuation">,</span> count <span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Create two threads as follows</span> <span class="token keyword">try</span><span class="token punctuation">:</span> _thread<span class="token punctuation">.</span>start_new_thread<span class="token punctuation">(</span> thread_task<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"Thread-1"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> _thread<span class="token punctuation">.</span>start_new_thread<span class="token punctuation">(</span> thread_task<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"Thread-2"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token keyword">except</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: unable to start thread"</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">pass</span> thread_task<span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Thread name: Thread-1 Count: 1
+Thread name: Thread-2 Count: 1
+Thread name: Thread-1 Count: 2
+Thread name: Thread-1 Count: 3
+Thread name: Thread-2 Count: 2
+Thread name: Thread-1 Count: 4
+Thread name: Thread-1 Count: 5
+Thread name: Thread-2 Count: 3
+Thread name: Thread-2 Count: 4
+Thread name: Thread-2 Count: 5
+Traceback (most recent call last):
+ File "C:\Users\user\example.py", line 17, in &lt;module&gt;
+  while True:
+KeyboardInterrupt
+</pre>
+<p>The program goes in an infinite loop. You will have to press <strong>ctrl-c</strong> to stop.&nbsp;</p>

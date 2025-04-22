@@ -1,0 +1,89 @@
+<h2>Updating Tuples in Python</h2>
+<p>In Python, <a href="/python/python_tuples.htm" target="_blank">tuple</a> is an immutable sequence, meaning once a tuple is created, its elements cannot be changed, added, or removed.</p>
+<p>To update a tuple in Python, you can combine various operations to create a new tuple. For instance, you can concatenate tuples, slice them, or use tuple unpacking to achieve the desired result. This often involves converting the tuple to a list, making the necessary modifications, and then converting it back to a tuple.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Updating Tuples Using Concatenation Operator</h2>
+<p>The concatenation operator in Python, denoted by +, is used to join two sequences, such as strings, lists, or tuples, into a single sequence. When applied to tuples, the concatenation operator joins the elements of the two (or more) tuples to create a new tuple containing all the elements from both tuples.</p>
+<p>We can update a tuple using the concatenation operator by creating a new tuple that combines the original tuple with additional elements.</p>
+<blockquote>Since tuples are immutable, updating tuples using concatenation operator does not modify the original tuple but instead creates a new one with the desired elements.</blockquote>
+<h3>Example</h3>
+<p>In the following example, we create a new tuple by concatenating "T1" with "T2" using the "+" operator &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Original tuple</span> T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span> <span class="token comment"># Tuple to be concatenated</span> T2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span><span class="token punctuation">,</span> <span class="token string">'four'</span><span class="token punctuation">)</span> <span class="token comment"># Updating the tuple using the concatenation operator</span> T1 <span class="token operator">=</span> T1 <span class="token operator">+</span> T2 <span class="token keyword">print</span><span class="token punctuation">(</span>T1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">(10, 20, 30, 40, 'one', 'two', 'three', 'four')
+</pre>
+<h2>Updating Tuples Using Slicing</h2>
+<p>Slicing in Python is used to extract a portion of a sequence (such as a list, tuple, or string) by specifying a range of indices. The syntax for slicing is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">sequence<span class="token punctuation">[</span>start<span class="token punctuation">:</span>stop<span class="token punctuation">:</span>step<span class="token punctuation">]</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>start</strong> is the index at which the slice begins (inclusive).</li>
+<li><strong>stop</strong> is the index at which the slice ends (exclusive).</li>
+<li><strong>step</strong> is the interval between elements in the slice (optional).</li>
+</ul>
+<p>We can update a tuple using slicing by creating a new tuple that includes slices of the original tuple combined with new elements.</p>
+<h3>Example</h3>
+<p>In this example, we are updating a tuple by slicing it into two parts and inserting new elements between the slices &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Original tuple</span> T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">37</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">95</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span> <span class="token comment"># Elements to be added</span> new_elements <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'green'</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">,</span> <span class="token string">'pink'</span><span class="token punctuation">)</span> <span class="token comment"># Extracting slices of the original tuple</span> <span class="token comment"># Elements before index 2</span> part1 <span class="token operator">=</span> T1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment"># Elements from index 2 onward</span> part2 <span class="token operator">=</span> T1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment"># Create a new tuple </span> updated_tuple <span class="token operator">=</span> part1 <span class="token operator">+</span> new_elements <span class="token operator">+</span> part2 <span class="token comment"># Printing the updated tuple</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original Tuple:"</span><span class="token punctuation">,</span> T1<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Tuple:"</span><span class="token punctuation">,</span> updated_tuple<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Original Tuple: (37, 14, 95, 40)
+Updated Tuple: (37, 14, 'green', 'blue', 'red', 'pink', 95, 40)
+</pre>
+<h2>Updating Tuples Using List Comprehension</h2>
+<p>List comprehension in Python is a concise way to create lists. It allows you to generate new lists by applying an expression to each item in an existing iterable, such as a list, tuple, or string, optionally including a condition to filter elements.</p>
+<p>Since tuples are immutable, updating a tuple involves converting it to a list, making the desired changes using list comprehension, and then converting it back to a tuple.</p>
+<h3>Example</h3>
+<p>In the example below, we are updating a tuple by first converting it to a list and using list comprehension to add 100 to each element. We then convert the list back to a tuple to get the updated tuple &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Original tuple</span> T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span> <span class="token comment"># Converting the tuple to a list</span> list_T1 <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>T1<span class="token punctuation">)</span> <span class="token comment"># Using list comprehension </span> updated_list <span class="token operator">=</span> <span class="token punctuation">[</span>item <span class="token operator">+</span> <span class="token number">100</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> list_T1<span class="token punctuation">]</span> <span class="token comment"># Converting the updated list back to a tuple</span> updated_tuple <span class="token operator">=</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span>updated_list<span class="token punctuation">)</span> <span class="token comment"># Printing the updated tuple</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original Tuple:"</span><span class="token punctuation">,</span> T1<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Tuple:"</span><span class="token punctuation">,</span> updated_tuple<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">Original Tuple: (10, 20, 30, 40)
+Updated Tuple: (110, 120, 130, 140)
+</pre>
+<h2>Updating Tuples Using append() function</h2>
+<p>The append() function is used to add a single element to the end of a list. However, since tuples are immutable, the append() function cannot be directly used to update a tuple.</p>
+<p>To update a tuple using the append() function, we need to first convert the tuple to a list, then use append() to add elements, and finally convert the list back to a tuple.</p>
+<h3>Example</h3>
+<p>In the following example, we first convert the original tuple "T1" to a list "list_T1". We then use a loop to iterate over the new elements and append each one to the list using the append() function. Finally, we convert the updated list back to a tuple to get the updated tuple &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Original tuple</span> T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span> <span class="token comment"># Convert tuple to list</span> list_T1 <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>T1<span class="token punctuation">)</span> <span class="token comment"># Elements to be added</span> new_elements <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">]</span> <span class="token comment"># Updating the list using append()</span> <span class="token keyword">for</span> element <span class="token keyword">in</span> new_elements<span class="token punctuation">:</span> list_T1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token comment"># Converting list back to tuple</span> updated_tuple <span class="token operator">=</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span>list_T1<span class="token punctuation">)</span> <span class="token comment"># Printing the updated tuple</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Original Tuple:"</span><span class="token punctuation">,</span> T1<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Tuple:"</span><span class="token punctuation">,</span> updated_tuple<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">Original Tuple: (10, 20, 30, 40)
+Updated Tuple: (10, 20, 30, 40, 50, 60, 70)
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>

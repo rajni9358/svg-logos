@@ -1,0 +1,81 @@
+<h2>Python Copy Sets</h2>
+<p>Copying sets in Python refers to creating a new <a href="/python/python_sets.htm" target="_blank">set</a> that contains the same elements as an existing set. Unlike simple variable assignment, which creates a reference to the original set, copying ensures that changes made to the copied set do not affect the original set, and vice versa.</p>
+<p>There are different methods for copying a set in Python, including using the copy() method, the set() function or set comprehension.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Copy Sets Using the copy() Method</h2>
+<p>The copy() method in set class is used to create a shallow copy of a set object.</p>
+<p>A shallow copy means that the method creates a new collection object, but does not create copies of the objects contained within the original collection. Instead, it copies the references to these objects.</p>
+<p>Therefore, if the original collection contains mutable objects (like lists, dictionaries, or other sets), modifications to these objects will be reflected in both the original and the copied collections.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax of the copy() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">set</span><span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Return Value</h3>
+<p>The copy() method returns a new set which is a shallow copy of existing set.</p>
+<h3>Example</h3>
+<p>In the following example, we are creating a copy of the set "lang1" and storing it in "lang2", then retrieving both sets and their memory addresses using id().</p>
+<p>After adding an element to "lang1", we retrieve both sets and their memory addresses again to show that "lang1" and "lang2" are independent copies &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">lang1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token string">"C++"</span><span class="token punctuation">,</span> <span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"lang1: "</span><span class="token punctuation">,</span> lang1<span class="token punctuation">,</span> <span class="token string">"id(lang1): "</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>lang1<span class="token punctuation">)</span><span class="token punctuation">)</span> lang2 <span class="token operator">=</span> lang1<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"lang2: "</span><span class="token punctuation">,</span> lang2<span class="token punctuation">,</span> <span class="token string">"id(lang2): "</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>lang2<span class="token punctuation">)</span><span class="token punctuation">)</span> lang1<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"PHP"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"After updating lang1"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"lang1: "</span><span class="token punctuation">,</span> lang1<span class="token punctuation">,</span> <span class="token string">"id(lang1): "</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>lang1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"lang2: "</span><span class="token punctuation">,</span> lang2<span class="token punctuation">,</span> <span class="token string">"id(lang2): "</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>lang2<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>This will produce the following output &minus;</p>
+<pre class="result notranslate">lang1: {'Python', 'Java', 'C', 'C++'} id(lang1): 2451578196864
+lang2: {'Python', 'Java', 'C', 'C++'} id(lang2): 2451578197312
+After updating lang1
+lang1: {'Python', 'C', 'C++', 'PHP', 'Java'} id(lang1): 2451578196864
+lang2: {'Python', 'Java', 'C', 'C++'} id(lang2): 2451578197312
+</pre>
+<h2>Copy Sets Using the set() Function</h2>
+<p>The Python set() function is used to create a new set object. It takes an iterable as an argument and convert it into a set, removing any duplicate elements in the process. If no argument is provided, it creates an empty set.</p>
+<p>We can copy set using the set() function by passing the original set as an argument to the set() constructor. This creates a new set that contains all the elements of the original set, ensuring that any modifications to the new set do not affect the original set.</p>
+<h3>Example</h3>
+<p>In this example, we are creating a copy of "original_set" using the set() function and storing it in "copied_set" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Original set</span> original_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token comment"># Copying the set using the set() function</span> copied_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>original_set<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"copied set:"</span><span class="token punctuation">,</span> copied_set<span class="token punctuation">)</span> <span class="token comment"># Demonstrating that the sets are independent</span> copied_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"copied set:"</span><span class="token punctuation">,</span>copied_set<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"original set:"</span><span class="token punctuation">,</span>original_set<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">copied set: {1, 2, 3, 4}
+copied set: {1, 2, 3, 4, 5}
+original set: {1, 2, 3, 4}
+</pre>
+<h2>Copy Sets Using Set Comprehension</h2>
+<p>Set comprehension is a concise way to create sets in Python. It is used to generate a new set by iterating over an iterable and optionally applying conditions to filter elements. The syntax is similar to list comprehension but with curly braces {} instead of square brackets [] &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">{</span>expression <span class="token keyword">for</span> item <span class="token keyword">in</span> iterable <span class="token keyword">if</span> condition<span class="token punctuation">}</span></div>
+<p>We can copy sets using set comprehension by iterating over the elements of the original set and directly creating a new set with those elements.</p>
+<h3>Example</h3>
+<p>In the example below, we create an original set named "original_set", then copy it using set comprehension into "copied_set" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Original set</span> original_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token comment"># Copying the set using set comprehension</span> copied_set <span class="token operator">=</span> <span class="token punctuation">{</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> original_set<span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Copied set:"</span><span class="token punctuation">,</span> copied_set<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">Copied set: {1, 2, 3, 4, 5}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

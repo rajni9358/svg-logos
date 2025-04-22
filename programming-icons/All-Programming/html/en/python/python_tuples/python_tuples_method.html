@@ -1,0 +1,119 @@
+<div id="mainContent" class="tutorial-content">
+<h1>&nbsp;</h1>
+<div class="library-page-top-nav">&nbsp;</div>
+<div class="clearer">&nbsp;</div>
+<p>Tuple is one of the fundamental data structures in Python, and it is an immutable sequences. Unlike lists, tuples cannot be modified after creation, making them ideal for representing fixed collections of data. This immutability play a crucial role in various scenarios where data stability and security are important. It can contain elements of different data types, such as integers, floats, strings, or even other tuples.</p>
+<h2>Python Tuple Methods</h2>
+<p>The tuple class provides few methods to analyze the data or elements. These methods allows users to retrieve information about the occurrences of specific items within a tuple and their respective indices. Since it is immutable, this class doesn't define methods for adding or removing items. It defines only two methods and these methods provide a convenient way to analyze tuple data.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Listing All the Tuple Methods</h2>
+<p>To explore all available methods for tuples, you can utilize the Python dir() function, which lists all properties and functions related to a class. Additionally, the help() function provides detailed documentation for each method. Here's an exampl:</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">help</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above code snippet provides a complete list of properties and functions related to the tuple class. It also demonstrates how to access detailed documentation for a specific method in your Python environment. Here is the output &minus;</p>
+<pre class="result notranslate">['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+Help on built-in function index:
+
+index(value, start=0, stop=9223372036854775807, /) method of builtins.tuple inst ance
+    Return first index of value.
+    
+    Raises ValueError if the value is not present.
+(END)
+</pre>
+<p>Below are the built-in methods for tuples. Let's explore each method's basic functionality &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Sr.No</th>
+<th style="text-align: center;">Methods &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>tuple.count(obj)</strong></p>
+<p>Returns count of how many times obj occurs in tuple</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>tuple.index(obj)</strong>
+<p>Returns the lowest index in tuple that obj appears</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Finding the Index of a Tuple Item</h2>
+<p>The index() method of tuple class returns the index of first occurrence of the given item.</p>
+<h3>Syntax</h3>
+<pre class="result notranslate">tuple.index(obj)
+</pre>
+<h3>Return value</h3>
+<p>The index() method returns an integer, representing the index of the first occurrence of "obj".</p>
+<h3>Example</h3>
+<p>Take a look at the following example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Tup1:"</span><span class="token punctuation">,</span> tup1<span class="token punctuation">)</span> x <span class="token operator">=</span> tup1<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"First index of 10:"</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Tup1: (25, 12, 10, -21, 10, 100)
+First index of 10: 2
+</pre>
+<h2>Counting Tuple Items</h2>
+<p>The count() method in tuple class returns the number of times a given object occurs in the tuple.</p>
+<h3>Syntax</h3>
+<pre class="result notranslate">tuple.count(obj)
+</pre>
+<h3>Return Value</h3>
+<p>Number of occurrence of the object. The count() method returns an integer.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Tup1:"</span><span class="token punctuation">,</span> tup1<span class="token punctuation">)</span> c <span class="token operator">=</span> tup1<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"count of 10:"</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Tup1: (10, 20, 45, 10, 30, 10, 55)
+count of 10: 3
+</pre>
+<h3>Example</h3>
+<p>Even if the items in the tuple contain expressions, they will be evaluated to obtain the count.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token operator">/</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token operator">/</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Tup1:"</span><span class="token punctuation">,</span> tup1<span class="token punctuation">)</span> c <span class="token operator">=</span> tup1<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"count of 10:"</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Tup1: (10, 0.25, 0.25, 0.25, 30, 10, 55)
+count of 10: 3
+</pre>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

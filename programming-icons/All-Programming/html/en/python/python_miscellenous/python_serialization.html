@@ -1,0 +1,225 @@
+<h2>Serialization in Python</h2>
+<p>Serialization refers to the process of converting an object into a format that can be easily stored, transmitted, or reconstructed later. In Python, this involves converting complex data structures, such as objects or dictionaries, into a byte stream.</p>
+<h3>Why Do We Use Serialization?</h3>
+<p>Serialization allows data to be easily saved to disk or transmitted over a network, and later reconstructed back into its original form. It is important for tasks like saving game states, storing user preferences, or exchanging data between different systems.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Serialization Libraries in Python</h2>
+<p>Python offers several libraries for serialization, each with its own advantages. Here is a detailed overview of some commonly used serialization libraries in Python &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Pickle &minus;</strong> This is Python's built-in module for serializing and deserializing Python objects. It is simple to use but specific to Python and may have security implications if used with untrusted data.</p>
+</li>
+<li>
+<p><strong>JSON &minus;</strong> JSON (JavaScript Object Notation) is a lightweight data interchange format that is human-readable and easy to parse. It is ideal for web APIs and cross-platform communication.</p>
+</li>
+<li>
+<p><strong>YAML &minus;</strong> YAML: YAML (YAML Ain't Markup Language) is a human-readable data serialization standard that is also easy for both humans and machines to read and write. It supports complex data structures and is often used in configuration files.</p>
+</li>
+</ul>
+<h2>Serialization Using Pickle Module</h2>
+<p>The pickle module in Python is used for serializing and deserializing objects. Serialization, also known as <strong>pickling</strong>, involves converting a Python object into a byte stream, which can then be stored in a file or transmitted over a network.</p>
+<p>Deserialization, or <strong>unpickling</strong>, is the reverse process, converting the byte stream back into a Python object.</p>
+<h3>Serializing an Object</h3>
+<p>We can serialize an object using the <strong>dump()</strong> function and write it to a file. The file must be opened in binary write mode ('wb').</p>
+<p><strong>Example</strong></p>
+<p>In the following example, a dictionary is serialized and written to a file named "data.pkl" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> pickle data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'New York'</span><span class="token punctuation">}</span> <span class="token comment"># Open a file in binary write mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'data.pkl'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token comment"># Serialize the data and write it to the file</span> pickle<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"File created!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When above code is executed, the dictionary object's byte representation will be stored in data.pkl file.</p>
+<h3>Deserializing an Object</h3>
+<p>To deserialize or unpickle the object, you can use the load() function. The file must be opened in binary read mode ('rb') as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> pickle <span class="token comment"># Open the file in binary read mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'data.pkl'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token comment"># Deserialize the data</span> data <span class="token operator">=</span> pickle<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></div>
+<p>This will read the byte stream from "data.pkl" and convert it back into the original dictionary as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 30, 'city': 'New York'}
+</pre>
+<h2>Pickle Protocols</h2>
+<p>Protocols are the conventions used in constructing and deconstructing Python objects to/from binary data.</p>
+<p>The <strong>pickle</strong> module supports different serialization protocols, with higher protocols generally offering more features and better performance. Currently pickle module defines 6 different protocols as listed below &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Protocol &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>Protocol version 0</strong></p>
+<p>Original "human-readable" protocol backwards compatible with earlier versions.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>Protocol version 1</strong></p>
+<p>Old binary format also compatible with earlier versions of Python.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>Protocol version 2</strong></p>
+<p>Introduced in Python 2.3 provides efficient pickling of new-style classes.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong>Protocol version 3</strong></p>
+<p>Added in Python 3.0. recommended when compatibility with other Python 3 versions is required.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong>Protocol version 4</strong></p>
+<p>Introduced in Python 3.4. It adds support for very large objects.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong>Protocol version 5</strong></p>
+<p>Introduced in Python 3.8. It adds support for out-of-band data.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can specify the protocol by passing it as an argument to pickle.dump() function.</p>
+<p>To know the highest and default protocol version of your Python installation, use the following constants defined in the <strong>pickle</strong> module &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> pickle <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> pickle<span class="token punctuation">.</span>HIGHEST_PROTOCOL <span class="token number">5</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> pickle<span class="token punctuation">.</span>DEFAULT_PROTOCOL <span class="token number">4</span></div>
+<h2>Pickler and Unpickler Classes</h2>
+<p>The <strong>pickle</strong> module in Python also defines <strong>Pickler</strong> and <strong>Unpickler</strong> classes for more detailed control over the serialization and deserialization processes. The "Pickler" class writes pickle data to a file, while the "Unpickler" class reads binary data from a file and reconstructs the original Python object.</p>
+<h3>Using the Pickler Class</h3>
+<p>To serialize a Python object using the Pickler class, you can follow these steps &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> pickle <span class="token keyword">import</span> Pickler <span class="token comment"># Open a file in binary write mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> <span class="token comment"># Create a dictionary</span> dct <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Ravi'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token string">'Gender'</span><span class="token punctuation">:</span> <span class="token string">'M'</span><span class="token punctuation">,</span> <span class="token string">'marks'</span><span class="token punctuation">:</span> <span class="token number">75</span><span class="token punctuation">}</span> <span class="token comment"># Create a Pickler object and write the dictionary to the file</span> Pickler<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">.</span>dump<span class="token punctuation">(</span>dct<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Success!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, the dictionary object's byte representation will be stored in "data.txt" file.</p>
+<h3>Using the Unpickler Class</h3>
+<p>To deserialize the data from a binary file using the Unpickler class, you can do the following &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> pickle <span class="token keyword">import</span> Unpickler <span class="token comment"># Open the file in binary read mode</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span> <span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> <span class="token comment"># Create an Unpickler object and load the dictionary from the file</span> dct <span class="token operator">=</span> Unpickler<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Print the dictionary</span> <span class="token keyword">print</span><span class="token punctuation">(</span>dct<span class="token punctuation">)</span></div>
+<p>We get the output as follows &minus;</p>
+<pre class="result notranslate">{'name': 'Ravi', 'age': 23, 'Gender': 'M', 'marks': 75}
+</pre>
+<h2>Pickling Custom Class Objects</h2>
+<p>The pickle module can also serialize and deserialize custom classes. The class definition must be available at both the time of pickling and unpickling.</p>
+<h3>Example</h3>
+<p>In this example, an instance of the "Person" class is serialized and then deserialized, maintaining the state of the object &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> pickle <span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> city<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>age <span class="token operator">=</span> age self<span class="token punctuation">.</span>city <span class="token operator">=</span> city <span class="token comment"># Create an instance of the Person class</span> person <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token string">'New York'</span><span class="token punctuation">)</span> <span class="token comment"># Serialize the person object</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'person.pkl'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> pickle<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>person<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span> <span class="token comment"># Deserialize the person object</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'person.pkl'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span> person <span class="token operator">=</span> pickle<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">,</span> person<span class="token punctuation">.</span>age<span class="token punctuation">,</span> person<span class="token punctuation">.</span>city<span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">Alice 30 New York
+</pre>
+<blockquote>
+<p>The Python standard library also includes the <strong>marshal</strong> module, which is used for internal serialization of Python objects. Unlike pickle, which is designed for general-purpose use, marshal is primarily intended for use by Python itself (e.g., for writing .pyc files).</p>
+<p>It is generally not recommended for general-purpose serialization due to potential compatibility issues between Python versions.</p>
+</blockquote>
+<h2>Using JSON for Serialization</h2>
+<p>JSON (JavaScript Object Notation) is a popular format for data interchange. It is human-readable, easy to write, and language-independent, making it ideal for serialization.</p>
+<p>Python provides built-in support for JSON through the <strong>json</strong> module, which allows you to serialize and deserialize data to and from JSON format.</p>
+<h3>Serialization</h3>
+<p>Serialization is the process of converting a Python object into a JSON string or writing it to a file.</p>
+<p><strong>Example: Serialize Data to a JSON String</strong></p>
+<p>In the example below, we use the json.dumps() function to convert a Python dictionary to a JSON string &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># Create a dictionary</span> data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"San Francisco"</span><span class="token punctuation">}</span> <span class="token comment"># Serialize the dictionary to a JSON string</span> json_string <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>json_string<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">{"name": "Alice", "age": 25, "city": "San Francisco"}
+</pre>
+<p><strong>Example: Serialize Data and Write to a File</strong></p>
+<p>In here, we use the json.dump() function to write the serialized JSON data directly to a file &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># Create a dictionary</span> data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"San Francisco"</span><span class="token punctuation">}</span> <span class="token comment"># Serialize the dictionary and write it to a file</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.json"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> json<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> f<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Success!!"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Deserialization</h3>
+<p>Deserialization is the process of converting a JSON string back into a Python object or reading it from a file.</p>
+<p><strong>Example: Deserialize a JSON String</strong></p>
+<p>In the following example, we use the json.loads() function to convert a JSON string back into a Python dictionary &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># JSON string</span> json_string <span class="token operator">=</span> <span class="token string">'{"name": "Alice", "age": 25, "city": "San Francisco"}'</span> <span class="token comment"># Deserialize the JSON string into a Python dictionary</span> loaded_data <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>json_string<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>loaded_data<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 25, 'city': 'San Francisco'}
+</pre>
+<p><strong>Example: Deserialize Data from a File</strong></p>
+<p>Here, we use the json.load() function to read JSON data from a file and convert it to a Python dictionary&minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># Open the file and load the JSON data into a Python dictionary</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.json"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> loaded_data <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>loaded_data<span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as follows &minus;</p>
+<pre class="result notranslate">{'name': 'Alice', 'age': 25, 'city': 'San Francisco'}
+</pre>
+<h2>Using YAML for Serialization</h2>
+<p>YAML (YAML Ain't Markup Language) is a human-readable data serialization standard that is commonly used for configuration files and data interchange.</p>
+<p>Python supports YAML serialization and deserialization through the <strong>pyyaml</strong> package, which needs to be installed first as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install pyyaml</div>
+<h3>Example: Serialize Data and Write to a YAML File</h3>
+<p>In the below example, yaml.dump() function converts the Python dictionary data into a YAML string and writes it to the file "data.yaml".</p>
+<p>The "default_flow_style" parameter ensures that the YAML output is more human-readable with expanded formatting &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> yaml <span class="token comment"># Create a Python dictionary</span> data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Emily"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"Seattle"</span><span class="token punctuation">}</span> <span class="token comment"># Serialize the dictionary and write it to a YAML file</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.yaml"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> yaml<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> f<span class="token punctuation">,</span> default_flow_style<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Success!!"</span><span class="token punctuation">)</span></div>
+<h3>Example: Deserialize Data from a YAML File</h3>
+<p>Here, yaml.safe_load() function is used to safely load the YAML data from "data.yaml" and convert it into a Python dictionary (loaded_data) &minus;</p>
+<blockquote>Using safe_load() is preferred for security reasons as it only allows basic Python data types and avoids executing arbitrary code from YAML files.</blockquote>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> yaml <span class="token comment"># Deserialize data from a YAML file</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.yaml"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> loaded_data <span class="token operator">=</span> yaml<span class="token punctuation">.</span>safe_load<span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>loaded_data<span class="token punctuation">)</span></div>
+<p>The output produced is as shown below &minus;</p>
+<pre class="result notranslate">{'age': 35, 'city': 'Seattle', 'name': 'Emily'}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

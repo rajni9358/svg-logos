@@ -1,0 +1,53 @@
+
+<p>Interrupting a thread in Python is a common requirement in multi-threaded programming, where a thread's execution needs to be terminated under certain conditions. In a multi-threaded program, a task in a new thread, may be required to be stopped. This may be for many reasons, such as &minus; task completion, application shutdown, or other external conditions.</p>
+<p>In Python, interrupting threads can be achieved using <strong>threading.Event</strong> or by setting a termination flag within the thread itself. These methods allow you to interrupt the threads effectively, ensuring that resources are properly released and threads exit cleanly.</p>
+<h2>Thread Interruption using Event Object</h2>
+<p>One of the straightforward ways to interrupt a thread is by using the <strong>threading.Event</strong> class. This class allows one thread to signal to another that a particular event has occurred. Here's how you can implement thread interruption using threading.Event</p>
+<h3>Example</h3>
+<p>In this example, we have a MyThread class. Its object starts executing the run() method. The main thread sleeps for a certain period and then sets an event. Till the event is detected, loop in the run() method continues. As soon as the event is detected, the loop terminates.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> time <span class="token keyword">import</span> sleep <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread <span class="token keyword">from</span> threading <span class="token keyword">import</span> Event <span class="token keyword">class</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">super</span><span class="token punctuation">(</span>MyThread<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span> self<span class="token punctuation">.</span>event <span class="token operator">=</span> event <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> i<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> i<span class="token operator">+=</span><span class="token number">1</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Child thread running...'</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span> sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token keyword">if</span> self<span class="token punctuation">.</span>event<span class="token punctuation">.</span>is_set<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">break</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Child Thread Interrupted'</span><span class="token punctuation">)</span> event <span class="token operator">=</span> Event<span class="token punctuation">(</span><span class="token punctuation">)</span> thread1 <span class="token operator">=</span> MyThread<span class="token punctuation">(</span>event<span class="token punctuation">)</span> thread1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Main thread stopping child thread'</span><span class="token punctuation">)</span> event<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> thread1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When you execute this code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Child thread running... 1
+Child thread running... 2
+Child thread running... 3
+Child thread running... 4
+Child thread running... 5
+Child thread running... 6
+Main thread stopping child thread
+Child Thread Interrupted
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Thread Interruption using a Flag</h2>
+<p>Another approach to interrupting threads is by using a <strong>flag</strong> that the thread checks at regular intervals. This method involves setting a flag attribute in the thread object and regularly checking its value in the thread's execution loop.</p>
+<h3>Example</h3>
+<p>This example demonstrates how to use a flag to control and stop a running thread in Python multithreaded program.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> t <span class="token operator">=</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token string">"do_run"</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"working on a task"</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Stopping the Thread after some time."</span><span class="token punctuation">)</span> <span class="token comment"># Create a thread</span> t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>foo<span class="token punctuation">)</span> t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Allow the thread to run for 5 seconds</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment"># Set the termination flag to stop the thread</span> t<span class="token punctuation">.</span>do_run <span class="token operator">=</span> <span class="token boolean">False</span></div>
+</div>
+<p>When you execute this code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">working on a task
+working on a task
+working on a task
+working on a task
+working on a task
+Stopping the Thread after some time.
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>

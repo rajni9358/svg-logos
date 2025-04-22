@@ -1,0 +1,524 @@
+<h2>JSON in Python</h2>
+<p>JSON in Python is a popular data format used for data exchange between systems. The <strong>json</strong> module provides functions to work with JSON data, allowing you to serialize Python objects into JSON strings and deserialize JSON strings back into Python objects.</p>
+<blockquote>JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is mainly used to transmit data between a server and web application as text.</blockquote>
+<div class="inserted-div">&nbsp;</div>
+<h2>JSON Serialization</h2>
+<p>JSON serialization is the process of converting a Python object into a JSON format. This is useful for saving data in a format that can be easily transmitted or stored, and later reconstructed back into its original form.</p>
+<p>Python provides the <strong>json</strong> module to handle JSON serialization and deserialization. We can use the json.dumps() method for serialization in this module.</p>
+<p>You can serialize the following Python object types into JSON strings &minus;</p>
+<ul class="list">
+<li>dict</li>
+<li>list</li>
+<li>tuple</li>
+<li>str</li>
+<li>int</li>
+<li>float</li>
+<li>bool</li>
+<li>None</li>
+</ul>
+<h3>Example</h3>
+<p>Following a basic example of how to serialize a Python dictionary into a JSON string &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># Python dictionary</span> data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"New York"</span><span class="token punctuation">}</span> <span class="token comment"># Serialize to JSON string</span> json_string <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>json_string<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{"name": "Alice", "age": 30, "city": "New York"}
+</pre>
+<h2>JSON Deserialization</h2>
+<p>JSON deserialization is the process of converting a JSON string back into a Python object. This is essential for reading and processing data that has been transmitted or stored in JSON format.</p>
+<p>In Python, we can use json.loads() method to deserialize JSON data from a <strong>string</strong>, and json.load() method to deserialize JSON data from a <strong>file</strong>.</p>
+<h3>Example: Deserialize JSON string to Python object</h3>
+<p>In the following example we are deserializing a JSON string into a Python dictionary using the json.loads() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># JSON string</span> json_string <span class="token operator">=</span> <span class="token string">'{"name": "John", "age": 30, "is_student": false, "courses": ["Math", "Science"], "address": {"city": "New York", "state": "NY"}}'</span> <span class="token comment"># Deserialize JSON string to Python object</span> python_obj <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>json_string<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>python_obj<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">{'name': 'John', 'age': 30, 'is_student': False, 'courses': ['Math', 'Science'], 'address': {'city': 'New York', 'state': 'NY'}}
+</pre>
+<h3>Example: Deserialize JSON from File</h3>
+<p>Now, to read and deserialize JSON data from a file, we use the json.load() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token comment"># Read and deserialize from file</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"data.json"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> python_obj <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>python_obj<span class="token punctuation">)</span></div>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">{'name': 'John', 'age': 30, 'is_student': False, 'courses': ['Math', 'Science'], 'address': {'city': 'New York', 'state': 'NY'}}
+</pre>
+<h2>Advanced JSON Handling</h2>
+<p>If your JSON data includes objects that need special handling (e.g., custom classes), you can define custom deserialization functions. Use the <strong>object_hook</strong> parameter of json.loads() or json.load() method to specify a function that will be called with the result of every JSON object decoded.</p>
+<h3>Example</h3>
+<p>In the example below, we are demonstrating the usage of custom object serialization &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime <span class="token comment"># Custom deserialization function</span> <span class="token keyword">def</span> <span class="token function">custom_deserializer</span><span class="token punctuation">(</span>dct<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> <span class="token string">'joined'</span> <span class="token keyword">in</span> dct<span class="token punctuation">:</span> dct<span class="token punctuation">[</span><span class="token string">'joined'</span><span class="token punctuation">]</span> <span class="token operator">=</span> datetime<span class="token punctuation">.</span>fromisoformat<span class="token punctuation">(</span>dct<span class="token punctuation">[</span><span class="token string">'joined'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> dct <span class="token comment"># JSON string with datetime</span> json_string <span class="token operator">=</span> <span class="token string">'{"name": "John", "joined": "2021-05-17T10:15:00"}'</span> <span class="token comment"># Deserialize with custom function</span> python_obj <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>json_string<span class="token punctuation">,</span> object_hook<span class="token operator">=</span>custom_deserializer<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>python_obj<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">{'name': 'John', 'joined': datetime.datetime(2021, 5, 17, 10, 15)}
+</pre>
+<h2>JSONEncoder Class</h2>
+<p>The <strong>JSONEncoder</strong> class in Python is used to encode Python data structures into JSON format. Each Python data type is converted into its corresponding JSON type, as shown in the following table &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Python</th>
+<th style="text-align: center;">JSON</th>
+</tr>
+<tr>
+<td>Dict</td>
+<td>object</td>
+</tr>
+<tr>
+<td>list, tuple</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Str</td>
+<td>string</td>
+</tr>
+<tr>
+<td>int, float, int- &amp; float-derived Enums</td>
+<td>number</td>
+</tr>
+<tr>
+<td>True</td>
+<td>true</td>
+</tr>
+<tr>
+<td>False</td>
+<td>false</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>JSONEncoder</strong> class is instantiated using the <strong>JSONEncoder()</strong> constructor. The following important methods are defined in this class &minus;</p>
+<ul class="list">
+<li>
+<p><strong>encode(obj)</strong> &minus; Serializes a Python object into a JSON formatted string.</p>
+</li>
+<li>
+<p><strong>iterencode(obj)</strong> &minus; Encodes the object and returns an iterator that yields the encoded form of each item in the object.</p>
+</li>
+<li>
+<p><strong>indent</strong> &minus; Determines the indent level of the encoded string.</p>
+</li>
+<li>
+<p><strong>sort_keys</strong> &minus; If True, the keys appear in sorted order.</p>
+</li>
+<li>
+<p><strong>check_circular</strong> &minus; If True, checks for circular references in container-type objects.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>In the following example, we are encoding Python list object. We use the iterencode() method to display each part of the encoded string &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Rakesh'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'marks'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">]</span> e <span class="token operator">=</span> json<span class="token punctuation">.</span>JSONEncoder<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Using iterencode() method </span> <span class="token keyword">for</span> obj <span class="token keyword">in</span> e<span class="token punctuation">.</span>iterencode<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">["Rakesh", { "marks" : [50, 60, 70]}]
+</pre>
+<h2>JSONDecoder class</h2>
+<p>The <strong>JSONDecoder</strong> class is used to decode a JSON string back into a Python data structure. The main method in this class is decode().</p>
+<h3>Example</h3>
+<p>In this example, the "JSONEncoder" is used to encode a Python list into a JSON string, and the "JSONDecoder" is then used to decode the JSON string back into a Python list &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> json data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Rakesh'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'marks'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">]</span> e <span class="token operator">=</span> json<span class="token punctuation">.</span>JSONEncoder<span class="token punctuation">(</span><span class="token punctuation">)</span> s <span class="token operator">=</span> e<span class="token punctuation">.</span>encode<span class="token punctuation">(</span>data<span class="token punctuation">)</span> d <span class="token operator">=</span> json<span class="token punctuation">.</span>JSONDecoder<span class="token punctuation">(</span><span class="token punctuation">)</span> obj <span class="token operator">=</span> d<span class="token punctuation">.</span>decode<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">['Rakesh', {'marks': [50, 60, 70]}] &lt;class 'list'&gt;
+</pre>
+<h2>Python JSON Module Methods</h2>
+<p>The <strong>json</strong> module in Python provides methods for working with JSON (JavaScript Object Notation). It allows you to serialize and deserialize Python objects to and from JSON format, which is a commonly used data interchange format.</p>
+<h2>Core Functions</h2>
+<p>The core functions in the <strong>json</strong> module allow you to serialize and deserialize JSON data.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_dump_function.htm">json.dump()</a>
+<p>Serializes a Python object and writes it to a file-like object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_dumps_function.htm">json.dumps()</a>
+<p>Serializes a Python object and returns it as a JSON-formatted string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_load_function.htm">json.load()</a>
+<p>Deserializes a JSON-formatted stream into a Python object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/json_loads_function.htm">json.loads()</a>
+<p>Deserializes a JSON-formatted string into a Python object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>JSON Encoder Methods</h2>
+<p>JSON encoder methods handle the conversion of Python objects to JSON format.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_JSONEncoder_class.htm">json.JSONEncoder</a>
+<p>Encoder class for converting Python objects to JSON format.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_JSONEncoder_encode_method.htm">json.JSONEncoder.encode()</a>
+<p>Encodes a Python object to JSON format as a string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_JSONEncoder_iterencode_method.htm">json.JSONEncoder.iterencode()</a>
+<p>Encodes a Python object to JSON format in an iterator style.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/json_JSONEncoder_default_method.htm">json.JSONEncoder.default()</a>
+<p>Override method to handle objects that are not serializable by default.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>JSON Decoder Methods</h2>
+<p>JSON decoder methods handle the conversion of JSON data into Python objects.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_JSONDecoder_class.htm">json.JSONDecoder</a>
+<p>Decoder class for converting JSON data to Python objects.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_JSONDecoder_decode_method.htm">json.JSONDecoder.decode()</a>
+<p>Deserializes a JSON string into a Python object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_JSONDecoder_raw_decode_method.htm">json.JSONDecoder.raw_decode()</a>
+<p>Deserializes a JSON string with extra information for error handling.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Utility Functions</h2>
+<p>Utility functions provide a simple way to process JSON data in Python.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_tool_command.htm">json.tool</a>
+<p>Provides a command-line tool to format JSON data for better readability.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Dunder (Magic) Methods in JSONEncoder</h2>
+<p>These are the special methods for the <strong>JSONEncoder</strong> class in the <strong>json</strong> module that enable custom behavior for JSON serialization.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_JSONEncoder__init__method.htm">json.JSONEncoder.__init__</a>
+<p>Initializes the encoder with custom settings.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_JSONEncoder__repr__method.htm">json.JSONEncoder.__repr__</a>
+<p>Returns a string representation of the encoder object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_JSONEncoder__str__method.htm">json.JSONEncoder.__str__</a>
+<p>Returns a string version of the encoder object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Dunder (Magic) Methods in JSONDecoder</h2>
+<p>These are the special methods for the <strong>JSONDecoder</strong> class that enable custom behavior for JSON deserialization.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_JSONDecoder__init__method.htm">json.JSONDecoder.__init__</a>
+<p>Initializes the decoder with custom settings.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_JSONDecoder__repr__method.htm">json.JSONDecoder.__repr__</a>
+<p>Returns a string representation of the decoder object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_JSONDecoder__str__method.htm">json.JSONDecoder.__str__</a>
+<p>Returns a string version of the decoder object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Functions in json.encoder (Internal Utility Functions)</h2>
+<p>These functions are used internally in the <strong>json.encoder</strong> module to handle specific encoding tasks.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_encoder_encode_basestring_function.htm">json.encoder.encode_basestring()</a>
+<p>Encodes a string into a JSON-compatible format.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_encoder_encode_basestring_ascii_function.htm">json.encoder.encode_basestring_ascii()</a>
+<p>Encodes a string into a JSON-compatible ASCII format.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Functions in json.decoder (Internal Utility Functions)</h2>
+<p>These functions are used internally in the <strong>json.decoder</strong> module to handle specific decoding tasks.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Function &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_decoder_scanstring_function.htm">json.decoder.scanstring()</a>
+<p>Scans a string in JSON format.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_decoder_JSONArray_function.htm">json.decoder.JSONArray()</a>
+<p>Handles JSON array decoding.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Attributes in json Module</h2>
+<p>Attributes that provide various configuration settings and constants within the <strong>json</strong> module.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Attribute &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_decoder_attribute.htm">json.decoder</a>
+<p>Contains decoder-related functions and classes.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_encoder_attribute.htm">json.encoder</a>
+<p>Contains encoder-related functions and classes.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_all_attribute.htm">json.__all__</a>
+<p>A list of module attributes that are exported when <strong>import *</strong> is used.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/json_version_attribute.htm">json.__version__</a>
+<p>The version number of the <strong>json</strong> module.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Attributes in json.encoder</h2>
+<p>Attributes related to encoding functionality in the <strong>json.encoder</strong> module.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Attribute &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_encoder_FLOAT_REPR_attribute.htm">json.encoder.FLOAT_REPR</a>
+<p>Control the representation of floating-point numbers during serialization.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_encoder__make_iterencode_function.htm">json.encoder._make_iterencode()</a>
+<p>Internal utility function for creating an iterator-based encoder.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Attributes in json.decoder</h2>
+<p>Attributes related to decoding functionality in the <strong>json.decoder</strong> module.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Attribute &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json_decoder_JSONDecoder_attribute.htm">json.decoder.JSONDecoder</a>
+<p>Decoder class for converting JSON data into Python objects.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json_decoder_JSONDecoder_object_hook_attribute.htm">json.decoder.JSONDecoder.object_hook</a>
+<p>Function that is used for parsing and transforming JSON objects.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/python/json_decoder_JSONDecoder_parse_float_attribute.htm">json.decoder.JSONDecoder.parse_float</a>
+<p>Function to customize float decoding in JSON data.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/python/json_decoder_JSONDecoder_parse_int_attribute.htm">json.decoder.JSONDecoder.parse_int</a>
+<p>Function to customize integer decoding in JSON data.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><a href="/python/json_decoder_JSONDecoder_parse_constant_attribute.htm">json.decoder.JSONDecoder.parse_constant</a>
+<p>Function for handling constant values like True, False, and None during JSON decoding.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td><a href="/python/json_decoder_JSONDecoder_object_pairs_hook_attribute.htm">json.decoder.JSONDecoder.object_pairs_hook</a>
+<p>Function that is used for parsing JSON objects and controlling their key-value pairs.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Attributes in JSON (For Internal Use)</h2>
+<p>These attributes are for internal use in the <strong>json</strong> module.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Attribute &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/python/json__default_decoder_attribute.htm">json._default_decoder</a>
+<p>Default JSON decoder used for decoding JSON data.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/python/json__default_encoder_attribute.htm">json._default_encoder</a>
+<p>Default JSON encoder used for encoding Python objects to JSON.</p>
+</td>
+</tr>
+</tbody>
+</table>
+&nbsp;</div>

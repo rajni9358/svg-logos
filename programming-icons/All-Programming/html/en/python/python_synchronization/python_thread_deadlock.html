@@ -1,0 +1,96 @@
+<p>A deadlock may be described as a concurrency failure mode. It is a situation in a program where one or more threads wait for a condition that never occurs. As a result, the threads are unable to progress and the program is stuck or frozen and must be terminated manually.</p>
+<p>Deadlock situation may arise in many ways in your concurrent program. Deadlocks are never not developed intentionally, instead, they are in fact a side effect or bug in the code.</p>
+<p>Common causes of thread deadlocks are listed below &minus;</p>
+<ul class="list">
+<li>
+<p>A thread that attempts to acquire the same mutex lock twice.</p>
+</li>
+<li>
+<p>Threads that wait on each other (e.g. A waits on B, B waits on A).</p>
+</li>
+<li>
+<p>When a thread that fails to release a resource such as lock, semaphore, condition, event, etc.</p>
+</li>
+<li>
+<p>Threads that acquire mutex locks in different orders (e.g. fail to perform lock ordering).</p>
+</li>
+</ul>
+<h2>How to Avoid Deadlocks in Python Threads</h2>
+<p>When multiple threads in a multi-threaded application attempt to access the same resource, such as performing read/write operations on the same file, it can lead to data inconsistency. Therefore, it is important to synchronize concurrent access to resources by using <strong>locking mechanisms</strong>.</p>
+<p>The Python <strong>threading</strong> module provides a simple-to-implement locking mechanism to <a href="/python/python_synchronizing_threads.htm">synchronize threads</a>. You can create a new lock object by calling the <strong>Lock()</strong> class, which initializes the lock in an unlocked state.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Locking Mechanism with the Lock Object</h2>
+<p>An object of the <strong>Lock</strong> class has two possible states &minus; locked or unlocked, initially in unlocked state when first created. A lock doesn't belong to any particular thread.</p>
+<p>The Lock class defines acquire() and release() methods.</p>
+<h3>The acquire() Method</h3>
+<p>The <strong>acquire()</strong> method of the Lock class changes the lock's state from unlocked to locked. It returns immediately unless the optional blocking argument is set to True, in which case it waits until the lock is acquired.</p>
+<p>Here is the <strong>Syntax</strong> of this method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Lock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span>blocking<span class="token punctuation">,</span> timeout<span class="token punctuation">)</span></div>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p><strong>blocking</strong> &minus; If set to False, it means do not block. If a call with blocking set to True would block, return False immediately; otherwise, set the lock to locked and return True.</p>
+</li>
+<li>
+<p><strong>timeout</strong> &minus; Specifies a timeout period for acquiring the lock.</p>
+</li>
+</ul>
+<p>The return value of this method is True if the lock is acquired successfully; False if not.</p>
+<h3>The release() Method</h3>
+<p>When the state is locked, this method in another thread changes it to unlocked. This can be called from any thread, not only the thread which has acquired the lock</p>
+<p>Following is the <strong>Syntax</strong> of the <strong>release()</strong> method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">Lock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>The release() method should only be called in the locked state. If an attempt is made to release an unlocked lock, a RuntimeError will be raised.</p>
+<p>When the lock is locked, reset it to unlocked, and return. If any other threads are blocked waiting for the lock to become unlocked, allow exactly one of them to proceed. There is no return value of this method.</p>
+<h3>Example</h3>
+<p>In the following program, two threads try to call the synchronized() method. One of them acquires the lock and gains the access while the other waits. When the run() method is completed for the first thread, the lock is released and the synchronized method is available for second thread.</p>
+<p>When both the threads join, the program comes to an end.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread<span class="token punctuation">,</span> Lock <span class="token keyword">import</span> time lock<span class="token operator">=</span>Lock<span class="token punctuation">(</span><span class="token punctuation">)</span> threads<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">class</span> <span class="token class-name">myThread</span><span class="token punctuation">(</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span> Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span> self<span class="token punctuation">.</span>name<span class="token operator">=</span>name <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> lock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span> synchronized<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> lock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">synchronized</span><span class="token punctuation">(</span>threadName<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"{} has acquired lock and is running synchronized method"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>threadName<span class="token punctuation">)</span><span class="token punctuation">)</span> counter<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">while</span> counter<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'**'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> counter<span class="token operator">=</span>counter<span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\nlock released for'</span><span class="token punctuation">,</span> threadName<span class="token punctuation">)</span> t1<span class="token operator">=</span>myThread<span class="token punctuation">(</span><span class="token string">'Thread1'</span><span class="token punctuation">)</span> t2<span class="token operator">=</span>myThread<span class="token punctuation">(</span><span class="token string">'Thread2'</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> threads<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t1<span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> threads<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t2<span class="token punctuation">)</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> threads<span class="token punctuation">:</span> t<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"end of main thread"</span><span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Thread1 has acquired lock and is running synchronized method
+**********
+lock released for Thread1
+Thread2 has acquired lock and is running synchronized method
+**********
+lock released for Thread2
+end of main thread
+</pre>
+<h2>Semaphore Object for Synchronization</h2>
+<p>In addition to locks, Python <strong>threading</strong> module supports <strong>semaphores</strong>, which offering another synchronization technique. It is one of the oldest synchronization techniques invented by a well-known computer scientist, Edsger W. Dijkstra.</p>
+<p>The basic concept of semaphore is to use an internal counter which is decremented by each acquire() call and incremented by each release() call. The counter can never go below zero; when acquire() finds that it is zero, it blocks, waiting until some other thread calls release().</p>
+<p>The Semaphore class in threading module defines acquire() and release() methods.</p>
+<h3>The acquire() Method</h3>
+<p>If the internal counter is larger than zero on entry, decrement it by one and return True immediately.</p>
+<p>If the internal counter is zero on entry, block until awoken by a call to release(). Once awoken (and the counter is greater than 0), decrement the counter by 1 and return True. Exactly one thread will be awoken by each call to release(). The order in which threads awake is arbitrary.</p>
+<p>If blocking parameter is set to False, do not block. If a call without an argument would block, return False immediately; otherwise, do the same thing as when called without arguments, and return True.</p>
+<h3>The release() Method</h3>
+<p>Release a semaphore, incrementing the internal counter by 1. When it was zero on entry and other threads are waiting for it to become larger than zero again, wake up n of those threads.</p>
+<p><strong>Example</strong></p>
+<p>This example demonstrates how to use a <strong>Semaphore</strong> object in Python to control access to a shared resource among multiple threads, for avoiding deadlock in Python's multi-threaded program.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">import</span> time <span class="token comment"># creating thread instance where count = 3</span> lock <span class="token operator">=</span> Semaphore<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment"># creating instance</span> <span class="token keyword">def</span> <span class="token function">synchronized</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># calling acquire method</span> lock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello! '</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span> name<span class="token punctuation">)</span> <span class="token comment"># calling release method</span> lock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># creating multiple thread</span> thread_1 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target <span class="token operator">=</span> synchronized <span class="token punctuation">,</span> args <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'Thread 1'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> thread_2 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target <span class="token operator">=</span> synchronized <span class="token punctuation">,</span> args <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'Thread 2'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> thread_3 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target <span class="token operator">=</span> synchronized <span class="token punctuation">,</span> args <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'Thread 3'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># calling the threads</span> thread_1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> thread_2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> thread_3<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Hello! Hello! Hello! Thread 1
+Hello! Thread 2
+Thread 3
+Hello! Hello! Thread 1
+Hello! Thread 3
+Thread 2
+Hello! Hello! Thread 1
+Thread 3
+Thread 2
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

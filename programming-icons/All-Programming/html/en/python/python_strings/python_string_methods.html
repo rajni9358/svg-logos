@@ -1,0 +1,459 @@
+<p>Python's built-in <strong>str</strong> class defines different methods. They help in manipulating strings. Since string is an immutable object, these methods return a copy of the original string, performing the respective processing on it. The string methods can be classified in following categories &minus;</p>
+<h2>Case Conversion Methods</h2>
+<p>This category of built-in methods of Python's <strong>str</strong> class deal with the conversion of alphabet characters in the string object. Following methods fall in this category &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong><a href="/python/string_capitalize.htm">capitalize()</a></strong></p>
+<p>Capitalizes first letter of string</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong><a href="/python/casefold_method.htm">casefold()</a></strong></p>
+<p>Converts all uppercase letters in string to lowercase. Similar to lower(), but works on UNICODE characters alos</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>3</p>
+</td>
+<td>
+<p><strong><a href="/python/string_lower.htm">lower()</a></strong></p>
+<p>Converts all uppercase letters in string to lowercase.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>4</p>
+</td>
+<td>
+<p><strong><a href="/python/string_swapcase.htm">swapcase()</a></strong></p>
+<p>Inverts case for all letters in string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>5</p>
+</td>
+<td>
+<p><strong><a href="/python/string_title.htm">title()</a></strong></p>
+<p>Returns "titlecased" version of string, that is, all words begin with uppercase and the rest are lowercase.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>6</p>
+</td>
+<td>
+<p><strong><a href="/python/string_upper.htm">upper()</a></strong></p>
+<p>Converts lowercase letters in string to uppercase.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="inserted-div">&nbsp;</div>
+<h2>Alignment Methods</h2>
+<p>Following methods in the <strong>str</strong> class control the alignment of characters within the string object.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Methods &amp; Description</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong><a href="/python/string_center.htm">center(width, fillchar)</a></strong></p>
+<p>Returns a string padded with fillchar with the original string centered to a total of width columns.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong><a href="/python/string_ljust.htm">ljust(width[, fillchar])</a></strong></p>
+<p>Returns a space-padded string with the original string left-justified to a total of width columns.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>3</p>
+</td>
+<td>
+<p><strong><a href="/python/string_rjust.htm">rjust(width,[, fillchar])</a></strong></p>
+<p>Returns a space-padded string with the original string right-justified to a total of width columns.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>4</p>
+</td>
+<td>
+<p><strong><a href="/python/string_expandtabs.htm">expandtabs(tabsize = 8)</a></strong></p>
+<p>Expands tabs in string to multiple spaces; defaults to 8 spaces per tab if tabsize not provided.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>5</p>
+</td>
+<td>
+<p><strong><a href="/python/string_zfill.htm">zfill (width)</a></strong></p>
+<p>Returns original string leftpadded with zeros to a total of width characters; intended for numbers, zfill() retains any sign given (less one zero).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Split and Join Methods</h2>
+<p>Python has the following methods to perform split and join operations &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong><a href="/python/string_lstrip.htm">lstrip()</a></strong></p>
+<p>Removes all leading whitespace in string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong><a href="/python/string_rstrip.htm">rstrip()</a></strong></p>
+<p>Removes all trailing whitespace of string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>3</p>
+</td>
+<td>
+<p><strong><a href="/python/string_strip.htm">strip()</a></strong></p>
+<p>Performs both lstrip() and rstrip() on string</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>4</p>
+</td>
+<td>
+<p><strong><a href="/python/rsplit_method.htm">rsplit()</a></strong></p>
+<p>Splits the string from the end and returns a list of substrings</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>5</p>
+</td>
+<td>
+<p><strong><a href="/python/string_split.htm">split()</a></strong></p>
+<p>Splits string according to delimiter (space if not provided) and returns list of substrings.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>6</p>
+</td>
+<td>
+<p><strong><a href="/python/string_splitlines.htm">splitlines()</a></strong></p>
+<p>Splits string at NEWLINEs and returns a list of each line with NEWLINEs removed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>7</p>
+</td>
+<td>
+<p><strong><a href="/python/partition_method.htm">partition()</a></strong></p>
+<p>Splits the string in three string tuple at the first occurrence of separator</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>8</p>
+</td>
+<td>
+<p><strong><a href="/python/rpartition_method.htm">rpartition()</a></strong></p>
+<p>Splits the string in three string tuple at the ladt occurrence of separator</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>9</p>
+</td>
+<td>
+<p><strong><a href="/python/string_join.htm">join()</a></strong></p>
+<p>Concatenates the string representations of elements in sequence into a string, with separator string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>10</p>
+</td>
+<td>
+<p><strong><a href="/python/removeprefix_method.htm">removeprefix()</a></strong></p>
+<p>Returns a string after removing the prefix string</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>11</p>
+</td>
+<td>
+<p><strong><a href="/python/removesuffix_method.htm">removesuffix()</a></strong></p>
+<p>Returns a string after removing the suffix string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Boolean String Methods</h2>
+<p>Following methods in str class return True or False.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Methods &amp; Description</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isalnum.htm">isalnum()</a></strong></p>
+<p>Returns true if string has at least 1 character and all characters are alphanumeric and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isalpha.htm">isalpha()</a></strong></p>
+<p>Returns true if string has at least 1 character and all characters are alphabetic and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>3</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isdigit.htm">isdigit()</a></strong></p>
+<p>Returns true if the string contains only digits and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>4</p>
+</td>
+<td>
+<p><strong><a href="/python/string_islower.htm">islower()</a></strong></p>
+<p>Returns true if string has at least 1 cased character and all cased characters are in lowercase and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>5</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isnumeric.htm">isnumeric()</a></strong></p>
+<p>Returns true if a unicode string contains only numeric characters and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>6</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isspace.htm">isspace()</a></strong></p>
+<p>Returns true if string contains only whitespace characters and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>7</p>
+</td>
+<td>
+<p><strong><a href="/python/string_istitle.htm">istitle()</a></strong></p>
+<p>Returns true if string is properly "titlecased" and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>8</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isupper.htm">isupper()</a></strong></p>
+<p>Returns true if string has at least one cased character and all cased characters are in uppercase and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>9</p>
+</td>
+<td>
+<p><strong><a href="/python/isascii_method.htm">isascii()</a></strong></p>
+<p>Returns True is all the characters in the string are from the ASCII character set</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>10</p>
+</td>
+<td>
+<p><strong><a href="/python/string_isdecimal.htm">isdecimal()</a></strong></p>
+<p>Checks if all the characters are decimal characters</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>11</p>
+</td>
+<td>
+<p><strong><a href="/python/python_string_isidentifier_method.htm">isidentifier()</a></strong></p>
+<p>Checks whether the string is a valid Python identifier</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>12</p>
+</td>
+<td>
+<p><strong><a href="/python/isprintable_method.htm">isprintable()</a></strong></p>
+<p>Checks whether all the characters in the string are printable</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Find and Replace Methods</h2>
+<p>Following are the Find and Replace methods in Python &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong><a href="/python/string_count.htm">count(sub, beg ,end)</a></strong></p>
+<p>Counts how many times sub occurs in string or in a substring of string if starting index beg and ending index end are given.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong><a href="/python/string_find.htm">find(sub, beg, end)</a></strong></p>
+<p>Determine if sub occurs in string or in a substring of string if starting index beg and ending index end are given returns index if found and -1 otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>3</p>
+</td>
+<td>
+<p><strong><a href="/python/string_index.htm">index(sub, beg, end)</a></strong></p>
+<p>Same as find(), but raises an exception if str not found.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>4</p>
+</td>
+<td>
+<p><strong><a href="/python/string_replace.htm">replace(old, new [, max])</a></strong></p>
+<p>Replaces all occurrences of old in string with new or at most max occurrences if max given.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>5</p>
+</td>
+<td>
+<p><strong><a href="/python/string_rfind.htm">rfind(sub, beg, end)</a></strong></p>
+<p>Same as find(), but search backwards in string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>6</p>
+</td>
+<td>
+<p><strong><a href="/python/string_rindex.htm">rindex( sub, beg, end)</a></strong></p>
+<p>Same as index(), but search backwards in string.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>7</p>
+</td>
+<td>
+<p><strong><a href="/python/string_startswith.htm">startswith(sub, beg, end)</a></strong></p>
+<p>Determines if string or a substring of string (if starting index beg and ending index end are given) starts with substring sub; returns true if so and false otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>8</p>
+</td>
+<td>
+<p><strong><a href="/python/string_endswith.htm">endswith(suffix, beg, end)</a></strong></p>
+<p>Determines if string or a substring of string (if starting index beg and ending index end are given) ends with suffix; returns true if so and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Translation Methods</h2>
+<p>Following are the Translation methods of the string &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p><strong><a href="/python/string_maketrans.htm">maketrans()</a></strong></p>
+<p>Returns a translation table to be used in translate function.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2</p>
+</td>
+<td>
+<p><strong><a href="/python/string_translate.htm">translate(table, deletechars="")</a></strong></p>
+<p>Translates string according to translation table str(256 chars), removing those in the del string.</p>
+</td>
+</tr>
+</tbody>
+</table>
+&nbsp;</div>

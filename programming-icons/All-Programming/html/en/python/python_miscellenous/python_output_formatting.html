@@ -1,0 +1,296 @@
+<h2>Output Formatting in Python</h2>
+<p>Output formatting in Python is used to make your code more readable and your output more user-friendly. Whether you are displaying simple text strings, complex data structures, or creating reports, Python offers several ways for formatting output.</p>
+<p>These ways include using &minus;</p>
+<ul class="list">
+<li>The string modulo operator (%)</li>
+<li>The format() method</li>
+<li>The f-strings (formatted string literals)</li>
+<li>The template strings</li>
+</ul>
+<p>Additionally, Python's "textwrap" and "pprint" modules offer advanced functionalities for wrapping text and pretty-printing data structures.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Using String Modulo Operator (%)</h2>
+<p>We can format output using the string modulo operator %. This operator is unique to strings and makes up for the pack of having functions from C's printf() family. Format specification symbols like <strong>%d</strong>, <strong>%c</strong>, <strong>%f</strong>, and <strong>%s</strong> are used as placeholders in a string, similar to those in C.</p>
+<p>Following is a simple example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"My name is %s and weight is %d kg!"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">My name is Zara and weight is 21 kg!
+</pre>
+<h2>Using the format() Method</h2>
+<p>We can format output using the format() method, which was introduced in Python 3.0 and has been backported to Python 2.6 and 2.7.</p>
+<p>The format() method is part of the built-in <strong>string</strong> class and allows for complex variable substitutions and value formatting. It is considered a more elegant and flexible way to format strings compared to the string modulo operator.</p>
+<h3>Syntax</h3>
+<p>The general syntax of format() method is as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>var1<span class="token punctuation">,</span> var2<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span></div>
+<h3>Return Value</h3>
+<p>The method returns a formatted string.</p>
+<p>The string itself contains placeholders {} in which values of variables are successively inserted.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name<span class="token operator">=</span><span class="token string">"Rajesh"</span> age<span class="token operator">=</span><span class="token number">23</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"my name is {} and my age is {} years"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">my name is Rajesh and my age is 23 years
+</pre>
+<p>You can use variables as keyword arguments to format() method and use the variable name as the placeholder in the string.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span>"my name <span class="token keyword">is</span> <span class="token punctuation">{</span>name<span class="token punctuation">}</span> <span class="token keyword">and</span> my age <span class="token keyword">is</span> <span class="token punctuation">{</span>age<span class="token punctuation">}</span> years<span class="token string">".format(name="</span>Rajesh"<span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h2>Using F-Strings</h2>
+<p>F-strings, or formatted string literals, are a way to format strings in Python that is simple, fast, and easy to read. You create an f-string by adding an <strong>f</strong> before the opening quotation mark of a string.</p>
+<p>Inside the string, you can include placeholders for variables, which are enclosed in curly braces <strong>{}</strong>. The values of these variables will be inserted into the string at those places.</p>
+<h3>Example</h3>
+<p>In this example, the variables "name" and "age" are inserted into the string where their placeholders "{name}" and "{age}" are located. F-strings make it easy to include variable values in strings without having to use the format() method or string concatenation &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name <span class="token operator">=</span> <span class="token string">'Rajesh'</span> age <span class="token operator">=</span> <span class="token number">23</span> fstring <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'My name is </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string"> and I am </span><span class="token interpolation"><span class="token punctuation">{</span>age<span class="token punctuation">}</span></span><span class="token string"> years old'</span></span> <span class="token keyword">print</span> <span class="token punctuation">(</span>fstring<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">My name is Rajesh and I am 23 years old
+</pre>
+<h2>Format Conversion Rule in Python</h2>
+<p>You can also specify C-style formatting symbols. The only change is using <strong>:</strong> instead of <strong>%</strong>. For example, instead of <strong>%s</strong> use <strong>{:s}</strong> and instead of <strong>%d</strong> use <strong>{:d}</strong> as shown below &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">name <span class="token operator">=</span> <span class="token string">"Rajesh"</span> age <span class="token operator">=</span> <span class="token number">23</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"my name is {:s} and my age is {:d} years"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>You will get the output as shown below &minus;</p>
+<pre class="result notranslate">my name is Rajesh and my age is 23 years
+</pre>
+<h2>Template Strings</h2>
+<p>The <strong>Template</strong> class in <strong>string</strong> module provides an alternative method to format the strings dynamically. One of the benefits of Template class is to be able to customize the formatting rules.</p>
+<p>A valid template string, or placeholder, consists of two parts: The <strong>$</strong> symbol followed by a valid Python identifier.</p>
+<p>You need to create an object of Template class and use the template string as an argument to the constructor. Next, call the <strong>substitute()</strong> method of Template class. It puts the values provided as the parameters in place of template strings.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> string <span class="token keyword">import</span> Template temp_str <span class="token operator">=</span> <span class="token string">"My name is $name and I am $age years old"</span> tempobj <span class="token operator">=</span> Template<span class="token punctuation">(</span>temp_str<span class="token punctuation">)</span> ret <span class="token operator">=</span> tempobj<span class="token punctuation">.</span>substitute<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'Rajesh'</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>ret<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">My name is Rajesh and I am 23 years old
+</pre>
+<h2>The textwrap Module</h2>
+<p>The wrap class in Python's textwrap module contains functionality to format and wrap plain texts by adjusting the line breaks in the input paragraph. It helps in making the text wellformatted and beautiful.</p>
+<p>The textwrap module has the following convenience functions &minus;</p>
+<h3>textwrap.wrap(text, width=70)</h3>
+<p>The textwrap.wrap() function wraps the single paragraph in text (a string) so every line is at most width characters long. Returns a list of output lines, without final newlines. Optional keyword arguments correspond to the instance attributes of TextWrapper. width defaults to 70.</p>
+<h3>textwrap.fill(text, width=70)</h3>
+<p>The textwrap.fill() function wraps the single paragraph in text, and returns a single string containing the wrapped paragraph.</p>
+<p>Both methods internally create an object of TextWrapper class and calling a single method on it. Since the instance is not reused, it will be more efficient for you to create your own TextWrapper object.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> textwrap text <span class="token operator">=</span> <span class="token triple-quoted-string string">''' Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation via the off-side rule. Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a "batteries included" language due to its comprehensive standard library. '''</span> wrapper <span class="token operator">=</span> textwrap<span class="token punctuation">.</span>TextWrapper<span class="token punctuation">(</span>width<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">)</span> wrapped <span class="token operator">=</span> wrapper<span class="token punctuation">.</span>wrap<span class="token punctuation">(</span>text <span class="token operator">=</span> text<span class="token punctuation">)</span> <span class="token comment"># Print output</span> <span class="token keyword">for</span> element <span class="token keyword">in</span> wrapped<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Python is a high-level, general-purpose
+programming language. Its design
+philosophy emphasizes code readability
+with the use of significant indentation
+via the off-side rule. Python is
+dynamically typed and garbage-collected.
+It supports multiple programming
+paradigms, including structured
+(particularly procedural), objectoriented and functional programming. It
+is often described as a "batteries
+included" language due to its
+comprehensive standard library.
+</pre>
+<p>Following attributes are defined for a TextWrapper object &minus;</p>
+<ul class="list">
+<li>
+<p><strong>width</strong> &minus; (default: 70) The maximum length of wrapped lines.</p>
+</li>
+<li>
+<p><strong>expand_tabs</strong> &minus; (default: True) If true, then all tab characters in text will be expanded to spaces using the expandtabs() method of text.</p>
+</li>
+<li>
+<p><strong>tabsize</strong> &minus; (default: 8) If expand_tabs is true, then all tab characters in text will be expanded to zero or more spaces, depending on the current column and the given tab size.</p>
+</li>
+<li>
+<p><strong>replace_whitespace</strong> &minus; (default: True) If true, after tab expansion but before wrapping, the wrap() method will replace each whitespace character with a single space.</p>
+</li>
+<li>
+<p><strong>drop_whitespace</strong> &minus; (default: True) If true, whitespace at the beginning and ending of every line (after wrapping but before indenting) is dropped. Whitespace at the beginning of the paragraph, however, is not dropped if non-whitespace follows it. If whitespace being dropped takes up an entire line, the whole line is dropped.</p>
+</li>
+<li>
+<p><strong>initial_indent</strong> &minus; (default: '') String that will be prepended to the first line of wrapped output.</p>
+</li>
+<li>
+<p><strong>subsequent_indent</strong> &minus; (default: '') String that will be prepended to all lines of wrapped output except the first.</p>
+</li>
+<li>
+<p><strong>fix_sentence_endings</strong> &minus; (default: False) If true, TextWrapper attempts to detect sentence endings and ensure that sentences are always separated by exactly two spaces. This is generally desired for text in a monospaced font.</p>
+</li>
+<li>
+<p><strong>break_long_words</strong> &minus; (default: True) If true, then words longer than width will be broken in order to ensure that no lines are longer than width. If it is false, long words will not be broken, and some lines may be longer than width.</p>
+</li>
+<li>
+<p><strong>break_on_hyphens</strong> &minus; (default: True) If true, wrapping will occur preferably on whitespaces and right after hyphens in compound words, as it is customary in English. If false, only whitespaces will be considered as potentially good places for line breaks.</p>
+</li>
+</ul>
+<h2>The shorten() Function</h2>
+<p>The shorten() function collapse and truncate the given text to fit in the given width. The text first has its whitespace collapsed. If it then fits in the *width*, it is returned as is. Otherwise, as many words as possible are joined and then the placeholder is appended &minus;</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> textwrap python_desc <span class="token operator">=</span> <span class="token triple-quoted-string string">"""Python is a general-purpose interpreted, interactive, object-oriented, and high-level programming language. It was created by Guido van Rossum during 1985- 1990. Like Perl, Python source code is also available under the GNU General Public License (GPL). This tutorial gives enough understanding on Python programming language."""</span> my_wrap <span class="token operator">=</span> textwrap<span class="token punctuation">.</span>TextWrapper<span class="token punctuation">(</span>width <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">)</span> short_text <span class="token operator">=</span> textwrap<span class="token punctuation">.</span>shorten<span class="token punctuation">(</span>text <span class="token operator">=</span> python_desc<span class="token punctuation">,</span> width<span class="token operator">=</span><span class="token number">150</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\n\n'</span> <span class="token operator">+</span> my_wrap<span class="token punctuation">.</span>fill<span class="token punctuation">(</span>text <span class="token operator">=</span> short_text<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Python is a general-purpose interpreted,
+interactive, object-oriented,and high
+level programming language. It was 
+created by Guido van Rossum [...]
+</pre>
+<h2>The pprint Module</h2>
+<p>The <strong>pprint</strong> module in Python's standard library enables aesthetically good looking appearance of Python data structures. The name pprint stands for pretty printer. Any data structure that can be correctly parsed by Python interpreter is elegantly formatted.</p>
+<p>The formatted expression is kept in one line as far as possible, but breaks into multiple lines if the length exceeds the width parameter of formatting. One unique feature of pprint output is that the dictionaries are automatically sorted before the display representation is formatted.</p>
+<h3>PrettyPrinter Class</h3>
+<p>The pprint module contains definition of <strong>PrettyPrinter</strong> class. Its constructor takes following format &minus;</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pprint<span class="token punctuation">.</span>PrettyPrinter<span class="token punctuation">(</span>indent<span class="token punctuation">,</span> width<span class="token punctuation">,</span> depth<span class="token punctuation">,</span> stream<span class="token punctuation">,</span> compact<span class="token punctuation">)</span></div>
+<h3>Parameters</h3>
+<ul class="list">
+<li>
+<p><strong>indent</strong> &minus; defines indentation added on each recursive level. Default is 1.</p>
+</li>
+<li>
+<p><strong>width</strong> &minus; by default is 80. Desired output is restricted by this value. If the length is greater than width, it is broken in multiple lines.</p>
+</li>
+<li>
+<p><strong>depth</strong> &minus; controls number of levels to be printed.</p>
+</li>
+<li>
+<p><strong>stream</strong> &minus; is by default std.out &minus; the default output device. It can take any stream object such as file.</p>
+</li>
+<li>
+<p><strong>compact</strong> &minus; id set to False by default. If true, only the data adjustable within width will be displayed.</p>
+</li>
+</ul>
+<p>The PrettyPrinter class defines following methods &minus;</p>
+<h3>pprint() method</h3>
+<p>The pprint() method prints the formatted representation of PrettyPrinter object.</p>
+<h3>pformat() method</h3>
+<p>The pformat() method returns the formatted representation of object, based on parameters to the constructor.</p>
+<h3>Example</h3>
+<p>The following example demonstrates a simple use of PrettyPrinter class &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> pprint students<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"Dilip"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"English"</span><span class="token punctuation">,</span> <span class="token string">"Maths"</span><span class="token punctuation">,</span> <span class="token string">"Science"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"Raju"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"English"</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">"Maths"</span><span class="token punctuation">:</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token string">"Science"</span><span class="token punctuation">:</span><span class="token number">70</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">"Kalpana"</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">}</span> pp<span class="token operator">=</span>pprint<span class="token punctuation">.</span>PrettyPrinter<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"normal print output"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>students<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"----"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"pprint output"</span><span class="token punctuation">)</span> pp<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span>students<span class="token punctuation">)</span></div>
+</div>
+<p>The output shows normal as well as pretty print display &minus;</p>
+<pre class="result notranslate">normal print output
+{'Dilip': ['English', 'Maths', 'Science'], 'Raju': {'English': 50, 'Maths': 60, 'Science': 70}, 'Kalpana': (50, 60, 70)}
+----
+pprint output
+{'Dilip': ['English', 'Maths', 'Science'],
+ 'Kalpana': (50, 60, 70),
+ 'Raju': {'English': 50, 'Maths': 60, 'Science': 70}}
+</pre>
+<p>The <strong>pprint</strong> module also defines convenience functions pprint() and pformat() corresponding to PrettyPrinter methods. The example below uses pprint() function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> pprint <span class="token keyword">import</span> pprint students<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"Dilip"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"English"</span><span class="token punctuation">,</span> <span class="token string">"Maths"</span><span class="token punctuation">,</span> <span class="token string">"Science"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"Raju"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"English"</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">"Maths"</span><span class="token punctuation">:</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token string">"Science"</span><span class="token punctuation">:</span><span class="token number">70</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Kalpana"</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"normal print output"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>students<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"----"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"pprint output"</span><span class="token punctuation">)</span> pprint <span class="token punctuation">(</span>students<span class="token punctuation">)</span></div>
+</div>
+<h3>Example Using pformat() Method</h3>
+<p>The next example uses pformat() method as well as pformat() function. To use pformat() method, PrettyPrinter object is first set up. In both cases, the formatted representation is displayed using normal print() function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> pprint students<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"Dilip"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"English"</span><span class="token punctuation">,</span> <span class="token string">"Maths"</span><span class="token punctuation">,</span> <span class="token string">"Science"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"Raju"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"English"</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">"Maths"</span><span class="token punctuation">:</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token string">"Science"</span><span class="token punctuation">:</span><span class="token number">70</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"Kalpana"</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"using pformat method"</span><span class="token punctuation">)</span> pp<span class="token operator">=</span>pprint<span class="token punctuation">.</span>PrettyPrinter<span class="token punctuation">(</span><span class="token punctuation">)</span> string<span class="token operator">=</span>pp<span class="token punctuation">.</span>pformat<span class="token punctuation">(</span>students<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'------'</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"using pformat function"</span><span class="token punctuation">)</span> string<span class="token operator">=</span>pprint<span class="token punctuation">.</span>pformat<span class="token punctuation">(</span>students<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>string<span class="token punctuation">)</span></div>
+</div>
+<p>Here is the output of the above code &minus;</p>
+<pre class="result notranslate">using pformat method
+{'Dilip': ['English', 'Maths', 'Science'],
+ 'Kalpana': (50, 60, 70),
+ 'Raju': {'English': 50, 'Maths': 60, 'Science': 70}}
+------
+using pformat function
+{'Dilip': ['English', 'Maths', 'Science'],
+ 'Kalpana': (50, 60, 70),
+ 'Raju': {'English': 50, 'Maths': 60, 'Science': 70}}
+</pre>
+<p>Pretty printer can also be used with custom classes. Inside the class __repr__() method is overridden. The __repr__() method is called when repr() function is used. It is the official string representation of Python object. When we use object as parameter to print() function it prints return value of repr() function.</p>
+<h3>Example</h3>
+<p>In this example, the __repr__() method returns the string representation of player object &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> pprint <span class="token keyword">class</span> <span class="token class-name">player</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> formats<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> runs<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>name<span class="token operator">=</span>name self<span class="token punctuation">.</span>formats<span class="token operator">=</span>formats self<span class="token punctuation">.</span>runs<span class="token operator">=</span>runs <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> dct<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span> dct<span class="token punctuation">[</span>self<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>formats<span class="token punctuation">,</span>self<span class="token punctuation">.</span>runs<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token builtin">repr</span><span class="token punctuation">(</span>dct<span class="token punctuation">)</span><span class="token punctuation">)</span> l1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Tests'</span><span class="token punctuation">,</span><span class="token string">'ODI'</span><span class="token punctuation">,</span><span class="token string">'T20'</span><span class="token punctuation">]</span> l2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">140</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">39</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">122</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">]</span><span class="token punctuation">]</span> p1<span class="token operator">=</span>player<span class="token punctuation">(</span><span class="token string">"virat"</span><span class="token punctuation">,</span>l1<span class="token punctuation">,</span>l2<span class="token punctuation">)</span> pp<span class="token operator">=</span>pprint<span class="token punctuation">.</span>PrettyPrinter<span class="token punctuation">(</span><span class="token punctuation">)</span> pp<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span>p1<span class="token punctuation">)</span></div>
+</div>
+<p>The <strong>output</strong> of above code is &minus;</p>
+<pre class="result notranslate">{'virat': {'Tests': [140, 45, 39], 'ODI': [15, 122, 36, 67, 100, 49],
+'T20': [78, 44, 12, 0, 23, 75]}}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

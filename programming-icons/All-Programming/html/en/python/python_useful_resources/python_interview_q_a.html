@@ -1,0 +1,783 @@
+<p>Dear readers, these <strong>Python Programming Language Interview Questions</strong> have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of <strong>Python Programming Language</strong>. As per my experience good interviewers hardly plan to ask any particular question during your interview, normally questions start with some basic concept of the subject and later they continue based on further discussion and what you answer &minus;</p>
+<h2>Python Basics Interview Questions</h2>
+<section class="toggle"><label>What is Python?</label>
+<div class="toggle-content">
+<p>Python is a high-level, interpreted, interactive and object-oriented scripting language. Python is designed to be highly readable. It uses English keywords frequently where as other languages use punctuation, and it has fewer syntactical constructions than other languages.</p>
+</div>
+</section>
+<section class="toggle"><label>Name some of the features of Python.</label>
+<div class="toggle-content">
+<p>Following are some of the salient features of python &minus;</p>
+<ul class="list">
+<li>
+<p>It supports functional and structured programming methods as well as OOP.</p>
+</li>
+<li>
+<p>It can be used as a scripting language or can be compiled to byte-code for building large applications.</p>
+</li>
+<li>
+<p>It provides very high-level dynamic data types and supports dynamic type checking.</p>
+</li>
+<li>
+<p>It supports automatic garbage collection.</p>
+</li>
+<li>
+<p>It can be easily integrated with C, C++, COM, ActiveX, CORBA, and Java.</p>
+</li>
+</ul>
+</div>
+</section>
+<section class="toggle"><label>Is Python a case-sensitive language?</label>
+<div class="toggle-content">
+<p>Yes, Python is a case-sensitive language. Which means identifiers, function names, and keywords that has to be distinguished based on the capitalization. Case-sensitivity also helps to maintain the clarity and precision in the code.</p>
+</div>
+</section>
+<section class="toggle"><label>Is the Python platform independent?</label>
+<div class="toggle-content">
+<p>Yes, Python is platform-independent. In Python code runs in any operating system with a compatible interpreter. Python codes are executed by the interpreter that abstracts the hardware and Operating system in detail.</p>
+</div>
+</section>
+<section class="toggle"><label>What are the applications of Python?</label>
+<div class="toggle-content">
+<p>Following are the applications of Python &minus;</p>
+<ul class="list">
+<li><strong>Web Development:</strong> Frameworks like Django and Flask.</li>
+<li><strong>Data Analysis:</strong> Libraries like Pandas and NumPy.</li>
+<li><strong>Machine Learning:</strong> Tools such as TensorFlow and Scikitlearn.</li>
+<li><strong>Automation:</strong>Scripting and task automation.</li>
+<li><strong>Software Development:</strong> Building desktop applications.</li>
+</ul>
+</div>
+</section>
+<section class="toggle"><label>What is the basic difference between Python version 2 and Python <span style="padding-left: 2%;">version 3?</span></label>
+<div class="toggle-content">
+<p>Table below explains the difference between Python version 2 and Python version 3.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">S.No</th>
+<th style="text-align: center;">Section</th>
+<th style="text-align: center;">Python Version2</th>
+<th style="text-align: center;">Python Version3</th>
+</tr>
+<tr>
+<td style="text-align: center;">1.</td>
+<td>Print Function</td>
+<td>
+<p>Print command can be used without parentheses.</p>
+</td>
+<td>
+<p>Python 3 needs parentheses to print any string. It will raise error without parentheses.</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">2.</td>
+<td>Unicode</td>
+<td>
+<p>ASCII str() types and separate Unicode() but there is no byte type code in Python 2.</p>
+</td>
+<td>
+<p>Unicode (utf-8) and it has two byte classes &minus;</p>
+<ul class="list">
+<li>Byte</li>
+<li>Bytearray S.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">3.</td>
+<td>Exceptions</td>
+<td>
+<p>Python 2 accepts both new and old notations of syntax.</p>
+</td>
+<td>
+<p>Python 3 raises a SyntaxError in turn when we don't enclose the exception argument in parentheses.</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">4.</td>
+<td>Comparing Unorderable</td>
+<td>
+<p>It does not raise any error.</p>
+</td>
+<td>
+<p>It raises TypeError' as warning if we try to compare unorderable types.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="toggle"><label>Is there any double data type in Python?</label>
+<div class="toggle-content">
+<p>No, Python doesn't have a double datatype. Python uses float type for floating-point numbers, that determines the double precision default.</p>
+</div>
+</section>
+<section class="toggle"><label>Are strings in Python immutable? (Yes/No)</label>
+<div class="toggle-content">
+<p>Yes, strings in Python are immutable.</p>
+</div>
+</section>
+<section class="toggle"><label>Can True = False be possible in Python?</label>
+<div class="toggle-content">
+<p>No, True cannot be equal to False in Python. In Python True and False are different boolean values.</p>
+</div>
+</section>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Environment Variables Interview Questions</h2>
+<section class="toggle"><label>What is the purpose of PYTHONPATH environment variable?</label>
+<div class="toggle-content">
+<p>PYTHONPATH - It has a role similar to PATH. This variable tells the Python interpreter where to locate the module files imported into a program. It should include the Python source library directory and the directories containing Python source code. PYTHONPATH is sometimes preset by the Python installer.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the purpose of PYTHONSTARTUP environment variable?</label>
+<div class="toggle-content">
+<p>PYTHONSTARTUP - It contains the path of an initialization file containing Python source code. It is executed every time you start the interpreter. It is named as .pythonrc.py in Unix and it contains commands that load utilities or modify PYTHONPATH.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the purpose of PYTHONCASEOK environment variable?</label>
+<div class="toggle-content">
+<p>PYTHONCASEOK &minus; It is used in Windows to instruct Python to find the first case-insensitive match in an import statement. Set this variable to any value to activate it.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the purpose of PYTHONHOME environment variable?</label>
+<div class="toggle-content">
+<p>PYTHONHOME &minus; It is an alternative module search path. It is usually embedded in the PYTHONSTARTUP or PYTHONPATH directories to make switching module libraries easy.</p>
+</div>
+</section>
+<h2>Python Data Types and Operations Interview Questions</h2>
+<section class="toggle"><label>What are the supported data types in Python?</label>
+<div class="toggle-content">
+<p>Python has five standard data types &minus;</p>
+<ul class="list">
+<li>
+<p>Numbers</p>
+</li>
+<li>
+<p>String</p>
+</li>
+<li>
+<p>List</p>
+</li>
+<li>
+<p>Tuple</p>
+</li>
+<li>
+<p>Dictionary</p>
+</li>
+</ul>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print str if str = 'Hello World!'?</label>
+<div class="toggle-content">
+<p>Assigning Hello world to string.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> 'Hello World!" <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">Hello World!
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print str[0] if str = 'Hello World!'? </label>
+<div class="toggle-content">
+<p>Here, indexing starts from 0 in Python.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> 'Hello World!" <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">H
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print str[2:5] if str = 'Hello World!'?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">'Hello World!'</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">llo
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print str[2:] if str = 'Hello World!'?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">'Hello World!'</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">llo World!
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print str * 2 if str = 'Hello World!'?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">'Hello World!'</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">Hello World!Hello World!
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print str + "TEST" if str = 'Hello World!'?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">'Hello World!'</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span> <span class="token operator">+</span> TEST<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">Hello World!TEST
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print list if list = ['abcd', 786 , 2.23, 'john', 70.2 ]?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['abcd', 786 , 2.23, 'john', 70.2 ]
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print list[0] if list = [ 'abcd', 786 , 2.23, 'john', 70.2 ]?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">abcd
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print list[1:3] if list = [ 'abcd', 786 , 2.23, 'john', 70.2 ]?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">[786, 2.23]
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print list[2:] if list = [ 'abcd', 786 , 2.23, 'john', 70.2 ]?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">[2.23, 'john', 70.2]
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tinylist * 2 if tinylist = [123, 'john']?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tinylist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>tinylist <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">[123, 'john', 123, 'john']
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print list1 + list2 if list1 = [ 'abcd', 786 , 2.23, 'john', 70.2 ] and list2 = [123, 'john']?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">]</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1 <span class="token operator">+</span> list2<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['abcd', 786, 2.23, 'john', 70.2, 123, 'john']
+</pre>
+</div>
+</section>
+<h2>Python Tuples Interview Questions</h2>
+<section class="toggle"><label>What are tuples in Python?</label>
+<div class="toggle-content">
+<p>In Python, tuples are immutable sequence used to store multiple items. They cannot be modified after creation and are defined using parameters. Tuples are suitable for fixed collection of items.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the difference between tuples and lists in Python?</label>
+<div class="toggle-content">
+<p>The main differences between lists and tuples are &minus; Lists are enclosed in brackets ( [ ] ) and their elements and size can be changed, while tuples are enclosed in parentheses ( ( ) ) and cannot be updated. Tuples can be thought of as read-only lists.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tuple if tuple = ( 'abcd', 786 , 2.23, 'john', 70.2 )?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">tuple</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">( 'abcd', 786 , 2.23, 'john', 70.2 )
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tuple[0] if tuple = ( 'abcd', 786 , 2.23, 'john', 70.2 )?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">abcd
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tuple[1:3] if tuple = ( 'abcd', 786 , 2.23, 'john', 70.2 )?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">(786, 2.23)
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tuple[2:] if tuple = ( 'abcd', 786 , 2.23, 'john', 70.2 )?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">(2.23, 'john', 70.2)
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tinytuple * 2 if tinytuple = (123, 'john')?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tinytuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>tinytuple <span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">(123, 'john', 123, 'john')
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of print tuple + tinytuple if tuple = ('abcd', 786 , 2.23, 'john', 70.2 ) and tinytuple = (123, 'john')?</label>
+<div class="toggle-content">
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'abcd'</span><span class="token punctuation">,</span> <span class="token number">786</span> <span class="token punctuation">,</span> <span class="token number">2.23</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token number">70.2</span> <span class="token punctuation">)</span> tinytuple <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">'john'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">tuple</span> <span class="token operator">+</span> tinytuple<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">('abcd', 786 , 2.23, 'john', 70.2, 123, 'john')
+</pre>
+</div>
+</section>
+<h2>Python Dictionaries Interview Questions</h2>
+<section class="toggle"><label>What are Python's dictionaries?</label>
+<div class="toggle-content">
+<p>Python's dictionaries are kind of hash table type. They work like associative arrays or hashes found in Perl and consist of key-value pairs. A dictionary key can be almost any Python type, but are usually numbers or strings. Values, on the other hand, can be any arbitrary Python object.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you create a dictionary in Python?</label>
+<div class="toggle-content">
+<p>Dictionaries are enclosed by curly braces ({ }) and values can be assigned and accessed using square braces ([]).</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"This is one"</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"This is two"</span> tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'john'</span><span class="token punctuation">,</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">6734</span><span class="token punctuation">,</span> <span class="token string">'dept'</span><span class="token punctuation">:</span> <span class="token string">'sales'</span><span class="token punctuation">}</span></div>
+</div>
+</section>
+<section class="toggle"><label>How will you get all the keys from the dictionary?</label>
+<div class="toggle-content">
+<p>Using dictionary.keys() function, we can get all the keys from the dictionary object.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token builtin">dict</span><span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Prints all the keys</span></div>
+</div>
+</section>
+<section class="toggle"><label>How will you get all the values from the dictionary?</label>
+<div class="toggle-content">
+<p>Using dictionary.values() function, we can get all the values from the dictionary object.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token builtin">dict</span><span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Prints all the values</span></div>
+</div>
+</section>
+<h2>Python Strings Interview Questions</h2>
+<section class="toggle"><label>How will you convert a string to an int in Python?</label>
+<div class="toggle-content">
+<p>To convert a string into an integer in Python, we use 'int()' function. The string represents a valid integer, otherwise, it throws a ValueError.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to a float in Python?</label>
+<div class="toggle-content">
+<p>float()&minus; converts the string to a float where the string must be a numeric value.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert an object to a string in Python?</label>
+<div class="toggle-content">
+<p>str(x)&minus; converts an object to a string</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert an object to a regular expression in Python?</label>
+<div class="toggle-content">
+<p>repr(x)&minus; Converts object x to an expression string.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to an object in Python?</label>
+<div class="toggle-content">
+<p>eval(str)&minus; Evaluates a string and returns an object.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to a tuple in Python?</label>
+<div class="toggle-content">
+<p>tuple(str)&minus;converts a string to a tuple.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">('H', 'e', 'l', 'l', 'o')
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to a list in Python?</label>
+<div class="toggle-content">
+<p>list(str)&minus; converts a string to a list.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">(</span>Hello<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['H', 'e', 'l', 'l', 'o']
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to a set in Python?</label>
+<div class="toggle-content">
+<p>set(str)&minus;converts a string to set and if there are any duplicated elements it will be removed.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>Hello<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">{'e', 'o', 'H', 'l'}
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you create a dictionary using tuples in Python?</label>
+<div class="toggle-content">
+<p>dict(zip(tup1,tup2))&minus;converts the tuples into a dictionary. zip() function is used to pair the tuples and dict() converters it into the dictionary.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">)</span> tup2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> dic <span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>tup1<span class="token punctuation">,</span>tup2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>dic<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">{'a': 1, 'b': 2, 'c': 3, 'd': 4}
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you capitalize the first letter of a string?</label>
+<div class="toggle-content">
+<p>capitalize()&minus;This method is used to convert the first character of a string to capital.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">str1 <span class="token operator">=</span> <span class="token string">"tutorialspoint"</span> <span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span>capitalize<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">Tutorialspoint
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are alphanumeric?</label>
+<div class="toggle-content">
+<p>isalnum()&minus; Returns true if the string has at least 1 character and all characters are alphanumeric and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are digits?</label>
+<div class="toggle-content">
+<p>isdigit()&minus; Returns true if the string contains only digits and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are lowercase?</label>
+<div class="toggle-content">
+<p>islower() &minus; Returns true if the string has at least 1 cased character and all cased characters are in lowercase and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are numerics?</label>
+<div class="toggle-content">
+<p>isnumeric()&minus;Returns true if a Unicode string contains only numeric characters and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are whitespaces?</label>
+<div class="toggle-content">
+<p>isspace()&minus;Returns true if the string contains only whitespace characters and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if a string is properly title-cased?</label>
+<div class="toggle-content">
+<p>istitle()&minus;Returns true if the string is properly "titlecased" and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are uppercase?</label>
+<div class="toggle-content">
+<p>isupper()&minus; Returns true if the string has at least one cased character and all cased characters are in uppercase and false otherwise.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you merge elements in a sequence?</label>
+<div class="toggle-content">
+<p>join(seq)&minus;Merges (concatenates) the string representations of elements in sequence seq into a string, with a separator string.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you get the length of the string?</label>
+<div class="toggle-content">
+<p>len(string)&minus;Returns the length of the string.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you get a space-padded string with the original string left-justified to a total of width columns?</label>
+<div class="toggle-content">
+<p>(width[, fillchar])&minus; Returns a space-padded string with the original string left-justified to a total of width columns.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to all lowercase?</label>
+<div class="toggle-content">
+<p>lower()&minus; Converts all uppercase letters in a string to lowercase.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you remove all leading whitespace in a string?</label>
+<div class="toggle-content">
+<p>lstrip()&minus;Removes all leading whitespace in string.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you get the max alphabetical character from the string?</label>
+<div class="toggle-content">
+<p>max(str)&minus;Returns the max alphabetical character from the string str.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you get the min alphabetical character from the string?</label>
+<div class="toggle-content">
+<p>min(str)&minus; Returns the min alphabetical character from the string str.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you replace all occurrences of an old substring in a string with a new string?</label>
+<div class="toggle-content">
+<p>replace(): This method will replace every instance of the old substring with the new substring throughout the entire string.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">str1 <span class="token operator">=</span> <span class="token string">"Welcome to tutorialspoint "</span> new_str <span class="token operator">=</span>str1<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"Welcome"</span><span class="token punctuation">,</span><span class="token string">'Hello Welcome'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>new_str<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">Hello Welcome to tutorialspoint
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you remove all leading and trailing whitespace in a string?</label>
+<div class="toggle-content">
+<p>strip()&minus; This method returns a new string with all leading (spaces at the beginning) and trailing (spaces at the end) whitespace removed.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">str1 <span class="token operator">=</span> <span class="token string">" Welcome to tutorialspoint "</span> Str <span class="token operator">=</span> str1<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>Str<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">Welcome to tutorialspoint
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you change the case of all letters in a string?</label>
+<div class="toggle-content">
+<ul class="list">
+<li><strong>upper():</strong>To convert all the letters of a string to Uppercase.</li>
+<li><strong>lower():</strong> To convert all the letters of a string to Lowercase.</li>
+<li><strong>swap():</strong>Used to swap the case of all the letters in a string. If a letter is a small case, then it will change to capital letters and vice versa.</li>
+<li><strong>capitalize():</strong>used to capitalize the first letter of the string</li>
+<li><strong>title():</strong>Used to capitalize the first letter of each word of the string.</li>
+</ul>
+</div>
+</section>
+<section class="toggle"><label>How will you get a title-cased version of the string?</label>
+<div class="toggle-content">
+<p>title()&minus; It is used to capitalize the first letter of each word of the string.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you convert a string to all uppercase?</label>
+<div class="toggle-content">
+<p>upper()&minus;used to convert all the letters of a string to Uppercase.</p>
+</div>
+</section>
+<section class="toggle"><label>How will you check if all characters in a string are decimal?</label>
+<div class="toggle-content">
+<p>isdecimal()&minus; Returns true if a Unicode string contains only decimal characters and false otherwise.</p>
+</div>
+</section>
+<h2>Python Lists Interview Questions</h2>
+<section class="toggle"><label>What is the difference between del() and remove() methods of a list?</label>
+<div class="toggle-content">
+<p>The del() and remove() methods both are used to remove an element from a list. The del() is used to delete an element at a specified index value. It can also remove multiple elements using slicing operations. For example, The remove() method of a list is used to remove the first occurrence of an element.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">List <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token comment">#deleting an element</span> <span class="token keyword">del</span> List<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment">#deleting using sliding operation</span> <span class="token keyword">del</span> List<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment">#removing 5 </span> List<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>List<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">[1, 3, 6]
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the output of len([1, 2, 3])?</label>
+<div class="toggle-content">
+<p>The len() function returns the length of the list.(Output:3)</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of [1, 2, 3] + [4, 5, 6]?</label>
+<div class="toggle-content">
+<p>[1, 2, 3, 4, 5, 6]</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of ['Hi!'] * 4?</label>
+<div class="toggle-content">
+<p>['Hi!', 'Hi!', 'Hi!', 'Hi!']</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of 3 in [1, 2, 3]?</label>
+<div class="toggle-content">
+<p>True</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of for x in [1, 2, 3]: print x?</label>
+<div class="toggle-content">
+<p>1 2 3</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of L[2] if L = [1,2,3]?</label>
+<div class="toggle-content">
+<p>3</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of L[-2] if L = [1,2,3]?</label>
+<div class="toggle-content">
+<p>2</p>
+</div>
+</section>
+<section class="toggle"><label>What is the output of L[1:] if L = [1,2,3]?</label>
+<div class="toggle-content">
+<p>3</p>
+</div>
+</section>
+<section class="toggle"><label>How will you compare two lists?</label>
+<div class="toggle-content">
+<p>To compare two lists, we need to use equality[ ==]. If both lists contain the same values, it will return True; otherwise, it will return False.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span> list2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token operator">==</span>list2<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">True
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you get the length of a list?</label>
+<div class="toggle-content">
+<p>Using the len() function we can find the length of the list.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">5
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you get the max valued item of a list?</label>
+<div class="toggle-content">
+<p>Using the max() function we can find the maximum element of the list.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">50
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you get the min valued item of a list?</label>
+<div class="toggle-content">
+<p>Using the min() function we can find the minimum element of the list.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">min</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">10
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you get the index of an object in a list? </label>
+<div class="toggle-content">
+<p>Using the index() function we can get the index value of an element.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">2
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you insert an object at a given index in a list?</label>
+<div class="toggle-content">
+<p>insert() function is used to insert an element at a particular index. It accepts index-value and object as parameters.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span> list1<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'z'</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['a', 'b', 'c', 'z', 'd', 'e']
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you remove the last object from a list?</label>
+<div class="toggle-content">
+<p>pop() function is used to remove the last object from a list. We can also pass the index value as an argument and it returns the object at that specific index.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span> list1<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span> list1<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['a', 'b', 'd']
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you remove an object from a list?</label>
+<div class="toggle-content">
+<p>Using remove(), del(), and pop() we can remove an element from a list.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span> list1<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span> list1<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['a', 'b', 'd']
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you reverse a list?</label>
+<div class="toggle-content">
+<p>reverse() function is used to reverse a list. Using list slicing[::-1] we can also reverse the list.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> rev<span class="token operator">=</span>list2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>rev<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">['e', 'd', 'c', 'b', 'a']
+[5, 4, 3, 2, 1]
+</pre>
+</div>
+</section>
+<section class="toggle"><label>How will you sort a list?</label>
+<div class="toggle-content">
+<p>Using sort() function is used to arrange the elements of the list in a specific order. By default, it arranges the elements in ascending order. To arrange the elements in descending order we can reverse the sorted list using the reverse() function.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">]</span> list1<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">[5, 9, 10, 12, 13, 45]
+</pre>
+</div>
+</section>
+<h2>Python Operators Interview Questions</h2>
+<section class="toggle"><label>What is the purpose of ** operator?What is Python?</label>
+<div class="toggle-content">
+<p>The ** operator is used to perform exponential operations where a number is used to raise the power of another number. For example, 2**3 means 2 is raised to the power of 3.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the purpose of // operator?</label>
+<div class="toggle-content">
+<p>// operator is used to perform floor division. It divides two numbers and returns the largest integer value less than or equal to the result of the division.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token operator">//</span><span class="token number">5</span><span class="token punctuation">)</span></div>
+<h4>Output</h4>
+<pre class="result notranslate">1
+</pre>
+</div>
+</section>
+<section class="toggle"><label>What is the purpose of is operator?</label>
+<div class="toggle-content">
+<p>The is operator in Python is used to check if two variables refer to the same object in memory. It compares the identity of the objects, not their values.</p>
+</div>
+</section>
+<section class="toggle"><label>What is the purpose of not in operator?</label>
+<div class="toggle-content">
+<p>The not in operator in Python is used to check if a specific element is not present in a sequence, such as a list, tuple, string, or dictionary. If the element is not found, the operator returns True; otherwise, it returns False.</p>
+</div>
+</section>
+<h2>Python Control Statements Interview Questions</h2>
+<section class="toggle"><label>What is the purpose of the break statement in Python?</label>
+<div class="toggle-content">
+<p>The break statement is used to terminate the execution of a loop when a particular condition is met. Once the break statement is executed, the loop stops immediately, and the program continues with the next statement following the loop.</p>
+</div>
+<section class="toggle"><label>What is the purpose of the continue statement in Python?</label>
+<div class="toggle-content">
+<p>The continue statement in Python is used to skip the rest of the code inside a loop for the current iteration and move directly to the next iteration of the loop. Unlike the break statement, which terminates the loop entirely, continue only skips to the next iteration without ending the loop.</p>
+</div>
+<section class="toggle"><label>What is the purpose of the pass statement in Python?</label>
+<div class="toggle-content">
+<p>The Python pass is a null statement, which can be replaced with future code. It is used when we want to implement the function or conditional statements in the future, which has not been implemented yet. When we define a loop or function if we leave the block empty we will get an IndentationError so, to avoid this error we use pass.</p>
+</div>
+<h2>Python Random Module Interview Questions</h2>
+<section class="toggle"><label>How can you pick a random item from a list or tuple?</label>
+<div class="toggle-content">
+<p>To pick a random item from a list or tuple in Python, we use the <strong>random.choice()</strong> function. This function returns a random selected element from the given list and tuple . This ensures us to import the random module by adding import random. This method id useful for selecting random samples, shuffling items, and creating simple games that require randomization.</p>
+</div>
+<section class="toggle"><label>How can you pick a random item from a range?</label>
+<div class="toggle-content">
+<p>To pick a random item from a range in Python, we use <strong>random.choice()</strong> function. It returns a randomly selected element from the range 'start' to 'stop - 1'. This will also select the random number from the specified range.</p>
+</div>
+<section class="toggle"><label>How can you get a random number in Python?</label>
+<div class="toggle-content">
+<p>random() &minus; returns a random float r, such that 0 is less than or equal to r and r is less than 1.</p>
+</div>
+<section class="toggle"><label>How will you set the starting value in generating random numbers?</label>
+<div class="toggle-content">
+<p>seed([x]) &minus; Sets the integer starting value used in generating random numbers. Call this function before calling any other random module function. Returns None.</p>
+</div>
+<section class="toggle"><label>How will you randomize the items of a list in place?</label>
+<div class="toggle-content">
+<p>shuffle(lst) &minus; Randomizes the items of a list in place. Returns None.</p>
+</div>
+<h2>Python Functions and Memory Interview Questions</h2>
+<section class="toggle"><label>What is a lambda function in Python?</label>
+<div class="toggle-content">
+<p>lambda' is a keyword in python which creates an anonymous function. Lambda does not contain block of statements. It does not contain return statements.</p>
+</div>
+</section>
+<section class="toggle"><label>What do we call a function which is an incomplete version of a function?</label>
+<div class="toggle-content">
+<p>An incomplete version of a function is often called stub or partial function. These are typically a placeholder functions that may not have implementations or used during development for testing other parts of a code.</p>
+</div>
+</section>
+<section class="toggle"><label>When a function is defined, the system stores parameters and local variables in an area of memory. What is this memory known as?</label>
+<div class="toggle-content">
+<p>The memory area where parameters and local variables are stored in a function is defined as stack. Here, stack manages the function calls, stores the variables and returns the address of a particular file.</p>
+</div>
+</section>
+<h2>Python Modules and Libraries Interview Questions</h2>
+<section class="toggle"><label>Which module of Python is used to apply the methods related to OS?</label>
+<div class="toggle-content">
+<p>The OS module in Python is used to interact with the operating system. It provides file and directory manipulation, process management, environment variables, enables Python scripts to perform OS related tasks from different platforms.</p>
+</div>
+</section>
+<section class="toggle"><label>Name the Python library used for Machine Learning.</label>
+<div class="toggle-content">
+<p>The 'scikit-learn' library in Python is used for machine learning.</p>
+</div>
+</section>
+<section class="toggle"><label>Name the tools Python uses to find bugs (if any).</label>
+<div class="toggle-content">
+<p>Python uses several tools to find buys, they are &minus;</p>
+<ul class="list">
+<li><strong>pdb:</strong> The built - in Python debugger for interactive debugging.</li>
+<li><strong>pylint:</strong> Static code analysis tool that checks for errors.</li>
+<li><strong>pyflakes:</strong>Without executing the code it analyzes it.&nbsp;</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>

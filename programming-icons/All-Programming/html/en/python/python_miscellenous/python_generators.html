@@ -1,0 +1,165 @@
+
+<h2>Python Generators</h2>
+<p>Generators in Python are a convenient way to create iterators. They allow us to iterate through a sequence of values which means, values are generated on the fly and not stored in memory, which is especially useful for large datasets or infinite sequences.</p>
+<p>The generator in Python is a special type of function that returns an iterator object. It appears similar to a normal Python function in that its definition also starts with def keyword. However, instead of return statement at the end, generator uses the yield keyword.</p>
+<h3>Syntax</h3>
+<p>The following is the syntax of the <strong>generator()</strong> function &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">generator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token keyword">yield</span> obj it <span class="token operator">=</span> generator<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span></div>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating Generators</h2>
+<p>There are two primary ways to create generators in python &minus;</p>
+<ul class="list">
+<li>Using Generator Functions</li>
+<li>Using Generator Expressions</li>
+</ul>
+<h3>Using Generator Functions</h3>
+<p>The generator function uses 'yield' statement for returning the values all at a time. Each time the generators <strong>__next__()</strong> method is called the generator resumes where it left off i.e. from right after the last yield statement. Here's the example of creating the generator function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">count_up_to</span><span class="token punctuation">(</span>max_value<span class="token punctuation">)</span><span class="token punctuation">:</span> current <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">while</span> current <span class="token operator">&lt;=</span> max_value<span class="token punctuation">:</span> <span class="token keyword">yield</span> current current <span class="token operator">+=</span> <span class="token number">1</span> <span class="token comment"># Using the generator</span> counter <span class="token operator">=</span> count_up_to<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">for</span> number <span class="token keyword">in</span> counter<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span></div>
+</div>
+<h4>Output</h4>
+<pre class="result notranslate">1
+2
+3
+4
+5
+</pre>
+<h3>Using Generator Expressions</h3>
+<p>Generator expressions provide a compact way to create generators. They use a syntax similar to list comprehensions but used parentheses i.e. "{}" instead of square brackets i.e. "[]"</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">gen_expr <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token operator">*</span> x <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> value <span class="token keyword">in</span> gen_expr<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span></div>
+</div>
+<h4>Output</h4>
+<pre class="result notranslate">1
+4
+9
+16
+25
+</pre>
+<h2>Exception Handling in Generators</h2>
+<p>We can create a generator and iterate it using a 'while' loop with exception handling for 'StopIteration' exception. The function in the below code is a generator that successively yield integers from 1 to 5.</p>
+<p>When this function is called, it returns an iterator. Every call to <strong>next()</strong> method transfers the control back to the generator and fetches next integer.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">generator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">yield</span> x <span class="token keyword">return</span> it <span class="token operator">=</span> generator<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">except</span> StopIteration<span class="token punctuation">:</span> <span class="token keyword">break</span></div>
+</div>
+<h3>Output</h3>
+<pre class="result notranslate">1
+2
+3
+4
+5
+</pre>
+<h2>Normal function vs Generator function</h2>
+<p>Normal functions and generator functions in Python serve different purposes and exhibit distinct behaviors. Understanding their differences is essential for leveraging them effectively in our code.</p>
+<p>A normal function computes and returns a single value or a set of values whether in a list or tuple, when called. Once it returns, the function's execution is complete and all local variables are discarded where as a generator function yields values one at a time by suspending and resuming its state between each yield. It uses the yield statement instead of return.</p>
+<h3>Example</h3>
+<p>In this example we are creating a normal function and build a list of Fibonacci numbers and then iterate the list using a loop &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> fibo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> c<span class="token operator">=</span>a<span class="token operator">+</span>b <span class="token keyword">if</span> c<span class="token operator">&gt;=</span>n<span class="token punctuation">:</span> <span class="token keyword">break</span> fibo<span class="token punctuation">.</span>append<span class="token punctuation">(</span>c<span class="token punctuation">)</span> a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> c <span class="token keyword">return</span> fibo f <span class="token operator">=</span> fibonacci<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> f<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<pre class="result notranslate">1
+2
+3
+5
+8
+</pre>
+<h3>Example</h3>
+<p>In the above example we created a fibonacci series using the normal function and When we want to collect all Fibonacci series numbers in a list and then the list is traversed using a loop. Imagine that we want Fibonacci series going upto a large number.</p>
+<p>In such cases, all the numbers must be collected in a list requiring huge memory. This is where generator is useful as it generates a single number in the list and gives it for consumption. Following code is the generator-based solution for list of Fibonacci numbers &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> c<span class="token operator">=</span>a<span class="token operator">+</span>b <span class="token keyword">if</span> c<span class="token operator">&gt;=</span>n<span class="token punctuation">:</span> <span class="token keyword">break</span> <span class="token keyword">yield</span> c a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> c <span class="token keyword">return</span> f <span class="token operator">=</span> fibonacci<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">except</span> StopIteration<span class="token punctuation">:</span> <span class="token keyword">break</span></div>
+</div>
+<p>Output</p>
+<pre class="result notranslate">1
+2
+3
+5
+8
+</pre>
+<h2>Asynchronous Generator</h2>
+<p>An asynchronous generator is a co-routine that returns an asynchronous iterator. A co-routine is a Python function defined with async keyword, and it can schedule and await other co-routines and tasks.</p>
+<p>Just like a normal generator, the asynchronous generator yields incremental item in the iterator for every call to <strong>anext()</strong> function, instead of next() function.</p>
+<h3>Syntax</h3>
+<p>The following is the syntax of the Asynchronous Generator &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">generator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token keyword">yield</span> obj it <span class="token operator">=</span> generator<span class="token punctuation">(</span><span class="token punctuation">)</span> anext<span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span></div>
+<h3>Example</h3>
+<p>Following code demonstrates a coroutine generator that yields incrementing integers on every iteration of an <strong>async for</strong> loop.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> asyncio <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">async_generator</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">yield</span> i <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> async_generator<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<pre class="result notranslate">1
+2
+3
+4
+5
+</pre>
+<h3>Example</h3>
+<p>Let us now write an asynchronous generator for Fibonacci numbers. To simulate some asynchronous task inside the co-routine, the program calls sleep() method for a duration of 1 second before yielding the next number. As a result, we will get the numbers printed on the screen after a delay of one second.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> asyncio <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> c<span class="token operator">=</span>a<span class="token operator">+</span>b <span class="token keyword">if</span> c<span class="token operator">&gt;=</span>n<span class="token punctuation">:</span> <span class="token keyword">break</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">yield</span> c a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> c <span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> f <span class="token operator">=</span> fibonacci<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> f<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<pre class="result notranslate">1
+2
+3
+5
+8
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

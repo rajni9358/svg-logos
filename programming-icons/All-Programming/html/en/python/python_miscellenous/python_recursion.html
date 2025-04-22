@@ -1,0 +1,83 @@
+
+<p>Recursion is a fundamental programming concept where a function calls itself in order to solve a problem. This technique breaks down a complex problem into smaller and more manageable sub-problems of the same type. In Python, recursion is implemented by defining a function that makes one or more calls to itself within its own body.</p>
+<h2>Components of Recursion</h2>
+<p>As we discussed before Recursion is a technique where a function calls itself. Here for understanding recursion, it's required to know its key components. Following are the primary components of the recursion &minus;</p>
+<ul class="list">
+<li>Base Case</li>
+<li>Recursive Case</li>
+</ul>
+<h3>Base Case</h3>
+<p>The Base case is a fundamental concept in recursion, if serving as the condition under which a recursive function stops calling itself. It is essential for preventing infinite recursion and subsequent stack overflow errors.</p>
+<p>The base case provides a direct solution to the simplest instance of the problem ensuring that each recursive call gets closer to this terminating condition.</p>
+<p>The most popular example of recursion is calculation of factorial. Mathematically factorial is defined as &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">n! <span class="token operator">=</span> n &times; <span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>!</div>
+<p>It can be seen that we use factorial itself to define factorial. Hence this is a fit case to write a recursive function. Let us expand above definition for calculation of factorial value of 5.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token number">5</span>! <span class="token operator">=</span> <span class="token number">5</span> &times; <span class="token number">4</span>! <span class="token number">5</span> &times; <span class="token number">4</span> &times; <span class="token number">3</span>! <span class="token number">5</span> &times; <span class="token number">4</span> &times; <span class="token number">3</span> &times; <span class="token number">2</span>! <span class="token number">5</span> &times; <span class="token number">4</span> &times; <span class="token number">3</span> &times; <span class="token number">2</span> &times; <span class="token number">1</span>! <span class="token number">5</span> &times; <span class="token number">4</span> &times; <span class="token number">3</span> &times; <span class="token number">2</span> &times; <span class="token number">1</span> <span class="token operator">=</span> <span class="token number">120</span></div>
+<p>While we can perform this calculation using a loop, its recursive function involves successively calling it by decrementing the number till it reaches 1.</p>
+<h4>Example</h4>
+<p>The following example shows hows you can use a recursive function to calculate factorial &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">factorial</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span> <span class="token comment">#base case</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>n<span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span> <span class="token keyword">return</span> n <span class="token operator">*</span> factorial<span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">#Recursive case</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'factorial of 5='</span><span class="token punctuation">,</span> factorial<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above programs generates the following output &minus;</p>
+<pre class="result notranslate">5 * 4 * 3 * 2 * 1
+factorial of 5= 120
+</pre>
+<h3>Recursive Case</h3>
+<p>The recursive case is the part of a recursive function where the function calls itself to solve a smaller or simpler instance of the same problem. This mechanism allows a complex problem to be broken down into more manageable sub-problems where each them is a smaller version of the original problem.</p>
+<p>The recursive case is essential for progressing towards the base case, ensuring that the recursion will eventually terminate.</p>
+<h4>Example</h4>
+<p>Following is the example of the Recursive case. In this example we are generating the Fibonacci sequence in which the recursive case sums the results of the two preceding Fibonacci numbers &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span> <span class="token comment"># Base case for n = 0</span> <span class="token keyword">elif</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">1</span> <span class="token comment"># Base case for n = 1</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> fibonacci<span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> fibonacci<span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># Recursive case</span> fib_series <span class="token operator">=</span> <span class="token punctuation">[</span>fibonacci<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span>fib_series<span class="token punctuation">)</span></div>
+</div>
+<p>The above programs generates the following output &minus;</p>
+<pre class="result notranslate">[0, 1, 1, 2, 3, 5]
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Binary Search using Recursion</h2>
+<p>Binary search is a powerful algorithm for quickly finding elements in sorted lists, with logarithmic time complexity making it highly efficient.</p>
+<p>Let us have a look at another example to understand how recursion works. The problem at hand is to check whether a given number is present in a list.</p>
+<p>While we can perform a sequential search for a certain number in the list using a for loop and comparing each number, the sequential search is not efficient especially if the list is too large. The binary search algorithm that checks if the index 'high' is greater than index 'low. Based on value present at 'mid' variable, the function is called again to search for the element.</p>
+<p>We have a list of numbers, arranged in ascending order. The we find the midpoint of the list and restrict the checking to either left or right of midpoint depending on whether the desired number is less than or greater than the number at midpoint.</p>
+<p>The following diagram shows how binary search works &minus;</p>
+<img src="	https://www.tutorialspoint.com/python/images/python_recursion.jpg" alt="Python Recursion" />
+<h3>Example</h3>
+<p>The following code implements the recursive binary searching technique &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">bsearch</span><span class="token punctuation">(</span>my_list<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">,</span> elem<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> high <span class="token operator">&gt;=</span> low<span class="token punctuation">:</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>high <span class="token operator">+</span> low<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span> <span class="token keyword">if</span> my_list<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">==</span> elem<span class="token punctuation">:</span> <span class="token keyword">return</span> mid <span class="token keyword">elif</span> my_list<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&gt;</span> elem<span class="token punctuation">:</span> <span class="token keyword">return</span> bsearch<span class="token punctuation">(</span>my_list<span class="token punctuation">,</span> low<span class="token punctuation">,</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> elem<span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> bsearch<span class="token punctuation">(</span>my_list<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">,</span> elem<span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span> my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">67</span><span class="token punctuation">,</span> <span class="token number">71</span><span class="token punctuation">,</span> <span class="token number">77</span><span class="token punctuation">,</span> <span class="token number">82</span><span class="token punctuation">]</span> num <span class="token operator">=</span> <span class="token number">67</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"The list is"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>my_list<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Check for number:"</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> my_result <span class="token operator">=</span> bsearch<span class="token punctuation">(</span>my_list<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>my_list<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>num<span class="token punctuation">)</span> <span class="token keyword">if</span> my_result <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Element found at index "</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span>my_result<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Element not found!"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<pre class="result notranslate">The list is
+[5, 12, 23, 45, 49, 67, 71, 77, 82]
+Check for number: 67
+Element found at index 5
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

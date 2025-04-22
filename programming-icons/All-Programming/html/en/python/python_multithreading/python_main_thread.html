@@ -1,0 +1,106 @@
+<p>In Python, the <strong>main thread</strong> is the initial thread that starts when the Python interpreter is executed. It is the default thread within a Python process, responsible for managing the program and creating additional threads. Every Python program has at least one thread of execution called the main thread.</p>
+<p>The main thread by default is a non-daemon thread. In this tutorial you will see the detailed explanation with relevant examples about main thread in Python programming.</p>
+<h2>Accessing the Main Thread</h2>
+<p>The threading module in Python provides functions to access the threads. Here are the key functions &minus;</p>
+<ul class="list">
+<li><strong>threading.current_thread()</strong>: This function returns a threading.Thread instance representing the current thread.</li>
+<li><strong>threading.main_thread()</strong>: Returns a threading.Thread instance representing the main thread.</li>
+</ul>
+<h3>Example</h3>
+<p>The <strong>threading.current_thread()</strong> function returns a threading.Thread instance representing the current thread. Here is an example.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading name <span class="token operator">=</span> <span class="token string">'Tutorialspoint'</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Output:'</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Output: Tutorialspoint
+&lt;_MainThread(MainThread, started 140260292161536)&gt;    
+</pre>
+<h3>Example</h3>
+<p>This example demonstrates how to use the <strong>threading.main_thread()</strong> function to get a reference to the main thread. And it is also shows the difference between the main thread and other threads using <strong>threading.current_thread()</strong> function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token keyword">not</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">is</span> threading<span class="token punctuation">.</span>main_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'threading.current_thread() not threading.main_thread()'</span><span class="token punctuation">)</span> t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>func<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>main_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Main thread finished"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">&lt;_MainThread(MainThread, started 140032182964224)&gt;
+Main thread finished
+threading.current_thread() not threading.main_thread()
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Main Thread Behavior in Python</h2>
+<p>The main thread will exit whenever it has finished executing all the code in your script that is not started in a separate thread. For instance, when you <a href="/python/python_starting_thread.htm">start a new thread</a> using <strong>start()</strong> method, the main thread will continue to execute the remaining code in the script until it reaches the end and then exit.</p>
+<p>Since the other threads are started in a non-daemon mode by default, they will continue running until they are finished, even if the main thread has exited.</p>
+<h3>Example</h3>
+<p>The following example shows the main thread behavior in a python multithreaded program.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Current Thread Details:'</span><span class="token punctuation">,</span>threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Internal Thread Running'</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Internal Thread Finished...'</span><span class="token punctuation">)</span> t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>func<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Main Thread Running'</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Main Thread Finished..."</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Current Thread Details: Thread(Thread-1 (func), started 140562647860800)&gt;
+Main Thread Running 0
+Internal Thread Running 0
+Main Thread Running 1
+Main Thread Running 2
+Internal Thread Running 1
+Main Thread Finished...
+Internal Thread Running 2
+Internal Thread Running 3
+Internal Thread Running 4
+Internal Thread Running 5
+Internal Thread Finished...
+</pre>
+<blockquote>The above code can produce different outputs for different runs and different compilers.</blockquote>
+<h2>Main Thread Waiting for Other Threads</h2>
+<p>To ensure that the main thread waits for all other threads to finish, you can <a href="/python/python_joining_threads.htm">join the threads</a> using the <strong>join()</strong> method. By using the join() method, you can control the execution flow and ensure that the main thread properly waits for all other threads to complete their tasks before exiting. This helps in managing the lifecycle of threads in a multi-threaded Python program effectively.</p>
+<h3>Example</h3>
+<p>This example demonstrates how to properly manage the main thread and ensure it does not exit before the worker threads have finished their tasks.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread <span class="token keyword">from</span> time <span class="token keyword">import</span> sleep <span class="token keyword">def</span> <span class="token function">my_function_1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Worker 1 started"</span><span class="token punctuation">)</span> sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Worker 1 done"</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">my_function_2</span><span class="token punctuation">(</span>main_thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Worker 2 waiting for Worker 1 to finish"</span><span class="token punctuation">)</span> main_thread<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Worker 2 started"</span><span class="token punctuation">)</span> sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Worker 2 done"</span><span class="token punctuation">)</span> worker1 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>my_function_1<span class="token punctuation">)</span> worker2 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>my_function_2<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>worker1<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> worker1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> worker2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Main thread is still working on task"</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> sleep<span class="token punctuation">(</span><span class="token number">0.60</span><span class="token punctuation">)</span> worker1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Main thread Completed"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Worker 1 started
+Worker 2 waiting for Worker 1 to finish
+Main thread is still working on task 0
+Main thread is still working on task 1
+Worker 1 done
+Worker 2 started
+Main thread is still working on task 2
+Main thread is still working on task 3
+Worker 2 done
+Main thread is still working on task 4
+Main thread is still working on task 5
+Main thread Completed
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

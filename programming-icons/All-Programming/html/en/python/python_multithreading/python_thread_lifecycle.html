@@ -1,0 +1,85 @@
+<p>A thread object goes through different stages during its life cycle. When a new thread object is created, it must be started, which calls the run() method of thread class. This method contains the logic of the process to be performed by the new thread. The thread completes its task as the run() method is over, and the newly created thread merges with the main thread.</p>
+<p>While a thread is running, it may be paused either for a predefined duration or it may be asked to pause till a certain event occurs. The thread resumes after the specified interval or the process is over.</p>
+<p><img src="/python/images/thread_life_cycle.JPG" alt="thread_life_cycle" /></p>
+<h2>States of a Thread Life Cycle in Python</h2>
+<p>Following are the stages of the Python Thread life cycle &minus;</p>
+<ul class="list">
+<li><strong><a href="/python/python_creating_thread.htm">Creating a Thread</a> </strong>&minus; To create a new thread in Python, you typically use the <strong>Thread</strong> class from the <strong>threading</strong> module.</li>
+<li><strong><a href="/python/python_starting_thread.htm">Starting a Thread</a> </strong>&minus; Once a thread object is created, it must be started by calling its start() method. This initiates the thread's activity and invokes its run() method in a separate thread.</li>
+<li><strong><a href="/python/python_joining_threads.htm">Paused/Blocked State</a> </strong>&minus; Threads can be paused or blocked for various reasons, such as waiting for I/O operations to complete or another thread to perform a task. This is typically managed by calling its join() method. This blocks the calling thread until the thread being joined terminates.</li>
+<li><strong><a href="/python/python_synchronizing_threads.htm">Synchronizing Threads</a> </strong>&minus; Synchronization ensures orderly execution and shared resource management among threads. This can be done by using synchronization primitives like locks, semaphores, or condition variables.</li>
+<li><strong>Termination </strong>&minus; A thread terminates when its run() method completes execution, either by finishing its task or encountering an exception.</li>
+</ul>
+<h3>Example: Python Thread Life Cycle Demonstration</h3>
+<p>This example demonstrates the thread life cycle in Python by showing thread creation, starting, execution, and synchronization with the main thread.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Current Thread Details:'</span><span class="token punctuation">,</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} Running'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Internal Thread Finished...'</span><span class="token punctuation">)</span> <span class="token comment"># Create thread objects</span> t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>func<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>func<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Start the threads</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Thread State: CREATED'</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Wait for threads to complete</span> t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Threads State: FINISHED'</span><span class="token punctuation">)</span> <span class="token comment"># Simulate main thread work</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Main Thread Running'</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Main Thread Finished..."</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>When the above code is executed, it produces the following output &minus;</p>
+<pre class="result notranslate">Thread State: CREATED
+Current Thread Details: &lt;Thread(Thread-1 (func), started 140051032258112)&gt;
+Thread-1 (func) Running 0
+Thread-1 (func) Running 1
+Internal Thread Finished...
+Current Thread Details: &lt;Thread(Thread-2 (func), started 140051023865408)&gt;
+Thread-2 (func) Running 0
+Thread-2 (func) Running 1
+Thread-2 (func) Running 2
+Internal Thread Finished...
+Threads State: FINISHED
+Main Thread Running 0
+Main Thread Running 1
+Main Thread Running 2
+Main Thread Finished...
+</pre>
+<h3>Example: Using a Synchronization Primitive</h3>
+<p>Here is another example demonstrates the thread life cycle in Python, including creation, starting, running, and termination states, along with synchronization using a semaphore.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token comment"># Create a semaphore </span> semaphore <span class="token operator">=</span> threading<span class="token punctuation">.</span>Semaphore<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">worker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">with</span> semaphore<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} has started working'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} has finished working'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Create a list to keep track of thread objects</span> threads <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment"># Create and start 5 threads</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>worker<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Thread-{}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> threads<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} has been created'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Wait for all threads to complete</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> threads<span class="token punctuation">:</span> t<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} has terminated'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Threads State: All are FINISHED'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Main Thread Finished..."</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>When the above code is executed, it produces the following output &minus;</p>
+<pre class="result notranslate">Thread-1 has been created
+Thread-1 has started working
+Thread-2 has been created
+Thread-2 has started working
+Thread-3 has been created
+Thread-4 has been created
+Thread-5 has been created
+Thread-1 has finished working
+Thread-2 has finished working
+Thread-3 has started working
+Thread-1 has terminated
+Thread-2 has terminated
+Thread-4 has started working
+Thread-3 has finished working
+Thread-5 has started working
+Thread-3 has terminated
+Thread-4 has finished working
+Thread-4 has terminated
+Thread-5 has finished working
+Thread-5 has terminated
+Threads State: All are FINISHED
+Main Thread Finished...
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

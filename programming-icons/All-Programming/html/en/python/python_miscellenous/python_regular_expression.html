@@ -1,0 +1,1281 @@
+<p>A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings, using a specialized syntax held in a pattern. Regular expression are popularly known as regex or regexp.</p>
+<p>Usually, such patterns are used by string-searching algorithms for "find" or "find and replace" operations on strings, or for input validation.</p>
+<p>Large scale text processing in data science projects requires manipulation of textual data. The regular expressions processing is supported by many programming languages including Python. Python's standard library has <strong>re</strong> module for this purpose.</p>
+<p>Since most of the functions defined in <strong>re</strong> module work with raw strings, let us first understand what the raw strings are.</p>
+<h2>Raw Strings</h2>
+<p>Regular expressions use the backslash character ('\') to indicate special forms or to allow special characters to be used without invoking their special meaning. Python on the other hand uses the same character as escape character. Hence Python uses the raw string notation.</p>
+<p>A string become a raw string if it is prefixed with r or R before the quotation symbols. Hence 'Hello' is a normal string were are r'Hello' is a raw string.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> normal<span class="token operator">=</span><span class="token string">"Hello"</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>normal<span class="token punctuation">)</span> Hello <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> raw<span class="token operator">=</span><span class="token string">r"Hello"</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>raw<span class="token punctuation">)</span> Hello</div>
+<p>In normal circumstances, there is no difference between the two. However, when the escape character is embedded in the string, the normal string actually interprets the escape sequence, where as the raw string doesn't process the escape character.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> normal<span class="token operator">=</span><span class="token string">"Hello\nWorld"</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>normal<span class="token punctuation">)</span> Hello World <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> raw<span class="token operator">=</span><span class="token string">r"Hello\nWorld"</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>raw<span class="token punctuation">)</span> Hello\nWorld</div>
+<p>In the above example, when a normal string is printed the escape character '\n' is processed to introduce a newline. However because of the raw string operator 'r' the effect of escape character is not translated as per its meaning.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Metacharacters</h2>
+<p>Most letters and characters will simply match themselves. However, some characters are special metacharacters, and don't match themselves. Meta characters are characters having a special meaning, similar to * in wild card.</p>
+<p>Here's a complete list of the metacharacters &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">.</span> <span class="token operator">^</span> $ <span class="token operator">*</span> <span class="token operator">+</span> ? <span class="token punctuation">{</span> <span class="token punctuation">}</span> <span class="token punctuation">[</span> <span class="token punctuation">]</span> \ <span class="token operator">|</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span></div>
+<p>The square bracket symbols[ and ] indicate a set of characters that you wish to match. Characters can be listed individually, or as a range of characters separating them by a '-'.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Metacharacters &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p>[abc]</p>
+match any of the characters a, b, or c</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p>[a-c]</p>
+which uses a range to express the same set of characters.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p>[a-z]</p>
+match only lowercase letters.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p>[0-9]</p>
+match only digits.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p>'^'</p>
+complements the character set in [].[^5] will match any character except'5'.</td>
+</tr>
+</tbody>
+</table>
+<p>'\'is an escaping metacharacter. When followed by various characters it forms various special sequences. If you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.</p>
+<p>Predefined sets of characters represented by such special sequences beginning with '\' are listed below &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Metacharacters &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p>\d</p>
+Matches any decimal digit; this is equivalent to the class [0-9].</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p>\D</p>
+Matches any non-digit character; this is equivalent to the class [^0-9].</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>\s</strong>Matches any whitespace character; this is equivalent to the class [\t\n\r\f\v].</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p>\S</p>
+Matches any non-whitespace character; this is equivalent to the class [^\t\n\r\f\v].</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p>\w</p>
+Matches any alphanumeric character; this is equivalent to the class [a-zAZ0-9_].</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p>\W</p>
+Matches any non-alphanumeric character. equivalent to the class [^a-zAZ0-9_].</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p>.</p>
+Matches with any single character except newline '\n'.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p>?</p>
+match 0 or 1 occurrence of the pattern to its left</td>
+</tr>
+<tr>
+<td>9</td>
+<td>
+<p>+</p>
+1 or more occurrences of the pattern to its left</td>
+</tr>
+<tr>
+<td>10</td>
+<td>
+<p>*</p>
+0 or more occurrences of the pattern to its left</td>
+</tr>
+<tr>
+<td>11</td>
+<td>
+<p>\b</p>
+boundary between word and non-word and /B is opposite of /b</td>
+</tr>
+<tr>
+<td>12</td>
+<td>
+<p>[..]</p>
+Matches any single character in a square bracket and [^..] matches any single character not in square bracket.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>
+<p>\</p>
+It is used for special meaning characters like \. to match a period or \+ for plus sign.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>
+<p>{n,m}</p>
+Matches at least n and at most m occurrences of preceding</td>
+</tr>
+<tr>
+<td>15</td>
+<td>
+<p>a| b</p>
+Matches either a or b</td>
+</tr>
+</tbody>
+</table>
+<p>Python's re module provides useful functions for finding a match, searching for a pattern, and substitute a matched string with other string etc.</p>
+<h2>The re.match() Function</h2>
+<p>This function attempts to match RE <em>pattern</em> at the start of <em>string</em> with optional <em>flags</em>. Following is the <strong>syntax</strong> for this function &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> string<span class="token punctuation">,</span> flags<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<p>Here is the description of the parameters &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Parameter &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>pattern</strong></p>
+<p>This is the regular expression to be matched.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>String</strong></p>
+<p>This is the string, which would be searched to match the pattern at the beginning of string.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>Flags</strong></p>
+<p>You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>re.match()</strong> function returns a <strong>match</strong> object on success, <strong>None</strong> on failure. A match object instance contains information about the match: where it starts and ends, the substring it matched, etc.</p>
+<p>The match object's start() method returns the starting position of pattern in the string, and end() returns the endpoint.</p>
+<p>If the pattern is not found, the match object is None.</p>
+<p>We use <strong>group(num)</strong> or <strong>groups()</strong> function of <strong>match</strong> object to get matched expression.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Match Object Methods &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>group(num=0)</strong>This method returns entire match (or specific subgroup num)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>groups()</strong>This method returns all matching subgroups in a tuple (empty if there weren't any)</td>
+</tr>
+</tbody>
+</table>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span> matchObj <span class="token operator">=</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span> <span class="token string">r'Cats'</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>matchObj<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group() : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">0 4
+matchObj.group() : Cats
+</pre>
+<h2>The re.search() Function</h2>
+<p>This function searches for first occurrence of RE <em>pattern</em> within the <em>string</em>, with optional <em>flags</em>. Following is the <strong>syntax</strong> for this function &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> string<span class="token punctuation">,</span> flags<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<p>Here is the description of the parameters &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Parameter &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>Pattern</strong></p>
+<p>This is the regular expression to be matched.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>String</strong></p>
+<p>This is the string, which would be searched to match the pattern anywhere in the string.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>Flags</strong></p>
+<p>You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <em>re.search</em> function returns a <strong>match</strong> object on success, <strong>none</strong> on failure. We use <em>group(num)</em> or <em>groups()</em> function of <strong>match</strong> object to get the matched expression.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Match Object Methods &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>group(num=0)</strong>This method returns entire match (or specific subgroup num)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>groups()</strong>This method returns all matching subgroups in a tuple (empty if there weren't any)</td>
+</tr>
+</tbody>
+</table>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span> matchObj <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span> <span class="token string">r'than'</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>matchObj<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group() : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">17 21
+matchObj.group() : than
+</pre>
+<h2>Matching Vs Searching</h2>
+<p>Python offers two different primitive operations based on regular expressions, <strong>match</strong> checks for a match only at the beginning of the string, while <strong>search</strong> checks for a match anywhere in the string (this is what Perl does by default).</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span><span class="token punctuation">;</span> matchObj <span class="token operator">=</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span> <span class="token string">r'dogs'</span><span class="token punctuation">,</span> line<span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token operator">|</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span> <span class="token keyword">if</span> matchObj<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"match --&gt; matchObj.group() : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"No match!!"</span><span class="token punctuation">)</span> searchObj <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span> <span class="token string">r'dogs'</span><span class="token punctuation">,</span> line<span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token operator">|</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span> <span class="token keyword">if</span> searchObj<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"search --&gt; searchObj.group() : "</span><span class="token punctuation">,</span> searchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Nothing found!!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">No match!!
+search --&gt; matchObj.group() : dogs
+</pre>
+<h2>The re.findall() Function</h2>
+<p>The findall() function returns all non-overlapping matches of pattern in string, as a list of strings or tuples. The string is scanned left-to-right, and matches are returned in the order found. Empty matches are included in the result.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> string<span class="token punctuation">,</span> flags<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<h3>Parameters</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Parameter &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>Pattern</strong></p>
+<p>This is the regular expression to be matched.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>String</strong></p>
+<p>This is the string, which would be searched to match the pattern anywhere in the string.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>Flags</strong></p>
+<p>You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re string<span class="token operator">=</span><span class="token string">"Simple is better than complex."</span> obj<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r"ple"</span><span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">['ple', 'ple']
+</pre>
+<p>Following code obtains the list of words in a sentence with the help of findall() function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re string<span class="token operator">=</span><span class="token string">"Simple is better than complex."</span> obj<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r"\w*"</span><span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">['Simple', '', 'is', '', 'better', '', 'than', '', 'complex', '', '']
+</pre>
+<h2>The re.sub() Function</h2>
+<p>One of the most important <strong>re</strong> methods that use regular expressions is <strong>sub</strong>.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> repl<span class="token punctuation">,</span> string<span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<p>This method replaces all occurrences of the RE <em>pattern</em> in <em>string</em> with <em>repl</em>, substituting all occurrences unless <em>max</em> is provided. This method returns modified string.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re phone <span class="token operator">=</span> <span class="token string">"2004-959-559 # This is Phone Number"</span> <span class="token comment"># Delete Python-style comments</span> num <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'#.*$'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Phone Num : "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> <span class="token comment"># Remove anything other than digits</span> num <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\D'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Phone Num : "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Phone Num : 2004-959-559
+Phone Num : 2004959559
+</pre>
+<h3>Example</h3>
+<p>The following example uses sub() function to substitute all occurrences of is with was word &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re string<span class="token operator">=</span><span class="token string">"Simple is better than complex. Complex is better than complicated."</span> obj<span class="token operator">=</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'is'</span><span class="token punctuation">,</span> <span class="token string">r'was'</span><span class="token punctuation">,</span>string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Simple was better than complex. Complex was better than complicated.
+</pre>
+<h2>The re.compile() Function</h2>
+<p>The compile() function compiles a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> flags<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<h3>Flags</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No.</th>
+<th style="text-align: center;">Modifier &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>re.I</strong></p>
+<p>Performs case-insensitive matching.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>re.L</strong></p>
+<p>Interprets words according to the current locale. This interpretation affects the alphabetic group (\w and \W), as well as word boundary behavior (\b and \B).</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>re.</strong></p>
+<p>M Makes $ match the end of a line (not just the end of the string) and makes ^ match the start of any line (not just the start of the string).</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong>re.S</strong></p>
+<p>Makes a period (dot) match any character, including a newline.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong>re.U</strong></p>
+<p>Interprets letters according to the Unicode character set. This flag affects the behavior of \w, \W, \b, \B.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong>re.X</strong></p>
+<p>Permits "cuter" regular expression syntax. It ignores whitespace (except inside a set [] or when escaped by a backslash) and treats unescaped # as a comment marker.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The sequence &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">prog <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>pattern<span class="token punctuation">)</span> result <span class="token operator">=</span> prog<span class="token punctuation">.</span>match<span class="token punctuation">(</span>string<span class="token punctuation">)</span></div>
+<p>is equivalent to &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">result <span class="token operator">=</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> string<span class="token punctuation">)</span></div>
+<p>But using re.compile() and saving the resulting regular expression object for reuse is more efficient when the expression will be used several times in a single program.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re string<span class="token operator">=</span><span class="token string">"Simple is better than complex. Complex is better than complicated."</span> pattern<span class="token operator">=</span>re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'is'</span><span class="token punctuation">)</span> obj<span class="token operator">=</span>pattern<span class="token punctuation">.</span>match<span class="token punctuation">(</span>string<span class="token punctuation">)</span> obj<span class="token operator">=</span>pattern<span class="token punctuation">.</span>search<span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> obj<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> obj<span class="token operator">=</span>pattern<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> obj<span class="token operator">=</span>pattern<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'was'</span><span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">7 9
+['is', 'is']
+Simple was better than complex. Complex was better than complicated.
+</pre>
+<h2>The re.finditer() Function</h2>
+<p>This function returns an iterator yielding match objects over all non-overlapping matches for the RE pattern in string.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">re<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> string<span class="token punctuation">,</span> flags<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re string<span class="token operator">=</span><span class="token string">"Simple is better than complex. Complex is better than complicated."</span> pattern<span class="token operator">=</span>re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'is'</span><span class="token punctuation">)</span> iterator <span class="token operator">=</span> pattern<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>iterator <span class="token punctuation">)</span> <span class="token keyword">for</span> match <span class="token keyword">in</span> iterator<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">(7, 9)
+(39, 41)
+</pre>
+<h2>Use Cases of Python Regex</h2>
+<h3>Finding all Adverbs</h3>
+<p>findall() matches all occurrences of a pattern, not just the first one as search() does. For example, if a writer wanted to find all of the adverbs in some text, they might use findall() in the following manner &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re text <span class="token operator">=</span> <span class="token string">"He was carefully disguised but captured quickly by police."</span> obj <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r"\w+ly\b"</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">['carefully', 'quickly']
+</pre>
+<h2>Finding words starting with vowels</h2>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> re text <span class="token operator">=</span> <span class="token string">'Errors should never pass silently. Unless explicitly silenced.'</span> obj<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'\b[aeiouAEIOU]\w+'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">['Errors', 'Unless', 'explicitly']
+</pre>
+<h2>Regular Expression Modifiers: Option Flags</h2>
+<p>Regular expression literals may include an optional modifier to control various aspects of matching. The modifiers are specified as an optional flag. You can provide multiple modifiers using exclusive OR (|), as shown previously and may be represented by one of these &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Modifier &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>re.I</strong></p>
+<p>Performs case-insensitive matching.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>re.L</strong></p>
+<p>Interprets words according to the current locale. This interpretation affects the alphabetic group (\w and \W), as well as word boundary behavior(\b and \B).</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>re.M</strong></p>
+<p>Makes $ match the end of a line (not just the end of the string) and makes ^ match the start of any line (not just the start of the string).</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>re.S</strong></p>
+<p>Makes a period (dot) match any character, including a newline.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>re.U</strong></p>
+<p>Interprets letters according to the Unicode character set. This flag affects the behavior of \w, \W, \b, \B.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>re.X</strong></p>
+<p>Permits "cuter" regular expression syntax. It ignores whitespace (except inside a set [] or when escaped by a backslash) and treats unescaped # as a comment marker.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Regular Expression Patterns</h2>
+<p>Except for control characters, <strong>(+ ? . * ^ $ ( ) [ ] { } | \)</strong>, all characters match themselves. You can escape a control character by preceding it with a backslash.</p>
+<p>Following table lists the regular expression syntax that is available in Python &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Pattern &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>^</strong></p>
+<p>Matches beginning of line.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>$</strong></p>
+<p>Matches end of line.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>.</strong></p>
+<p>Matches any single character except newline. Using m option allows it to match newline as well.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>[...]</strong></p>
+<p>Matches any single character in brackets.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>[^...]</strong></p>
+<p>Matches any single character not in brackets</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>re*</strong></p>
+<p>Matches 0 or more occurrences of preceding expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>re+</strong></p>
+<p>Matches 1 or more occurrence of preceding expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td>
+<p><strong>re?</strong></p>
+<p>Matches 0 or 1 occurrence of preceding expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td>
+<p><strong>re{ n}</strong></p>
+<p>Matches exactly n number of occurrences of preceding expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td>
+<p><strong>re{ n,}</strong></p>
+<p>Matches n or more occurrences of preceding expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td>
+<p><strong>re{ n, m}</strong></p>
+<p>Matches at least n and at most m occurrences of preceding expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td>
+<p><strong>a| b</strong></p>
+<p>Matches either a or b.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td>
+<p><strong>(re)</strong></p>
+<p>Groups regular expressions and remembers matched text.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">14</td>
+<td>
+<p><strong>(?imx)</strong></p>
+<p>Temporarily toggles on i, m, or x options within a regular expression. If in parentheses, only that area is affected.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">15</td>
+<td>
+<p><strong>(?-imx)</strong></p>
+<p>Temporarily toggles off i, m, or x options within a regular expression. If in parentheses, only that area is affected.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">16</td>
+<td>
+<p><strong>(?: re)</strong></p>
+<p>Groups regular expressions without remembering matched text.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">17</td>
+<td>
+<p><strong>(?imx: re)</strong></p>
+<p>Temporarily toggles on i, m, or x options within parentheses.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">18</td>
+<td>
+<p><strong>(?-imx: re)</strong></p>
+<p>Temporarily toggles off i, m, or x options within parentheses.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">19</td>
+<td>
+<p><strong>(?#...)</strong></p>
+<p>Comment.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">20</td>
+<td>
+<p><strong>(?= re)</strong></p>
+<p>Specifies position using a pattern. Doesn't have a range.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">21</td>
+<td>
+<p><strong>(?! re)</strong></p>
+<p>Specifies position using pattern negation. Doesn't have a range.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">22</td>
+<td>
+<p><strong>(?&gt; re)</strong></p>
+<p>Matches independent pattern without backtracking.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">23</td>
+<td>
+<p><strong>\w</strong></p>
+<p>Matches word characters.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">24</td>
+<td>
+<p><strong>\W</strong></p>
+<p>Matches nonword characters.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">25</td>
+<td>
+<p><strong>\s</strong></p>
+<p>Matches whitespace. Equivalent to [\t\n\r\f].</p>
+</td>
+</tr>
+<tr>
+<td class="ts">26</td>
+<td>
+<p><strong>\S</strong></p>
+<p>Matches nonwhitespace.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">27</td>
+<td>
+<p><strong>\d</strong></p>
+<p>Matches digits. Equivalent to [0-9].</p>
+</td>
+</tr>
+<tr>
+<td class="ts">28</td>
+<td>
+<p><strong>\D</strong></p>
+<p>Matches nondigits.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">29</td>
+<td>
+<p><strong>\A</strong></p>
+<p>Matches beginning of string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">30</td>
+<td>
+<p><strong>\Z</strong></p>
+<p>Matches end of string. If a newline exists, it matches just before newline.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">31</td>
+<td>
+<p><strong>\z</strong></p>
+<p>Matches end of string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">32</td>
+<td>
+<p><strong>\G</strong></p>
+<p>Matches point where last match finished.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">33</td>
+<td>
+<p><strong>\b</strong></p>
+<p>Matches word boundaries when outside brackets. Matches backspace (0x08) when inside brackets.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">34</td>
+<td>
+<p><strong>\B</strong></p>
+<p>Matches nonword boundaries.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">35</td>
+<td>
+<p><strong>\n, \t, etc.</strong></p>
+<p>Matches newlines, carriage returns, tabs, etc.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">36</td>
+<td>
+<p><strong>\1...\9</strong></p>
+<p>Matches nth grouped subexpression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">37</td>
+<td>
+<p><strong>\10</strong></p>
+<p>Matches nth grouped subexpression if it matched already. Otherwise refers to the octal representation of a character code.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Regular Expression Examples</h2>
+<h3>Literal characters</h3>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>python</strong></p>
+<p>Match "python".</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Character classes</h2>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>[Pp]ython</strong></p>
+<p>Match "Python" or "python"</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>rub[ye]</strong></p>
+<p>Match "ruby" or "rube"</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>[aeiou]</strong></p>
+<p>Match any one lowercase vowel</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>[0-9]</strong></p>
+<p>Match any digit; same as [0123456789]</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>[a-z]</strong></p>
+<p>Match any lowercase ASCII letter</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>[A-Z]</strong></p>
+<p>Match any uppercase ASCII letter</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>[a-zA-Z0-9]</strong></p>
+<p>Match any of the above</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td>
+<p><strong>[^aeiou]</strong></p>
+<p>Match anything other than a lowercase vowel</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td>
+<p><strong>[^0-9]</strong></p>
+<p>Match anything other than a digit</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Special Character Classes</h2>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>.</strong></p>
+<p>Match any character except newline</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>\d</strong></p>
+<p>Match a digit: [0-9]</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>\D</strong></p>
+<p>Match a nondigit: [^0-9]</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>\s</strong></p>
+<p>Match a whitespace character: [ \t\r\n\f]</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>\S</strong></p>
+<p>Match nonwhitespace: [^ \t\r\n\f]</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>\w</strong></p>
+<p>Match a single word character: [A-Za-z0-9_]</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>\W</strong></p>
+<p>Match a nonword character: [^A-Za-z0-9_]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Repetition Cases</h2>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>ruby?</strong></p>
+<p>Match "rub" or "ruby": the y is optional</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>ruby*</strong></p>
+<p>Match "rub" plus 0 or more ys</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>ruby+</strong></p>
+<p>Match "rub" plus 1 or more ys</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>\d{3}</strong></p>
+<p>Match exactly 3 digits</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>\d{3,}</strong></p>
+<p>Match 3 or more digits</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>\d{3,5}</strong></p>
+<p>Match 3, 4, or 5 digits</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Nongreedy repetition</h2>
+<p>This matches the smallest number of repetitions &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>&lt;.*&gt;</strong></p>
+<p>Greedy repetition: matches "&lt;python&gt;perl&gt;"</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>&lt;.*?&gt;</strong></p>
+<p>Nongreedy: matches "&lt;python&gt;" in "&lt;python&gt;perl&gt;"</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Grouping with Parentheses</h2>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>\D\d+</strong></p>
+<p>No group: + repeats \d</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>(\D\d)+</strong></p>
+<p>Grouped: + repeats \D\d pair</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>([Pp]ython(, )?)+</strong></p>
+<p>Match "Python", "Python, python, python", etc.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Backreferences</h2>
+<p>This matches a previously matched group again &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>([Pp])ython&amp;\1ails</strong></p>
+<p>Match python&amp;pails or Python&amp;Pails</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>(['"])[^\1]*\1</strong></p>
+<p>Single or double-quoted string. \1 matches whatever the 1st group matched. \2 matches whatever the 2nd group matched, etc.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Alternatives</h2>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>python|perl</strong></p>
+<p>Match "python" or "perl"</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>rub(y|le))</strong></p>
+<p>Match "ruby" or "ruble"</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>Python(!+|\?)</strong></p>
+<p>"Python" followed by one or more ! or one ?</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Anchors</h2>
+<p>This needs to specify match position.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>^Python</strong></p>
+<p>Match "Python" at the start of a string or internal line</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>Python$</strong></p>
+<p>Match "Python" at the end of a string or line</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>\APython</strong></p>
+<p>Match "Python" at the start of a string</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>Python\Z</strong></p>
+<p>Match "Python" at the end of a string</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>\bPython\b</strong></p>
+<p>Match "Python" at a word boundary</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>\brub\B</strong></p>
+<p>\B is nonword boundary: match "rub" in "rube" and "ruby" but not alone</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>Python(?=!)</strong></p>
+<p>Match "Python", if followed by an exclamation point.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td>
+<p><strong>Python(?!!)</strong></p>
+<p>Match "Python", if not followed by an exclamation point.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Special Syntax with Parentheses</h2>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 10%;">Sr.No.</th>
+<th style="text-align: center;">Example &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>R(?#comment)</strong></p>
+<p>Matches "R". All the rest is a comment</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>R(?i)uby</strong></p>
+<p>Case-insensitive while matching "uby"</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>R(?i:uby)</strong></p>
+<p>Same as above</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>rub(?:y|le))</strong></p>
+<p>Group only without creating \1 backreference</p>
+</td>
+</tr>
+</tbody>
+</table>
+&nbsp;</div>

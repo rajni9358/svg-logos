@@ -1,0 +1,111 @@
+<h2>Access Tuple Items</h2>
+<p>The most common way to access values within a Python tuple is using indexing, We just need to specify the index of the elements we want to retrieve to the square bracket <strong>[]</strong> notation.</p>
+<p>&nbsp;</p>
+<p>In addition to indexing, Python provides various other ways to access tuple items such as slicing, negative indexing, extracting a subtuple from a tuple etc. Let us go through this one-by-one &minus;</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Accessing Tuple Items with Indexing</h2>
+<p>Each element in a tuple corresponds to an index. The index starts from 0 for the first element and increments by one for each subsequent element. Index of the last item in the tuple is always "length-1", where "length" represents the total number of items in the tuple. To access the elements of a tuple we just need to specify the index of the item we need to access/retrieve, as shown below &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span></div>
+<h3>Example</h3>
+<p>Following is the basic example to access tuple items with slicing index &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tuple1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">)</span> tuple2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at 0th index in tuple1: "</span><span class="token punctuation">,</span> tuple1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at index 2 in tuple2: "</span><span class="token punctuation">,</span> tuple2<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Item at 0th index in tuple1:  Rohan
+Item at index 2 in tuple2:  3
+</pre>
+<h2>Accessing Tuple Items with Negative Indexing</h2>
+<p>Negative indexing in Python is used to access elements from the end of a tuple, with <strong>-1</strong> referring to the last element, <strong>-2</strong> to the second last, and so on.</p>
+<p>We can also access tuple items with negative indexing by using negative integers to represent positions from the end of the tuple.</p>
+<h3>Example</h3>
+<p>In the following example, we are accessing tuple items with negative indexing &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">)</span> tup2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">25.50</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2j</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at 0th index in tup1: "</span><span class="token punctuation">,</span> tup1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Item at index 2 in tup2: "</span><span class="token punctuation">,</span> tup2<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">Item at 0th index in tup1:  d
+Item at index 2 in tup2:  True
+</pre>
+<h2>Accessing Range of Tuple Items with Negative Indexing</h2>
+<p>By range of tuple items, we mean accessing a subset of elements from a tuple using slicing. Therefore, we can access a range of tuple items with negative indexing by using the slicing operation in Python.</p>
+<h3>Example</h3>
+<p>In the example below, we are accessing a range of tuple items by using negative indexing &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">)</span> tup2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 1 to last in tup1: "</span><span class="token punctuation">,</span> tup1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 2 to last in tup2"</span><span class="token punctuation">,</span> tup2<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Items from index 1 to last in tup1: ('b', 'c', 'd')
+Items from index 2 to last in tup2: (3, 4)
+</pre>
+<h2>Access Tuple Items with Slice Operator</h2>
+<p>The slice operator in Python is used to fetch one or more items from the tuple. We can access tuple items with the slice operator by specifying the range of indices we want to extract. It uses the following syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token punctuation">[</span>start<span class="token punctuation">:</span>stop<span class="token punctuation">]</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>start</strong> is the starting index (inclusive).</li>
+<li><strong>stop</strong> is the ending index (exclusive).</li>
+</ul>
+<h3>Example</h3>
+<p>In the following example, we are retrieving subtuple from index 1 to last in "tuple1" and index 0 to 1 in "tuple2", and retrieving all elements in "tuple3" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tuple1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">)</span> tuple2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">25.50</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2j</span><span class="token punctuation">)</span> tuple3 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> tuple4 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 1 to last in tuple1: "</span><span class="token punctuation">,</span> tuple1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 0 to 1 in tuple2: "</span><span class="token punctuation">,</span> tuple2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 0 to index last in tuple3"</span><span class="token punctuation">,</span> tuple3<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Items from index 1 to last in tuple1:  ('b', 'c', 'd')
+Items from index 0 to 1 in tuple2:  (25.5, True)
+Items from index 0 to index last in tuple3 ('Rohan', 'Physics', 21, 69.75)
+</pre>
+<h2>Accessing Sub Tuple from a Tuple</h2>
+<p>A subtuple is a part of a tuple that consists of a consecutive sequence of elements from the original tuple.</p>
+<p>We can access a subtuple from a tuple by using the slice operator with appropriate start and stop indices. It uses the following syntax &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_tuple<span class="token punctuation">[</span>start<span class="token punctuation">:</span>stop<span class="token punctuation">]</span></div>
+<p>Where,</p>
+<ul class="list">
+<li><strong>start</strong> is the starting index (inclusive).</li>
+<li><strong>stop</strong> is the ending index (exclusive) of the subtuple.</li>
+</ul>
+<p>If we does not provide any indices, the slice operator defaults to starting from index 0 and stopping at the last item in the tuple.</p>
+<h3>Example</h3>
+<p>In this example, we are fetching subtuple from index "1 to 2" in "tuple1" and index "0 to 1" in "tuple2" using slice operator &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tuple1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">)</span> tuple2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">25.50</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2j</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 1 to 2 in tuple1: "</span><span class="token punctuation">,</span> tuple1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Items from index 0 to 1 in tuple2: "</span><span class="token punctuation">,</span> tuple2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as follows &minus;</p>
+<pre class="result notranslate">Items from index 1 to 2 in tuple1:  ('b', 'c')
+Items from index 0 to 1 in tuple2:  (25.5, True)&nbsp;</pre>

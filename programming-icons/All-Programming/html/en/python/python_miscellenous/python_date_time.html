@@ -1,0 +1,1030 @@
+<p>A Python program can handle date and time in several ways. Converting between date formats is a common chore for computers. Following modules in Python's standard library handle date and time related processing &minus;</p>
+<ul class="list">
+<li>
+<p>DateTime module</p>
+</li>
+<li>
+<p>Time module</p>
+</li>
+<li>
+<p>Calendar module</p>
+</li>
+</ul>
+<h2>What are Tick Intervals</h2>
+<p>Time intervals are floating-point numbers in units of seconds. Particular instants in time are expressed in seconds since 12:00am, January 1, 1970(epoch).</p>
+<p>There is a popular <strong>time</strong> module available in Python, which provides functions for working with times, and for converting between representations. The function <strong>time.time()</strong> returns the current system time in ticks since 12:00am, January 1, 1970(epoch).</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> time <span class="token comment"># This is required to include time module.</span> ticks <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Number of ticks since 12:00am, January 1, 1970:"</span><span class="token punctuation">,</span> ticks<span class="token punctuation">)</span></div>
+</div>
+<p>This would produce a result something as follows &minus;</p>
+<pre class="result notranslate">Number of ticks since 12:00am, January 1, 1970: 1681928297.5316436
+</pre>
+<p>Date arithmetic is easy to do with ticks. However, dates before the epoch cannot be represented in this form. Dates in the far future also cannot be represented this way - the cutoff point is sometime in 2038 for UNIX and Windows.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>What is TimeTuple?</h2>
+<p>Many of the Python's time functions handle time as a tuple of 9 numbers, as shown below &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">Index</th>
+<th style="text-align: center;">Field</th>
+<th style="text-align: center;">Values</th>
+</tr>
+<tr>
+<td>0</td>
+<td>4-digit year</td>
+<td>2016</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Month</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Day</td>
+<td>1 to 31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hour</td>
+<td>0 to 23</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Minute</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Second</td>
+<td>0 to 61 (60 or 61 are leap-seconds)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Day of Week</td>
+<td>0 to 6 (0 is Monday)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Day of year</td>
+<td>1 to 366 (Julian day)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Daylight savings</td>
+<td>-1, 0, 1, -1 means library determines DST</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example,</strong></p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span class="token keyword">import</span> time <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+<p>This would produce an <strong>output</strong> as follows &minus;</p>
+<pre class="result notranslate">time.struct_time(tm_year=2023, tm_mon=4, tm_mday=19, tm_hour=23, tm_min=49, tm_sec=8, tm_wday=2, tm_yday=109, tm_isdst=0)
+</pre>
+<p>The above tuple is equivalent to struct_time structure. This structure has the following attributes &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">Index</th>
+<th style="text-align: center;">Attributes</th>
+<th style="text-align: center;">Values</th>
+</tr>
+<tr>
+<td>0</td>
+<td>tm_year</td>
+<td>2016</td>
+</tr>
+<tr>
+<td>1</td>
+<td>tm_mon</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>tm_mday</td>
+<td>1 to 31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>tm_hour</td>
+<td>0 to 23</td>
+</tr>
+<tr>
+<td>4</td>
+<td>tm_min</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>5</td>
+<td>tm_sec</td>
+<td>0 to 61 (60 or 61 are leap-seconds)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>tm_wday</td>
+<td>0 to 6 (0 is Monday)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>tm_yday</td>
+<td>1 to 366 (Julian day)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>tm_isdst</td>
+<td>-1, 0, 1, -1 means library determines DST</td>
+</tr>
+</tbody>
+</table>
+<h2>Getting the Current Time</h2>
+<p>To translate a time instant from <strong>seconds</strong> since the epoch floating-point value into a time-tuple, pass the floating-point value to a function (e.g., localtime) that returns a time-tuple with all valid nine items.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> time localtime <span class="token operator">=</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Local current time :"</span><span class="token punctuation">,</span> localtime<span class="token punctuation">)</span></div>
+<p>This would produce the following result, which could be formatted in any other presentable form &minus;</p>
+<pre class="result notranslate">Local current time : time.struct_time(tm_year=2023, tm_mon=4, tm_mday=19, tm_hour=23, tm_min=42, tm_sec=41, tm_wday=2, tm_yday=109, tm_isdst=0)
+</pre>
+<h2>Getting the Formatted Time</h2>
+<p>You can format any time as per your requirement, but a simple method to get time in a readable format is <strong>asctime()</strong> &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> time localtime <span class="token operator">=</span> time<span class="token punctuation">.</span>asctime<span class="token punctuation">(</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Local current time :"</span><span class="token punctuation">,</span> localtime<span class="token punctuation">)</span></div>
+</div>
+<p>This would produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Local current time : Wed Apr 19 23:45:27 2023
+</pre>
+<h2>Getting the Calendar for a Month</h2>
+<p>The calendar module gives a wide range of methods to play with yearly and monthly calendars. Here, we print a calendar for a given month (Jan 2008).</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> calendar cal <span class="token operator">=</span> calendar<span class="token punctuation">.</span>month<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Here is the calendar:"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>cal<span class="token punctuation">)</span></div>
+</div>
+<p>This would produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Here is the calendar:
+     April 2023
+Mo Tu We Th Fr Sa Su
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+</pre>
+<h2>The time Module</h2>
+<p>There is a popular <strong>time</strong> module available in Python, which provides functions for working with times and for converting between representations. Here is the list of all available methods.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Function with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="/python/time_altzone.htm">time.altzone</a>
+<p>The offset of the local DST timezone, in seconds west of UTC, if one is defined. This is negative if the local DST timezone is east of UTC (as in Western Europe, including the UK). Only use this if daylight is nonzero.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="/python/time_asctime.htm">time.asctime([tupletime])</a>
+<p>Accepts a time-tuple and returns a readable 24-character string such as 'Tue Dec 11 18:07:14 2008'.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="/python/time_clock.htm">time.clock( )</a>
+<p>Returns the current CPU time as a floating-point number of seconds. To measure computational costs of different approaches, the value of time.clock is more useful than that of time.time().</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="/python/time_ctime.htm">time.ctime([secs])</a>
+<p>Like asctime(localtime(secs)) and without arguments is like asctime( )</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="/python/time_gmtime.htm">time.gmtime([secs])</a>
+<p>Accepts an instant expressed in seconds since the epoch and returns a time-tuple t with the UTC time. Note : t.tm_isdst is always 0</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="/python/time_localtime.htm">time.localtime([secs])</a>
+<p>Accepts an instant expressed in seconds since the epoch and returns a time-tuple t with the local time (t.tm_isdst is 0 or 1, depending on whether DST applies to instant secs by local rules).</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="/python/time_mktime.htm">time.mktime(tupletime)</a>
+<p>Accepts an instant expressed as a time-tuple in local time and returns a floating-point value with the instant expressed in seconds since the epoch.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="/python/time_sleep.htm">time.sleep(secs)</a>
+<p>Suspends the calling thread for secs seconds.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="/python/time_strftime.htm">time.strftime(fmt[,tupletime])</a>
+<p>Accepts an instant expressed as a time-tuple in local time and returns a string representing the instant as specified by string fmt.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="/python/time_strptime.htm">time.strptime(str,fmt='%a %b %d %H:%M:%S %Y')</a>
+<p>Parses str according to format string fmt and returns the instant in time-tuple format.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="/python/time_time.htm">time.time( )</a>
+<p>Returns the current time instant, a floating-point number of seconds since the epoch.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="/python/time_tzset.htm">time.tzset()</a>
+<p>Resets the time conversion rules used by the library routines. The environment variable TZ specifies how this is done.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Let us go through the functions briefly.</p>
+<p>There are two important attributes available with time module. They are &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Attribute with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>time.timezone</strong></p>
+<p>Attribute time.timezone is the offset in seconds of the local time zone (without DST) from UTC (&gt;0 in the Americas; &lt;=0 in most of Europe, Asia, Africa).</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>time.tzname</strong></p>
+<p>Attribute time.tzname is a pair of locale-dependent strings, which are the names of the local time zone without and with DST, respectively.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>The calendar Module</h2>
+<p>The calendar module supplies calendar-related functions, including functions to print a text calendar for a given month or year.</p>
+<p>By default, calendar takes Monday as the first day of the week and Sunday as the last one. To change this, call the <strong>calendar.setfirstweekday()</strong> function.</p>
+<p>Here is a list of functions available with the <strong>calendar</strong> module &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Function with Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong><a href="/python/python_calendar_calendar_function.htm" target="_blank">calendar.calendar()</a></strong></p>
+<p>Returns a multi-line string with a calendar for year year formatted into three columns separated by c spaces. w is the width in characters of each date; each line has length 21*w+18+2*c. l is the number of lines for each week.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong><a href="/python/python_calendar_firstweekday_function.htm" target="_blank">calendar.firstweekday()</a></strong></p>
+<p>Returns the current setting for the weekday that starts each week. By default, when calendar is first imported, this is 0, meaning Monday.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong><a href="/python/python_calendar_isleap_function.htm" target="_blank">calendar.isleap()</a></strong></p>
+<p>Returns True if year is a leap year; otherwise, False.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong><a href="/python/python_calendar_leapdays_function.htm" target="_blank">calendar.leapdays()</a></strong></p>
+<p>Returns the total number of leap days in the years within range(y1,y2).</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong><a href="/python/python_calendar_month_function.htm" target="_blank">calendar.month()</a></strong></p>
+<p>Returns a multi-line string with a calendar for month month of year year, one line per week plus two header lines. w is the width in characters of each date; each line has length 7*w+6. l is the number of lines for each week.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong><a href="/python/python_calendar_monthcalendar_function.htm" target="_blank">calendar.monthcalendar()</a></strong></p>
+<p>Returns a list of lists of ints. Each sublist denotes a week. Days outside month month of year year are set to 0; days within the month are set to their day-of-month, 1 and up.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p><strong><a href="/python/python_calendar_monthrange_function.htm" target="_blank">calendar.monthrange()</a></strong></p>
+<p>Returns two integers. The first one is the code of the weekday for the first day of the month month in year year; the second one is the number of days in the month. Weekday codes are 0 (Monday) to 6 (Sunday); month numbers are 1 to 12.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p><strong><a href="/python/python_calendar_prcal_function.htm" target="_blank">calendar.prcal()</a></strong></p>
+<p>Like print calendar.calendar(year,w,l,c).</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>
+<p><strong><a href="/python/python_calendar_prmonth_function.htm" target="_blank">calendar.prmonth()</a></strong></p>
+<p>Like print calendar.month(year,month,w,l).</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>
+<p><strong><a href="/python/python_calendar_setfirstweekday_function.htm" target="_blank">calendar.setfirstweekday()</a></strong></p>
+<p>Sets the first day of each week to weekday code weekday. Weekday codes are 0 (Monday) to 6 (Sunday).</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>
+<p><strong><a href="/python/python_calendar_timegm_function.htm" target="_blank">calendar.timegm()</a></strong></p>
+<p>The inverse of time.gmtime: accepts a time instant in time-tuple form and returns the same instant as a floating-point number of seconds since the epoch.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td>
+<p><strong><a href="/python/python_calendar_weekday_function.htm" target="_blank">calendar.weekday()</a></strong></p>
+<p>Returns the weekday code for the given date. Weekday codes are 0 (Monday) to 6 (Sunday); month numbers are 1 (January) to 12 (December).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Python datetime Module</h2>
+<p>Python's datetime module is included in the standard library. It consists of classes that help manipulate data and time data and perform date time arithmetic.</p>
+<p>Objects of datetime classes are either aware or nave. If the object includes timezone information it is aware, and if not it is classified as nave. An object of date class is nave, whereas time and datetime objects are aware.</p>
+<h2>Python date Object</h2>
+<p>A date object represents a date with year, month, and day. The current Gregorian calendar is indefinitely extended in both directions.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">datetime<span class="token punctuation">.</span>date<span class="token punctuation">(</span>year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">)</span></div>
+<p>Arguments must be integers, in the following ranges &minus;</p>
+<ul class="list">
+<li>
+<p><strong>year</strong> &minus; MINYEAR &lt;= year &lt;= MAXYEAR</p>
+</li>
+<li>
+<p><strong>month</strong> &minus; 1 &lt;= month &lt;= 12</p>
+</li>
+<li>
+<p><strong>day</strong> &minus; 1 &lt;= day &lt;= number of days in the given month and year</p>
+</li>
+</ul>
+<p>If the value of any argument outside those ranges is given, ValueError is raised.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> date date1 <span class="token operator">=</span> date<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Date:"</span><span class="token punctuation">,</span> date1<span class="token punctuation">)</span> date2 <span class="token operator">=</span> date<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Date: 2023-04-19
+Traceback (most recent call last):
+ File "C:\Python311\hello.py", line 8, in &lt;module&gt;
+  date2 = date(2023, 4, 31)
+ValueError: day is out of range for month
+</pre>
+<h3>date class attributes</h3>
+<ul class="list">
+<li>
+<p><strong>date.min</strong> &minus; The earliest representable date, date(MINYEAR, 1, 1).</p>
+</li>
+<li>
+<p><strong>date.max</strong> &minus; The latest representable date, date(MAXYEAR, 12, 31).</p>
+</li>
+<li>
+<p><strong>date.resolution</strong> &minus; The smallest possible difference between non-equal date objects.</p>
+</li>
+<li>
+<p><strong>date.year</strong> &minus; Between MINYEAR and MAXYEAR inclusive.</p>
+</li>
+<li>
+<p><strong>date.month</strong> &minus; Between 1 and 12 inclusive.</p>
+</li>
+<li>
+<p><strong>date.day</strong> &minus; Between 1 and the number of days in the given month of the given year.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> date <span class="token comment"># Getting min date</span> mindate <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token builtin">min</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Minimum Date:"</span><span class="token punctuation">,</span> mindate<span class="token punctuation">)</span> <span class="token comment"># Getting max date</span> maxdate <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token builtin">max</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Maximum Date:"</span><span class="token punctuation">,</span> maxdate<span class="token punctuation">)</span> Date1 <span class="token operator">=</span> date<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Year:"</span><span class="token punctuation">,</span> Date1<span class="token punctuation">.</span>year<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Month:"</span><span class="token punctuation">,</span> Date1<span class="token punctuation">.</span>month<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Day:"</span><span class="token punctuation">,</span> Date1<span class="token punctuation">.</span>day<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Minimum Date: 0001-01-01
+Maximum Date: 9999-12-31
+Year: 2023
+Month: 4
+Day: 20
+</pre>
+<h3>Class Methods in Date Class</h3>
+<ul class="list">
+<li>
+<p><strong>today()</strong> &minus; Return the current local date.</p>
+</li>
+<li>
+<p><strong>fromtimestamp(timestamp)</strong> &minus; Return the local date corresponding to the POSIX timestamp, such as is returned by time.time().</p>
+</li>
+<li>
+<p><strong>fromordinal(ordinal)</strong> &minus; Return the date corresponding to the proleptic Gregorian ordinal, where January 1 of year 1 has ordinal 1.</p>
+</li>
+<li>
+<p><strong>fromisoformat(date_string)</strong> &minus; Return a date corresponding to a date_string given in any valid ISO 8601 format, except ordinal dates</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> date <span class="token keyword">print</span> <span class="token punctuation">(</span>date<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> d1<span class="token operator">=</span>date<span class="token punctuation">.</span>fromisoformat<span class="token punctuation">(</span><span class="token string">'2023-04-20'</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d1<span class="token punctuation">)</span> d2<span class="token operator">=</span>date<span class="token punctuation">.</span>fromisoformat<span class="token punctuation">(</span><span class="token string">'20230420'</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d2<span class="token punctuation">)</span> d3<span class="token operator">=</span>date<span class="token punctuation">.</span>fromisoformat<span class="token punctuation">(</span><span class="token string">'2023-W16-4'</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d3<span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">2023-04-20
+2023-04-20
+2023-04-20
+2023-04-20
+</pre>
+<h3>Instance Methods in Date Class</h3>
+<ul class="list">
+<li>
+<p><strong>replace()</strong> &minus; Return a date by replacing specified attributes with new values by keyword arguments are specified.</p>
+</li>
+<li>
+<p><strong>timetuple()</strong> &minus; Return a time.struct_time such as returned by time.localtime().</p>
+</li>
+<li>
+<p><strong>toordinal()</strong> &minus; Return the proleptic Gregorian ordinal of the date, where January 1 of year 1 has ordinal 1. For any date object d, date.fromordinal(d.toordinal()) == d.</p>
+</li>
+<li>
+<p><strong>weekday()</strong> &minus; Return the day of the week as an integer, where Monday is 0 and Sunday is 6.</p>
+</li>
+<li>
+<p><strong>isoweekday()</strong> &minus; Return the day of the week as an integer, where Monday is 1 and Sunday is 7.</p>
+</li>
+<li>
+<p><strong>isocalendar()</strong> &minus; Return a named tuple object with three components: year, week and weekday.</p>
+</li>
+<li>
+<p><strong>isoformat()</strong> &minus; Return a string representing the date in ISO 8601 format, YYYY-MM-DD:</p>
+</li>
+<li>
+<p><strong>__str__()</strong> &minus; For a date d, str(d) is equivalent to d.isoformat()</p>
+</li>
+<li>
+<p><strong>ctime()</strong> &minus; Return a string representing the date:</p>
+</li>
+<li>
+<p><strong>strftime(format)</strong> &minus; Return a string representing the date, controlled by an explicit format string.</p>
+</li>
+<li>
+<p><strong>__format__(format)</strong> &minus; Same as date.strftime().</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>&nbsp;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> date d <span class="token operator">=</span> date<span class="token punctuation">.</span>fromordinal<span class="token punctuation">(</span><span class="token number">738630</span><span class="token punctuation">)</span> <span class="token comment"># 738630th day after 1. 1. 0001</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>timetuple<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Methods related to formatting string output</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%d/%m/%y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%A %d. %B %Y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The {1} is {0:%d}, the {2} is {0:%B}.'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token string">"day"</span><span class="token punctuation">,</span> <span class="token string">"month"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Methods for to extracting 'components' under different calendars</span> t <span class="token operator">=</span> d<span class="token punctuation">.</span>timetuple<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> t<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> ic <span class="token operator">=</span> d<span class="token punctuation">.</span>isocalendar<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ic<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment"># A date object is immutable; all operations produce a new object</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>month<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">2023-04-20
+time.struct_time(tm_year=2023, tm_mon=4, tm_mday=20, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=110, tm_isdst=-1)
+2023-04-20
+20/04/23
+Thursday 20. April 2023
+Thu Apr 20 00:00:00 2023
+The day is 20, the month is April.
+2023
+4
+20
+0
+0
+0
+3
+110
+-1
+2023
+16
+4
+2023-05-20
+</pre>
+<h2>Python time Module</h2>
+<p>An object time class represents the local time of the day. It is independent of any particular day. It the object contains the tzinfo details, it is the aware object. If it is None then the time object is the naive object.</p>
+<h3>Syntax</h3>
+<pre class="result notranslate">datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
+</pre>
+<p>All arguments are optional. tzinfo may be None, or an instance of a tzinfo subclass. The remaining arguments must be integers in the following ranges &minus;</p>
+<ul class="list">
+<li>
+<p><strong>hour</strong> &minus; 0 &lt;= hour &lt; 24,</p>
+</li>
+<li>
+<p><strong>minute</strong> &minus; 0 &lt;= minute &lt; 60,</p>
+</li>
+<li>
+<p><strong>second</strong> &minus; 0 &lt;= second &lt; 60,</p>
+</li>
+<li>
+<p><strong>microsecond</strong> &minus; 0 &lt;= microsecond &lt; 1000000</p>
+</li>
+</ul>
+<p>If any of the arguments are outside those ranges is given, ValueError is raised.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> time time1 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Time:"</span><span class="token punctuation">,</span> time1<span class="token punctuation">)</span> time2 <span class="token operator">=</span> time<span class="token punctuation">(</span>minute <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"time"</span><span class="token punctuation">,</span> time2<span class="token punctuation">)</span> time3 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"time"</span><span class="token punctuation">,</span> time3<span class="token punctuation">)</span> time4 <span class="token operator">=</span> time<span class="token punctuation">(</span>hour <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Time: 08:14:36
+time 00:12:00
+time 00:00:00
+Traceback (most recent call last):
+  File "/home/cg/root/64b912f27faef/main.py", line 12, in 
+    time4 = time(hour = 26)
+ValueError: hour must be in 0..23
+</pre>
+<h3>Class attributes</h3>
+<ul class="list">
+<li>
+<p><strong>time.min</strong> &minus; The earliest representable time, time(0, 0, 0, 0).</p>
+</li>
+<li>
+<p><strong>time.max</strong> &minus; The latest representable time, time(23, 59, 59, 999999).</p>
+</li>
+<li>
+<p><strong>time.resolution</strong> &minus; The smallest possible difference between non-equal time objects.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> time <span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>resolution<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">00:00:00
+23:59:59.999999
+0:00:00.000001
+</pre>
+<h3>Instance attributes</h3>
+<ul class="list">
+<li>
+<p><strong>time.hour</strong> &minus; In range(24)</p>
+</li>
+<li>
+<p><strong>time.minute</strong> &minus; In range(60)</p>
+</li>
+<li>
+<p><strong>time.second</strong> &minus; In range(60)</p>
+</li>
+<li>
+<p><strong>time.microsecond</strong> &minus; In range(1000000)</p>
+</li>
+<li>
+<p><strong>time.tzinfo</strong> &minus; the tzinfo argument to the time constructor, or None.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> time t <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>hour<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>minute<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>second<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>microsecond<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">8
+23
+455000
+</pre>
+<h3>Instance Methods of time Object</h3>
+<ul class="list">
+<li>
+<p><strong>replace()</strong> &minus; Return a time with the same value, except for those attributes given new values by whichever keyword arguments are specified.</p>
+</li>
+<li>
+<p><strong>isoformat()</strong> &minus; Return a string representing the time in ISO 8601 format</p>
+</li>
+<li>
+<p><strong>__str__()</strong> &minus; For a time t, str(t) is equivalent to t.isoformat().</p>
+</li>
+<li>
+<p><strong>strftime(format)</strong> &minus; Return a string representing the time, controlled by an explicit format string.</p>
+</li>
+<li>
+<p><strong>__format__(format)</strong> &minus; Same as time.strftime().</p>
+</li>
+<li>
+<p><strong>utcoffset()</strong> &minus; If tzinfo is None, returns None, else returns self.tzinfo.utcoffset(None),</p>
+</li>
+<li>
+<p><strong>dst()</strong> &minus; If tzinfo is None, returns None, else returns self.tzinfo.dst(None),</p>
+</li>
+<li>
+<p><strong>tzname()</strong> &minus; If tzinfo is None, returns None, else returns self.tzinfo.tzname(None), or raises an exception</p>
+</li>
+</ul>
+<h2>Python datetime object</h2>
+<p>An object of datetime class contains the information of date and time together. It assumes the current Gregorian calendar extended in both directions; like a time object, and there are exactly 3600*24 seconds in every day.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span>year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">,</span> hour<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> minute<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> second<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> microsecond<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> tzinfo<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> fold<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<p>The year, month and day arguments are required.</p>
+<ul class="list">
+<li>
+<p><strong>year</strong> &minus; MINYEAR &lt;= year &lt;= MAXYEAR,</p>
+</li>
+<li>
+<p><strong>month</strong> &minus; 1 &lt;= month &lt;= 12,</p>
+</li>
+<li>
+<p><strong>day</strong> &minus; 1 &lt;= day &lt;= number of days in the given month and year,</p>
+</li>
+<li>
+<p><strong>hour</strong> &minus; 0 &lt;= hour &lt; 24,</p>
+</li>
+<li>
+<p><strong>minute</strong> &minus; 0 &lt;= minute &lt; 60,</p>
+</li>
+<li>
+<p><strong>second</strong> &minus;0 &lt;= second &lt; 60,</p>
+</li>
+<li>
+<p><strong>microsecond</strong> &minus; 0 &lt;= microsecond &lt; 1000000,</p>
+</li>
+<li>
+<p><strong>fold</strong> &minus; in [0, 1].</p>
+</li>
+</ul>
+<p>If any argument in outside ranges is given, ValueError is raised.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime dt <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>dt<span class="token punctuation">)</span> dt <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>dt<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">2023-04-20 00:00:00
+2023-04-20 11:06:32.005000
+</pre>
+<h3>Class attributes</h3>
+<ul class="list">
+<li>
+<p><strong>datetime.min</strong> &minus; The earliest representable datetime, datetime(MINYEAR, 1, 1, tzinfo=None).</p>
+</li>
+<li>
+<p><strong>datetime.max</strong> &minus; The latest representable datetime, datetime(MAXYEAR, 12, 31, 23, 59, 59, 999999, tzinfo=None).</p>
+</li>
+<li>
+<p><strong>datetime.resolution</strong> &minus; The smallest possible difference between non-equal datetime objects, timedelta(microseconds=1).</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime <span class="token builtin">min</span> <span class="token operator">=</span> datetime<span class="token punctuation">.</span><span class="token builtin">min</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Min DateTime "</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token punctuation">)</span> <span class="token builtin">max</span> <span class="token operator">=</span> datetime<span class="token punctuation">.</span><span class="token builtin">max</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Max DateTime "</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Min DateTime 0001-01-01 00:00:00
+Max DateTime 9999-12-31 23:59:59.999999
+</pre>
+<h3>Instance Attributes of datetime Object</h3>
+<ul class="list">
+<li>
+<p><strong>datetime.year</strong> &minus; Between MINYEAR and MAXYEAR inclusive.</p>
+</li>
+<li>
+<p><strong>datetime.month</strong> &minus; Between 1 and 12 inclusive.</p>
+</li>
+<li>
+<p><strong>datetime.day</strong> &minus; Between 1 and the number of days in the given month of the given year.</p>
+</li>
+<li>
+<p><strong>datetime.hour</strong> &minus; In range(24)</p>
+</li>
+<li>
+<p><strong>datetime.minute</strong> &minus; In range(60)</p>
+</li>
+<li>
+<p><strong>datetime.second</strong> &minus; In range(60)</p>
+</li>
+<li>
+<p><strong>datetime.microsecond</strong> &minus; In range(1000000).</p>
+</li>
+<li>
+<p><strong>datetime.tzinfo</strong> &minus; The object passed as the tzinfo argument to the datetime constructor, or None if none was passed.</p>
+</li>
+<li>
+<p><strong>datetime.fold</strong> &minus; In [0, 1]. Used to disambiguate wall times during a repeated interval.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime dt <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Day: "</span><span class="token punctuation">,</span> dt<span class="token punctuation">.</span>day<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Month: "</span><span class="token punctuation">,</span> dt<span class="token punctuation">.</span>month<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Year: "</span><span class="token punctuation">,</span> dt<span class="token punctuation">.</span>year<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hour: "</span><span class="token punctuation">,</span> dt<span class="token punctuation">.</span>hour<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Minute: "</span><span class="token punctuation">,</span> dt<span class="token punctuation">.</span>minute<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Second: "</span><span class="token punctuation">,</span> dt<span class="token punctuation">.</span>second<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Day: 20
+Month: 4
+Year: 2023
+Hour: 15
+Minute: 5
+Second: 52
+</pre>
+<h3>Class Methods of datetime Object</h3>
+<ul class="list">
+<li>
+<p><strong>today()</strong> &minus; Return the current local datetime, with tzinfo None.</p>
+</li>
+<li>
+<p><strong>now(tz=None)</strong> &minus; Return the current local date and time.</p>
+</li>
+<li>
+<p><strong>utcnow()</strong> &minus; Return the current UTC date and time, with tzinfo None.</p>
+</li>
+<li>
+<p><strong>utcfromtimestamp(timestamp)</strong> &minus; Return the UTC datetime corresponding to the POSIX timestamp, with tzinfo None</p>
+</li>
+<li>
+<p><strong>fromtimestamp(timestamp, timezone.utc)</strong> &minus; On the POSIX compliant platforms, it is equivalent todatetime(1970, 1, 1, tzinfo=timezone.utc) + timedelta(seconds=timestamp)</p>
+</li>
+<li>
+<p><strong>fromordinal(ordinal)</strong> &minus; Return the datetime corresponding to the proleptic Gregorian ordinal, where January 1 of year 1 has ordinal 1.</p>
+</li>
+<li>
+<p><strong>fromisoformat(date_string)</strong> &minus; Return a datetime corresponding to a date_string in any valid ISO 8601 format.</p>
+</li>
+</ul>
+<h3>Instance Methods of datetime Object</h3>
+<ul class="list">
+<li>
+<p><strong>date()</strong> &minus; Return date object with same year, month and day.</p>
+</li>
+<li>
+<p><strong>time()</strong> &minus; Return time object with same hour, minute, second, microsecond and fold.</p>
+</li>
+<li>
+<p><strong>timetz()</strong> &minus; Return time object with same hour, minute, second, microsecond, fold, and tzinfo attributes. See also method time().</p>
+</li>
+<li>
+<p><strong>replace()</strong> &minus; Return a datetime with the same attributes, except for those attributes given new values by whichever keyword arguments are specified.</p>
+</li>
+<li>
+<p><strong>astimezone(tz=None)</strong> &minus; Return a datetime object with new tzinfo attribute tz</p>
+</li>
+<li>
+<p><strong>utcoffset()</strong> &minus; If tzinfo is None, returns None, else returns self.tzinfo.utcoffset(self)</p>
+</li>
+<li>
+<p><strong>dst()</strong> &minus; If tzinfo is None, returns None, else returns self.tzinfo.dst(self)</p>
+</li>
+<li>
+<p><strong>tzname()</strong> &minus; If tzinfo is None, returns None, else returns self.tzinfo.tzname(self)</p>
+</li>
+<li>
+<p><strong>timetuple()</strong> &minus; Return a time.struct_time such as returned by time.localtime().</p>
+</li>
+<li>
+<p><strong>atetime.toordinal()</strong> &minus; Return the proleptic Gregorian ordinal of the date.</p>
+</li>
+<li>
+<p><strong>timestamp()</strong> &minus; Return POSIX timestamp corresponding to the datetime instance.</p>
+</li>
+<li>
+<p><strong>isoweekday()</strong> &minus; Return day of the week as an integer, where Monday is 1, Sunday is 7.</p>
+</li>
+<li>
+<p><strong>isocalendar()</strong> &minus; Return a named tuple with three components: year, week and weekday.</p>
+</li>
+<li>
+<p><strong>isoformat(sep='T', timespec='auto')</strong> &minus; Return a string representing the date and time in ISO 8601 format</p>
+</li>
+<li>
+<p><strong>__str__()</strong> &minus; For a datetime instance d, str(d) is equivalent to d.isoformat(' ').</p>
+</li>
+<li>
+<p><strong>ctime()</strong> &minus; Return a string representing the date and time:</p>
+</li>
+<li>
+<p><strong>strftime(format)</strong> &minus; Return a string representing the date and time, controlled by an explicit format string.</p>
+</li>
+<li>
+<p><strong>__format__(format)</strong> &minus; Same as strftime().</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> date<span class="token punctuation">,</span> time<span class="token punctuation">,</span> timezone <span class="token comment"># Using datetime.combine()</span> d <span class="token operator">=</span> date<span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> t <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span> datetime<span class="token punctuation">.</span>combine<span class="token punctuation">(</span>d<span class="token punctuation">,</span> t<span class="token punctuation">)</span> <span class="token comment"># Using datetime.now()</span> d <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token comment"># Using datetime.strptime()</span> dt <span class="token operator">=</span> datetime<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span><span class="token string">"23/04/20 16:30"</span><span class="token punctuation">,</span> <span class="token string">"%d/%m/%y %H:%M"</span><span class="token punctuation">)</span> <span class="token comment"># Using datetime.timetuple() to get tuple of all attributes</span> tt <span class="token operator">=</span> dt<span class="token punctuation">.</span>timetuple<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> it <span class="token keyword">in</span> tt<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token comment"># Date in ISO format</span> ic <span class="token operator">=</span> dt<span class="token punctuation">.</span>isocalendar<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> it <span class="token keyword">in</span> ic<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">2023-04-20 15:12:49.816343
+2020
+4
+23
+16
+30
+0
+3
+114
+-1
+2020
+17
+4
+</pre>
+<h2>Python timedelta Object</h2>
+<p>The timedelta object represents the duration between two dates or two time objects.</p>
+<h3>Syntax</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">datetime<span class="token punctuation">.</span>timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> microseconds<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> milliseconds<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> minutes<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> weeks<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></div>
+<p>Internally, the attributes are stored in days, seconds and microseconds. Other arguments are converted to those units &minus;</p>
+<ul class="list">
+<li>
+<p>A millisecond is converted to 1000 microseconds.</p>
+</li>
+<li>
+<p>A minute is converted to 60 seconds.</p>
+</li>
+<li>
+<p>An hour is converted to 3600 seconds.</p>
+</li>
+<li>
+<p>A week is converted to 7 days.</p>
+</li>
+</ul>
+<p>While days, seconds and microseconds are then normalized so that the representation is unique.</p>
+<h3>Example</h3>
+<p>The following example shows that Python internally stores days, seconds and microseconds only.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta delta <span class="token operator">=</span> timedelta<span class="token punctuation">(</span> days<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span><span class="token number">27</span><span class="token punctuation">,</span> microseconds<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> milliseconds<span class="token operator">=</span><span class="token number">29000</span><span class="token punctuation">,</span> minutes<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">,</span> weeks<span class="token operator">=</span><span class="token number">2</span> <span class="token punctuation">)</span> <span class="token comment"># Only days, seconds, and microseconds remain</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>delta<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">114 days, 12:05:56.000010
+</pre>
+<h3>Example</h3>
+<p>The following example shows how to add timedelta object to a datetime object.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> timedelta date1 <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> date2<span class="token operator">=</span> date1<span class="token operator">+</span>timedelta<span class="token punctuation">(</span>days <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Date after 4 days:"</span><span class="token punctuation">,</span> date2<span class="token punctuation">)</span> date3 <span class="token operator">=</span> date1<span class="token operator">-</span>timedelta<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Date before 15 days:"</span><span class="token punctuation">,</span> date3<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Date after 4 days: 2023-04-24 18:05:39.509905
+Date before 15 days: 2023-04-05 18:05:39.509905
+</pre>
+<h3>Class Attributes of timedelta Object</h3>
+<ul class="list">
+<li>
+<p><strong>timedelta.min</strong> &minus; The most negative timedelta object, timedelta(-999999999).</p>
+</li>
+<li>
+<p><strong>timedelta.max</strong> &minus; The most positive timedelta object, timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999).</p>
+</li>
+<li>
+<p><strong>timedelta.resolution</strong> &minus; The smallest possible difference between non-equal timedelta objects, timedelta(microseconds=1)</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta <span class="token comment"># Getting minimum value</span> <span class="token builtin">min</span> <span class="token operator">=</span> timedelta<span class="token punctuation">.</span><span class="token builtin">min</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Minimum value:"</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token punctuation">)</span> <span class="token builtin">max</span> <span class="token operator">=</span> timedelta<span class="token punctuation">.</span><span class="token builtin">max</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Maximum value"</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Minimum value: -999999999 days, 0:00:00
+Maximum value 999999999 days, 23:59:59.999999
+</pre>
+<h3>Instance Attributes of timedelta Object</h3>
+<p>Since only day, second and microseconds are stored internally, those are the only instance attributes for a <strong>timedelta</strong> object.</p>
+<ul class="list">
+<li>
+<p><strong>days</strong> &minus; Between -999999999 and 999999999 inclusive</p>
+</li>
+<li>
+<p><strong>seconds</strong> &minus; Between 0 and 86399 inclusive</p>
+</li>
+<li>
+<p><strong>microseconds</strong> &minus; Between 0 and 999999 inclusive</p>
+</li>
+</ul>
+<h3>Instance Methods of timedelta Object</h3>
+<p><strong>timedelta.total_seconds()</strong> &minus; Return the total number of seconds contained in the duration.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta year <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">365</span><span class="token punctuation">)</span> years <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> year <span class="token keyword">print</span> <span class="token punctuation">(</span>years<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>years<span class="token punctuation">.</span>days <span class="token operator">//</span> <span class="token number">365</span><span class="token punctuation">)</span> <span class="token number">646</span> year_1 <span class="token operator">=</span> years <span class="token operator">//</span> <span class="token number">5</span> <span class="token keyword">print</span><span class="token punctuation">(</span>year_1<span class="token punctuation">.</span>days<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">1825 days, 0:00:00
+5
+365&nbsp;</pre>

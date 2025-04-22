@@ -1,0 +1,124 @@
+
+<h2>Pip in Python</h2>
+<p>In Python, <strong>pip</strong> is the standard package management system used to install and manage software packages written in Python. It allows you to easily install libraries and frameworks to extend the functionality of Python applications. pip comes bundled with Python, starting from Python version <strong>3.4</strong> and above.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Installing pip</h2>
+<p>If you are using Python 3.4 or above, pip is already included. However, if you don't have pip installed, you can install it using the following steps &minus;</p>
+<ul class="list">
+<li>
+<p>Download get-pip.py script &minus;</p>
+</li>
+</ul>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">curl https<span class="token punctuation">:</span><span class="token operator">//</span>bootstrap<span class="token punctuation">.</span>pypa<span class="token punctuation">.</span>io<span class="token operator">/</span>get<span class="token operator">-</span>pip<span class="token punctuation">.</span>py <span class="token operator">-</span>o get<span class="token operator">-</span>pip<span class="token punctuation">.</span>py</div>
+<ul>
+<li>
+<p>Run the Script</p>
+</li>
+</ul>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">python get<span class="token operator">-</span>pip<span class="token punctuation">.</span>py</div>
+<h2>Installing Packages with pip</h2>
+<p>You can use pip to install any package from the Python Package Index (PyPI), which is the official third-party software repository for Python.</p>
+<blockquote>PyPI hosts thousands of packages that you can easily integrate into your projects. These packages range from essential libraries for scientific computing, such as numpy and pandas, to web development frameworks like Django and Flask, and many more.</blockquote>
+<h3>Syntax</h3>
+<p>Following is the basic syntax to install packages with pip in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install package_name</div>
+<h3>Example</h3>
+<p>To install the requests library, you can use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install requests</div>
+<h3>Example: Specifying Versions</h3>
+<p>Sometimes, you may need a specific version of a package to ensure compatibility with your project. You can specify the version by using the == operator &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install requests<span class="token operator">==</span><span class="token number">2.25</span><span class="token number">.1</span></div>
+<h3>Example: Installing Multiple Packages</h3>
+<p>You can also install multiple packages at once by listing their names separated by spaces &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install numpy pandas matplotlib</div>
+<h2>Upgrading Packages</h2>
+<p>To upgrade a package to the latest version, you can use the <strong>--upgrade</strong> option with the pip install command.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax to upgrade a package in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install <span class="token operator">-</span><span class="token operator">-</span>upgrade package_name</div>
+<h3>Example</h3>
+<p>To upgrade the requests library, you can use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install <span class="token operator">-</span><span class="token operator">-</span>upgrade requests</div>
+<h2>Listing Installed Packages</h2>
+<p>You can list all the installed packages in your Python environment using the <strong>pip list</strong> command.</p>
+<p>When working on Python projects, it is often necessary to know which packages and versions are installed in your environment. pip provides several commands to list and manage installed packages.</p>
+<h3>Basic Listing</h3>
+<h3>&nbsp;</h3>
+<p>To list all installed packages in your current environment, use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip <span class="token builtin">list</span></div>
+<p>This command outputs a list of all installed packages along with their respective versions. This is useful for quickly checking the state of your environment.</p>
+<h3>Detailed Information</h3>
+<p>For more detailed information about each installed package, you can use the <strong>pip show</strong> command followed by the package name &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip show requests</div>
+<p>This command displays detailed information about the specified package, including &minus;</p>
+<ul class="list">
+<li>Name</li>
+<li>Version</li>
+<li>Summary</li>
+<li>Home-page</li>
+<li>Author</li>
+<li>Author-email</li>
+<li>License</li>
+<li>Location</li>
+<li>Requires</li>
+<li>Required-by</li>
+</ul>
+<h3>Outdated Packages</h3>
+<p>To check for outdated packages in your environment, you can use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip <span class="token builtin">list</span> <span class="token operator">-</span><span class="token operator">-</span>outdated</div>
+<p>This command lists all installed packages that have newer versions available. The output includes the current version and the latest version available.</p>
+<h2>Uninstalling Packages</h2>
+<p>To uninstall a package, you can use the <strong>pip uninstall</strong> command.</p>
+<p>When you no longer need a Python package in your environment, you can uninstall it using pip. Here is how you can uninstall packages &minus;</p>
+<h3>Uninstalling a Single Package</h3>
+<p>To uninstall a single package, use the pip uninstall command followed by the package name. For example, to uninstall the requests package &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip uninstall requests</div>
+<p>You will be prompted to confirm the uninstallation. Type <strong>y</strong> and press "Enter" to proceed.</p>
+<h3>Uninstalling Multiple Packages</h3>
+<p>You can also uninstall multiple packages in a single command by listing them all after pip uninstall &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip uninstall numpy pandas</div>
+<p>This command will uninstall both numpy and pandas packages.</p>
+<h2>Freezing Installed Packages</h2>
+<p>Freezing installed packages in Python refers to generating a list of all packages installed in your environment along with their versions. This list is saved to a "requirements.txt" file and can be used to recreate the exact environment elsewhere.</p>
+<h3>Using "pip freeze"</h3>
+<p>The <strong>pip freeze</strong> command lists all installed packages and their versions. You can direct its output to a "requirements.txt" file using the shell redirection <strong>&gt;</strong> operator &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip freeze <span class="token operator">&gt;</span> requirements<span class="token punctuation">.</span>txt</div>
+<p>This command creates or overwrites "requirements.txt" with a list of packages and versions in the format "package==version".</p>
+<h2>Using a requirements.txt File</h2>
+<p>A requirements.txt file is a way to specify a list of packages to be installed using pip. This is useful for ensuring that all dependencies are installed for a project.</p>
+<h3>Creating requirements.txt</h3>
+<p>To create a "requirements.txt" file with the current environment's packages, you can use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip freeze <span class="token operator">&gt;</span> requirements<span class="token punctuation">.</span>txt</div>
+<h3>Installing from requirements.txt</h3>
+<p>To install all packages listed in a requirements.txt file, you can use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install <span class="token operator">-</span>r requirements<span class="token punctuation">.</span>txt</div>
+<h2>Using Virtual Environments</h2>
+<p>Virtual environments allow you to create isolated Python environments for different projects. This ensures that dependencies for different projects do not interfere with each other.</p>
+<h3>Creating a Virtual Environment</h3>
+<p>You can create a virtual environment using the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">python <span class="token operator">-</span>m venv myenv</div>
+<p>Replace <strong>myenv</strong> with your preferred name for the virtual environment. This command creates a directory named myenv (or your specified name) containing a self-contained Python environment.</p>
+<h3>Activating the Virtual Environment</h3>
+<p>Depending on your operating system, activate the virtual environment &minus;</p>
+<ul class="list">
+<li><strong>On Windows &minus;</strong></li>
+</ul>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">myenv\Scripts\activate</div>
+<ul>
+<li><strong>On macOS and Linux &minus;</strong></li>
+</ul>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">source myenv<span class="token operator">/</span><span class="token builtin">bin</span><span class="token operator">/</span>activate</div>
+<p>Once activated, your command prompt will change to show the name of the virtual environment (myenv in this case), indicating that you are now working within it.</p>
+<h3>Deactivating the Virtual Environment</h3>
+<p>To deactivate the virtual environment and return to the global Python environment, you can use the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">deactivate</div>
+<h3>Deleting the Virtual Environment</h3>
+<p>If you no longer need the virtual environment, simply delete its directory (myenv or your chosen name) using the following command &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">rm <span class="token operator">-</span>rf myenv <span class="token comment"># On macOS and Linux</span> rmdir <span class="token operator">/</span>s myenv <span class="token comment"># On Windows</span></div>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

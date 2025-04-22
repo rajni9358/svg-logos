@@ -1,0 +1,123 @@
+<h2>Set Operators in Python</h2>
+<p>The <a href="/python/python_sets.htm" target="_blank">set</a> operators in Python are special symbols and functions that allow you to perform various operations on sets, such as union, intersection, difference, and symmetric difference. These operators provide a way to combine, compare, and modify sets.</p>
+<p>Python implements them with following set operators &minus;</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Set Union Operator (|)</h2>
+<p>The union of two sets is a set containing all distinct elements that are in A or in B or both. For example,</p>
+<pre class="result notranslate">{1,2}{2,3}={1,2,3}
+</pre>
+<p>The following diagram illustrates the union of two sets.</p>
+<img src="/python/images/union_of_two_sets.jpg" alt="Union Of Two Sets" />
+<p>In Python, you can perform the union operation using the <strong>union()</strong> function or the <strong>|</strong> operator. This operation combines the elements of two sets while eliminating duplicates, resulting in a new set containing all unique elements from both sets &minus;</p>
+<h3>Example</h3>
+<p>The following example uses the "|" operator and union() function, and returns the union of two sets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> set3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span> set4 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">}</span> union_set1 <span class="token operator">=</span> set1<span class="token punctuation">.</span>union<span class="token punctuation">(</span>set2<span class="token punctuation">)</span> union_set2 <span class="token operator">=</span> set3 <span class="token operator">|</span> set4 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The union of set1 and set2 is'</span><span class="token punctuation">,</span> union_set1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The union of set3 and set4 is'</span><span class="token punctuation">,</span> union_set2<span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">The union of set1 and set2 is {1, 2, 3, 4, 5}
+The union of set3 and set4 is {73, 6, 8, 9, 45}
+</pre>
+<h2>Python Set Intersection Operator (&amp;)</h2>
+<p>The intersection of two sets AA and BB, denoted by A&cap;B, consists of all elements that are common to both in A and B. For example,</p>
+<pre class="result notranslate">{1,2}&cap;{2,3}={2}
+</pre>
+<p>The following diagram illustrates intersection of two sets.</p>
+<img src="/python/images/intersection_operator.jpg" alt="Intersection Operator" />
+<p>Python provides the <strong>intersection()</strong> function or the <strong>&amp;</strong> operator to perform this operation. The resulting set contains only the elements present in both sets &minus;</p>
+<h3>Example</h3>
+<p>Following example uses &amp; operator and intersection() function, and returns intersection of two sets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> set3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span> set4 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">}</span> intersection_set1 <span class="token operator">=</span> set1<span class="token punctuation">.</span>intersection<span class="token punctuation">(</span>set2<span class="token punctuation">)</span> intersection_set2 <span class="token operator">=</span> set3 <span class="token operator">&amp;</span> set4 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The intersection of set1 and set2 is'</span><span class="token punctuation">,</span> intersection_set1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The intersection of set3 and set4 is'</span><span class="token punctuation">,</span> intersection_set2<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">The intersection of set1 and set2 is {3}
+The intersection of set3 and set4 is {8, 9}
+</pre>
+<h2>Python Set Difference Operator (-)</h2>
+<p>The difference (subtraction) between two sets consists of elements present in the first set but not in the second set. It is defined as follows. The set AB consists of elements that are in A but not in B. For example,</p>
+<pre class="result notranslate">If A={1,2,3} and B={3,5}, then AB={1,2}
+</pre>
+<p>The following diagram illustrates difference of two sets &minus;</p>
+<img src="/python/images/difference_operator.jpg" alt="difference_operator" />
+<p>Python provides the <strong>difference()</strong> function or the <strong>-</strong> operator to perform this operation. The resulting set contains elements unique to the first set &minus;</p>
+<h3>Example</h3>
+<p>The following example uses the "-" operator and the difference() function, and returns difference of two sets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> set3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span> set4 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">}</span> difference_set1 <span class="token operator">=</span> set1<span class="token punctuation">.</span>difference<span class="token punctuation">(</span>set2<span class="token punctuation">)</span> difference_set2 <span class="token operator">=</span> set3 <span class="token operator">-</span> set4 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The difference between set1 and set2 is'</span><span class="token punctuation">,</span> difference_set1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The difference between set3 and set4 is'</span><span class="token punctuation">,</span> difference_set2<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">The difference between set1 and set2 is {1, 2}
+The difference between set3 and set4 is {6}
+</pre>
+<p>Note that "s1-s2" is not the same as "s2-s1".</p>
+<h2>Python Set Symmetric Difference Operator</h2>
+<p>The symmetric difference of two sets consists of elements that are present in either set but not in both sets. The symmetric difference of A and B is denoted by "A &Delta; B" and is defined by &minus;</p>
+<pre class="result notranslate">A &Delta; B = (A &minus; B) &amp;Union; (B &minus; A)
+</pre>
+<p>If A = {1, 2, 3, 4, 5, 6, 7, 8} and B = {1, 3, 5, 6, 7, 8, 9}, then A &Delta; B = {2, 4, 9}.</p>
+<p>The following diagram illustrates the symmetric difference between two sets &minus;</p>
+<img src="/python/images/symmetric_difference.jpg" alt="Symmetric Difference" />
+<p>Python provides the <strong>symmetric_difference()</strong> function or the <strong>^</strong> operator to perform this operation. The resulting set contains elements that are unique to each set.</p>
+<h3>Example</h3>
+<p>The following example uses the "^" operator and the symmetric_difference() function, and returns symbolic difference of two sets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> set3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span> set4 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">}</span> symmetric_difference_set1 <span class="token operator">=</span> set1<span class="token punctuation">.</span>symmetric_difference<span class="token punctuation">(</span>set2<span class="token punctuation">)</span> symmetric_difference_set2 <span class="token operator">=</span> set3 <span class="token operator">^</span> set4 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The symmetric difference of set1 and set2 is'</span><span class="token punctuation">,</span> symmetric_difference_set1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'The symmetric difference of set3 and set4 is'</span><span class="token punctuation">,</span> symmetric_difference_set2<span class="token punctuation">)</span></div>
+</div>
+<p>The result produced is as follows &minus;</p>
+<pre class="result notranslate">The symmetric difference of set1 and set2 is {1, 2, 4, 5}
+The symmetric difference of set3 and set4 is {73, 6}
+</pre>
+<h3>Python Subset Testing Operation</h3>
+<p>You can check whether one set is a subset of another using the <strong>issubset()</strong> function or the <strong>&lt;=</strong> operator. A set <strong>A</strong> is considered a subset of another set <strong>B</strong> if all elements of <strong>A</strong> are also present in <strong>B</strong> &minus;</p>
+<h3>Example</h3>
+<p>The following example uses the "&lt;=" operator and the issubset() function, and returns subset testing of two sets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> set3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">47</span><span class="token punctuation">,</span> <span class="token number">245</span><span class="token punctuation">,</span> <span class="token number">48</span><span class="token punctuation">}</span> set4 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">47</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> is_subset1 <span class="token operator">=</span> set1<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span>set2<span class="token punctuation">)</span> is_subset2 <span class="token operator">=</span> set3 <span class="token operator">&lt;=</span> set4 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'set1 is a subset of set2:'</span><span class="token punctuation">,</span> is_subset1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'set3 is a subset of set4:'</span><span class="token punctuation">,</span> is_subset2<span class="token punctuation">)</span></div>
+</div>
+<p>The result produced is as follows &minus;</p>
+<pre class="result notranslate">set1 is a subset of set2: True
+set3 is a subset of set4: False
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,167 @@
+
+<h2>Docstrings in Python</h2>
+<p>In Python, docstrings are a way of documenting modules, classes, functions, and methods. They are written within triple quotes <strong>(""" """)</strong> and can span multiple lines.</p>
+<p>Docstrings serve as convenient way of associating documentation with Python code. They are accessible through the <strong>__doc__</strong> attribute of the respective Python objects they document. Below are the different ways to write docstrings &minus;</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Single-Line Docstrings</h2>
+<p>Single-line docstrings are used for brief and simple documentation. They provide a concise description of what the function or method does. Single-line docstrings should fit on one line within triple quotes and end with a period.</p>
+<h3>Example</h3>
+<p>In the following example, we are using a single line docstring to write a text &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">"""Return the sum of two numbers."""</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b result <span class="token operator">=</span> add<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sum:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span></div>
+</div>
+<h2>Multi-Line Docstrings</h2>
+<p>Multi-line docstrings are used for more detailed documentation. They provide a more comprehensive description, including the parameters, return values, and other relevant details. Multi-line docstrings start and end with triple quotes and include a summary line followed by a blank line and a more detailed description.</p>
+<h3>Example</h3>
+<p>The following example uses multi-line docstrings as an explanation of the code &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">multiply</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Multiply two numbers and return the result. Parameters: a (int or float): The first number. b (int or float): The second number. Returns: int or float: The result of multiplying a and b. """</span> <span class="token keyword">return</span> a <span class="token operator">*</span> b result <span class="token operator">=</span> multiply<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Product:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span></div>
+</div>
+<h2>Docstrings for Modules</h2>
+<p>When writing docstrings for modules, place the docstring at the top of the module, right after any import statements. The module docstring provide an overview of the module's functionality and list its primary components, such as list of functions, classes, and exceptions provided by the module.</p>
+<h3>Example</h3>
+<p>In this example, we demonstrate the use of docstrings for modules in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> os <span class="token triple-quoted-string string">""" This module provides Utility functions for file handling operations. Functions: - 'read_file(filepath)': Reads and returns the contents of the file. - 'write_file(filepath, content)': Writes content to the specified file. Classes: - 'FileNotFoundError': Raised when a file is not found. Example usage: &gt;&gt;&gt; import file_utils &gt;&gt;&gt; content = file_utils.read_file("example.txt") &gt;&gt;&gt; print(content) 'Hello, world!' &gt;&gt;&gt; file_utils.write_file("output.txt", "This is a test.") """</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"This is os module"</span><span class="token punctuation">)</span></div>
+</div>
+<h2>Docstrings for Classes</h2>
+<p>Classes can have docstrings to describe their purpose and usage. Each method within the class can also have its own docstring. The class docstring should provide an overview of the class and its methods.</p>
+<h3>Example</h3>
+<p>In the example below, we showcase the use of docstrings for classes in Python &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Calculator</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" A simple calculator class to perform basic arithmetic operations. Methods: - add(a, b): Return the sum of two numbers. - multiply(a, b): Return the product of two numbers. """</span> <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">"""Return the sum of two numbers."""</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token keyword">def</span> <span class="token function">multiply</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Multiply two numbers and return the result. Parameters: a (int or float): The first number. b (int or float): The second number. Returns: int or float: The result of multiplying a and b. """</span> <span class="token keyword">return</span> a <span class="token operator">*</span> b cal <span class="token operator">=</span> Calculator<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>cal<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">87</span><span class="token punctuation">,</span> <span class="token number">98</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>cal<span class="token punctuation">.</span>multiply<span class="token punctuation">(</span><span class="token number">87</span><span class="token punctuation">,</span> <span class="token number">98</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<h2>Accessing Docstrings</h2>
+<p>Docstrings in Python are accessed using the <strong>__doc__</strong> attribute of the object they document. This attribute contains the documentation string (docstring) associated with the object, providing a way to access and display information about the purpose and usage of functions, classes, modules, or methods.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining two functions, "add" and "multiply", each with a docstring describing their parameters and return values. We then use the "__doc__" attribute to access and print these docstrings &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a function with a docstring</span> <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Adds two numbers together. Parameters: a (int): The first number. b (int): The second number. Returns: int: The sum of a and b. """</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b result <span class="token operator">=</span> add<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sum:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token comment"># Define another function with a docstring</span> <span class="token keyword">def</span> <span class="token function">multiply</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Multiplies two numbers together. Parameters: x (int): The first number. y (int): The second number. Returns: int: The product of x and y. """</span> <span class="token keyword">return</span> x <span class="token operator">*</span> y result <span class="token operator">=</span> multiply<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Product:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token comment"># Accessing the docstrings</span> <span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">.</span>__doc__<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>multiply<span class="token punctuation">.</span>__doc__<span class="token punctuation">)</span></div>
+</div>
+<h2>Best Practices for Writing Docstrings</h2>
+<p>Following are the best practices for writing docstrings in Python &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Be Clear and Concise &minus;</strong> Ensure the docstring clearly explains the purpose and usage of the code, avoiding unnecessary details.</p>
+</li>
+<li>
+<p><strong>Use Proper Grammar and Spelling &minus;</strong> Ensure the docstring is well-written with correct grammar and spelling.</p>
+</li>
+<li>
+<p><strong>Follow Conventions &minus;</strong> Use the standard conventions for formatting docstrings, such as the Google style, NumPy style, or Sphinx style.</p>
+</li>
+<li>
+<p><strong>Include Examples &minus;</strong> Provide examples where applicable to illustrate how to use the documented code.</p>
+</li>
+</ul>
+<h2>Google Style Docstring</h2>
+<p>Google style docstrings provide a structured way to document Python code using indentation and headings. They are designed to be readable and informative, following a specific format.</p>
+<h3>Example</h3>
+<p>Following is an example of a function with a Google style docstring &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">divide</span><span class="token punctuation">(</span>dividend<span class="token punctuation">,</span> divisor<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Divide two numbers and return the result. Args: dividend (float): The number to be divided. divisor (float): The number to divide by. Returns: float: The result of the division. Raises: ValueError: If `divisor` is zero. """</span> <span class="token keyword">if</span> divisor <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"Cannot divide by zero"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> dividend <span class="token operator">/</span> divisor result <span class="token operator">=</span> divide<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Division:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span></div>
+</div>
+<h2>NumPy/SciPy Style Docstring</h2>
+<p>NumPy/SciPy style docstrings are common in scientific computing. They include sections for parameters, returns, and examples.</p>
+<h3>Example</h3>
+<p>Following is an example of a function with a NumPy/SciPy style docstring &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Compute the nth Fibonacci number. Parameters ---------- n : int The index of the Fibonacci number to compute. Returns ------- int The nth Fibonacci number. Examples -------- &gt;&gt;&gt; fibonacci(0) 0 &gt;&gt;&gt; fibonacci(5) 5 &gt;&gt;&gt; fibonacci(10) 55 """</span> <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span> <span class="token keyword">elif</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">1</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> fibonacci<span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> fibonacci<span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> result <span class="token operator">=</span> fibonacci<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Result:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span></div>
+</div>
+<h2>Sphinx Style Docstring</h2>
+<p>Sphinx style docstrings are compatible with the Sphinx documentation generator and use <strong>reStructuredText</strong> formatting.</p>
+<p>The reStructuredText (reST) is a lightweight markup language used for creating structured text documents. The Sphinx documentation generator takes "reStructuredText" files as input and generates high-quality documentation in various formats, including HTML, PDF, ePub, and more.</p>
+<h3>Example</h3>
+<p>Following is an example of a function with a Sphinx style docstring &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">divide</span><span class="token punctuation">(</span>dividend<span class="token punctuation">,</span> divisor<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" Divide two numbers and return the result. Args: dividend (float): The number to be divided. divisor (float): The number to divide by. Returns: float: The result of the division. Raises: ValueError: If `divisor` is zero. """</span> <span class="token keyword">if</span> divisor <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"Cannot divide by zero"</span><span class="token punctuation">)</span> <span class="token keyword">return</span> dividend <span class="token operator">/</span> divisor result <span class="token operator">=</span> divide<span class="token punctuation">(</span><span class="token number">76</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Result:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span></div>
+</div>
+<h2>Docstring vs Comment</h2>
+<p>Following are the differences highlighted between Python docstrings and comments, focusing on their purposes, formats, usages, and accessibility respectively &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 50%;">Docstring</th>
+<th style="width: 50%;">Comment</th>
+</tr>
+<tr>
+<td>Used to document Python objects such as functions, classes, methods, modules, or packages.</td>
+<td>Used to annotate code for human readers, provide context, or temporarily disable code.</td>
+</tr>
+<tr>
+<td>Written within triple quotes (""" """ or ''' ''') and placed immediately after the object's definition.</td>
+<td>Start with the # symbol and are placed on the same line as the annotated code.</td>
+</tr>
+<tr>
+<td>Stored as an attribute of the object and accessible programmatically.</td>
+<td>Ignored by the Python interpreter during execution, purely for human understanding.</td>
+</tr>
+<tr>
+<td>Accessed using the __doc__ attribute of the object.</td>
+<td>Not accessible programmatically; exists only in the source code.</td>
+</tr>
+</tbody>
+</table>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

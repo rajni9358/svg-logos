@@ -1,0 +1,216 @@
+<h2>Sets in Python</h2>
+<p>In Python, a set is an unordered collection of unique elements. Unlike lists or tuples, sets do not allow duplicate values i.e. each element in a set must be unique. Sets are mutable, meaning you can add or remove items after a set has been created.</p>
+<p>Sets are defined using curly braces <strong>{}</strong> or the built-in <strong>set()</strong> function. They are particularly useful for membership testing, removing duplicates from a sequence, and performing common mathematical set operations like union, intersection, and difference.</p>
+<blockquote>A set refers to a collection of distinct objects. It is used to group objects together and to study their properties and relationships. The objects in a set are called elements or members of the set.</blockquote>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating a Set in Python</h2>
+<p>Creating a set in Python refers to defining and initializing a collection of unique elements. This includes specifying the elements that will be part of the set, ensuring that each element is unique within the set.</p>
+<p>You can create a set in Python using curly braces {} or the set() function &minus;</p>
+<h3>Using Curly Braces</h3>
+<p>You can directly define a set by listing its elements within curly braces, separating each element by a comma as shown below &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>my_set<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following result &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5}
+</pre>
+<h3>Using the set() Function</h3>
+<p>Alternatively, you can create a set using the set() function by passing an iterable (like a list or a tuple) containing the elements you want to include in the set &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>my_set<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5}
+</pre>
+<h2>Duplicate Elements in Set</h2>
+<p>Sets in Python are unordered collections of unique elements. If you try to create a set with duplicate elements, duplicates will be automatically removed &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>my_set<span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5}
+</pre>
+<p>Sets can contain elements of different data types, including numbers, strings, and even other sets (as long as they are immutable) &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">mixed_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>mixed_set<span class="token punctuation">)</span></div>
+</div>
+<p>The result produced is as follows &minus;</p>
+<pre class="result notranslate">{1, 'hello', (1, 2, 3)}
+</pre>
+<p>In Python, sets support various basic operations that is used to manipulate their elements. These operations include adding and removing elements, checking membership, and performing set-specific operations like union, intersection, difference, and symmetric difference.</p>
+<h2>Adding Elements in a Set</h2>
+<p>To add an element to a set, you can use the add() function. This is useful when you want to include new elements into an existing set. If the element is already present in the set, the set remains unchanged &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token comment"># Adding an element 4 to the set</span> my_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>my_set<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output obtained &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4}
+</pre>
+<h2>Removing Elements from a Set</h2>
+<p>You can remove an element from a set using the remove() function. This is useful when you want to eliminate specific elements from the set. If the element is not present, a KeyError is raised &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token comment"># Removes the element 3 from the set</span> my_set<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>my_set<span class="token punctuation">)</span></div>
+</div>
+<p>The output displayed is as shown below &minus;</p>
+<pre class="result notranslate">{1, 2, 4}
+</pre>
+<p>Alternatively, you can use the <strong>discard()</strong> function to remove an element from the set if it is present. Unlike remove(), discard() does not raise an error if the element is not found in the set &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token comment"># No error even if 5 is not in the set</span> my_set<span class="token punctuation">.</span>discard<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>my_set<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4}
+</pre>
+<h2>Membership Testing in a Set</h2>
+<p>Sets provide an efficient way to check if an element is present in the set. You can use the <strong>in</strong> keyword to perform this check, which returns <strong>True</strong> if the element is present and <strong>False</strong> otherwise &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token keyword">if</span> <span class="token number">2</span> <span class="token keyword">in</span> my_set<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"2 is present in the set"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"2 is not present in the set"</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">2 is present in the set
+</pre>
+<h2>Set Operations</h2>
+<p>In Python, sets support various set operations, which is used to manipulate and compare sets. These operations include union, intersection, difference, symmetric difference, and subset testing. Sets are particularly useful when dealing with collections of unique elements and performing operations based on set theory.</p>
+<ul class="list">
+<li>
+<p><strong>Union &minus;</strong> It combine elements from both sets using the union() function or the <strong>|</strong> operator.</p>
+</li>
+<li>
+<p><strong>Intersection &minus;</strong> It is used to get common elements using the intersection() function or the <strong>&amp;</strong> operator.</p>
+</li>
+<li>
+<p><strong>Difference &minus;</strong> It is used to get elements that are in one set but not the other using the difference() function or the <strong>-</strong> operator.</p>
+</li>
+<li>
+<p><strong>Symmetric Difference &minus;</strong> It is used to get elements that are in either of the sets but not in both using the symmetric_difference() method or the <strong>^</strong> operator.</p>
+</li>
+</ul>
+<h2>Python Set Comprehensions</h2>
+<p>Set comprehensions in Python is a concise way to create sets based on iterable objects, similar to list comprehensions. It is used to generate sets by applying an expression to each item in an iterable.</p>
+<p>Set comprehensions are useful when you need to create a set from the result of applying some operation or filtering elements from another iterable.</p>
+<h3>Syntax</h3>
+<p>The syntax for set comprehensions is similar to list comprehensions, but instead of square brackets [ ], you use curly braces { } to denote a set &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set_variable <span class="token operator">=</span> <span class="token punctuation">{</span>expression <span class="token keyword">for</span> item <span class="token keyword">in</span> iterable <span class="token keyword">if</span> condition<span class="token punctuation">}</span></div>
+<h3>Example</h3>
+<p>In the following example, we are creating a set containing the squares of numbers from 1 to 5 using a set comprehension &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">squared_set <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token operator">**</span><span class="token number">2</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>squared_set<span class="token punctuation">)</span></div>
+</div>
+<p>The output obtained is as follows &minus;</p>
+<pre class="result notranslate">{1, 4, 9, 16, 25}
+</pre>
+<h2>Filtering Elements Using Set Comprehensions</h2>
+<p>You can include conditional statements in set comprehensions to filter elements based on certain criteria. For instance, to create a set of even numbers from 1 to 10, you can use a set comprehension with an if condition as shown below &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">even_set <span class="token operator">=</span> <span class="token punctuation">{</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">if</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>even_set<span class="token punctuation">)</span></div>
+</div>
+<p>This will produce the following output &minus;</p>
+<pre class="result notranslate">{2, 4, 6, 8, 10}
+</pre>
+<h2>Nested Set Comprehensions</h2>
+<p>Set comprehensions also support nested loops, allowing you to create sets from nested iterables. This can be useful for generating combinations or permutations of elements.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">nested_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">for</span> y <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>nested_set<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">{(1, 1), (1, 2), (2, 1), (2, 2)}
+</pre>
+<h2>Frozen Sets</h2>
+<p>In Python, a frozen set is an immutable collection of unique elements, similar to a regular set but with the distinction that it cannot be modified after creation. Once created, the elements within a frozen set cannot be added, removed, or modified, making it a suitable choice when you need an immutable set.</p>
+<p>You can create a frozen set in Python using the frozenset() function by passing an iterable (such as a list, tuple, or another set) containing the elements you want to include in the frozen set.</p>
+<h3>Example</h3>
+<p>In the following example, we are creating a frozen set of integers and then adding an element to it &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_frozen_set <span class="token operator">=</span> <span class="token builtin">frozenset</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>my_frozen_set<span class="token punctuation">)</span> my_frozen_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">frozenset({1, 2, 3})
+Traceback (most recent call last):
+  File "/home/cg/root/664b2732e125d/main.py", line 3, in &lt;module&gt;
+    my_frozen_set.add(4)
+AttributeError: 'frozenset' object has no attribute 'add'&nbsp;</pre>

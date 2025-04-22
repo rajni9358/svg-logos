@@ -1,0 +1,107 @@
+<p>Daemon threads in Python are useful for running background tasks that are not critical to the program's operation. They allow you to run tasks in the background without worrying about keeping track of them.</p>
+<p>Python provides two types of threads: non-daemon and daemon threads. By default, threads are non-daemon threads. This tutorial provides a detailed explanation with relevant examples about daemon threads in Python programming.</p>
+<h2>Overview of Daemon Threads</h2>
+<p>Sometimes, it is necessary to execute a task in the background. A special type of thread is used for background tasks, called a daemon thread. In other words, daemon threads execute tasks in the background. These threads handle non-critical tasks that may be useful to the application but do not hamper it if they fail or are canceled mid-operation.</p>
+<p>Also, a daemon thread will not have control over when it is terminated. The program will terminate once all non-daemon threads finish, even if there are daemon threads still running at that point of time.</p>
+<h3>Difference Between Daemon &amp; Non-Daemon Threads</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Daemon</th>
+<th style="text-align: center;">Non-daemon</th>
+</tr>
+<tr>
+<td>A process will exit if only daemon threads are running (or if no threads are running).</td>
+<td>A process will not exit if at least one non-daemon thread is running.</td>
+</tr>
+<tr>
+<td>Daemon threads are used for background tasks.</td>
+<td>Non-daemon threads are used for critical tasks.</td>
+</tr>
+<tr>
+<td>Daemon threads are terminated abruptly.</td>
+<td>Non-daemon threads run to completion.</td>
+</tr>
+</tbody>
+</table>
+<p>Daemon threads can perform tasks such as &minus;</p>
+<ul class="list">
+<li>
+<p>Create a file that stores Log information in the background.</p>
+</li>
+<li>
+<p>Perform web scraping in the background.</p>
+</li>
+<li>
+<p>Save the data automatically into a database in the background.</p>
+</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Creating a Daemon Thread in Python</h2>
+<p>To create a daemon thread, you need to set the <strong>daemon</strong> property to True of the <strong>Thread</strong> constructor.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">t1<span class="token operator">=</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>daemon<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></div>
+<p>By default the <strong>daemon</strong> property is set to None, If you change it to not None, daemon explicitly sets whether the thread is daemonic.</p>
+<h3>Example</h3>
+<p>Take a look at the following example to create a daemon thread and check whether the thread daemonic or not using the <strong>daemon</strong> attribute.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">from</span> time <span class="token keyword">import</span> sleep <span class="token comment"># function to be executed in a new thread</span> <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># get the current thread</span> thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># is it a daemon thread?</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Daemon thread: </span><span class="token interpolation"><span class="token punctuation">{</span>thread<span class="token punctuation">.</span>daemon<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span> <span class="token comment"># Create a new thread and set it as daemon</span> thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>run<span class="token punctuation">,</span> daemon<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment"># start the thread</span> thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Is Main Thread is Daemon thread:'</span><span class="token punctuation">,</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>daemon<span class="token punctuation">)</span> <span class="token comment"># Block for a short time to allow the daemon thread to run</span> sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Daemon thread: True
+Is Main Thread is Daemon thread: False
+</pre>
+<p>If a thread object is created in the main thread without any parameters, then the created thread will be a non-daemon thread because the main thread is not a daemon thread. Therefore, all threads created in the main thread default to non-daemon. However, we can change the <strong>daemon</strong> property to <strong>True</strong> by using the <strong>Thread.daemon</strong> attribute before <a href="/python/python_starting_thread.htm">starting the thread</a>, nothing but before calling the <strong>start()</strong> method.</p>
+<h3>Example</h3>
+<p>Here is an example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">from</span> time <span class="token keyword">import</span> sleep <span class="token comment"># function to be executed in a new thread</span> <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># get the current thread</span> thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># is it a daemon thread?</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Daemon thread: </span><span class="token interpolation"><span class="token punctuation">{</span>thread<span class="token punctuation">.</span>daemon<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span> <span class="token comment"># Create a new thread </span> thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>run<span class="token punctuation">)</span> <span class="token comment"># Using the daemon property set the thread as daemon before starting the thread</span> thread<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># start the thread</span> thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Is Main Thread is Daemon thread:'</span><span class="token punctuation">,</span> threading<span class="token punctuation">.</span>current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>daemon<span class="token punctuation">)</span> <span class="token comment"># Block for a short time to allow the daemon thread to run</span> sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span></div>
+</div>
+<p>On executing the above program, we will get the following output &minus;</p>
+<pre class="result notranslate">Daemon thread: True
+Is Main Thread is Daemon thread: False
+</pre>
+<h2>Managing the Daemon Thread Attribute</h2>
+<p>If you attempt to set the daemon status of a thread after starting it, then a RuntimeError will be raised.</p>
+<h3>Example</h3>
+<p>Here is another example that demonstrates the getting the RuntimeError when you try to set the daemon status of a thread after starting it.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> time <span class="token keyword">import</span> sleep <span class="token keyword">from</span> threading <span class="token keyword">import</span> current_thread <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread <span class="token comment"># function to be executed in a new thread</span> <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># get the current thread</span> thread <span class="token operator">=</span> current_thread<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># is it a daemon thread?</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Daemon thread: </span><span class="token interpolation"><span class="token punctuation">{</span>thread<span class="token punctuation">.</span>daemon<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span> thread<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># create a new thread</span> thread <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>run<span class="token punctuation">)</span> <span class="token comment"># start the new thread</span> thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># block for a 0.5 sec for daemon thread to run</span> sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Daemon thread: False
+Exception in thread Thread-1 (run):
+Traceback (most recent call last):
+   . . . .
+   . . . .
+    thread.daemon = True
+  File "/usr/lib/python3.10/threading.py", line 1203, in daemon
+    raise RuntimeError("cannot set daemon status of active thread")
+RuntimeError: cannot set daemon status of active thread
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

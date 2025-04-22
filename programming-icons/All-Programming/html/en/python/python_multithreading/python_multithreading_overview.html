@@ -1,0 +1,164 @@
+
+<p>In Python, multithreading allows you to run multiple threads concurrently within a single process, which is also known as thread-based parallelism. This means a program can perform multiple tasks at the same time, enhancing its efficiency and responsiveness.</p>
+<p>Multithreading in Python is especially useful for multiple I/O-bound operations, rather than for tasks that require heavy computation.</p>
+<p>Generally, a computer program sequentially executes the instructions, from start to the end. Whereas, Multithreading divides the main task into more than one sub-task and executes them in an overlapping manner.</p>
+<h2>Comparison with Processes</h2>
+<p>An operating system is capable of handling multiple processes concurrently. It allocates a separate memory space to each process so that one process cannot access or write anything in other's space.</p>
+<p>On the other hand, a thread can be considered a lightweight sub-process in a single program that shares the memory space allocated to it, facilitating easier communication and data sharing. As they are lightweight and do not require much memory overhead; they are cheaper than processes.</p>
+<img src="/python/images/multithreading.JPG" alt="multithreading" />
+<p>A process always starts with a single thread (main thread). As and when required, a new thread can be started and sub task is delegated to it. Now the two threads are working in an overlapping manner. When the task assigned to the secondary thread is over, it merges with the main thread.</p>
+<p>A thread has a beginning, an execution sequence, and a conclusion. It has an instruction pointer that keeps track of where it is currently running within its context.</p>
+<ul class="list">
+<li>
+<p>It can be pre-empted (interrupted)</p>
+</li>
+<li>
+<p>It can temporarily be put on hold (also known as sleeping) while other threads are running - this is called yielding.</p>
+</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Thread Handling Modules in Python</h2>
+<p>Python's standard library provides two main modules for managing threads: <strong>_thread</strong> and <strong>threading</strong>.</p>
+<h3>The _thread Module</h3>
+<p>The _thread module, also known as the low-level thread module, has been a part of Python's standard library since version 2. It offers a basic API for thread management, supporting concurrent execution of threads within a shared global data space. The module includes simple locks (mutexes) for synchronization purposes.</p>
+<h3>The threading Module</h3>
+<p>The threading module, introduced in Python 2.4, builds upon _thread to provide a higher-level and more comprehensive threading API. It offers powerful tools for managing threads, making it easier to work with threads in Python applications.</p>
+<p><strong>Key Features of the threading Module</strong></p>
+<p>The threading module exposes all the methods of the thread module and provides some additional methods &minus;</p>
+<ul class="list">
+<li>threading.activeCount() Returns the number of thread objects that are active.</li>
+<li>threading.currentThread() Returns the number of thread objects in the caller's thread control.</li>
+<li>threading.enumerate() Returns a list of all thread objects that are currently active.</li>
+</ul>
+<p>In addition to the methods, the threading module has the Thread class that implements threading. The methods provided by the Thread class are as follows &minus;</p>
+<ul class="list">
+<li>run() The run() method is the entry point for a thread.</li>
+<li>start() The start() method starts a thread by calling the run method.</li>
+<li>join([time]) The join() waits for threads to terminate.</li>
+<li>isAlive() The isAlive() method checks whether a thread is still executing.</li>
+<li>getName() The getName() method returns the name of a thread.</li>
+<li>setName() The setName() method sets the name of a thread.</li>
+</ul>
+<h2>Starting a New Thread</h2>
+<p>To create and start a new thread in Python, you can use either the low-level <em>_thread</em> module or the higher-level <em>threading</em> module. The threading module is generally recommended due to its additional features and ease of use. Below, you can see both approaches.</p>
+<h3>Starting a New Thread Using the _thread Module</h3>
+<p>The <strong>start_new_thread()</strong> method of the <em>_thread</em> module provides a basic way to create and start new threads. This method provides a fast and efficient way to create new threads in both Linux and Windows. Following is the syntax of the method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">thread<span class="token punctuation">.</span>start_new_thread<span class="token punctuation">(</span>function<span class="token punctuation">,</span> args<span class="token punctuation">[</span><span class="token punctuation">,</span> kwargs<span class="token punctuation">]</span> <span class="token punctuation">)</span></div>
+<p>This method call returns immediately, and the new thread starts executing the specified function with the given arguments. When the function returns, the thread terminates.</p>
+<p><strong>Example</strong></p>
+<p>This example demonstrates how to use the <strong>_thread</strong> module to create and run threads. Each thread runs the print_name function with different arguments. The time.sleep(0.5) call ensures that the main program waits for the threads to complete their execution before exiting.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> _thread <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">print_name</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>arg<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>arg<span class="token punctuation">)</span> name<span class="token operator">=</span><span class="token string">"Tutorialspoint..."</span> _thread<span class="token punctuation">.</span>start_new_thread<span class="token punctuation">(</span>print_name<span class="token punctuation">,</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> _thread<span class="token punctuation">.</span>start_new_thread<span class="token punctuation">(</span>print_name<span class="token punctuation">,</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Tutorialspoint... 1
+Tutorialspoint... 1 2
+</pre>
+<p>Although it is very effective for low-level threading, but the _thread module is limited compared to the <strong>threading</strong> module, which offers more features and higher-level thread management.</p>
+<h3>Starting a New Thread Using the <em>Threading</em> Module</h3>
+<p>The <strong>threading</strong> module provides the <strong>Thread</strong> class, which is used to create and manage threads.</p>
+<p>Here are a few steps to start a new thread using the threading module &minus;</p>
+<ul class="list">
+<li>Create a function that you want the thread to execute.</li>
+<li>Then create a Thread object using the <strong>Thread</strong> class by passing the target function and its arguments.</li>
+<li>Call the start method on the Thread object to begin execution.</li>
+<li>Optionally, call the join method to wait for the thread to complete before proceeding.</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>The following example demonstrates how to create and start threads using the threading module. It runs a function print_name that prints a name along with some arguments. This example creates two threads, starts them using the start() method, and waits for them to complete using the <strong>join</strong> method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token keyword">def</span> <span class="token function">print_name</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span> name <span class="token operator">=</span> <span class="token string">"Tutorialspoint..."</span> <span class="token comment"># Create and start threads</span> thread1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>print_name<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> thread2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>print_name<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> thread1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> thread2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Wait for threads to complete</span> thread1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> thread2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Threads are finished...exiting"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Tutorialspoint... 1
+Tutorialspoint... 1 2
+Threads are finished...exiting
+</pre>
+<h2>Synchronizing Threads</h2>
+<p>The threading module provided with Python includes a simple-to-implement locking mechanism that allows you to synchronize threads. A new lock is created by calling the <em>Lock()</em> method, which returns the new lock.</p>
+<p>The <em>acquire(blocking)</em> method of the new lock object is used to force threads to run synchronously. The optional <em>blocking</em> parameter enables you to control whether the thread waits to acquire the lock.</p>
+<p>If <em>blocking</em> is set to 0, the thread returns immediately with a 0 value if the lock cannot be acquired and with a 1 if the lock was acquired. If blocking is set to 1, the thread blocks and wait for the lock to be released.</p>
+<p>The <em>release()</em> method of the new lock object is used to release the lock when it is no longer required.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token keyword">class</span> <span class="token class-name">myThread</span> <span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> threadID<span class="token punctuation">,</span> name<span class="token punctuation">,</span> counter<span class="token punctuation">)</span><span class="token punctuation">:</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span> self<span class="token punctuation">.</span>threadID <span class="token operator">=</span> threadID self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>counter <span class="token operator">=</span> counter <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Starting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment"># Get lock to synchronize threads</span> threadLock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span> print_time<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> self<span class="token punctuation">.</span>counter<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># Free lock to release next thread</span> threadLock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">print_time</span><span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> counter<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">while</span> counter<span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>delay<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"%s: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> counter <span class="token operator">-=</span> <span class="token number">1</span> threadLock <span class="token operator">=</span> threading<span class="token punctuation">.</span>Lock<span class="token punctuation">(</span><span class="token punctuation">)</span> threads <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment"># Create new threads</span> thread1 <span class="token operator">=</span> myThread<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Thread-1"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> thread2 <span class="token operator">=</span> myThread<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"Thread-2"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># Start new Threads</span> thread1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> thread2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Add threads to thread list</span> threads<span class="token punctuation">.</span>append<span class="token punctuation">(</span>thread1<span class="token punctuation">)</span> threads<span class="token punctuation">.</span>append<span class="token punctuation">(</span>thread2<span class="token punctuation">)</span> <span class="token comment"># Wait for all threads to complete</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> threads<span class="token punctuation">:</span> t<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Exiting Main Thread"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Starting Thread-1
+Starting Thread-2
+Thread-1: Thu Mar 21 09:11:28 2013
+Thread-1: Thu Mar 21 09:11:29 2013
+Thread-1: Thu Mar 21 09:11:30 2013
+Thread-2: Thu Mar 21 09:11:32 2013
+Thread-2: Thu Mar 21 09:11:34 2013
+Thread-2: Thu Mar 21 09:11:36 2013
+Exiting Main Thread
+</pre>
+<h2>Multithreaded Priority Queue</h2>
+<p>The <em>Queue</em> module allows you to create a new queue object that can hold a specific number of items. There are following methods to control the Queue &minus;</p>
+<ul class="list">
+<li>
+<p><strong>get()</strong> &minus; The get() removes and returns an item from the queue.</p>
+</li>
+<li>
+<p><strong>put()</strong> &minus; The put adds item to a queue.</p>
+</li>
+<li>
+<p><strong>qsize()</strong> &minus; The qsize() returns the number of items that are currently in the queue.</p>
+</li>
+<li>
+<p><strong>empty()</strong> &minus; The empty( ) returns True if queue is empty; otherwise, False.</p>
+</li>
+<li>
+<p><strong>full()</strong> &minus; the full() returns True if queue is full; otherwise, False.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> queue <span class="token keyword">import</span> threading <span class="token keyword">import</span> time exitFlag <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">class</span> <span class="token class-name">myThread</span> <span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> threadID<span class="token punctuation">,</span> name<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">:</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span> self<span class="token punctuation">.</span>threadID <span class="token operator">=</span> threadID self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>q <span class="token operator">=</span> q <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Starting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> process_data<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> self<span class="token punctuation">.</span>q<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Exiting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">process_data</span><span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token keyword">not</span> exitFlag<span class="token punctuation">:</span> queueLock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token keyword">not</span> workQueue<span class="token punctuation">.</span>empty<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> data <span class="token operator">=</span> q<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span> queueLock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"%s processing %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> queueLock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> threadList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Thread-1"</span><span class="token punctuation">,</span> <span class="token string">"Thread-2"</span><span class="token punctuation">,</span> <span class="token string">"Thread-3"</span><span class="token punctuation">]</span> nameList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"One"</span><span class="token punctuation">,</span> <span class="token string">"Two"</span><span class="token punctuation">,</span> <span class="token string">"Three"</span><span class="token punctuation">,</span> <span class="token string">"Four"</span><span class="token punctuation">,</span> <span class="token string">"Five"</span><span class="token punctuation">]</span> queueLock <span class="token operator">=</span> threading<span class="token punctuation">.</span>Lock<span class="token punctuation">(</span><span class="token punctuation">)</span> workQueue <span class="token operator">=</span> queue<span class="token punctuation">.</span>Queue<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> threads <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> threadID <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># Create new threads</span> <span class="token keyword">for</span> tName <span class="token keyword">in</span> threadList<span class="token punctuation">:</span> thread <span class="token operator">=</span> myThread<span class="token punctuation">(</span>threadID<span class="token punctuation">,</span> tName<span class="token punctuation">,</span> workQueue<span class="token punctuation">)</span> thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> threads<span class="token punctuation">.</span>append<span class="token punctuation">(</span>thread<span class="token punctuation">)</span> threadID <span class="token operator">+=</span> <span class="token number">1</span> <span class="token comment"># Fill the queue</span> queueLock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> word <span class="token keyword">in</span> nameList<span class="token punctuation">:</span> workQueue<span class="token punctuation">.</span>put<span class="token punctuation">(</span>word<span class="token punctuation">)</span> queueLock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Wait for queue to empty</span> <span class="token keyword">while</span> <span class="token keyword">not</span> workQueue<span class="token punctuation">.</span>empty<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">pass</span> <span class="token comment"># Notify threads it's time to exit</span> exitFlag <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># Wait for all threads to complete</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> threads<span class="token punctuation">:</span> t<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Exiting Main Thread"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Starting Thread-1
+Starting Thread-2
+Starting Thread-3
+Thread-1 processing One
+Thread-2 processing Two
+Thread-3 processing Three
+Thread-1 processing Four
+Thread-2 processing Five
+Exiting Thread-3
+Exiting Thread-1
+Exiting Thread-2
+Exiting Main Thread
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>

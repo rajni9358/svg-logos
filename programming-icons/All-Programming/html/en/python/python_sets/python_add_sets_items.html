@@ -1,0 +1,135 @@
+<h2>Add Set Items</h2>
+<p>Adding <a href="/python/python_sets.htm" target="_blank">set</a> items implies including new elements into an existing set. In Python, sets are mutable, which means you can modify them after they have been created. While the elements within a set must be immutable (such as integers, strings, or tuples), the set itself can be modified.</p>
+<p>You can add items to a set using various methods, such as add(), update(), or set operations like union (|) and set comprehension.</p>
+<h2>Add Set Items Using the add() Method</h2>
+<p>The add() method in Python is used to add a single element to the set. It modifies the set by inserting the specified element if it is not already present. If the element is already in the set, the add() method has no change in the set.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax to add an element to a set &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">set</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+<p>Where, <strong>obj</strong> is an object of any immutable type.</p>
+<h3>Example</h3>
+<p>In the following example, we are initializing an empty set called "language" and adding elements to it using the add() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining an empty set</span> language <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Adding elements to the set using add() method</span> language<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span> language<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"C++"</span><span class="token punctuation">)</span> language<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">)</span> language<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"Python"</span><span class="token punctuation">)</span> <span class="token comment"># Printing the updated set</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Set:"</span><span class="token punctuation">,</span> language<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Updated Set: {'Python', 'Java', 'C++', 'C'}
+</pre>
+<h2>Add Set Items Using the update() Method</h2>
+<p>In Python, the update() method of set class is used to add multiple elements to the set. It modifies the set by adding elements from an iterable (such as another set, list, tuple, or string) to the current set. The elements in the iterable are inserted into the set if they are not already present.</p>
+<h3>Syntax</h3>
+<p>Following is the syntax to update an element to a set &minus;</p>
+<pre class="result notranslate">set.update(obj)
+</pre>
+<p>Where, <strong>obj</strong> is a set or a sequence object (list, tuple, string).</p>
+<h3>Example: Adding a Single Set Item</h3>
+<p>In the example below, we initialize a set called "my_set". Then, we use the update() method to add the element "4" to the set &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Define a set</span> my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token comment"># Adding element to the set</span> my_set<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Print the updated set</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Set:"</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Updated Set: {1, 2, 3, 4}
+</pre>
+<h3>Example: Adding any Sequence Object as Set Items</h3>
+<p>The update() method also accepts any sequence object as argument.</p>
+<p>In this example, we first define a set and a tuple, lang1 and lang2, containing different programming languages. Then, we add all elements from "lang2" to "lang1" using the update() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining a set</span> lang1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token string">"C++"</span><span class="token punctuation">,</span> <span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">}</span> <span class="token comment"># Defining a tuple</span> lang2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"PHP"</span><span class="token punctuation">,</span> <span class="token string">"C#"</span><span class="token punctuation">,</span> <span class="token string">"Perl"</span><span class="token punctuation">}</span> lang1<span class="token punctuation">.</span>update<span class="token punctuation">(</span>lang2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>lang1<span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">{'Python', 'C++', 'C#', 'C', 'Java', 'PHP', 'Perl'}
+</pre>
+<h3>Example</h3>
+<p>In this example, a set is constructed from a string, and another string is used as argument for update() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span> set1<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>set1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{'H', 'r', 'o', 'd', 'W', 'l', 'e'}
+</pre>
+<h2>Add Set Items Using Union Operator</h2>
+<p>In Python, the union operator (|) is used to perform a union operation between two sets. The union of two sets contains all the distinct elements present in either of the sets, without any duplicates.</p>
+<p>We can add set items using the union operator by performing the union operation between two sets using the "|" operator or union() function, which combines the elements from both sets into a new set, containing all unique elements present in either of the original sets.</p>
+<h3>Example</h3>
+<p>The following example combine sets using the union() method and the | operator to create new sets containing unique elements from the original sets &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining three sets</span> lang1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token string">"C++"</span><span class="token punctuation">,</span> <span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">}</span> lang2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"PHP"</span><span class="token punctuation">,</span> <span class="token string">"C#"</span><span class="token punctuation">,</span> <span class="token string">"Perl"</span><span class="token punctuation">}</span> lang3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"SQL"</span><span class="token punctuation">,</span> <span class="token string">"C#"</span><span class="token punctuation">}</span> <span class="token comment"># Performing union operation </span> combined_set1 <span class="token operator">=</span> lang1<span class="token punctuation">.</span>union<span class="token punctuation">(</span>lang2<span class="token punctuation">)</span> combined_set2 <span class="token operator">=</span> lang2 <span class="token operator">|</span> lang3 <span class="token comment"># Print the combined set</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Combined Set1:"</span><span class="token punctuation">,</span> combined_set1<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Combined Set2:"</span><span class="token punctuation">,</span> combined_set2<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">Combined Set1: {'C#', 'Perl', 'C++', 'Java', 'PHP', 'Python', 'C'}
+Combined Set2: {'C#', 'Perl', 'PHP', 'SQL'}
+</pre>
+<h3>Example</h3>
+<p>If a sequence object is given as argument to union() method, Python automatically converts it to a set first and then performs union &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">lang1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token string">"C++"</span><span class="token punctuation">,</span> <span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">}</span> lang2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"PHP"</span><span class="token punctuation">,</span> <span class="token string">"C#"</span><span class="token punctuation">,</span> <span class="token string">"Perl"</span><span class="token punctuation">]</span> lang3 <span class="token operator">=</span> lang1<span class="token punctuation">.</span>union<span class="token punctuation">(</span>lang2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>lang3<span class="token punctuation">)</span></div>
+</div>
+<p>The output produced is as follows &minus;</p>
+<pre class="result notranslate">{'PHP', 'C#', 'Python', 'C', 'Java', 'C++', 'Perl'}
+</pre>
+<h2>Add Set Items Using Set Comprehension</h2>
+<p>In Python, set comprehension is a way to create sets using a single line of code. It allows you to generate a new set by applying an expression to each item in an iterable (such as a list, tuple, or range), optionally including a condition to filter elements.</p>
+<p>We can add set items using set comprehension by iterating over an iterable, applying an expression to each element, and enclosing the comprehension expression within curly braces {} to generate a new set containing the results of the expression applied to each element.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining a list of integers and then using set comprehension to generate a set containing the squares of those integers &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining a list containing integers</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment"># Creating a set containing squares of numbers using set comprehension</span> squares_set <span class="token operator">=</span> <span class="token punctuation">{</span>num <span class="token operator">**</span> <span class="token number">2</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> numbers<span class="token punctuation">}</span> <span class="token comment"># Printing the set containing squares of numbers</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Squares Set:"</span><span class="token punctuation">,</span> squares_set<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Squares Set: {1, 4, 9, 16, 25}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

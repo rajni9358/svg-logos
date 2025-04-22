@@ -1,0 +1,127 @@
+<p>Inter-Thread Communication refers to the process of enabling communication and synchronization between threads within a Python multi-threaded program.</p>
+<p>Generally, threads in Python share the same memory space within a process, which allows them to exchange data and coordinate their activities through shared variables, objects, and specialized synchronization mechanisms provided by the <strong>threading</strong> module.</p>
+<p>To facilitate inter-thread communication, the threading module provides various synchronization primitives like, Locks, Events, Conditions, and Semaphores objects. In this tutorial you will learn how to use the Event and Condition object for providing the communication between threads in a multi-threaded program.</p>
+<h2>The Event Object</h2>
+<p>An Event object manages the state of an internal flag so that threads can wait or set. <strong>Event</strong> object provides methods to control the state of this flag, allowing threads to synchronize their activities based on shared conditions.</p>
+<p>The flag is initially false and becomes true with the set() method and reset to false with the clear() method. The wait() method blocks until the flag is true.</p>
+<p>Following are the key methods of the <strong>Event</strong> object &minus;</p>
+<ul class="list">
+<li><strong>is_set()</strong>: Return True if and only if the internal flag is true.</li>
+<li><strong>set()</strong>: Set the internal flag to true. All threads waiting for it to become true are awakened. Threads that call wait() once the flag is true will not block at all.</li>
+<li><strong>clear()</strong>: Reset the internal flag to false. Subsequently, threads calling wait() will block until set() is called to set the internal flag to true again.</li>
+<li><strong>wait(timeout=None)</strong>: Block until the internal flag is true. If the internal flag is true on entry, return immediately. Otherwise, block until another thread calls set() to set the flag to true, or until the optional timeout occurs. When the timeout argument is present and not None, it should be a floating point number specifying a timeout for the operation in seconds.</li>
+</ul>
+<h3>Example</h3>
+<p>The following code attempts to simulate the traffic flow being controlled by the state of traffic signal either GREEN or RED.</p>
+<p>There are two threads in the program, targeting two different functions. The signal_state() function periodically sets and resets the event indicating change of signal from GREEN to RED.</p>
+<p>The traffic_flow() function waits for the event to be set, and runs a loop till it remains set.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Event<span class="token punctuation">,</span> Thread <span class="token keyword">import</span> time terminate <span class="token operator">=</span> <span class="token boolean">False</span> <span class="token keyword">def</span> <span class="token function">signal_state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">global</span> terminate <span class="token keyword">while</span> <span class="token keyword">not</span> terminate<span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Traffic Police Giving GREEN Signal"</span><span class="token punctuation">)</span> event<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Traffic Police Giving RED Signal"</span><span class="token punctuation">)</span> event<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">traffic_flow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">global</span> terminate num <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">while</span> num <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token keyword">and</span> <span class="token keyword">not</span> terminate<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Waiting for GREEN Signal"</span><span class="token punctuation">)</span> event<span class="token punctuation">.</span>wait<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"GREEN Signal ... Traffic can move"</span><span class="token punctuation">)</span> <span class="token keyword">while</span> event<span class="token punctuation">.</span>is_set<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token keyword">not</span> terminate<span class="token punctuation">:</span> num <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Vehicle No:"</span><span class="token punctuation">,</span> num<span class="token punctuation">,</span><span class="token string">" Crossing the Signal"</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"RED Signal ... Traffic has to wait"</span><span class="token punctuation">)</span> event <span class="token operator">=</span> Event<span class="token punctuation">(</span><span class="token punctuation">)</span> t1 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>signal_state<span class="token punctuation">)</span> t2 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>traffic_flow<span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Terminate the threads after some time</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> terminate <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># join all threads to complete</span> t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting Main Thread"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>On executing the above code you will get the following output &minus;</p>
+<pre class="result notranslate">Waiting for GREEN Signal
+Traffic Police Giving GREEN Signal
+GREEN Signal ... Traffic can move
+Vehicle No: 1  Crossing the Signal
+Traffic Police Giving RED Signal
+RED Signal ... Traffic has to wait
+Waiting for GREEN Signal
+Traffic Police Giving GREEN Signal
+GREEN Signal ... Traffic can move
+Vehicle No: 2  Crossing the Signal
+Vehicle No: 3  Crossing the Signal
+Traffic Police Giving RED Signal
+Traffic Police Giving GREEN Signal
+Vehicle No: 4  Crossing the Signal
+Traffic Police Giving RED Signal
+RED Signal ... Traffic has to wait
+Traffic Police Giving GREEN Signal
+Traffic Police Giving RED Signal
+Exiting Main Thread
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>The Condition Object</h2>
+<p>The Condition object in Python's <strong>threading</strong> module provides a more advanced synchronization mechanism. It allows threads to wait for a notification from another thread before proceeding. The Condition object are always associated with a lock and provide mechanisms for signaling between threads.</p>
+<p>Following is the syntax of the threading.Condition() class &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">threading<span class="token punctuation">.</span>Condition<span class="token punctuation">(</span>lock<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span></div>
+<p>Below are the key methods of the Condition object &minus;</p>
+<ul class="list">
+<li><strong>acquire(*args)</strong>: Acquire the underlying lock. This method calls the corresponding method on the underlying lock; the return value is whatever that method returns.</li>
+<li><strong>release()</strong>: Release the underlying lock. This method calls the corresponding method on the underlying lock; there is no return value.</li>
+<li><strong>wait(timeout=None)</strong>: This method releases the underlying lock, and then blocks until it is awakened by a notify() or notify_all() call for the same condition variable in another thread, or until the optional timeout occurs. Once awakened or timed out, it re-acquires the lock and returns.</li>
+<li><strong>wait_for(predicate, timeout=None)</strong>: This utility method may call wait() repeatedly until the predicate is satisfied, or until a timeout occurs. The return value is the last return value of the predicate and will evaluate to False if the method timed out.</li>
+<li><strong>notify(n=1)</strong>: This method wakes up at most n of the threads waiting for the condition variable; it is a no-op if no threads are waiting.</li>
+<li><strong>notify_all()</strong>: Wake up all threads waiting on this condition. This method acts like notify(), but wakes up all waiting threads instead of one. If the calling thread has not acquired the lock when this method is called, a RuntimeError is raised.</li>
+</ul>
+<h3>Example</h3>
+<p>This example demonstrates a simple form of inter-thread communication using the <strong>Condition</strong> object of the Python's threading module. Here <strong>thread_a</strong> and <strong>thread_b</strong> are communicated using a Condition object, the <strong>thread_a</strong> waits until it receives a notification from <strong>thread_b</strong>. the <strong>thread_b</strong> sleeps for 2 seconds before notifying <strong>thread_a</strong> and then finishes.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Condition<span class="token punctuation">,</span> Thread <span class="token keyword">import</span> time c <span class="token operator">=</span> Condition<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">thread_a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thread A started"</span><span class="token punctuation">)</span> <span class="token keyword">with</span> c<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thread A waiting for permission..."</span><span class="token punctuation">)</span> c<span class="token punctuation">.</span>wait<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thread A got permission!"</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thread A finished"</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">thread_b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thread B started"</span><span class="token punctuation">)</span> <span class="token keyword">with</span> c<span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Notifying Thread A..."</span><span class="token punctuation">)</span> c<span class="token punctuation">.</span>notify<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thread B finished"</span><span class="token punctuation">)</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>thread_a<span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>thread_b<span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>On executing the above code you will get the following output &minus;</p>
+<pre class="result notranslate">Thread A started
+Thread A waiting for permission...
+Thread B started
+Notifying Thread A...
+Thread B finished
+Thread A got permission!
+Thread A finished
+</pre>
+<h3>Example</h3>
+<p>Here is another code demonstrating how the Condition object is used for providing the communication between threads. In this, the thread t2 runs the taskB() function, and the thread t1 runs the taskA() function. The t1 thread acquires the condition and notifies it.</p>
+<p>By that time, the t2 thread is in a waiting state. After the condition is released, the waiting thread proceeds to consume the random number generated by the notifying function.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Condition<span class="token punctuation">,</span> Thread <span class="token keyword">import</span> time <span class="token keyword">import</span> random numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">def</span> <span class="token function">taskA</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">with</span> c<span class="token punctuation">:</span> num <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Generated random number:"</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span> numbers<span class="token punctuation">.</span>append<span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Notification issued"</span><span class="token punctuation">)</span> c<span class="token punctuation">.</span>notify<span class="token punctuation">(</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">taskB</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">with</span> c<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"waiting for update"</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token keyword">not</span> numbers<span class="token punctuation">:</span> c<span class="token punctuation">.</span>wait<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Obtained random number"</span><span class="token punctuation">,</span> numbers<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">)</span> c <span class="token operator">=</span> Condition<span class="token punctuation">(</span><span class="token punctuation">)</span> t1 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>taskB<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> t2 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>taskA<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Done"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When you execute this code, it will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">waiting for update
+Generated random number: 2
+Notification issued
+Obtained random number 2
+Generated random number: 5
+Notification issued
+waiting for update
+Obtained random number 5
+Generated random number: 1
+Notification issued
+waiting for update
+Obtained random number 1
+Generated random number: 9
+Notification issued
+waiting for update
+Obtained random number 9
+Generated random number: 2
+Notification issued
+waiting for update
+Obtained random number 2
+Done
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

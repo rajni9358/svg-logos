@@ -1,0 +1,231 @@
+
+<h2>Remove Set Items</h2>
+<p>Removing <a href="/python/python_sets.htm" target="_blank">set</a> items implies deleting elements from a set. In Python, sets are mutable, unordered collections of unique elements, and there are several methods available to remove items from a set based on different criteria.</p>
+<p>We can remove set items in Python using various methods such as remove(), discard(), pop(), clear(), and set comprehension. Each method provide different ways to eliminate elements from a set based on specific criteria or conditions.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Remove Set Item Using remove() Method</h2>
+<p>The remove() method in Python is used to remove the first occurrence of a specified item from a set.</p>
+<p>We can remove set items using the remove() method by specifying the element we want to remove from the set. If the element is present in the set, it will be removed. However, if the element is not found, the remove() method will raise a KeyError exception.</p>
+<h3>Example</h3>
+<p>In the following example, we are deleting the element "Physics" from the set "my_set" using the remove() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original set: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span> my_set<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"Physics"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Set after removing: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Original set:  {21, 69.75, 'Rohan', 'Physics'}
+Set after removing:  {21, 69.75, 'Rohan'}
+</pre>
+<h3>Example</h3>
+<p>If the element to delete is not found in the set, the remove() method will raise a KeyError exception &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original set: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span> my_set<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"PHP"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Set after removing: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span></div>
+</div>
+<p>We get the error as shown below &minus;</p>
+<pre class="result notranslate">Original set:  {'Physics', 21, 69.75, 'Rohan'}
+Traceback (most recent call last):
+  File "/home/cg/root/664c365ac1c3c/main.py", line 4, in &lt;module&gt;
+    my_set.remove("PHP")
+KeyError: 'PHP'
+</pre>
+<h2>Remove Set Item Using discard() Method</h2>
+<p>The discard() method in set class is similar to remove() method. The only difference is, it doesn't raise error even if the object to be removed is not already present in the set collection.</p>
+<h3>Example</h3>
+<p>In this example, we are using the discard() method to delete an element from a set regardless of whether it is present or not &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Rohan"</span><span class="token punctuation">,</span> <span class="token string">"Physics"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">69.75</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Original set: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span> <span class="token comment"># removing an existing element</span> my_set<span class="token punctuation">.</span>discard<span class="token punctuation">(</span><span class="token string">"Physics"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Set after removing Physics: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span> <span class="token comment"># removing non-existing element</span> my_set<span class="token punctuation">.</span>discard<span class="token punctuation">(</span><span class="token string">"PHP"</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Set after removing non-existent element PHP: "</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Original set:  {21, 'Rohan', 69.75, 'Physics'}
+Set after removing Physics:  {21, 'Rohan', 69.75}
+Set after removing non-existent element PHP:  {21, 'Rohan', 69.75}
+</pre>
+<h2>Remove Set Item Using pop() Method</h2>
+<p>We can also remove set items using the pop() method by removing and returning an arbitrary element from the set. If the set is empty, the pop() method will raise a KeyError exception.</p>
+<h3>Example</h3>
+<p>In the example below, we are defining a set with elements "1" through "5" and removing an arbitrary element from it using the pop() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining a set</span> my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token comment"># removing and returning an arbitrary element from the set</span> removed_element <span class="token operator">=</span> my_set<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Printing the removed element and the updated set</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Removed Element:"</span><span class="token punctuation">,</span> removed_element<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Set:"</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span></div>
+</div>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">Removed Element: 1
+Updated Set: {2, 3, 4, 5}
+</pre>
+<h3>Example</h3>
+<p>If we try to remove element from an empty set, the pop() method will raise a KeyError exception &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining an empty set</span> empty_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Removing an arbitrary element from the empty set</span> removed_element <span class="token operator">=</span> empty_set<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>The error produced is as shown below &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+  File "/home/cg/root/664c69620cd40/main.py", line 5, in &lt;module&gt;
+removed_element = empty_set.pop()
+KeyError: 'pop from an empty set'
+</pre>
+<h2>Remove Set Item Using clear() Method</h2>
+<p>The clear() method in set class removes all the items in a set object, leaving an empty set.</p>
+<p>We can remove set items using the clear() method by removing all elements from the set, effectively making it empty.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining a set with elements "1" through "5" and then using the clear() method to remove all elements from the set &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Defining a set with multiple elements</span> my_set <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token comment"># Removing all elements from the set</span> my_set<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Printing the updated set</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Updated Set:"</span><span class="token punctuation">,</span> my_set<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">Updated Set: set()
+</pre>
+<h2>Remove Items Existing in Both Sets</h2>
+<p>You can remove items that exist in both sets (i.e., the intersection of two sets) using the difference_update() method or the subtraction operator (-=). This removes all elements that are present in both sets from the original set.</p>
+<h3>Example</h3>
+<p>In this example, we are defining two sets "s1" and "s2", and then using the difference_update() method to remove elements from "s1" that are also in "s2" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1 before running difference_update: "</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span> s1<span class="token punctuation">.</span>difference_update<span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1 after running difference_update: "</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">s1 before running difference_update: {1, 2, 3, 4, 5}
+s1 after running difference_update: {1, 2, 3}
+set()
+</pre>
+<h2>Remove Items Existing in Either of the Sets</h2>
+<p>To remove items that exist in either of two sets, you can use the symmetric difference operation. The symmetric difference between two sets results in a set containing elements that are in either of the sets but not in their intersection.</p>
+<p>In Python, the symmetric difference operation can be performed using the <strong>^</strong> operator or symmetric_difference() method.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining two sets "set1" and "set2". We are then using the symmetric difference operator (^) to create a new set "result_set" containing elements that are in either "set1" or "set2" but not in both &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span> <span class="token comment"># Removing items that exist in either set </span> result_set <span class="token operator">=</span> set1 <span class="token operator">^</span> set2 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Resulting Set:"</span><span class="token punctuation">,</span> result_set<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">Resulting Set: {1, 2, 5, 6}
+</pre>
+<h2>Remove Uncommon Set Items</h2>
+<p>You can remove uncommon items between two sets using the intersection_update() method. The intersection of two sets results in a set containing only the elements that are present in both sets.</p>
+<p>To keep only the common elements in one of the original sets and remove the uncommon ones, you can update the set with its intersection.</p>
+<h3>Example</h3>
+<p>In this example, we are defining two sets "set1" and "set2". We are then using the intersection_update() method to modify "set1" so that it only contains elements that are also in "set2" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span> <span class="token comment"># Keeping only common items in set1</span> set1<span class="token punctuation">.</span>intersection_update<span class="token punctuation">(</span>set2<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Set 1 after keeping only common items:"</span><span class="token punctuation">,</span> set1<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">Set 1 after keeping only common items: {3, 4}
+</pre>
+<h2>The intersection() Method</h2>
+<p>The intersection() method in set class is similar to its intersection_update() method, except that it returns a new set object that consists of items common to existing sets.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax of the intersection() method &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token builtin">set</span><span class="token punctuation">.</span>intersection<span class="token punctuation">(</span>obj<span class="token punctuation">)</span></div>
+<p>Where, <strong>obj</strong> is a set object.</p>
+<h3>Return value</h3>
+<p>The intersection() method returns a set object, retaining only those items common in itself and obj.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining two sets "s1" and "s2", then using the intersection() method to create a new set "s3" containing elements that are common to both "s1" and "s2" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1: "</span><span class="token punctuation">,</span> s1<span class="token punctuation">,</span> <span class="token string">"s2: "</span><span class="token punctuation">,</span> s2<span class="token punctuation">)</span> s3 <span class="token operator">=</span> s1<span class="token punctuation">.</span>intersection<span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s3 = s1 &amp; s2: "</span><span class="token punctuation">,</span> s3<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">s1: {1, 2, 3, 4, 5} s2: {4, 5, 6, 7, 8}
+s3 = s1 &amp; s2: {4, 5}
+</pre>
+<h2>Symmetric Difference Update of Set Items</h2>
+<p>The symmetric difference between two sets is the collection of all the uncommon items, rejecting the common elements. The symmetric_difference_update() method updates a set with symmetric difference between itself and the set given as argument.</p>
+<h3>Example</h3>
+<p>In the example below, we are defining two sets "s1" and "s2", then using the symmetric_difference_update() method to modify "s1" so that it contains elements that are in either "s1" or "s2", but not in both &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1: "</span><span class="token punctuation">,</span> s1<span class="token punctuation">,</span> <span class="token string">"s2: "</span><span class="token punctuation">,</span> s2<span class="token punctuation">)</span> s1<span class="token punctuation">.</span>symmetric_difference_update<span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1 after running symmetric difference "</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">s1: {1, 2, 3, 4, 5} s2: {4, 5, 6, 7, 8}
+s1 after running symmetric difference {1, 2, 3, 6, 7, 8}
+</pre>
+<h2>Symmetric Difference of Set Items</h2>
+<p>The symmetric_difference() method in set class is similar to symmetric_difference_update() method, except that it returns a new set object that holds all the items from two sets minus the common items.</p>
+<h3>Example</h3>
+<p>In the following example, we are defining two sets "s1" and "s2". We are then using the symmetric_difference() method to create a new set "s3" containing elements that are in either "s1" or "s2", but not in both &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1: "</span><span class="token punctuation">,</span> s1<span class="token punctuation">,</span> <span class="token string">"s2: "</span><span class="token punctuation">,</span> s2<span class="token punctuation">)</span> s3 <span class="token operator">=</span> s1<span class="token punctuation">.</span>symmetric_difference<span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s1 = s1^s2 "</span><span class="token punctuation">,</span> s3<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">s1: {1, 2, 3, 4, 5} s2: {4, 5, 6, 7, 8}
+s1 = s1^s2 {1, 2, 3, 6, 7, 8}&nbsp;</pre>
+</div>

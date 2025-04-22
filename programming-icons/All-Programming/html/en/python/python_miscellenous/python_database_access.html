@@ -1,0 +1,287 @@
+<h2>Database Access in Python</h2>
+<p>Database access in Python is used to interact with databases, allowing applications to store, retrieve, update, and manage data consistently. Various relational database management systems (RDBMS) are supported for these tasks, each requiring specific Python packages for connectivity &minus;</p>
+<ul class="list">
+<li>GadFly</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>Microsoft SQL Server</li>
+<li>Informix</li>
+<li>Oracle</li>
+<li>Sybase</li>
+<li>SQLite</li>
+<li>and many more...</li>
+</ul>
+<p>Data input and generated during execution of a program is stored in RAM. If it is to be stored persistently, it needs to be stored in database tables.</p>
+<p>Relational databases use SQL (Structured Query Language) for performing INSERT/DELETE/UPDATE operations on the database tables. However, implementation of SQL varies from one type of database to other. This raises incompatibility issues. SQL instructions for one database do not match with other.</p>
+<h3>DB-API (Database API)</h3>
+<p>To address this issue of compatibility, Python Enhancement Proposal (PEP) 249 introduced a standardized interface known as DB-API. This interface provides a consistent framework for database drivers, ensuring uniform behavior across different database systems. It simplifies the process of transitioning between various databases by establishing a common set of rules and methods.</p>
+<p><img src="/python/images/driver_interfaces.jpg" alt="driver_interfaces" /></p>
+<h3>Using SQLite with Python</h3>
+<p>Python's standard library includes <strong>sqlite3</strong> module, a DB_API compatible driver for SQLite3 database. It serves as a reference implementation for DB-API. For other types of databases, you will have to install the relevant Python package &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Database</th>
+<th style="text-align: center;">Python Package</th>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>cx_oracle, pyodbc</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>pymssql, pyodbc</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>psycopg2</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>MySQL Connector/Python, pymysql</td>
+</tr>
+</tbody>
+</table>
+<h3>Working with SQLite</h3>
+<p>Using SQLite with Python is very easy due to the built-in <strong>sqlite3</strong> module. The process involves &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Connection Establishment &minus;</strong> Create a connection object using sqlite3.connect(), providing necessary connection credentials such as server name, port, username, and password.</p>
+</li>
+<li>
+<p><strong>Transaction Management &minus;</strong> The connection object manages database operations, including opening, closing, and transaction control (committing or rolling back transactions).</p>
+</li>
+<li>
+<p><strong>Cursor Object &minus;</strong> Obtain a cursor object from the connection to execute SQL queries. The cursor serves as the gateway for CRUD (Create, Read, Update, Delete) operations on the database.</p>
+</li>
+</ul>
+<p>In this tutorial, we shall learn how to access database using Python, how to store data of Python objects in a SQLite database, and how to retrieve data from SQLite database and process it using Python program.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>The sqlite3 Module</h2>
+<p>SQLite is a server-less, file-based lightweight transactional relational database. It doesn't require any installation and no credentials such as username and password are needed to access the database.</p>
+<p>Python's sqlite3 module contains DB-API implementation for SQLite database. It is written by Gerhard Hring. Let us learn how to use sqlite3 module for database access with Python.</p>
+<p>Let us start by importing sqlite3 and check its version.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> sqlite3 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sqlite3<span class="token punctuation">.</span>sqlite_version <span class="token string">'3.39.4'</span></div>
+<h2>The Connection Object</h2>
+<p>A connection object is set up by connect() function in sqlite3 module. First positional argument to this function is a string representing path (relative or absolute) to a SQLite database file. The function returns a connection object referring to the database.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'sqlite3.Connection'</span><span class="token operator">&gt;</span></div>
+<p>Various methods are defined in connection class. One of them is cursor() method that returns a cursor object, about which we shall know in next section. Transaction control is achieved by commit() and rollback() methods of connection object. Connection class has important methods to define custom functions and aggregates to be used in SQL queries.</p>
+<h2>The Cursor Object</h2>
+<p>Next, we need to get the cursor object from the connection object. It is your handle to the database when performing any CRUD operation on the database. The cursor() method on connection object returns the cursor object.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'sqlite3.Cursor'</span><span class="token operator">&gt;</span></div>
+<p>We can now perform all SQL query operations, with the help of its execute() method available to cursor object. This method needs a string argument which must be a valid SQL statement.</p>
+<h2>Creating a Database Table</h2>
+<p>We shall now add Employee table in our newly created 'testdb.sqlite3' database. In following script, we call execute() method of cursor object, giving it a string with CREATE TABLE statement inside.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sqlite3 conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> qry<span class="token operator">=</span><span class="token triple-quoted-string string">''' CREATE TABLE Employee ( EmpID INTEGER PRIMARY KEY AUTOINCREMENT, FIRST_NAME TEXT (20), LAST_NAME TEXT(20), AGE INTEGER, SEX TEXT(1), INCOME FLOAT ); '''</span> <span class="token keyword">try</span><span class="token punctuation">:</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>qry<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Table created successfully'</span><span class="token punctuation">)</span> <span class="token keyword">except</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'error in creating table'</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above program is run, the database with Employee table is created in the current working directory.</p>
+<p>We can verify by listing out tables in this database in SQLite console.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">sqlite<span class="token operator">&gt;</span> <span class="token punctuation">.</span><span class="token builtin">open</span> mydb<span class="token punctuation">.</span>sqlite sqlite<span class="token operator">&gt;</span> <span class="token punctuation">.</span>tables Employee</div>
+<h2>INSERT Operation</h2>
+<p>The INSERT Operation is required when you want to create your records into a database table.</p>
+<h3>Example</h3>
+<p>The following example, executes SQL INSERT statement to create a record in the EMPLOYEE table &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sqlite3 conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> qry<span class="token operator">=</span><span class="token triple-quoted-string string">"""INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, AGE, SEX, INCOME) VALUES ('Mac', 'Mohan', 20, 'M', 2000)"""</span> <span class="token keyword">try</span><span class="token punctuation">:</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>qry<span class="token punctuation">)</span> conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Record inserted successfully'</span><span class="token punctuation">)</span> <span class="token keyword">except</span><span class="token punctuation">:</span> conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'error in INSERT operation'</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<p>You can also use the parameter substitution technique to execute the INSERT query as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sqlite3 conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> qry<span class="token operator">=</span><span class="token triple-quoted-string string">"""INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, AGE, SEX, INCOME) VALUES (?, ?, ?, ?, ?)"""</span> <span class="token keyword">try</span><span class="token punctuation">:</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>qry<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'Makrand'</span><span class="token punctuation">,</span> <span class="token string">'Mohan'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">'M'</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'Record inserted successfully'</span><span class="token punctuation">)</span> <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'error in INSERT operation'</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>READ Operation</h2>
+<p>READ Operation on any database means to fetch some useful information from the database.</p>
+<p>Once the database connection is established, you are ready to make a query into this database. You can use either fetchone() method to fetch a single record or fetchall() method to fetch multiple values from a database table.</p>
+<ul class="list">
+<li>
+<p><strong>fetchone()</strong> &minus; It fetches the next row of a query result set. A result set is an object that is returned when a cursor object is used to query a table.</p>
+</li>
+<li>
+<p><strong>fetchall()</strong> &minus; It fetches all the rows in a result set. If some rows have already been extracted from the result set, then it retrieves the remaining rows from the result set.</p>
+</li>
+<li>
+<p><strong>rowcount</strong> &minus; This is a read-only attribute and returns the number of rows that were affected by an execute() method.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>In the following code, the cursor object executes SELECT * FROM EMPLOYEE query. The resultset is obtained with fetchall() method. We print all the records in the resultset with a <strong>for</strong> loop.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sqlite3 conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> qry<span class="token operator">=</span><span class="token string">"SELECT * FROM EMPLOYEE"</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token comment"># Execute the SQL command</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>qry<span class="token punctuation">)</span> <span class="token comment"># Fetch all the rows in a list of lists.</span> results <span class="token operator">=</span> cur<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> row <span class="token keyword">in</span> results<span class="token punctuation">:</span> fname <span class="token operator">=</span> row<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> lname <span class="token operator">=</span> row<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> age <span class="token operator">=</span> row<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> sex <span class="token operator">=</span> row<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> income <span class="token operator">=</span> row<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment"># Now print fetched result</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"fname={},lname={},age={},sex={},income={}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> lname<span class="token punctuation">,</span> age<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> income <span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: unable to fecth data"</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">fname=Mac,lname=Mohan,age=20,sex=M,income=2000.0
+fname=Makrand,lname=Mohan,age=21,sex=M,income=5000.0
+</pre>
+<h2>Update Operation</h2>
+<p>UPDATE Operation on any database means to update one or more records, which are already available in the database.</p>
+<p>The following procedure updates all the records having income=2000. Here, we increase the income by 1000.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sqlite3 conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> qry<span class="token operator">=</span><span class="token string">"UPDATE EMPLOYEE SET INCOME = INCOME+1000 WHERE INCOME=?"</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token comment"># Execute the SQL command</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>qry<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Fetch all the rows in a list of lists.</span> conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Records updated"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: unable to update data"</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>DELETE Operation</h2>
+<p>DELETE operation is required when you want to delete some records from your database. Following is the procedure to delete all the records from EMPLOYEE where INCOME is less than 2000.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> sqlite3 conn<span class="token operator">=</span>sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'testdb.sqlite3'</span><span class="token punctuation">)</span> cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> qry<span class="token operator">=</span><span class="token string">"DELETE FROM EMPLOYEE WHERE INCOME&lt;?"</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token comment"># Execute the SQL command</span> cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>qry<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Fetch all the rows in a list of lists.</span> conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Records deleted"</span><span class="token punctuation">)</span> <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: unable to delete data"</span><span class="token punctuation">)</span> conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>Performing Transactions</h2>
+<p>Transactions are a mechanism that ensure data consistency. Transactions have the following four properties &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Atomicity</strong> &minus; Either a transaction completes or nothing happens at all.</p>
+</li>
+<li>
+<p><strong>Consistency</strong> &minus; A transaction must start in a consistent state and leave the system in a consistent state.</p>
+</li>
+<li>
+<p><strong>Isolation</strong> &minus; Intermediate results of a transaction are not visible outside the current transaction.</p>
+</li>
+<li>
+<p><strong>Durability</strong> &minus; Once a transaction was committed, the effects are persistent, even after a system failure.</p>
+</li>
+</ul>
+<p><img src="/python/images/performing_transactions.jpg" alt="Performing Transactions" /></p>
+<p>The Python DB API 2.0 provides two methods to either commit or rollback a transaction.</p>
+<h3>Example</h3>
+<p>You already know how to implement transactions. Here is a similar example &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Prepare SQL query to DELETE required records</span> sql <span class="token operator">=</span> <span class="token string">"DELETE FROM EMPLOYEE WHERE AGE &gt; ?"</span> <span class="token keyword">try</span><span class="token punctuation">:</span> <span class="token comment"># Execute the SQL command</span> cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Commit your changes in the database</span> db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">except</span><span class="token punctuation">:</span> <span class="token comment"># Rollback in case there is any error</span> db<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>COMMIT Operation</h2>
+<p>Commit is an operation, which gives a green signal to the database to finalize the changes, and after this operation, no change can be reverted back.</p>
+<p>Here is a simple example to call the commit method.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>ROLLBACK Operation</h2>
+<p>If you are not satisfied with one or more of the changes and you want to revert back those changes completely, then use the rollback() method.</p>
+<p>Here is a simple example to call the rollback() method.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">db<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h2>The PyMySQL Module</h2>
+<p>PyMySQL is an interface for connecting to a MySQL database server from Python. It implements the Python Database API v2.0 and contains a pure-Python MySQL client library. The goal of PyMySQL is to be a drop-in replacement for MySQLdb.</p>
+<h3>Installing PyMySQL</h3>
+<p>Before proceeding further, you make sure you have PyMySQL installed on your machine. Just type the following in your Python script and execute it &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> PyMySQL</div>
+<p>If it produces the following result, then it means MySQLdb module is not installed &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+   File "test.py", line 3, in &lt;module&gt;
+      Import PyMySQL
+ImportError: No module named PyMySQL
+</pre>
+<p>The last stable release is available on PyPI and can be installed with pip &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">pip install PyMySQL</div>
+<p><strong>Note</strong> &minus; Make sure you have root privilege to install the above module.</p>
+<h3>MySQL Database Connection</h3>
+<p>Before connecting to a MySQL database, make sure of the following points &minus;</p>
+<ul class="list">
+<li>
+<p>You have created a database TESTDB.</p>
+</li>
+<li>
+<p>You have created a table EMPLOYEE in TESTDB.</p>
+</li>
+<li>
+<p>This table has fields FIRST_NAME, LAST_NAME, AGE, SEX and INCOME.</p>
+</li>
+<li>
+<p>User ID "testuser" and password "test123" are set to access TESTDB.</p>
+</li>
+<li>
+<p>Python module PyMySQL is installed properly on your machine.</p>
+</li>
+<li>
+<p>You have gone through MySQL tutorial to understand MySQL Basics.</p>
+</li>
+</ul>
+<h3>Example</h3>
+<p>To use MySQL database instead of SQLite database in earlier examples, we need to change the connect() function as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> PyMySQL <span class="token comment"># Open database connection</span> db <span class="token operator">=</span> PyMySQL<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span><span class="token string">"testuser"</span><span class="token punctuation">,</span><span class="token string">"test123"</span><span class="token punctuation">,</span><span class="token string">"TESTDB"</span> <span class="token punctuation">)</span></div>
+<p>Apart from this change, every database operation can be performed without difficulty.</p>
+<h2>Handling Errors</h2>
+<p>There are many sources of errors. A few examples are a syntax error in an executed SQL statement, a connection failure, or calling the fetch method for an already cancelled or finished statement handle.</p>
+<p>The DB API defines a number of errors that must exist in each database module. The following table lists these exceptions.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Exception &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>Warning</strong></p>
+<p>Used for non-fatal issues. Must subclass StandardError.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>Error</strong></p>
+<p>Base class for errors. Must subclass StandardError.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>InterfaceError</strong></p>
+<p>Used for errors in the database module, not the database itself. Must subclass Error.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong>DatabaseError</strong></p>
+<p>Used for errors in the database. Must subclass Error.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong>DataError</strong></p>
+<p>Subclass of DatabaseError that refers to errors in the data.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong>OperationalError</strong></p>
+<p>Subclass of DatabaseError that refers to errors such as the loss of a connection to the database. These errors are generally outside of the control of the Python scripter.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p><strong>IntegrityError</strong></p>
+<p>Subclass of DatabaseError for situations that would damage the relational integrity, such as uniqueness constraints or foreign keys.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p><strong>InternalError</strong></p>
+<p>Subclass of DatabaseError that refers to errors internal to the database module, such as a cursor no longer being active.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>
+<p><strong>ProgrammingError</strong></p>
+<p>Subclass of DatabaseError that refers to errors such as a bad table name and other things that can safely be blamed on you.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>
+<p><strong>NotSupportedError</strong></p>
+<p>Subclass of DatabaseError that refers to trying to call unsupported functionality.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

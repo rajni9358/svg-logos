@@ -1,0 +1,117 @@
+<p>In Python, a <a href="/python/python_sets.htm" target="_blank">set</a> is an ordered collection of items. The items may be of different types. However, an item in the set must be an immutable object. It means, we can only include numbers, string and tuples in a set and not <a href="/python/python_lists.htm" target="_blank">lists</a>. Python's set class has different provisions to join set objects.</p>
+<h2>Join Sets in Python</h2>
+<p>Joining sets in <a href="/python/index.htm" target="_blank">Python</a> refers to merging two or more sets as a single set. When you join sets, you merge the elements of multiple sets while ensuring that duplicate elements are removed, as sets do not allow duplicate elements.</p>
+<p>This can be achieved using various methods, such as union, update, set comprehension, set concatenation, copying, and iterative addition.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Join Python Sets Using "|" Operator</h2>
+<p>The "|" symbol (pipe) is defined as the union operator. It performs the AB operation and returns a set of items in A, B or both. Set doesn't allow duplicate items.</p>
+<h3>Example</h3>
+<p>In the following example, we are performing a union operation on sets "s1" and "s2" using the "|" operator, creating a new set "s3" containing elements from both sets without duplicates &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> s3 <span class="token operator">=</span> s1<span class="token operator">|</span>s2 <span class="token keyword">print</span> <span class="token punctuation">(</span>s3<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following output &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5, 6, 7, 8}
+</pre>
+<h2>Join Python Sets Using union() Method</h2>
+<p>The set class has union() method that performs the same operation as | operator. It returns a set object that holds all items in both sets, discarding duplicates.</p>
+<h3>Example</h3>
+<p>In this example, we are invoking the union() method on set "s1", passing set "s2" as an argument, which returns a new set "s3" containing elements from both sets without duplicates &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> s3 <span class="token operator">=</span> s1<span class="token punctuation">.</span>union<span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s3<span class="token punctuation">)</span></div>
+</div>
+<p>Following is the output obtained &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5, 6, 7, 8}
+</pre>
+<h2>Join Python Sets Using update() Method</h2>
+<p>The update() method also joins the two sets, as the union() method. However it doen't return a new set object. Instead, the elements of second set are added in first, duplicates not allowed.</p>
+<h3>Example</h3>
+<p>In the example below, we are updating set "s1" with the elements of set "s2" using the update() method, modifying "s1" to contain elements from both sets without duplicates &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> s1<span class="token punctuation">.</span>update<span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s1<span class="token punctuation">)</span></div>
+</div>
+<p>The result obtained is as shown below &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5, 6, 7, 8}
+</pre>
+<h2>Join Python Sets Using Unpacking Operator</h2>
+<p>In Python, the "*" symbol is used as unpacking operator. The unpacking operator internally assign each element in a collection to a separate variable.</p>
+<p>We can join Python sets using the unpacking operator (*) by unpacking the elements of multiple sets into a new set.</p>
+<h3>Example</h3>
+<p>In the following example, we are creating a new set "s3" by unpacking the elements of sets "s1" and "s2" using the <strong>*</strong> operator within a set literal &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span> s3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">*</span>s1<span class="token punctuation">,</span> <span class="token operator">*</span>s2<span class="token punctuation">}</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s3<span class="token punctuation">)</span></div>
+</div>
+<p>The output produced is as follows &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5, 6, 7, 8}
+</pre>
+<h2>Join Python Sets Using Set Comprehension</h2>
+<p>Set comprehension in Python is a concise way to create sets using an iterable, similar to list comprehension but resulting in a set instead of a list. It allows you to generate sets by applying an expression to each item in an iterable while optionally filtering the items based on a condition.</p>
+<p>We can join python sets using set comprehension by iterating over multiple sets and adding their elements to a new set.</p>
+<h3>Example</h3>
+<p>In this example, we are creating a new set "joined_set" using a set comprehension. By iterating over a list containing "set1" and "set2", and then iterating over each element "x" within each set "s", we merge all elements from both sets into "joined_set" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> joined_set <span class="token operator">=</span> <span class="token punctuation">{</span>x <span class="token keyword">for</span> s <span class="token keyword">in</span> <span class="token punctuation">[</span>set1<span class="token punctuation">,</span> set2<span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> s<span class="token punctuation">}</span> <span class="token keyword">print</span><span class="token punctuation">(</span>joined_set<span class="token punctuation">)</span></div>
+</div>
+<p>Output of the above code is as shown below &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5}
+</pre>
+<h2>Join Python Sets Using Iterative Addition</h2>
+<p>Iterative addition in the context of sets refers to iteratively adding elements from one set to another set using a loop or iteration construct. This allows you to merge the elements of multiple sets into a single set, ensuring that duplicate elements are not included.</p>
+<p>We can join python sets using iterative addition by iterating over the elements of each set and adding them to a new set.</p>
+<h3>Example</h3>
+<p>In the example below, we first initialize an empty set. Then, we iterate over each element in "set1" and "set2" separately, adding each element into a new set named "joined_set" using the add() method &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">set1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span> set2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token comment"># Initializing an empty set to hold the merged elements</span> joined_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Iterating over set1 and adding its elements to the joined set</span> <span class="token keyword">for</span> element <span class="token keyword">in</span> set1<span class="token punctuation">:</span> joined_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token comment"># Iterating over set2 and adding its elements to the joined set</span> <span class="token keyword">for</span> element <span class="token keyword">in</span> set2<span class="token punctuation">:</span> joined_set<span class="token punctuation">.</span>add<span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>joined_set<span class="token punctuation">)</span></div>
+</div>
+<p>After executing the above code, we get the following output &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5}
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

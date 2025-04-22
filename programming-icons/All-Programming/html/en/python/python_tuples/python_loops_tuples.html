@@ -1,0 +1,81 @@
+
+<h2>Loop Through Tuple Items</h2>
+<p>Looping through tuple items in Python refers to iterating over each element in a <a href="/python/python_tuples.htm" target="_blank">tuple</a> sequentially.</p>
+<p>In Python we can loop through the items of a <a href="/python/python_loop_lists.htm" target="_blank">tuple</a> in various ways, with the most common being the <a href="/python/python_for_loops.htm" target="_blank"><strong>for loop</strong></a>. We can also use the <strong>while loop</strong> to iterate through tuple items, although it requires additional handling of the loop control variable explicitly i.e. an index.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Loop Through Tuple Items with For Loop</h2>
+<p>A for loop in Python is used to iterate over a sequence (like a list, tuple, dictionary, string, or range) or any other iterable object. It allows you to execute a block of code repeatedly for each item in the sequence.</p>
+<p>In a for loop, you can access each item in a sequence using a variable, allowing you to perform operations or logic based on that item's value. We can loop through tuple items using for loop by iterating over each item in the tuple.</p>
+<h3>Syntax</h3>
+<p>Following is the basic syntax to loop through items in a tuple using a for loop in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">tuple</span><span class="token punctuation">:</span> <span class="token comment"># Code block to execute</span></div>
+<h3>Example</h3>
+<p>In the following example, we are using a for loop to iterate through each element in the tuple "tup" and retrieving each element followed by a space on the same line &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> tup<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>num<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>Following is the output of the above code &minus;</p>
+<pre class="result notranslate">25 12 10 -21 10 100 
+</pre>
+<h2>Loop Through Tuple Items with While Loop</h2>
+<p>A while loop in Python is used to repeatedly execute a block of code as long as a specified condition evaluates to "True".</p>
+<p>We can loop through tuple items using while loop by initializing an index variable, then iterating through the tuple using the index variable and incrementing it until reaching the end of the tuple.</p>
+<blockquote>An index variable is used within a loop to keep track of the current position or index in a sequence, such as a tuple or array. It is generally initialized before the loop and updated within the loop to iterate over the sequence.</blockquote>
+<h3>Syntax</h3>
+<p>Following is the basic syntax for looping through items in a tuple using a while loop in Python &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">while</span> condition<span class="token punctuation">:</span> <span class="token comment"># Code block to execute</span></div>
+<h3>Example</h3>
+<p>In the below example, we iterate through each item in the tuple "my_tup" using a while loop. We use an index variable "index" to access each item sequentially, incrementing it after each iteration to move to the next item &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">my_tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> index <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">while</span> index <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>my_tup<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>my_tup<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span> index <span class="token operator">+=</span> <span class="token number">1</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>Output of the above code is as follows &minus;</p>
+<pre class="result notranslate">1
+2
+3
+4
+5
+</pre>
+<h2>Loop Through Tuple Items with Index</h2>
+<p>An index is a numeric value representing the position of an element within a sequence, such as a tuple, starting from 0 for the first element.</p>
+<p>We can loop through tuple items using index by iterating over a range of indices corresponding to the length of the tuple and accessing each element using the index within the loop.</p>
+<h3>Example</h3>
+<p>This example initializes a tuple "tup" with integers and creates a range of indices corresponding to the length of the tuple. Then, it iterates over each index in the range and prints the value at that index in the tuple "tup" &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> indices <span class="token operator">=</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>tup<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> indices<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tup[{}]: "</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> tup<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<p>We get the output as shown below &minus;</p>
+<pre class="result notranslate">tup[0]: 25
+tup[1]: 12
+tup[2]: 10
+tup[3]: -21
+tup[4]: 10
+tup[5]: 100
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>

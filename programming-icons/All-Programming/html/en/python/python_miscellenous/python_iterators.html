@@ -1,0 +1,171 @@
+<h2>Python Iterators</h2>
+<p>An iterator in Python is an object that enables traversal through a collection such as a list or a tuple, one element at a time. It follows the iterator protocol by using the implementation of two methods <strong>__iter__()</strong> and <strong>__next__()</strong>.</p>
+<p>The <strong>__iter__()</strong> method returns the iterator object itself and the <strong>__next__()</strong> method returns the next element in the sequence by raising a <strong>StopIteration</strong> exception when no more elements are available.</p>
+<p>Iterators provide a memory-efficient way to iterate over data, especially useful for large datasets. They can be created from iterable objects using the <strong>iter()</strong> function or implemented using custom classes and generators.</p>
+<h3>Iterables vs Iterators</h3>
+<p>Before going deep into the iterator working, we should know the difference between the Iterables and Iterators.</p>
+<ul class="list">
+<li><strong>Iterable:</strong> An object capable of returning its members one at a time (e.g., lists, tuples).</li>
+<li><strong>Iterator:</strong> An object representing a stream of data, returned one element at a time.</li>
+</ul>
+<p>We normally use <strong>for</strong> loop to iterate through an iterable as follows &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">for</span> element <span class="token keyword">in</span> sequence<span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>element<span class="token punctuation">)</span></div>
+<p>Python's built-in method <strong>iter()</strong> implements <strong>__iter__()</strong> method. It receives an iterable and returns iterator object.</p>
+<h3>Example of Python Iterator</h3>
+<p>Following code obtains iterator object from sequence types such as list, string and tuple. The <strong>iter()</strong> function also returns keyiterator from dictionary.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token string">"aa"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">&lt;str_iterator object at 0x7fd0416b42e0&gt;
+&lt;list_iterator object at 0x7fd0416b42e0&gt;
+&lt;tuple_iterator object at 0x7fd0416b42e0&gt;
+&lt;dict_keyiterator object at 0x7fd041707560&gt;
+</pre>
+<p>However, int id not iterable, hence it produces TypeError.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">iterator <span class="token operator">=</span> <span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Traceback (most recent call last):
+   File "C:\Users\user\example.py", line 5, in &lt;module&gt;
+      print (iter(100))
+            ^^^^^^^^^
+TypeError: 'int' object is not iterable
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Error Handling in Iterators</h2>
+<p>Iterator object has a method named <strong>__next__()</strong>. Every time it is called, it returns next element in iterator stream. Call to next() function is equivalent to calling __next__() method of iterator object.</p>
+<p>This method which raises a <strong>StopIteration</strong> exception when there are no more items to return.</p>
+<h3>Example</h3>
+<p>In the following is an example the iterator object we have created have only 3 elements and we are iterating through it more than thrice &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">it <span class="token operator">=</span> <span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>it<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>it<span class="token punctuation">.</span>__next__<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">1
+2
+3
+Traceback (most recent call last):
+   File "C:\Users\user\example.py", line 5, in &lt;module&gt;
+      print (next(it))
+            ^^^^^^^^
+StopIteration
+</pre>
+<p>This exception can be caught in the code that consumes the iterator using try and except blocks, though it's more common to handle it implicitly by using constructs like for loops which manage the StopIteration exception internally.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">it <span class="token operator">=</span> <span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> no <span class="token operator">=</span> <span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>no<span class="token punctuation">)</span> <span class="token keyword">except</span> StopIteration<span class="token punctuation">:</span> <span class="token keyword">break</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">1
+2
+3
+4
+5
+</pre>
+<h2>Custom Iterator</h2>
+<p>A custom iterator in Python is a user-defined class that implements the iterator protocol which consists of two methods <strong>__iter__()</strong> and <strong>__next__()</strong>. This allows the class to behave like an iterator, enabling traversal through its elements one at a time.</p>
+<p>To define a custom iterator class in Python, the class must define these methods.</p>
+<h3>Example</h3>
+<p>In the following example, the Oddnumbers is a class implementing __iter__() and __next__() methods. On every call to __next__(), the number increments by 2 thereby streaming odd numbers in the range 1 to 10.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Oddnumbers</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> end_range<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>start <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span> self<span class="token punctuation">.</span>end <span class="token operator">=</span> end_range <span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self <span class="token keyword">def</span> <span class="token function">__next__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> self<span class="token punctuation">.</span>start <span class="token operator">&amp;</span>lt self<span class="token punctuation">.</span>end<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>start <span class="token operator">+=</span> <span class="token number">2</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>start <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> StopIteration countiter <span class="token operator">=</span> Oddnumbers<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> no <span class="token operator">=</span> <span class="token builtin">next</span><span class="token punctuation">(</span>countiter<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>no<span class="token punctuation">)</span> <span class="token keyword">except</span> StopIteration<span class="token punctuation">:</span> <span class="token keyword">break</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">1
+3
+5
+7
+9
+</pre>
+<h3>Example</h3>
+<p>Let's create another iterator that generates the first n Fibonacci numbers with the following code &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">class</span> <span class="token class-name">Fibonacci</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> max_count<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>max_count <span class="token operator">=</span> max_count self<span class="token punctuation">.</span>count <span class="token operator">=</span> <span class="token number">0</span> self<span class="token punctuation">.</span>a<span class="token punctuation">,</span> self<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self <span class="token keyword">def</span> <span class="token function">__next__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> self<span class="token punctuation">.</span>count <span class="token operator">&gt;=</span> self<span class="token punctuation">.</span>max_count<span class="token punctuation">:</span> <span class="token keyword">raise</span> StopIteration fib_value <span class="token operator">=</span> self<span class="token punctuation">.</span>a self<span class="token punctuation">.</span>a<span class="token punctuation">,</span> self<span class="token punctuation">.</span>b <span class="token operator">=</span> self<span class="token punctuation">.</span>b<span class="token punctuation">,</span> self<span class="token punctuation">.</span>a <span class="token operator">+</span> self<span class="token punctuation">.</span>b self<span class="token punctuation">.</span>count <span class="token operator">+=</span> <span class="token number">1</span> <span class="token keyword">return</span> fib_value <span class="token comment"># Using the Fibonacci iterator</span> fib_iterator <span class="token operator">=</span> Fibonacci<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">for</span> number <span class="token keyword">in</span> fib_iterator<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+</pre>
+<h2>Asynchronous Iterator</h2>
+<p>Asynchronous iterators in Python allow us to iterate over asynchronous sequences, enabling the handling of async operations within a loop.</p>
+<p>They follow the asynchronous iterator protocol which consists of the methods <strong>__aiter__()</strong> and <strong>__anext__()</strong> (added in Python 3.10 version onwards.). These methods are used in conjunction with the async for loop to iterate over asynchronous data sources.</p>
+<p>The <strong>aiter()</strong> function returns an asynchronous iterator object. It is an asynchronous counter part of the classical iterator. Any asynchronous iterator must support _<strong>__aiter()__</strong> and <strong>__anext__()</strong> methods. These methods are internally called by the two built-in functions.</p>
+<blockquote>Asynchronous functions are called co-routines and are executed with <strong>asyncio.run()</strong> method. The main() co-routine contains a while loop that successively obtains odd numbers and raises StopAsyncIteration if the number exceeds 9.</blockquote>
+<p>Like the classical iterator the asynchronous iterator gives a stream of objects. When the stream is exhausted, the StopAsyncIteration exception is raised.</p>
+<h3>Example</h3>
+<p>In the example give below, an asynchronous iterator class Oddnumbers is declared. It implements __aiter__() and __anext__() method. On each iteration, a next odd number is returned and the program waits for one second, so that it can perform any other process asynchronously.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> asyncio <span class="token keyword">class</span> <span class="token class-name">Oddnumbers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>start <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">__aiter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> self <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">__anext__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> self<span class="token punctuation">.</span>start <span class="token operator">&gt;=</span> <span class="token number">9</span><span class="token punctuation">:</span> <span class="token keyword">raise</span> StopAsyncIteration self<span class="token punctuation">.</span>start <span class="token operator">+=</span> <span class="token number">2</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> self<span class="token punctuation">.</span>start <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> it <span class="token operator">=</span> Oddnumbers<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span> <span class="token keyword">try</span><span class="token punctuation">:</span> awaitable <span class="token operator">=</span> anext<span class="token punctuation">(</span>it<span class="token punctuation">)</span> result <span class="token operator">=</span> <span class="token keyword">await</span> awaitable <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token keyword">except</span> StopAsyncIteration<span class="token punctuation">:</span> <span class="token keyword">break</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Output</h3>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">1
+3
+5
+7
+9
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>

@@ -1,0 +1,49 @@
+
+<h2>Python Tuple Exercise 1</h2>
+<p>Python program to find unique numbers in a given tuple &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> T2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> T1<span class="token punctuation">:</span> <span class="token keyword">if</span> x <span class="token keyword">not</span> <span class="token keyword">in</span> T2<span class="token punctuation">:</span> T2<span class="token operator">+=</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"original tuple:"</span><span class="token punctuation">,</span> T1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Unique numbers:"</span><span class="token punctuation">,</span> T2<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">original tuple: (1, 9, 1, 6, 3, 4, 5, 1, 1, 2, 5, 6, 7, 8, 9, 2)
+Unique numbers: (1, 9, 6, 3, 4, 5, 2, 7, 8)
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Tuple Exercise 2</h2>
+<p>Python program to find sum of all numbers in a tuple &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> ttl <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> T1<span class="token punctuation">:</span> ttl<span class="token operator">+=</span>x <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Sum of all numbers Using loop:"</span><span class="token punctuation">,</span> ttl<span class="token punctuation">)</span> ttl <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>T1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Sum of all numbers sum() function:"</span><span class="token punctuation">,</span> ttl<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">Sum of all numbers Using loop: 24
+Sum of all numbers sum() function: 24
+</pre>
+<h2>Python Tuple Exercise 3</h2>
+<p>Python program to create a tuple of 5 random integers &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> random t1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span> x <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span> t1<span class="token operator">+=</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>t1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">(64, 21, 68, 6, 12)&nbsp;</pre>
+</div>

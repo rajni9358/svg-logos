@@ -1,0 +1,64 @@
+
+<h2>Python Set Exercise 1</h2>
+<p>Python program to find common elements in two lists with the help of set operations &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">l1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> l2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span> s1<span class="token operator">=</span><span class="token builtin">set</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span> s2<span class="token operator">=</span><span class="token builtin">set</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span> commons <span class="token operator">=</span> s1<span class="token operator">&amp;</span>s2 <span class="token comment"># or s1.intersection(s2)</span> commonlist <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>commons<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>commonlist<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">[4, 5]
+</pre>
+<div class="inserted-div">&nbsp;</div>
+<h2>Python Set Exercise 2</h2>
+<p>Python program to check if a set is a subset of another &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">s1<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> s2<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> <span class="token keyword">if</span> s2<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s2 is a subset of s1"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"s2 is not a subset of s1"</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">s2 is a subset of s1
+</pre>
+<h2>Python Set Exercise 3</h2>
+<p>Python program to obtain a list of unique elements in a list &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">T1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> s1 <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>T1<span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span>s1<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">{1, 2, 3, 4, 5, 6, 7, 8, 9}
+</pre>
+<!--
+<h3>Exercise Programs</h3>
+<ul class="list">
+<li><p>Python program to find the size of a set object.</p></li>
+<li><p>Python program that splits a set into two based on odd/even numbers.</p></li>
+<li><p>Python program to remove all negative numbers from a set.</p></li>
+<li><p>Python program to build another set with absolute value of each number in a set.</p></li>
+<li><p>Python program to remove all strings from a set which has elements of different types.</p></li>
+</ul>
+-->
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">
+<div id="google-bottom-ads" class="google-bottom-ads">
+<div style="width: 728px; height: 250px;">&nbsp;</div>
+</div>
+</div>
+</div>

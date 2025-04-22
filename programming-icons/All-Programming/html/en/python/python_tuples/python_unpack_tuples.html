@@ -1,0 +1,92 @@
+<h2>Unpack Tuple Items</h2>
+<p>The term "unpacking" refers to the process of parsing <a href="/python/python_tuples.htm" target="_blank">tuple</a> items in individual <a href="/python/python_variables.htm" target="_blank">variables</a>. In Python, the parentheses are the default delimiters for a literal representation of sequence object.</p>
+<p>Following statements to declare a tuple are identical.</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t1 <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t1 <span class="token operator">=</span> x<span class="token punctuation">,</span>y <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span> <span class="token punctuation">(</span>t1<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'tuple'</span><span class="token operator">&gt;</span></div>
+<h3>Example</h3>
+<p>To store tuple items in individual variables, use multiple variables on the left of assignment operator, as shown in the following example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z <span class="token operator">=</span> tup1 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"x: "</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> <span class="token string">"y: "</span><span class="token punctuation">,</span> <span class="token string">"z: "</span><span class="token punctuation">,</span>z<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x: 10 y: 20 z: 30
+</pre>
+<p>That's how the tuple is unpacked in individual variables.</p>
+<p>In the above example, the number of variables on the left of assignment operator is equal to the items in the tuple. What if the number is not equal to the items?</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>ValueError While Unpacking a Tuple</h2>
+<p>If the number of variables is more or less than the length of tuple, Python raises a ValueError.</p>
+<h3>Example</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span> x<span class="token punctuation">,</span> y <span class="token operator">=</span> tup1 x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q <span class="token operator">=</span> tup1</div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">  x, y = tup1
+  ^^^^
+ValueError: too many values to unpack (expected 2)
+  x, y, p, q = tup1
+  ^^^^^^^^^^
+ValueError: not enough values to unpack (expected 4, got 3)
+</pre>
+<h2>Unpack Tuple Items Using Asterisk (*)</h2>
+<p>In such a case, the "*" symbol is used for unpacking. Prefix "*" to "y", as shown below &minus;</p>
+<h3>Example 1</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span> x<span class="token punctuation">,</span> <span class="token operator">*</span>y <span class="token operator">=</span> tup1 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"x: "</span><span class="token punctuation">,</span> <span class="token string">"y: "</span><span class="token punctuation">,</span> y<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x: y: [20, 30]
+</pre>
+<p>The first value in tuple is assigned to "x", and rest of items to "y" which becomes a list.</p>
+<h3>Example 2</h3>
+<p>In this example, the tuple contains 6 values and variables to be unpacked are 3. We prefix "*" to the second variable.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span> x<span class="token punctuation">,</span> <span class="token operator">*</span>y<span class="token punctuation">,</span> z <span class="token operator">=</span> tup1 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"x: "</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span> <span class="token string">"y: "</span><span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token string">"z: "</span><span class="token punctuation">,</span> z<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x: 10 y: [20, 30, 40, 50] z: 60
+</pre>
+<p>Here, values are unpacked in "x" and "z" first, and then the rest of values are assigned to "y" as a list.</p>
+<h3>Example 3</h3>
+<p>What if we add "*" to the first variable?</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token operator">*</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z <span class="token operator">=</span> tup1 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"x: "</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span> <span class="token string">"y: "</span><span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token string">"z: "</span><span class="token punctuation">,</span> z<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x: [10, 20, 30, 40] y: 50 z: 60
+</pre>
+<p>Here again, the tuple is unpacked in such a way that individual variables take up the value first, leaving the remaining values to the list "x".&nbsp;</p>

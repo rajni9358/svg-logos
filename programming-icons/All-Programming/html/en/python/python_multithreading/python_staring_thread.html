@@ -1,0 +1,59 @@
+
+<p>In Python, starting a thread involves using the <strong>start()</strong> method provided by the Thread class in the <strong>threading</strong> module. This method initiates the thread's activity and automatically calls its <strong>run()</strong> method in a separate thread of execution. Meaning that, when you call start() on each thread object (for example., thread1, thread2, thread3) to initiate their execution.</p>
+<p>Python to launch separate threads that concurrently execute the run() method defined in each Thread instance. And the main thread continues its execution after starting the child threads.</p>
+<p>In this tutorial, you will see a detailed explanation and example of how to use the start() method effectively in multi-threaded programming to understand its behavior in multi-thread applications.</p>
+<h2>Starting a Thread in Python</h2>
+<p>The <strong>start()</strong> method is fundamental for beginning the execution of a thread. It sets up the thread's environment and schedules it to run. Importantly, it should only be called once per Thread object. If this method is called more than once on the same Thread object, it will raise a RuntimeError.</p>
+<p>Here is the syntax for using the start() method on a Thread object &minus;</p>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">threading<span class="token punctuation">.</span>thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+<h3>Example</h3>
+<p>let's see the below example, that demonstrates how to start a new thread in Python using the <span class="tp-codespan">start()</span> method.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread <span class="token keyword">from</span> time <span class="token keyword">import</span> sleep <span class="token keyword">def</span> <span class="token function">my_function</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"child Thread running"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span> thread <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target <span class="token operator">=</span> my_function<span class="token punctuation">,</span> args <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">)</span> thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"thread finished...exiting"</span><span class="token punctuation">)</span></div>
+</div>
+<p>When the above code is executed, it produces the following result</p>
+<pre class="result notranslate">child Thread running 0
+thread finished...exiting
+child Thread running 1
+child Thread running 2
+child Thread running 3
+child Thread running 4
+child Thread running 5
+child Thread running 6
+child Thread running 7
+child Thread running 8
+child Thread running 9
+</pre>
+<h3>Example</h3>
+<p>Here is another example demonstrating the working of the <span class="tp-codespan">start()</span> method. You can observe that, by not calling the start() method on thread2, it remains inactive and does not begin execution.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">import</span> threading <span class="token keyword">import</span> time <span class="token keyword">class</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> threadID<span class="token punctuation">,</span> name<span class="token punctuation">,</span> counter<span class="token punctuation">)</span><span class="token punctuation">:</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span> self<span class="token punctuation">.</span>threadID <span class="token operator">=</span> threadID self<span class="token punctuation">.</span>name <span class="token operator">=</span> name self<span class="token punctuation">.</span>counter <span class="token operator">=</span> counter <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Starting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> print_time<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> self<span class="token punctuation">.</span>counter<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting "</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">print_time</span><span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> counter<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">while</span> counter<span class="token punctuation">:</span> time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%s: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>threadName<span class="token punctuation">,</span> time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> counter <span class="token operator">-=</span> <span class="token number">1</span> <span class="token comment"># Create new threads</span> thread1 <span class="token operator">=</span> MyThread<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Thread-1"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> thread2 <span class="token operator">=</span> MyThread<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"Thread-2"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> thread3 <span class="token operator">=</span> MyThread<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"Thread-3"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># Start new Threads</span> thread1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> thread3<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Exiting Main Thread"</span><span class="token punctuation">)</span></div>
+</div>
+<p>The above code will produce the following output &minus;</p>
+<pre class="result notranslate">Starting Thread-1
+Starting Thread-3
+Exiting Main Thread
+Thread-1: Mon Jun 24 18:24:59 2024
+Exiting Thread-1
+Thread-3: Mon Jun 24 18:24:59 2024
+Thread-3: Mon Jun 24 18:25:00 2024
+Thread-3: Mon Jun 24 18:25:01 2024
+Exiting Thread-3
+</pre>
+<div class="library-page-bottom-nav ">&nbsp;</div>
+<div class="bottom-library-ads mt" style="margin: 5px;">&nbsp;</div>
+</div>
