@@ -1,0 +1,120 @@
+<h2>Python Comments</h2>
+<p>Python comments are programmer-readable explanation or annotations in the Python source code. They are added with the purpose of making the source code easier for humans to understand, and are ignored by Python interpreter. Comments enhance the readability of the code and help the programmers to understand the code very carefully.</p>
+<h3>Example</h3>
+<p>If we execute the code given below, the output produced will simply print "Hello, World!" to the console, as comments are ignored by the Python interpreter and do not affect the execution of the program &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># This is a comment</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span></div>
+</div>
+<p>Python supports three types of comments as shown below &minus;</p>
+<ul class="list">
+<li>Single-line comments</li>
+<li>Multi-line comments</li>
+<li>Docstring Comments</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Single Line Comments in Python</h2>
+<p>Single-line comments in Python start with a hash symbol (#) and extend to the end of the line. They are used to provide short explanations or notes about the code. They can be placed on their own line above the code they describe, or at the end of a line of code (known as an inline comment) to provide context or clarification about that specific line.</p>
+<h3>Example: Standalone Single-Line Comment</h3>
+<p>A standalone single-line comment is a comment that occupies an entire line by itself, starting with a hash symbol (#). It is placed above the code it describes or annotates.</p>
+<p>In this example, the standalone single-line comment is placed above the "greet" function "&minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># Standalone single line comment is placed here</span> <span class="token keyword">def</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span> greet<span class="token punctuation">(</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Example: Inline Single-Line Comment</h3>
+<p>An inline single-line comment is a comment that appears on the same line as a piece of code, following the code and preceded by a hash symbol (#).</p>
+<p>In here, the inline single-line comment follows the <strong>print("Hello, World!")</strong> statement &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span> <span class="token comment"># Inline single line comment is placed here</span></div>
+</div>
+<h2>Multi Line Comments in Python</h2>
+<p>In Python, multi-line comments are used to provide longer explanations or notes that span multiple lines. While Python does not have a specific syntax for multi-line comments, there are two common ways to achieve this: consecutive single-line comments and triple-quoted strings &minus;</p>
+<h3>Consecutive Single-Line Comments</h3>
+<p>Consecutive single-line comments refers to using the hash symbol (#) at the beginning of each line. This method is often used for longer explanations or to section off parts of the code.</p>
+<p><strong>Example</strong></p>
+<p>In this example, multiple lines of comments are used to explain the purpose and logic of the factorial function &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token comment"># This function calculates the factorial of a number</span> <span class="token comment"># using an iterative approach. The factorial of a number</span> <span class="token comment"># n is the product of all positive integers less than or</span> <span class="token comment"># equal to n. For example, factorial(5) is 5*4*3*2*1 = 120.</span> <span class="token keyword">def</span> <span class="token function">factorial</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">if</span> n <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"Factorial is not defined for negative numbers"</span> result <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span> result <span class="token operator">*=</span> i <span class="token keyword">return</span> result number <span class="token operator">=</span> <span class="token number">5</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The factorial of </span><span class="token interpolation"><span class="token punctuation">{</span>number<span class="token punctuation">}</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token punctuation">{</span>factorial<span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></div>
+</div>
+<h3>Multi Line Comment Using Triple Quoted Strings</h3>
+<p>We can use triple-quoted strings (''' or """) to create multi-line comments. These strings are technically string literals but can be used as comments if they are not assigned to any variable or used in expressions.</p>
+<p>This pattern is often used for block comments or when documenting sections of code that require detailed explanations.</p>
+<p><strong>Example</strong></p>
+<p>Here, the triple-quoted string provides a detailed explanation of the "gcd" function, describing its purpose and the algorithm used &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token triple-quoted-string string">""" This function calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm. The GCD of two numbers is the largest number that divides both of them without leaving a remainder. """</span> <span class="token keyword">def</span> <span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">while</span> b<span class="token punctuation">:</span> a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a <span class="token operator">%</span> b <span class="token keyword">return</span> a result <span class="token operator">=</span> gcd<span class="token punctuation">(</span><span class="token number">48</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"The GCD of 48 and 18 is:"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span></div>
+</div>
+<h2>Using Comments for Documentation</h2>
+<p>In Python, documentation comments, also known as docstrings, provide a way to incorporate documentation within your code. This can be useful for explaining the purpose and usage of modules, classes, functions, and methods. Effective use of documentation comments helps other developers understand your code and its purpose without needing to read through all the details of the implementation.</p>
+<h3>Python Docstrings</h3>
+<p>In Python, docstrings are a special type of comment that is used to document modules, classes, functions, and methods. They are written using triple quotes (''' or """) and are placed immediately after the definition of the entity they document.</p>
+<p>Docstrings can be accessed programmatically, making them an integral part of Pythons built-in documentation tools.</p>
+<p><strong>Example of a Function Docstring</strong></p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">greet</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" This function greets the person whose name is passed as a parameter. Parameters: name (str): The name of the person to greet Returns: None """</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Hello, </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">!"</span></span><span class="token punctuation">)</span> greet<span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">)</span></div>
+</div>
+<h3>Accessing Docstrings</h3>
+<p>Docstrings can be accessed using the .__doc__ attribute or the help() function. This makes it easy to view the documentation for any module, class, function, or method directly from the interactive Python shell or within the code.</p>
+<p><strong>Example: Using the .__doc__ attribute</strong></p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">greet</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" This function greets the person whose name is passed as a parameter. Parameters: name (str): The name of the person to greet Returns: None """</span> <span class="token keyword">print</span><span class="token punctuation">(</span>greet<span class="token punctuation">.</span>__doc__<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Example: Using the help() Function</strong></p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false"><span class="token keyword">def</span> <span class="token function">greet</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token triple-quoted-string string">""" This function greets the person whose name is passed as a parameter. Parameters: name (str): The name of the person to greet Returns: None """</span> <span class="token builtin">help</span><span class="token punctuation">(</span>greet<span class="token punctuation">)</span>&nbsp;</div>
+</div>

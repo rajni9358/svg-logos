@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Nested if Statement in Hindi</title>
+</head>
+<body>
+    <h1>Python में Nested if स्टेटमेंट</h1>
+
+    <p>Python <strong>nested if statements</strong> को सपोर्ट करता है, इसका मतलब है कि हम एक <strong>if statement</strong> के अंदर एक और <a href="/python/python_if_statement.htm" target="_blank">if</a> या <a href="/python/python_if_else.htm" target="_blank">if...else</a> स्टेटमेंट का उपयोग कर सकते हैं।</p>
+
+    <p>ऐसी स्थिति हो सकती है जब आप किसी प्रारंभिक शर्त के true होने के बाद अतिरिक्त शर्तों की जांच करना चाहें। ऐसी स्थिति में आप nested <strong>if</strong> संरचना का उपयोग कर सकते हैं।</p>
+
+    <p>इसके अलावा, एक nested <strong>if</strong> संरचना के अंदर आप एक <strong>if...elif...else</strong> संरचना को भी शामिल कर सकते हैं।</p>
+
+    <h2>Nested if स्टेटमेंट की सिंटैक्स</h2>
+    <p>nested <span class="tp-codespan">if construct</span> with else condition की सिंटैक्स इस प्रकार होगी &minus;</p>
+
+    <pre>
+if boolean_expression1:
+    statement(s)
+    if boolean_expression2:
+        statement(s)
+    </pre>
+
+    <h2>Nested if स्टेटमेंट का फ्लोचार्ट</h2>
+    <p>Python के nested if स्टेटमेंट का फ्लोचार्ट इस प्रकार है &minus;</p>
+    <img src="https://www.tutorialspoint.com/python/images/nested_if_statement.jpg" alt="nested if statement flowchart" />
+
+    <h2>Nested if स्टेटमेंट का उदाहरण</h2>
+    <p>नीचे दिया गया उदाहरण nested if स्टेटमेंट का कार्य दिखाता है &minus;</p>
+
+    <pre>
+num = 36
+print("num =", num)
+if num % 2 == 0:
+    if num % 3 == 0:
+        print("Divisible by 3 and 2")
+
+print("....execution ends....")
+    </pre>
+
+    <p>उपरोक्त कोड चलाने पर निम्नलिखित आउटपुट प्राप्त होगा &minus;</p>
+    <pre>
+num =  36
+Divisible by 3 and 2
+....execution ends....
+    </pre>
+
+    <h2>Else के साथ Nested if स्टेटमेंट</h2>
+    <p>जैसा कि पहले उल्लेख किया गया है, हम <span class="tp-codespan">if</span> स्टेटमेंट के अंदर <span class="tp-codespan">if-else</span> स्टेटमेंट को nest कर सकते हैं। यदि <span class="tp-codespan">if condition</span> true है, तो पहला <span class="tp-codespan">if-else statement</span> execute होगा, अन्यथा <span class="tp-codespan">else block</span> में दिए गए स्टेटमेंट्स execute होंगे।</p>
+
+    <h3>Syntax</h3>
+    <pre>
+if expression1:
+    statement(s)
+    if expression2:
+        statement(s)
+    else:
+        statement(s)
+else:
+    if expression3:
+        statement(s)
+    else:
+        statement(s)
+    </pre>
+
+    <h3>उदाहरण</h3>
+    <p>अब एक Python कोड लेते हैं जिससे यह समझा जा सके &minus;</p>
+    <pre>
+num = 8
+print("num =", num)
+if num % 2 == 0:
+    if num % 3 == 0:
+        print("Divisible by 3 and 2")
+    else:
+        print("divisible by 2 not divisible by 3")
+else:
+    if num % 3 == 0:
+        print("divisible by 3 not divisible by 2")
+    else:
+        print("not Divisible by 2 not divisible by 3")
+    </pre>
+
+    <p>जब उपरोक्त कोड को निष्पादित किया जाता है, तो यह निम्नलिखित <strong>आउटपुट</strong> देता है &minus;</p>
+    <pre>
+num = 8
+divisible by 2 not divisible by 3
+num = 15
+divisible by 3 not divisible by 2
+num = 12
+Divisible by 3 and 2
+num = 5
+not Divisible by 2 not divisible by 3
+    </pre>
+
+</body>
+</html>

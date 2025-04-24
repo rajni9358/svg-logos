@@ -1,0 +1,94 @@
+<div class="clearer">This tutorial will teach you how to write a simple <strong>Hello World</strong> program using Python Programming language. This program will make use of Python built-in <span class="tp-codespan">print()</span> function to print the string.</div>
+<h2>Hello World Program in Python</h2>
+<p>Printing <strong>"Hello World"</strong> is the first program in Python. This program will not take any user input, it will just print text on the output screen. It is used to test if the software needed to compile and run the program has been installed correctly.</p>
+<h2>Steps</h2>
+<p>The following are the steps to write a Python program to print Hello World &ndash;</p>
+<ul>
+<li>Step 1: Install Python. Make sure that Python is installed on your system or not.</li>
+<li>Step 2: Choose Text Editor or IDE to write the code.</li>
+<li>Step 3: Open Text Editor or IDE, create a new file, and write the code to print Hello World.</li>
+<li>Step 4: Save the file with a file name and extension ".py".</li>
+<li>Step 5: Compile/Run the program.</li>
+</ul>
+<h2>Python Program to Print Hello World</h2>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;"># Python code to print "Hello World"
+print ("Hello World")
+</pre>
+<p>In the above code, we wrote two lines. The first line is the <a href="/python/python_comments.htm" target="_blank">Python comment</a> that will be ignored by the <a href="/online_python_compiler.php" target="_blank">Python interpreter</a>, and the second line is the <span class="tp-codespan">print()</span> statement that will print the given message ("Hello World") on the output screen.</p>
+<p><strong>Output</strong></p>
+<pre class="result">Hello World
+</pre>
+<h2>Different Ways to Write and Execute Hello World Program</h2>
+<h3>Using Python Interpreter Command Prompt Mode</h3>
+<p>It is very easy to display the <strong>Hello World</strong> message using the Python interpreter. Launch the Python interpreter from a command terminal of your Windows Operating System and issue the <strong>print statement</strong> from the Python prompt as follows &minus;</p>
+<h4>Example</h4>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">PS C:\&gt; python
+Python 3.11.2 (tags/v3.11.2:878ead1, Feb 7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+
+&gt;&gt;&gt; print ("Hello World")
+Hello World
+</pre>
+<p>Similarly, Hello World message is printed on Linux System.</p>
+<h4>Example</h4>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">$ python3
+Python 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+&gt;&gt;&gt; print ("Hello World")
+Hello World
+ </pre>
+<h3>Using Python Interpreter Script Mode</h3>
+<p>Python interpreter also works in scripted mode. Open any text editor, enter the following text and save as Hello.py</p>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;"> print ("Hello World")
+</pre>
+<p>For Windows OS, open the command prompt terminal (CMD) and run the program as shown below &minus;</p>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">C:\&gt;python hello.py</pre>
+<p>This will display the following output</p>
+<pre class="result">Hello World
+</pre>
+<p>To run the program from Linux terminal</p>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">$ python3 hello.py</pre>
+<p>This will display the following output</p>
+<pre class="result">Hello World
+</pre>
+<h3>Using Shebang #! in Linux Scripts</h3>
+<p>In Linux, you can convert a Python program into a self executable script. The first statement in the code should be a shebang <strong> #!</strong>. It must contain the path to Python executable. In Linux, Python is installed in /usr/bin directory, and the name of the executable is python3. Hence, we add this statement to hello.py file</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<pre style="background-color: #2e2e2e; color: #f1f1f1; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto;">#!/usr/bin/python3
+
+print ("Hello World")</pre>
+<p>You also need to give the file executable permission by using the chmod +x command</p>
+<pre class="result notranslate">$ chmod +x hello.py
+</pre>
+<p>Then, you can run the program with following command line &minus;</p>
+<pre class="result notranslate">$ ./hello.py
+</pre>
+<p>This will display the following output</p>
+<pre class="result">Hello World
+</pre>
+<!--<p>Thus, we can write and run <b>Hello World</b> program in Python using the interpreter mode and script mode.</p>-->
+<h2>FAQs</h2>
+<h3>1. Why the first program is called Hello World?</h3>
+<p>It is just a simple program to test the basic syntax and compiler/interpreter configuration of Python programming language.</p>
+<h3>2. Installation of Python is required to run Hello World program?</h3>
+<p>Yes. Python installation is required to run Hello World program.</p>
+<h3>3. How do I run a Python program without installing it?</h3>
+<p>TutorialsPoint developed an online environment where you can run your codes. You can use the Python online compiler to run your Python programs.</p>
+<h3>4. First Program Vs Hello World Program in Python?</h3>
+<p>There is no difference. The first program of Python is generally known as the Hello World program.</p>
+<h3>5. Which is/are the method to print Hello World or any message?</h3>
+<p>You can use the following methods &ndash;</p>
+<ul>
+<li>print() method</li>
+<li>sys.stdout.write() method by importing the sys module</li>
+<li>Using python-f string&nbsp;</li>
+</ul>
+</div>

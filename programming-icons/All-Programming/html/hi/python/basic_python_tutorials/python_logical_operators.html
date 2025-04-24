@@ -1,0 +1,173 @@
+<h2>Python Logical Operators</h2>
+<p>Python logical operators are used to form compound Boolean expressions. Each operand for these logical operators is itself a Boolean expression. For example,</p>
+<h3>Example</h3>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">age <span class="token operator">&gt;</span> <span class="token number">16</span> <span class="token keyword">and</span> marks <span class="token operator">&gt;</span> <span class="token number">80</span> percentage <span class="token operator">&lt;</span> <span class="token number">50</span> <span class="token keyword">or</span> attendance <span class="token operator">&lt;</span> <span class="token number">75</span></div>
+<p>Along with the keyword False, Python interprets None, numeric zero of all types, and empty sequences (<a href="/python/python_strings.htm" target="_blank">strings</a>, <a href="/python/python_tuples.htm" target="_blank">tuples</a>, <a href="/python/python_lists.htm" target="_blank">lists</a>), empty <a href="/python/python_dictionaries.htm" target="_blank">dictionaries</a>, and empty <a href="/python/python_sets.htm" target="_blank">sets</a> as False. All other values are treated as True.</p>
+<p>There are three logical operators in Python. They are "<strong>and</strong>", "<strong>or</strong>" and "<strong>not</strong>". They must be in lowercase.</p>
+<div class="inserted-div">&nbsp;</div>
+<h2>Logical "and" Operator</h2>
+<p>For the compound Boolean expression to be True, both the operands must be True. If any or both operands evaluate to False, the expression returns False.</p>
+<h3>Logical "and" Operator Truth Table</h3>
+<p>The following table shows the scenarios.</p>
+<div class="table-wrapper">
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">a and b</th>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Logical "or" Operator</h2>
+<p>In contrast, the or operator returns True if any of the operands is True. For the compound Boolean expression to be False, both the operands have to be False.</p>
+<h3>Logical "or" Operator Truth Table</h3>
+<p>The following tables shows the result of the "or" operator with different conditions:</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">a or b</th>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Logical "not" Operator</h2>
+<p>This is a unary operator. The state of Boolean operand that follows, is reversed. As a result, not True becomes False and not False becomes True.</p>
+<h3>Logical "not" Operator Truth Table</h3>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">not (a)</th>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>How the Python interpreter evaluates the logical operators?</h2>
+<p>The expression "x and y" first evaluates "x". If "x" is false, its value is returned; otherwise, "y" is evaluated and the resulting value is returned.</p>
+<p><img src="/python/images/logical_operator.jpg" alt="logical_operator" /></p>
+<p>The expression "x or y" first evaluates "x"; if "x" is true, its value is returned; otherwise, "y" is evaluated and the resulting value is returned.</p>
+<p><img src="/python/images/x_or_y.jpg" alt="x_or_y" /></p>
+<h2>Python Logical Operators Examples</h2>
+<p>Some use cases of logical operators are given below &minus;</p>
+<h3>Example 1: Logical Operators With Boolean Conditions</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x <span class="token operator">=</span> <span class="token number">10</span> y <span class="token operator">=</span> <span class="token number">20</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x &gt; 0 and x &lt; 10:"</span><span class="token punctuation">,</span>x <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token keyword">and</span> x <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x &gt; 0 and y &gt; 10:"</span><span class="token punctuation">,</span>x <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token keyword">and</span> y <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x &gt; 10 or y &gt; 10:"</span><span class="token punctuation">,</span>x <span class="token operator">&gt;</span> <span class="token number">10</span> <span class="token keyword">or</span> y <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x%2 == 0 and y%2 == 0:"</span><span class="token punctuation">,</span>x<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">and</span> y<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"not (x+y&gt;15):"</span><span class="token punctuation">,</span> <span class="token keyword">not</span> <span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">15</span><span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x &gt; 0 and x &lt; 10: False
+x &gt; 0 and y &gt; 10: True
+x &gt; 10 or y &gt; 10: True
+x%2 == 0 and y%2 == 0: True
+not (x+y&gt;15): False
+</pre>
+<h3>Example 2: Logical Operators With Non- Boolean Conditions</h3>
+<p>We can use non-boolean operands with logical operators. Here, we need to not that any non-zero numbers, and non-empty sequences evaluate to True. Hence, the same truth tables of logical operators apply.</p>
+<p>In the following example, numeric operands are used for logical operators. The <a href="/python/python_variables.htm" target="_blank">variables</a> "x", "y" evaluate to True, "z" is False</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x <span class="token operator">=</span> <span class="token number">10</span> y <span class="token operator">=</span> <span class="token number">20</span> z <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x and y:"</span><span class="token punctuation">,</span>x <span class="token keyword">and</span> y<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x or y:"</span><span class="token punctuation">,</span>x <span class="token keyword">or</span> y<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"z or x:"</span><span class="token punctuation">,</span>z <span class="token keyword">or</span> x<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"y or z:"</span><span class="token punctuation">,</span> y <span class="token keyword">or</span> z<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x and y: 20
+x or y: 10
+z or x: 10
+y or z: 20
+</pre>
+<h3>Example 3: Logical Operators With Strings and Tuples</h3>
+<p>The string variable is treated as True and an empty tuple as False in the following example &minus;</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a<span class="token operator">=</span><span class="token string">"Hello"</span> b<span class="token operator">=</span><span class="token builtin">tuple</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a and b:"</span><span class="token punctuation">,</span>a <span class="token keyword">and</span> b<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"b or a:"</span><span class="token punctuation">,</span>b <span class="token keyword">or</span> a<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">a and b: ()
+b or a: Hello
+</pre>
+<h3>Example 4: Logical Operators To Compare Sequences (Lists)</h3>
+<p>Finally, two list objects below are non-empty. Hence x and y returns the latter, and x or y returns the former.</p>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x and y:"</span><span class="token punctuation">,</span>x <span class="token keyword">and</span> y<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x or y:"</span><span class="token punctuation">,</span>x <span class="token keyword">or</span> y<span class="token punctuation">)</span></div>
+</div>
+<p>It will produce the following <strong>output</strong> &minus;</p>
+<pre class="result notranslate">x and y: [10, 20, 30]
+x or y: [1, 2, 3]</pre>

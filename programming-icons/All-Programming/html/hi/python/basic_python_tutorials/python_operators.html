@@ -1,0 +1,553 @@
+<h2>Python Operators</h2>
+<!--<p>Python and other programming languages provide different type of operators which are symbols (sometimes called keywords) and used to perform a certain most commonly required operations on one or more operands. Operators allow different operations like addition, subtraction, multiplication, division etc.</p>-->
+<p><strong>Python operators</strong> are special symbols used to perform specific operations on one or more operands. The <a href="/python/python_variables.htm" target="_blank">variables</a>, values, or expressions can be used as operands. For example, Python's addition operator (<strong>+</strong>) is used to perform addition operations on two variables, values, or expressions.</p>
+<p>The following are some of the terms related to <strong>Python operators</strong>:</p>
+<ul class="list">
+<li><strong>Unary operators</strong>: Python operators that require one operand to perform a specific operation are known as unary operators.</li>
+<li><strong>Binary operators</strong>: Python operators that require two operands to perform a specific operation are known as binary operators.</li>
+<li><strong>Operands</strong>: Variables, values, or expressions that are used with the operator to perform a specific operation.</li>
+</ul>
+<div class="inserted-div">&nbsp;</div>
+<h2>Types of Python Operators</h2>
+<p>Python operators are categorized in the following categories &minus;</p>
+<ul class="list">
+<li><a href="#arithmetic-operators">Arithmetic Operators</a></li>
+<li><a href="#comparison-operators">Comparison (Relational) Operators</a></li>
+<li><a href="#assignment-operators">Assignment Operators</a></li>
+<li><a href="#logical-operators">Logical Operators</a></li>
+<li><a href="#bitwise-operators">Bitwise Operators</a></li>
+<li><a href="#membership-operators">Membership Operators</a></li>
+<li><a href="#identity-operators">Identity Operators</a></li>
+</ul>
+<p>Let us have a look at all the operators one by one.</p>
+<h2 id="arithmetic-operators">Python Arithmetic Operators</h2>
+<p><a href="/python/python_arithmetic_operators.htm" target="_blank">Python Arithmetic operators</a> are used to perform basic mathematical operations such as addition, subtraction, multiplication, etc.</p>
+<p>The following table contains all arithmetic operators with their symbols, names, and examples (assume that the values of <span class="tp-codespan">a</span> and <span class="tp-codespan">b</span> are 10 and 20, respectively) &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Name</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td>+</td>
+<td>Addition</td>
+<td>a + b = 30</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtraction</td>
+<td>a b = -10</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+<td>a * b = 200</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+<td>b / a = 2</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus</td>
+<td>b % a = 0</td>
+</tr>
+<tr>
+<td>**</td>
+<td>Exponent</td>
+<td>a**b =10**20</td>
+</tr>
+<tr>
+<td>//</td>
+<td>Floor Division</td>
+<td>9//2 = 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Arithmetic Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token number">21</span> b <span class="token operator">=</span> <span class="token number">10</span> c <span class="token operator">=</span> <span class="token number">0</span> c <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a+b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">-</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a-b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">*</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a*b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">/</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a/b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">%</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a%b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> a <span class="token operator">=</span> <span class="token number">2</span> b <span class="token operator">=</span> <span class="token number">3</span> c <span class="token operator">=</span> a<span class="token operator">**</span>b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a**b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">5</span> c <span class="token operator">=</span> a<span class="token operator">//</span>b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} a//b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">a: 21 b: 10 a+b: 31
+a: 21 b: 10 a-b: 11
+a: 21 b: 10 a*b: 210
+a: 21 b: 10 a/b: 2.1
+a: 21 b: 10 a%b: 1
+a: 2 b: 3 a**b: 8
+a: 10 b: 5 a//b: 2
+</pre>
+<h2 id="comparison-operators">Python Comparison Operators</h2>
+<p><a href="/python/python_comparison_operators.htm" target="_blank">Python Comparison operators</a> compare the values on either side of them and decide the relation among them. They are also called Relational operators.</p>
+<p>The following table contains all comparison operators with their symbols, names, and examples (assume that the values of <span class="tp-codespan">a</span> and <span class="tp-codespan">b</span> are 10 and 20, respectively) &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Name</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td>==</td>
+<td>Equal</td>
+<td>(a == b) is not true.</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Not equal</td>
+<td>(a != b) is true.</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Greater than</td>
+<td>(a &gt; b) is not true.</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Less than</td>
+<td>(a &lt; b) is true.</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Greater than or equal to</td>
+<td>(a &gt;= b) is not true.</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Less than or equal to</td>
+<td>(a &lt;= b) is true.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Comparison Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token number">21</span> b <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> a <span class="token operator">==</span> b <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 1 - a is equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 1 - a is not equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> a <span class="token operator">!=</span> b <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 2 - a is not equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 2 - a is equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> a <span class="token operator">&lt;</span> b <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 3 - a is less than b"</span> <span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 3 - a is not less than b"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> a <span class="token operator">&gt;</span> b <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 4 - a is greater than b"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 4 - a is not greater than b"</span><span class="token punctuation">)</span> a<span class="token punctuation">,</span>b<span class="token operator">=</span>b<span class="token punctuation">,</span>a <span class="token comment">#values of a and b swapped. a becomes 10, b becomes 21</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> a <span class="token operator">&lt;=</span> b <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 5 - a is either less than or equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 5 - a is neither less than nor equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> b <span class="token operator">&gt;=</span> a <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 6 - b is either greater than or equal to b"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Line 6 - b is neither greater than nor equal to b"</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">Line 1 - a is not equal to b
+Line 2 - a is not equal to b
+Line 3 - a is not less than b
+Line 4 - a is greater than b
+Line 5 - a is either less than or equal to  b
+Line 6 - b is either greater than  or equal to b
+</pre>
+<h2 id="assignment-operators">Python Assignment Operators</h2>
+<p><a href="/python/python_assignment_operators.htm" target="_blank">Python Assignment operators</a> are used to assign values to variables. Following is a table which shows all Python assignment operators.</p>
+<p>The following table contains all assignment operators with their symbols, names, and examples &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Example</th>
+<th style="text-align: center;">Same As</th>
+</tr>
+<tr>
+<td>=</td>
+<td>a = 10</td>
+<td>a = 10</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>a += 30</td>
+<td>a = a + 30</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>a -= 15</td>
+<td>a = a - 15</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>a *= 10</td>
+<td>a = a * 10</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>a /= 5</td>
+<td>a = a / 5</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>a %= 5</td>
+<td>a = a % 5</td>
+</tr>
+<tr>
+<td>**=</td>
+<td>a **= 4</td>
+<td>a = a ** 4</td>
+</tr>
+<tr>
+<td>//=</td>
+<td>a //= 5</td>
+<td>a = a // 5</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>a &amp;= 5</td>
+<td>a = a &amp; 5</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>a |= 5</td>
+<td>a = a | 5</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>a ^= 5</td>
+<td>a = a ^ 5</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>a &gt;&gt;= 5</td>
+<td>a = a &gt;&gt; 5</td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>a &lt;&lt;= 5</td>
+<td>a = a &lt;&lt; 5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Assignment Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token number">21</span> b <span class="token operator">=</span> <span class="token number">10</span> c <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} c : {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c = a + b: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">+=</span> a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c += a: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">*=</span> a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c *= a: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">/=</span> a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c /= a : {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> <span class="token number">2</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} b: {} c : {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">%=</span> a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c %= a: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">**=</span> a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c **= a: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">//=</span> a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a: {} c //= a: {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">a: 21 b: 10 c : 0
+a: 21  c = a + b: 31
+a: 21 c += a: 52
+a: 21 c *= a: 1092
+a: 21 c /= a : 52.0
+a: 21 b: 10 c : 2
+a: 21 c %= a: 2
+a: 21 c **= a: 2097152
+a: 21 c //= a: 99864
+</pre>
+<h2 id="logical-operators">Python Bitwise Operators</h2>
+<p><a href="/python/python_bitwise_operators.htm" target="_blank">Python Bitwise operator</a> works on bits and performs bit by bit operation. These operators are used to compare binary numbers.</p>
+<p>The following table contains all bitwise operators with their symbols, names, and examples &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Name</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>AND</td>
+<td>a &amp; b</td>
+</tr>
+<tr>
+<td>|</td>
+<td>OR</td>
+<td>a | b</td>
+</tr>
+<tr>
+<td>^</td>
+<td>XOR</td>
+<td>a ^ b</td>
+</tr>
+<tr>
+<td>~</td>
+<td>NOT</td>
+<td>~a</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Zero fill left shift</td>
+<td>a &lt;&lt; 3</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>Signed right shift</td>
+<td>a &gt;&gt; 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Bitwise Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token number">20</span> b <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'a='</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'b='</span><span class="token punctuation">,</span>b<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> <span class="token number">0</span> c <span class="token operator">=</span> a <span class="token operator">&amp;</span> b<span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"result of AND is "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">|</span> b<span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"result of OR is "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"result of EXOR is "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> <span class="token operator">~</span>a<span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"result of COMPLEMENT is "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">&lt;&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"result of LEFT SHIFT is "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> c <span class="token operator">=</span> a <span class="token operator">&gt;&gt;</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"result of RIGHT SHIFT is "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span><span class="token builtin">bin</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">a= 20 : 0b10100 b= 10 : 0b1010
+result of AND is  0 : 0b0
+result of OR is  30 : 0b11110
+result of EXOR is  30 : 0b11110
+result of COMPLEMENT is  -21 : -0b10101
+result of LEFT SHIFT is  80 : 0b1010000
+result of RIGHT SHIFT is  5 : 0b101
+</pre>
+<h2 id="bitwise-operators">Python Logical Operators</h2>
+<p><a href="/python/python_logical_operators.htm" target="_blank">Python logical operators</a> are used to combile two or more conditions and check the final result. There are following logical operators supported by Python language. Assume variable a holds 10 and variable b holds 20 then</p>
+<p>The following table contains all logical operators with their symbols, names, and examples &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Name</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td>and</td>
+<td>AND</td>
+<td>a and b</td>
+</tr>
+<tr>
+<td>or</td>
+<td>OR</td>
+<td>a or b</td>
+</tr>
+<tr>
+<td>not</td>
+<td>NOT</td>
+<td>not(a)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Logical Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">var <span class="token operator">=</span> <span class="token number">5</span> <span class="token keyword">print</span><span class="token punctuation">(</span>var <span class="token operator">&gt;</span> <span class="token number">3</span> <span class="token keyword">and</span> var <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>var <span class="token operator">&gt;</span> <span class="token number">3</span> <span class="token keyword">or</span> var <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token keyword">not</span> <span class="token punctuation">(</span>var <span class="token operator">&gt;</span> <span class="token number">3</span> <span class="token keyword">and</span> var <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">True
+True
+False
+</pre>
+<h2 id="membership-operators">Python Membership Operators</h2>
+<p>Python's <a href="/python/python_membership_operators.htm" target="_blank">membership operators</a> test for membership in a sequence, such as strings, lists, or tuples.</p>
+<p>There are two membership operators as explained below &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td>in</td>
+<td>Returns True if it finds a variable in the specified sequence, false otherwise.</td>
+<td>a in b</td>
+</tr>
+<tr>
+<td>not in</td>
+<td>returns True if it does not finds a variable in the specified sequence and false otherwise.</td>
+<td>a not in b</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Membership Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token number">10</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">]</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a:"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> <span class="token string">"b:"</span><span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token string">"list:"</span><span class="token punctuation">,</span> <span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> a <span class="token keyword">in</span> <span class="token builtin">list</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a is present in the given list"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"a is not present in the given list"</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> b <span class="token keyword">not</span> <span class="token keyword">in</span> <span class="token builtin">list</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"b is not present in the given list"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"b is present in the given list"</span><span class="token punctuation">)</span> c<span class="token operator">=</span>b<span class="token operator">/</span>a <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"c:"</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> <span class="token string">"list:"</span><span class="token punctuation">,</span> <span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> c <span class="token keyword">in</span> <span class="token builtin">list</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"c is available in the given list"</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"c is not available in the given list"</span><span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">a: 10 b: 20 list: [1, 2, 3, 4, 5]
+a is not present in the given list
+b is not present in the given list
+c: 2.0 list: [1, 2, 3, 4, 5]
+c is available in the given list
+</pre>
+<h2 id="identity-operators">Python Identity Operators</h2>
+<p><a href="/python/python_identity_operators.htm" target="_blank">Python identity operators</a> compare the memory locations of two objects.</p>
+<p>There are two Identity operators explained below &minus;</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">Operator</th>
+<th style="text-align: center; width: 45%;">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td>is</td>
+<td>Returns True if both variables are the same object and false otherwise.</td>
+<td>a is b</td>
+</tr>
+<tr>
+<td>is not</td>
+<td>Returns True if both variables are not the same object and false otherwise.</td>
+<td>a is not b</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Example of Python Identity Operators</h3>
+<div class="code-wrapper">
+<div class="code-header">
+<div class="logo-side">&nbsp;</div>
+<div class="button-side">
+<div class="execute">&nbsp;</div>
+<div class="open-compiler">Open Compiler</div>
+</div>
+</div>
+<div class="code-mirror  language-python" style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;" contenteditable="plaintext-only" spellcheck="false">a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> c <span class="token operator">=</span> a <span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token keyword">is</span> c<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token keyword">is</span> b<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token keyword">is</span> <span class="token keyword">not</span> c<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token keyword">is</span> <span class="token keyword">not</span> b<span class="token punctuation">)</span></div>
+</div>
+<p><strong>Output</strong></p>
+<pre class="result notranslate">True
+False
+False
+True
+</pre>
+<h2>Python Operators Precedence</h2>
+<p>Operators precedence decides the order of the evaluation in which an operator is evaluated. Python operators have different levels of precedence. The following table contains the list of operators having highest to lowest precedence &minus;</p>
+<p>The following table lists all operators from highest <a href="/python/operators_precedence_example.htm" target="_blank">precedence</a> to lowest.</p>
+<div class="table-wrapper">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No.</th>
+<th style="text-align: center;">Operator &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>**</strong></p>
+<p>Exponentiation (raise to the power)</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>~ + -</strong></p>
+<p>Complement, unary plus and minus (method names for the last two are +@ and -@)</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>* / % //</strong></p>
+<p>Multiply, divide, modulo and floor division</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+<p><strong>+ -</strong></p>
+<p>Addition and subtraction</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>
+<p><strong>&gt;&gt; &lt;&lt;</strong></p>
+<p>Right and left bitwise shift</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>
+<p><strong>&amp;</strong></p>
+<p>Bitwise 'AND'</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>
+<p><strong>^ |</strong></p>
+<p>Bitwise exclusive `OR' and regular `OR'</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>
+<p><strong>&lt;= &lt; &gt; &gt;=</strong></p>
+<p>Comparison operators</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>
+<p><strong>&lt;&gt; == !=</strong></p>
+<p>Equality operators</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>
+<p><strong>= %= /= //= -= += *= **=</strong></p>
+<p>Assignment operators</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>
+<p><strong>is is not</strong></p>
+<p>Identity operators</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td>
+<p><strong>in not in</strong></p>
+<p>Membership operators</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>
+<p><strong>not or and</strong></p>
+<p>Logical operators</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Read more about the Python operators precedence here: Python operators precedence&nbsp;</p>
+</div>
